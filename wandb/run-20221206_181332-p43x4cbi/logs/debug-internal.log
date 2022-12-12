@@ -1,0 +1,137 @@
+2022-12-06 18:13:32,404 INFO    StreamThr :30676 [internal.py:wandb_internal():88] W&B internal server running at pid: 30676, started at: 2022-12-06 18:13:32.403324
+2022-12-06 18:13:32,405 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: status
+2022-12-06 18:13:32,407 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: status
+2022-12-06 18:13:32,408 DEBUG   SenderThread:30676 [sender.py:send():303] send: header
+2022-12-06 18:13:32,408 INFO    WriterThread:30676 [datastore.py:open_for_write():75] open: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/run-p43x4cbi.wandb
+2022-12-06 18:13:32,424 DEBUG   SenderThread:30676 [sender.py:send():303] send: run
+2022-12-06 18:13:32,425 INFO    SenderThread:30676 [sender.py:_maybe_setup_resume():593] checking resume status for alessandro-fella-1/federated_cityscapes/p43x4cbi
+2022-12-06 18:13:33,436 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: check_version
+2022-12-06 18:13:33,438 INFO    SenderThread:30676 [dir_watcher.py:__init__():216] watching files in: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files
+2022-12-06 18:13:33,438 INFO    SenderThread:30676 [sender.py:_start_run_threads():928] run started: p43x4cbi with start time 1670346812.402919
+2022-12-06 18:13:33,438 DEBUG   SenderThread:30676 [sender.py:send():303] send: summary
+2022-12-06 18:13:33,439 INFO    SenderThread:30676 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-06 18:13:33,440 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: check_version
+2022-12-06 18:13:33,577 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: run_start
+2022-12-06 18:13:33,586 DEBUG   HandlerThread:30676 [system_info.py:__init__():31] System info init
+2022-12-06 18:13:33,587 DEBUG   HandlerThread:30676 [system_info.py:__init__():46] System info init done
+2022-12-06 18:13:33,587 INFO    HandlerThread:30676 [system_monitor.py:start():150] Starting system monitor
+2022-12-06 18:13:33,587 INFO    SystemMonitor:30676 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2022-12-06 18:13:33,587 INFO    HandlerThread:30676 [system_monitor.py:probe():168] Collecting system info
+2022-12-06 18:13:33,587 INFO    SystemMonitor:30676 [interfaces.py:start():168] Started cpu
+2022-12-06 18:13:33,588 INFO    SystemMonitor:30676 [interfaces.py:start():168] Started disk
+2022-12-06 18:13:33,589 INFO    SystemMonitor:30676 [interfaces.py:start():168] Started gpu
+2022-12-06 18:13:33,589 INFO    SystemMonitor:30676 [interfaces.py:start():168] Started memory
+2022-12-06 18:13:33,590 INFO    SystemMonitor:30676 [interfaces.py:start():168] Started network
+2022-12-06 18:13:33,757 DEBUG   HandlerThread:30676 [system_info.py:probe():195] Probing system
+2022-12-06 18:13:33,758 DEBUG   HandlerThread:30676 [system_info.py:_probe_git():180] Probing git
+2022-12-06 18:13:33,799 DEBUG   HandlerThread:30676 [system_info.py:_probe_git():188] Probing git done
+2022-12-06 18:13:33,800 DEBUG   HandlerThread:30676 [system_info.py:probe():241] Probing system done
+2022-12-06 18:13:33,800 DEBUG   HandlerThread:30676 [system_monitor.py:probe():177] {'os': 'Linux-5.15.0-53-generic-x86_64-with-glibc2.31', 'python': '3.9.7', 'heartbeatAt': '2022-12-06T17:13:33.757431', 'startedAt': '2022-12-06T17:13:32.392966', 'docker': None, 'cuda': None, 'args': ('--local_rank=0', '--name', 'cityscapes_fed_oracle', '--device_ids', '0', '--random_seed', '42', '--ignore_warnings', '--wandb_entity', 'alessandro-fella-1', '--save_samples', '3', '--target_dataset', 'cityscapes', '--clients_type', 'heterogeneous', '--double_dataset', '--framework', 'federated', '--fw_task', 'oracle', '--algorithm', 'FedAvg', '--num_rounds', '500', '--clients_per_round', '10', '--num_epochs', '1', '--model', 'deeplabv3', '--hnm', '--batch_size', '16', '--test_batch_size', '1', '--optimizer', 'SGD', '--weight_decay', '0', '--momentum', '0.9', '--lr', '0.05', '--eval_interval', '50', '--test_interval', '10', '--print_interval', '20', '--plot_interval', '10'), 'state': 'running', 'program': '/home/utente/Scrivania/PROVA/LADD/src/run.py', 'codePath': 'src/run.py', 'git': {'remote': 'https://github.com/Erosinho13/LADD.git', 'commit': 'bbaec0f2202863e25e671d02c72457b677ee3816'}, 'email': 'alessandrofella@live.it', 'root': '/home/utente/Scrivania/PROVA/LADD', 'host': 'ale', 'username': 'utente', 'executable': '/home/utente/anaconda3/envs/LADD/bin/python3', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1453.423375, 'min': 800.0, 'max': 3800.0}, 'cpu_freq_per_core': [{'current': 1038.475, 'min': 800.0, 'max': 3800.0}, {'current': 936.479, 'min': 800.0, 'max': 3800.0}, {'current': 900.271, 'min': 800.0, 'max': 3800.0}, {'current': 900.037, 'min': 800.0, 'max': 3800.0}, {'current': 900.07, 'min': 800.0, 'max': 3800.0}, {'current': 900.129, 'min': 800.0, 'max': 3800.0}, {'current': 900.01, 'min': 800.0, 'max': 3800.0}, {'current': 900.056, 'min': 800.0, 'max': 3800.0}], 'disk': {'total': 233.17998886108398, 'used': 185.07913970947266}, 'gpu': 'NVIDIA GeForce GTX 1050', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1050', 'memory_total': 4238737408}], 'memory': {'total': 7.616664886474609}}
+2022-12-06 18:13:33,800 INFO    HandlerThread:30676 [system_monitor.py:probe():178] Finished collecting system info
+2022-12-06 18:13:33,800 INFO    HandlerThread:30676 [system_monitor.py:probe():181] Publishing system info
+2022-12-06 18:13:33,801 DEBUG   HandlerThread:30676 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2022-12-06 18:13:33,802 DEBUG   HandlerThread:30676 [system_info.py:_save_pip():67] Saving pip packages done
+2022-12-06 18:13:33,802 DEBUG   HandlerThread:30676 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2022-12-06 18:13:34,326 DEBUG   HandlerThread:30676 [system_info.py:_save_conda():86] Saving conda packages done
+2022-12-06 18:13:34,327 INFO    HandlerThread:30676 [system_monitor.py:probe():183] Finished publishing system info
+2022-12-06 18:13:34,377 DEBUG   SenderThread:30676 [sender.py:send():303] send: files
+2022-12-06 18:13:34,377 INFO    SenderThread:30676 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-12-06 18:13:34,382 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-06 18:13:34,383 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: stop_status
+2022-12-06 18:13:34,439 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_created():275] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/requirements.txt
+2022-12-06 18:13:34,439 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_created():275] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/wandb-summary.json
+2022-12-06 18:13:34,439 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_created():275] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/wandb-metadata.json
+2022-12-06 18:13:34,439 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_created():275] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/conda-environment.yaml
+2022-12-06 18:13:34,636 DEBUG   SenderThread:30676 [sender.py:send():303] send: telemetry
+2022-12-06 18:13:34,637 DEBUG   SenderThread:30676 [sender.py:send():303] send: metric
+2022-12-06 18:13:34,637 DEBUG   SenderThread:30676 [sender.py:send():303] send: telemetry
+2022-12-06 18:13:34,637 DEBUG   SenderThread:30676 [sender.py:send():303] send: metric
+2022-12-06 18:13:34,637 WARNING SenderThread:30676 [sender.py:send_metric():1127] Seen metric with glob (shouldn't happen)
+2022-12-06 18:13:34,637 DEBUG   SenderThread:30676 [sender.py:send():303] send: config
+2022-12-06 18:13:34,640 DEBUG   SenderThread:30676 [sender.py:send():303] send: telemetry
+2022-12-06 18:13:34,640 DEBUG   SenderThread:30676 [sender.py:send():303] send: telemetry
+2022-12-06 18:13:35,050 INFO    Thread-16 :30676 [upload_job.py:push():143] Uploaded file /tmp/tmplziw7gqlwandb/1k8bsrq6-wandb-metadata.json
+2022-12-06 18:13:35,438 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_created():275] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:37,439 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:39,440 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:43,442 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:45,442 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:47,443 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:48,408 DEBUG   SenderThread:30676 [sender.py:send():303] send: exit
+2022-12-06 18:13:48,408 INFO    SenderThread:30676 [sender.py:send_exit():442] handling exit code: 255
+2022-12-06 18:13:48,408 INFO    SenderThread:30676 [sender.py:send_exit():444] handling runtime: 14
+2022-12-06 18:13:48,409 INFO    SenderThread:30676 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-06 18:13:48,409 INFO    SenderThread:30676 [sender.py:send_exit():450] send defer
+2022-12-06 18:13:48,410 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: defer
+2022-12-06 18:13:48,410 INFO    HandlerThread:30676 [handler.py:handle_request_defer():162] handle defer: 0
+2022-12-06 18:13:48,410 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: defer
+2022-12-06 18:13:48,410 INFO    SenderThread:30676 [sender.py:send_request_defer():459] handle sender defer: 0
+2022-12-06 18:13:48,410 INFO    SenderThread:30676 [sender.py:transition_state():463] send defer: 1
+2022-12-06 18:13:48,411 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: defer
+2022-12-06 18:13:48,411 INFO    HandlerThread:30676 [handler.py:handle_request_defer():162] handle defer: 1
+2022-12-06 18:13:48,411 INFO    HandlerThread:30676 [system_monitor.py:finish():160] Stopping system monitor
+2022-12-06 18:13:48,413 DEBUG   SystemMonitor:30676 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2022-12-06 18:13:48,414 INFO    HandlerThread:30676 [interfaces.py:finish():173] Joined cpu
+2022-12-06 18:13:48,414 DEBUG   SystemMonitor:30676 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2022-12-06 18:13:48,415 INFO    HandlerThread:30676 [interfaces.py:finish():173] Joined disk
+2022-12-06 18:13:48,415 DEBUG   SystemMonitor:30676 [system_monitor.py:_start():141] Publishing last batch of metrics
+2022-12-06 18:13:48,444 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/wandb-summary.json
+2022-12-06 18:13:48,471 INFO    HandlerThread:30676 [interfaces.py:finish():173] Joined gpu
+2022-12-06 18:13:48,471 INFO    HandlerThread:30676 [interfaces.py:finish():173] Joined memory
+2022-12-06 18:13:48,471 INFO    HandlerThread:30676 [interfaces.py:finish():173] Joined network
+2022-12-06 18:13:48,471 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: defer
+2022-12-06 18:13:48,471 INFO    SenderThread:30676 [sender.py:send_request_defer():459] handle sender defer: 1
+2022-12-06 18:13:48,471 INFO    SenderThread:30676 [sender.py:transition_state():463] send defer: 2
+2022-12-06 18:13:48,471 DEBUG   SenderThread:30676 [sender.py:send():303] send: stats
+2022-12-06 18:13:48,472 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: defer
+2022-12-06 18:13:48,472 INFO    HandlerThread:30676 [handler.py:handle_request_defer():162] handle defer: 2
+2022-12-06 18:13:48,472 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: defer
+2022-12-06 18:13:48,472 INFO    SenderThread:30676 [sender.py:send_request_defer():459] handle sender defer: 2
+2022-12-06 18:13:48,472 INFO    SenderThread:30676 [sender.py:transition_state():463] send defer: 3
+2022-12-06 18:13:48,472 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: defer
+2022-12-06 18:13:48,472 INFO    HandlerThread:30676 [handler.py:handle_request_defer():162] handle defer: 3
+2022-12-06 18:13:48,472 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: defer
+2022-12-06 18:13:48,473 INFO    SenderThread:30676 [sender.py:send_request_defer():459] handle sender defer: 3
+2022-12-06 18:13:48,473 INFO    SenderThread:30676 [sender.py:transition_state():463] send defer: 4
+2022-12-06 18:13:48,473 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: defer
+2022-12-06 18:13:48,473 INFO    HandlerThread:30676 [handler.py:handle_request_defer():162] handle defer: 4
+2022-12-06 18:13:48,473 DEBUG   SenderThread:30676 [sender.py:send():303] send: summary
+2022-12-06 18:13:48,473 INFO    SenderThread:30676 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-06 18:13:48,474 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: defer
+2022-12-06 18:13:48,474 INFO    SenderThread:30676 [sender.py:send_request_defer():459] handle sender defer: 4
+2022-12-06 18:13:48,474 INFO    SenderThread:30676 [sender.py:transition_state():463] send defer: 5
+2022-12-06 18:13:48,474 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: defer
+2022-12-06 18:13:48,474 INFO    HandlerThread:30676 [handler.py:handle_request_defer():162] handle defer: 5
+2022-12-06 18:13:48,474 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: defer
+2022-12-06 18:13:48,474 INFO    SenderThread:30676 [sender.py:send_request_defer():459] handle sender defer: 5
+2022-12-06 18:13:48,792 INFO    SenderThread:30676 [sender.py:transition_state():463] send defer: 6
+2022-12-06 18:13:48,792 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: defer
+2022-12-06 18:13:48,792 INFO    HandlerThread:30676 [handler.py:handle_request_defer():162] handle defer: 6
+2022-12-06 18:13:48,792 DEBUG   SenderThread:30676 [sender.py:send_request():317] send_request: defer
+2022-12-06 18:13:48,792 INFO    SenderThread:30676 [sender.py:send_request_defer():459] handle sender defer: 6
+2022-12-06 18:13:49,378 DEBUG   HandlerThread:30676 [handler.py:handle_request():139] handle_request: poll_exit
+2022-12-06 18:13:49,422 WARNING StreamThr :30676 [internal.py:is_dead():385] Internal process exiting, parent pid 30650 disappeared
+2022-12-06 18:13:49,422 ERROR   StreamThr :30676 [internal.py:wandb_internal():147] Internal process shutdown.
+2022-12-06 18:13:49,445 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/config.yaml
+2022-12-06 18:13:49,445 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/wandb-summary.json
+2022-12-06 18:13:49,474 INFO    WriterThread:30676 [datastore.py:close():279] close: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/run-p43x4cbi.wandb
+2022-12-06 18:13:50,380 INFO    HandlerThread:30676 [handler.py:finish():814] shutting down handler
+2022-12-06 18:13:50,445 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:52,350 INFO    SenderThread:30676 [sender.py:transition_state():463] send defer: 7
+2022-12-06 18:13:52,350 INFO    SenderThread:30676 [sender.py:finish():1331] shutting down sender
+2022-12-06 18:13:52,350 INFO    SenderThread:30676 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-06 18:13:52,446 INFO    Thread-13 :30676 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:52,448 INFO    SenderThread:30676 [dir_watcher.py:finish():392] scan: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files
+2022-12-06 18:13:52,448 INFO    SenderThread:30676 [dir_watcher.py:finish():406] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/config.yaml config.yaml
+2022-12-06 18:13:52,449 INFO    SenderThread:30676 [dir_watcher.py:finish():406] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/requirements.txt requirements.txt
+2022-12-06 18:13:52,449 INFO    SenderThread:30676 [dir_watcher.py:finish():406] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log output.log
+2022-12-06 18:13:52,458 INFO    SenderThread:30676 [dir_watcher.py:finish():406] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/wandb-summary.json wandb-summary.json
+2022-12-06 18:13:52,475 INFO    SenderThread:30676 [dir_watcher.py:finish():406] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/conda-environment.yaml conda-environment.yaml
+2022-12-06 18:13:52,485 INFO    SenderThread:30676 [dir_watcher.py:finish():406] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/wandb-metadata.json wandb-metadata.json
+2022-12-06 18:13:52,485 INFO    SenderThread:30676 [file_pusher.py:finish():168] shutting down file pusher
+2022-12-06 18:13:52,485 INFO    SenderThread:30676 [file_pusher.py:join():173] waiting for file pusher
+2022-12-06 18:13:53,384 INFO    Thread-19 :30676 [upload_job.py:push():143] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/output.log
+2022-12-06 18:13:53,388 INFO    Thread-18 :30676 [upload_job.py:push():143] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/requirements.txt
+2022-12-06 18:13:53,394 INFO    Thread-20 :30676 [upload_job.py:push():143] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/wandb-summary.json
+2022-12-06 18:13:53,395 INFO    Thread-21 :30676 [upload_job.py:push():143] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/conda-environment.yaml
+2022-12-06 18:13:53,396 INFO    Thread-17 :30676 [upload_job.py:push():143] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20221206_181332-p43x4cbi/files/config.yaml

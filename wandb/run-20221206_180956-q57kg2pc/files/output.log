@@ -1,0 +1,140 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+Done.
+Initializing server...
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+The experiment begins...
+ROUND 1/500: Training 10 Clients...
+CLIENT 1/10: erfurt5
+EPOCH 1: ended.
+CLIENT 2/10: weimar3
+EPOCH 1: ended.
+CLIENT 3/10: strasbourg3
+EPOCH 1: ended.
+CLIENT 4/10: tubingen2
+EPOCH 1: ended.
+CLIENT 5/10: weimar6
+EPOCH 1: ended.
+CLIENT 6/10: cologne2
+EPOCH 1: ended.
+CLIENT 7/10: hamburg1
+EPOCH 1: ended.
+CLIENT 8/10: monchengladbach6
+EPOCH 1: ended.
+CLIENT 9/10: cologne3
+EPOCH 1: ended.
+CLIENT 10/10: krefeld6
+EPOCH 1: ended.
+ROUND 2/500: Training 10 Clients...
+CLIENT 1/10: dusseldorf4
+EPOCH 1: ended.
+CLIENT 2/10: dusseldorf1
+EPOCH 1: ended.
+CLIENT 3/10: hanover6
+EPOCH 1: ended.
+CLIENT 4/10: jena0
+EPOCH 1: ended.
+CLIENT 5/10: jena5
+EPOCH 1: ended.
+CLIENT 6/10: darmstadt3
+EPOCH 1: ended.
+CLIENT 7/10: stuttgart4
+EPOCH 1: ended.
+CLIENT 8/10: bremen3
+EPOCH 1: ended.
+CLIENT 9/10: strasbourg0
+EPOCH 1: ended.
+CLIENT 10/10: weimar4
+EPOCH 1: ended.
+ROUND 3/500: Training 10 Clients...
+CLIENT 1/10: erfurt3
+EPOCH 1: ended.
+CLIENT 2/10: tubingen6
+EPOCH 1: ended.
+CLIENT 3/10: strasbourg7
+EPOCH 1: ended.
+CLIENT 4/10: darmstadt3
+EPOCH 1: ended.
+CLIENT 5/10: tubingen0
+EPOCH 1: ended.
+CLIENT 6/10: hanover3
+EPOCH 1: ended.
+CLIENT 7/10: bremen5
+EPOCH 1: ended.
+CLIENT 8/10: strasbourg4
+EPOCH 1: ended.
+CLIENT 9/10: zurich5
+EPOCH 1: ended.
+CLIENT 10/10: weimar0
+EPOCH 1: ended.
+ROUND 4/500: Training 10 Clients...
+CLIENT 1/10: tubingen1
+EPOCH 1: ended.
+CLIENT 2/10: erfurt4
+EPOCH 1: ended.
+CLIENT 3/10: darmstadt1
+EPOCH 1: ended.
+CLIENT 4/10: stuttgart7
+EPOCH 1: ended.
+CLIENT 5/10: erfurt2
+EPOCH 1: ended.
+CLIENT 6/10: ulm3
+EPOCH 1: ended.
+CLIENT 7/10: erfurt0
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/sdk/lib/exit_hooks.py", line 53, in exc_handler
+    traceback.print_exception(exc_type, exc, tb)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 103, in print_exception
+    for line in TracebackException(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 517, in __init__
+    self.stack = StackSummary.extract(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 348, in extract
+    co = f.f_code
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 47, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 18, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 53, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 34, in perform_fed_oracle_training
+    losses = self.server.train_clients(partial_metric=partial_train_metric)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 35, in train_clients
+    out = c.train(partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 193, in train
+    dict_all_iters_losses = self.run_epoch(epoch, optimizer, metric=partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 165, in run_epoch
+    self.__exec_epoch(optimizer, cur_epoch, metric, scheduler, plot_lr, dict_all_iters_losses,
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 90, in __exec_epoch
+    for cur_step, samples in enumerate(self.loader):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1186, in _next_data
+    idx, data = self._get_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1142, in _get_data
+    success, data = self._try_get_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 990, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py", line 316, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
