@@ -1,7 +1,7 @@
 import os
 import json
 import numpy as np
-
+import random
 from dataset import get_dataset
 from collections import defaultdict
 from torchvision.transforms.functional import normalize
@@ -89,9 +89,16 @@ class DatasetHandler(object):
 
     def __gen_ds(self, paths, dataset_name, dataset, train_transform, test_transform, split='train', hp_filtered=False):
         if dataset_name == 'cityscapes':
-            return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
-                           hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
-                           quadruple=self.args.quadruple_dataset and split == 'train')
+            probability = 0.001
+            if random.random() < probability:
+                return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
+                               hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                               quadruple=self.args.quadruple_dataset and split == 'train')
+            else:
+                return dataset(paths, 'data/HHA_DATA', transform=train_transform, test_transform=test_transform,
+                               hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                               quadruple=self.args.quadruple_dataset and split == 'train')
+
         if dataset_name in ['crosscity', 'mapillary']:
             return dataset(paths, root='data', transform=train_transform, test_transform=test_transform,
                            hp_filtered=hp_filtered)
