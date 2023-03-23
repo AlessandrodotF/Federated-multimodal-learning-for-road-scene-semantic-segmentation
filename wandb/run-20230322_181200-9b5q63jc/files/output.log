@@ -1,0 +1,219 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+clients_shared_args
+clients_shared_args
+clients_shared_args_HHA
+clients_shared_args_HHA
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/2: Training 2 Clients...
+SELECTED CLINETS HHA [<clients.oracle_client.OracleClient object at 0x7f2d7dd8a070>
+ <clients.oracle_client.OracleClient object at 0x7f2d7ddd2190>]
+CLIENT 1/2: strasbourg7 HHA
+EPOCH 1: ended.
+CLIENT 2/2: ulm7 HHA
+EPOCH 1: ended.
+HHA AGGREGATION: END OF THE ROUND
+ROUND 2/2: Training 2 Clients...
+SELECTED CLINETS RGB [<clients.oracle_client.OracleClient object at 0x7f2d7dda81f0>
+ <clients.oracle_client.OracleClient object at 0x7f2d7de1d8e0>]
+CLIENT 1/2: stuttgart1 RGB
+EPOCH 1: ended.
+CLIENT 2/2: stuttgart6 RGB
+EPOCH 1: ended.
+RGB AGGREGATION: END OF THE ROUND
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/500, 4.0%
+test_user HHA: 40/500, 8.0%
+test_user HHA: 60/500, 12.0%
+test_user HHA: 80/500, 16.0%
+test_user HHA: 100/500, 20.0%
+test_user HHA: 120/500, 24.0%
+test_user HHA: 140/500, 28.0%
+test_user HHA: 160/500, 32.0%
+test_user HHA: 180/500, 36.0%
+test_user HHA: 200/500, 40.0%
+test_user HHA: 220/500, 44.0%
+test_user HHA: 240/500, 48.0%
+test_user HHA: 260/500, 52.0%
+test_user HHA: 280/500, 56.0%
+test_user HHA: 300/500, 60.0%
+test_user HHA: 320/500, 64.0%
+test_user HHA: 340/500, 68.0%
+test_user HHA: 360/500, 72.0%
+test_user HHA: 380/500, 76.0%
+test_user HHA: 400/500, 80.0%
+test_user HHA: 420/500, 84.0%
+test_user HHA: 440/500, 88.0%
+test_user HHA: 460/500, 92.0%
+test_user HHA: 480/500, 96.0%
+test_user HHA: 500/500, 100.0%
+Done.
+New best result found at round 2
+Test mean iou at round 2: 2.445%
+Training completed.
+Final mIoU: 2.445%
+Elapsed time: 0h, 2min, 45.85s

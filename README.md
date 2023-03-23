@@ -159,4 +159,3 @@ N.B. always leave a blank new line at the end of the config. Otherwise, your las
 | **FFreeDA** | **LADD (all)**                      | 38.78 &#177; 1.82     |
 
 <sup>&#8224;</sup> Same pretrain as LADD.
-

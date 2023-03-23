@@ -1,18 +1,18 @@
 import os
 import json
 import numpy as np
-import random
 from dataset import get_dataset
 from collections import defaultdict
 from torchvision.transforms.functional import normalize
-
+import random
 
 class DatasetHandler(object):
 
     def __init__(self, args, writer):
-
         self.args = args
         self.writer = writer
+        #self.clients_args = {'train': [], 'test': [], 'all_train': [], 'format_clients': []}
+
         self.clients_args = {'train': [], 'test': [], 'all_train': []}
         self.source_stats = {}
         self.target_stats = {}
@@ -71,7 +71,7 @@ class DatasetHandler(object):
         return train_data, all_train_data
 
     def __source_dataset_init(self):
-
+        #forse è da modificare
         train_transform, test_transform, dataset = \
             get_dataset(self.args.model, self.args.source_dataset, target_dataset=self.args.target_dataset,
                         cv2=self.args.cv2, random_flip=self.args.random_flip, color_jitter=self.args.color_jitter,
@@ -88,9 +88,10 @@ class DatasetHandler(object):
         self.clients_args['test'].append({'client_id': 'source_test_data', 'dataset': test_ds})
 
     def __gen_ds(self, paths, dataset_name, dataset, train_transform, test_transform, split='train', hp_filtered=False):
+        self.format_client = random.choice(["RGB", "HHA"])
+        #self.clients_args['format_clients'].append({'format': self.format_client })
         if dataset_name == 'cityscapes':
-            probability = 0.001
-            if random.random() < probability:
+            if self.format_client == "RGB":
                 return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
                                hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
                                quadruple=self.args.quadruple_dataset and split == 'train')
@@ -99,6 +100,7 @@ class DatasetHandler(object):
                                hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
                                quadruple=self.args.quadruple_dataset and split == 'train')
 
+        #Questo non serve modificarlo sicuramete
         if dataset_name in ['crosscity', 'mapillary']:
             return dataset(paths, root='data', transform=train_transform, test_transform=test_transform,
                            hp_filtered=hp_filtered)

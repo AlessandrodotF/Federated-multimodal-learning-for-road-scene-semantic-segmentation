@@ -14,8 +14,8 @@ framework=federated
 
 fw_task=oracle
 algorithm=FedAvg
-num_rounds=15
-clients_per_round=15
+num_rounds=2
+clients_per_round=2
 
 num_epochs=1
 model=deeplabv3

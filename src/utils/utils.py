@@ -46,8 +46,20 @@ def set_seed(random_seed):
 def dynamic_import(framework, fw_task, parent_class):
 
     module_name = framework if parent_class != 'client' else 'clients'
+
+    #prendi fw_task che può essere tipo "prova_a_test"
+    #splitta in base al separatore "_" e crea una lista con le singole parole splittate
+    #poi arriva token.title() : ogni parola ha la prima lettera maiuscola
+    #prefix="Prova A Test"
+
     prefix = ''.join([token.title() for token in fw_task.split('_')])
+
+    #.title() Imposta il primo carattere della stringa che gli passi
+    # (parent_class="trainer", "client" o altro) in Maiuscolo
+
     class_name = f'{prefix}{parent_class.title()}' if fw_task != 'ladd' else f'LADD{parent_class.title()}'
+    print("dynamic_import - class_name: ", class_name)
+
     trainer_module = importlib.import_module(module_name)
     trainer_class = getattr(trainer_module, class_name)
 

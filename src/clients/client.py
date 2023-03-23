@@ -9,7 +9,6 @@ from torch import nn, distributed
 from utils import HardNegativeMining, MeanReduction
 from torch.utils.data.distributed import DistributedSampler
 
-
 class Client:
 
     def __init__(self, args, client_id, dataset, model, writer, batch_size, world_size, rank, num_gpu,
@@ -27,24 +26,36 @@ class Client:
         self.world_size = world_size
         self.rank = rank
 
+        #Francesco
+        #self.format_client = random.choice(["RGB", "HHA"])
+        #self.dataset.format_client = self.format_client
+
+        if self.dataset.root == 'data':
+            self.format_client = "RGB"
+            self.dataset.format_client = "RGB"
+        else:
+            self.format_client = "HHA"
+            self.dataset.format_client = "HHA"
+
+
         if args.random_seed is not None:
             g = torch.Generator()
             g.manual_seed(args.random_seed)
             self.loader = data.DataLoader(self.dataset, batch_size=self.batch_size, worker_init_fn=self.seed_worker,
                                           sampler=DistributedSampler(self.dataset, num_replicas=world_size, rank=rank),
-                                          num_workers=4*num_gpu, drop_last=True, pin_memory=True, generator=g)
+                                          num_workers=4 * num_gpu, drop_last=True, pin_memory=True, generator=g)
             self.loader_full = data.DataLoader(self.dataset, batch_size=1, worker_init_fn=self.seed_worker,
                                                sampler=DistributedSampler(self.dataset, num_replicas=world_size,
                                                                           rank=rank, shuffle=False),
-                                               num_workers=4*num_gpu, drop_last=False, pin_memory=True, generator=g)
+                                               num_workers=4 * num_gpu, drop_last=False, pin_memory=True, generator=g)
         else:
             self.loader = data.DataLoader(self.dataset, batch_size=self.batch_size,
                                           sampler=DistributedSampler(self.dataset, num_replicas=world_size, rank=rank),
-                                          num_workers=4*num_gpu, drop_last=True, pin_memory=True)
+                                          num_workers=4 * num_gpu, drop_last=True, pin_memory=True)
             self.loader_full = data.DataLoader(self.dataset, batch_size=1,
                                                sampler=DistributedSampler(self.dataset, num_replicas=world_size,
                                                                           rank=rank, shuffle=False),
-                                               num_workers=4*num_gpu, drop_last=False, pin_memory=True)
+                                               num_workers=4 * num_gpu, drop_last=False, pin_memory=True)
 
         self.criterion, self.reduction = self.__get_criterion_and_reduction_rules()
 
@@ -114,9 +125,10 @@ class Client:
     def test(self, *args, **kwargs):
         raise NotImplementedError
 
-    def __str__(self):
+    def __str__(self) -> object:
         return self.id
-
+    def __str__(self) -> object:
+        return self.id +" " +self.format_client
     @property
     def num_samples(self):
         return len(self.dataset)

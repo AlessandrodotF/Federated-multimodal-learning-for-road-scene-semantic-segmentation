@@ -11,7 +11,8 @@ from utils import get_optimizer_and_scheduler
 class OracleClient(Client):
 
     def __init__(self, args, client_id, dataset, model, writer, batch_size, world_size, rank, num_gpu,
-                 device=None, test_user=False):
+                 device=None, test_user=False, ):
+
         super().__init__(args, client_id, dataset, model, writer, batch_size, world_size, rank, num_gpu,
                          device=device, test_user=test_user)
         self.teacher_kd_model = None
@@ -186,6 +187,9 @@ class OracleClient(Client):
             self.server_model = copy.deepcopy(self.model)
         optimizer, scheduler = get_optimizer_and_scheduler(self.args, self.model.parameters(), self.max_iter())
 
+        #defaultdict is a container like dictionaries present in the module collections
+        #dictionaries and defaultdict are almost same except for the fact that defaultdict never raises a KeyError.
+        #It provides a default value for the key that does not exists.
         dict_losses_list = defaultdict(lambda: [])
         self.model.train()
 

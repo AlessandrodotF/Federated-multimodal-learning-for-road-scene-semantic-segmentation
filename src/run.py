@@ -13,8 +13,10 @@ def run_experiment():
 
     trainer_class = dynamic_import(args.framework, args.fw_task, 'trainer')
     trainer = trainer_class(args, writer, device, rank, world_size)
+    #trainer=OracleTrainer(...)
 
     writer.write("The experiment begins...")
+    #max_score = oracle_trainer.train
     max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
     writer.write("Training completed.")
 

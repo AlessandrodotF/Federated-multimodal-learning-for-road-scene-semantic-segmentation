@@ -1,0 +1,72 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/2: Training 2 Clients...
+SELECTED CLINETS HHA [<clients.oracle_client.OracleClient object at 0x7f14c354f040>
+ <clients.oracle_client.OracleClient object at 0x7f14c3596160>]
+CLIENT 1/2: strasbourg7 HHA
+EPOCH 1: ended.
+CLIENT 2/2: ulm7 HHA
+EPOCH 1: ended.
+HHA AGGREGATION: END OF THE ROUND
+ROUND 2/2: Training 2 Clients...
+SELECTED CLINETS RGB [<clients.oracle_client.OracleClient object at 0x7f14c356b1c0>
+ <clients.oracle_client.OracleClient object at 0x7f14c35e18b0>]
+CLIENT 1/2: stuttgart1 RGB
+EPOCH 1: ended.
+CLIENT 2/2: stuttgart6 RGB
+EPOCH 1: ended.
+RGB AGGREGATION: END OF THE ROUND
+TEST_CLIENTS : [<clients.oracle_client.OracleClient object at 0x7f14c3518a30>]
+TEST_CLIENTS[0] : test_user HHA
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/500, 4.0%
+test_user HHA: 40/500, 8.0%
+test_user HHA: 60/500, 12.0%
+test_user HHA: 80/500, 16.0%
+test_user HHA: 100/500, 20.0%
+test_user HHA: 120/500, 24.0%
+test_user HHA: 140/500, 28.0%
+test_user HHA: 160/500, 32.0%
+test_user HHA: 180/500, 36.0%
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 50, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 62, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 56, in perform_fed_oracle_training
+    max_scores, _ = self.test(self.target_test_clients, test_metric, r, 'ROUND', max_scores,
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 305, in test
+    scores = self.perform_test(metric, test_clients, step)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 277, in perform_test
+    loss = c.test(metric, swa=swa)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 246, in test
+    self.update_metric(metric, outputs, labels, is_test=True)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 86, in update_metric
+    labels = labels.cpu().numpy()
+KeyboardInterrupt

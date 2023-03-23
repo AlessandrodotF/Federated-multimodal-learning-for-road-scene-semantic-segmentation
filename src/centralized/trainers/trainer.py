@@ -34,6 +34,7 @@ class Trainer(GeneralTrainer):
         self.writer.write(f"[!] Optimizer and scheduler restored.")
 
     def save_model(self, step, optimizer=None, scheduler=None):
+
         state = {
             "step": step,
             "model_state": self.model.state_dict(),

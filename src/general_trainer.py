@@ -6,6 +6,7 @@ import matplotlib
 import numpy as np
 import seaborn as sns
 import yaml
+import random
 
 from torch import nn
 from modules import McdWrapper
@@ -13,9 +14,7 @@ from collections import OrderedDict
 from utils import make_model, DatasetHandler, dynamic_import
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-
 matplotlib.use('Agg')
-
 
 class GeneralTrainer(object):
 
@@ -35,17 +34,28 @@ class GeneralTrainer(object):
                 self.args = {**vars(self.args), **{key: value for key, value in yaml_config.items()
                                                    if key in vars(self.args) and key != 'wandb_id'}}
         writer.write(f'Initializing model...')
+        #parte originale
         self.model = self.model_init(args, device)
+        #prova
+        self.model_rgb = self.model_init(args, device)
         writer.write('Done.')
 
         writer.write(f'Initializing datasets...')
+        #qui TUTTI i clients e dataset sono creati
         self.clients_args = DatasetHandler(args, writer)()
+
         writer.write('Done.')
 
         writer.write('Initializing clients...')
+        #Ogni client avrà un solo modello
         self.clients_shared_args = {'args': self.args, 'model': self.model,
                                     'writer': self.writer, 'world_size': world_size, 'rank': rank,
                                     'num_gpu': args.n_devices, 'device': device}
+
+        self.clients_shared_args_rgb = {'args': self.args, 'model': self.model_rgb,
+                                    'writer': self.writer, 'world_size': world_size, 'rank': rank,
+                                    'num_gpu': args.n_devices, 'device': device}
+
         self.source_train_clients, self.source_test_clients = [], []
         self.target_train_clients, self.target_test_clients = [], []
         self.__clients_setup()
@@ -106,8 +116,9 @@ class GeneralTrainer(object):
 
         model = nn.parallel.DistributedDataParallel(model, device_ids=[args.local_rank], output_device=args.local_rank,
                                                     find_unused_parameters=args.fw_task == 'mcd'
-                                                    or ('fda' in args.fw_task and (args.disable_batch_norm or
-                                                                                   args.freezing is not None)))
+                                                                           or ('fda' in args.fw_task and (
+                                                                args.disable_batch_norm or
+                                                                args.freezing is not None)))
 
         return model
 
@@ -120,9 +131,20 @@ class GeneralTrainer(object):
             if split == 'all_train':
                 continue
             for cl_data_arg in cl_data_args:
+
                 batch_size = self.args.batch_size if split == 'train' else self.args.test_batch_size
-                cl_args = {**self.clients_shared_args, **cl_data_arg}
+
+                if cl_data_arg["dataset"].root == "data":
+                    self.format_client="RGB"
+                    print("clients_shared_args")
+                    cl_args = {**self.clients_shared_args_rgb, **cl_data_arg}
+                else:
+                    self.format_client="HHA"
+                    print("clients_shared_args_HHA")
+                    cl_args = {**self.clients_shared_args, **cl_data_arg}
+
                 cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
+
                 if 'source' not in str(cl):
                     self.target_train_clients.append(cl) if split == 'train' else self.target_test_clients.append(cl)
                 else:
@@ -132,6 +154,10 @@ class GeneralTrainer(object):
         if self.model.module.task == 'classification':
             return 'Overall Acc'
         if self.model.module.task == 'segmentation':
+            return 'Mean IoU'
+        if self.model_rgb.module.task == 'classification':
+            return 'Overall Acc'
+        if self.model_rgb.module.task == 'segmentation':
             return 'Mean IoU'
         raise NotImplementedError
 
@@ -189,8 +215,10 @@ class GeneralTrainer(object):
         plot_sample = {}
 
         sample = test_client.dataset[sample_id]
-
-        self.model.eval()
+        if test_client.format_client == "HHA":
+            self.model.eval()
+        else:
+            self.model_rgb.eval()
 
         with torch.no_grad():
             sample_pred = test_client.get_test_output(sample[0][0].unsqueeze(0)).argmax(dim=1)[0].detach().cpu().numpy()
@@ -206,11 +234,8 @@ class GeneralTrainer(object):
         if hasattr(test_client.criterion, 'get_pseudo_lab'):
             with torch.no_grad():
                 pred_torch = test_client.get_test_output(sample[0][0].unsqueeze(0))
-                pseudo_lab, softmax, mask_fract = test_client.criterion.get_pseudo_lab(pred=pred_torch,
-                                                                                       imgs=sample[0][0].unsqueeze(0),
-                                                                                       return_mask_fract=True)
-            plot_sample[str(test_client)][f'Pseudo Label ({mask_fract * 100:.2f}%)'] = pseudo_lab[
-                0].detach().cpu().numpy()
+                pseudo_lab, softmax, mask_fract = test_client.criterion.get_pseudo_lab(pred=pred_torch,imgs=sample[0][0].unsqueeze(0),return_mask_fract=True)
+            plot_sample[str(test_client)][f'Pseudo Label ({mask_fract * 100:.2f}%)'] = pseudo_lab[0].detach().cpu().numpy()
 
             fig = Figure(figsize=(16, 8), dpi=128)
             canvas = FigureCanvas(fig)
@@ -244,6 +269,7 @@ class GeneralTrainer(object):
         self.writer.write("Testing...")
         scores = []
         for i, c in enumerate(test_clients):
+
             self.writer.write(f"Client {i + 1}/{len(test_clients)} - {c}")
             swa = False
             if self.server is not None:
