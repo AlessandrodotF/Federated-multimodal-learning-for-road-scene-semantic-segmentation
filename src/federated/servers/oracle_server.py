@@ -158,7 +158,6 @@ class OracleServer(Server):
             self.model_rgb_params_dict = copy.deepcopy(self.model_rgb.state_dict())
 
             self.updates_rgb = []
-
         else:
             print("HHA AGGREGATION: END OF THE ROUND")
 

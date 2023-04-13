@@ -11,7 +11,6 @@ class DatasetHandler(object):
     def __init__(self, args, writer):
         self.args = args
         self.writer = writer
-        #self.clients_args = {'train': [], 'test': [], 'all_train': [], 'format_clients': []}
 
         self.clients_args = {'train': [], 'test': [], 'all_train': []}
         self.source_stats = {}
@@ -88,8 +87,10 @@ class DatasetHandler(object):
         self.clients_args['test'].append({'client_id': 'source_test_data', 'dataset': test_ds})
 
     def __gen_ds(self, paths, dataset_name, dataset, train_transform, test_transform, split='train', hp_filtered=False):
-        self.format_client = random.choice(["RGB", "HHA"])
-        #self.clients_args['format_clients'].append({'format': self.format_client })
+        #uniform random choice
+        #self.format_client = np.random.choice(["RGB", "HHA", "MIX"])
+        self.format_client = np.random.choice(["RGB", "HHA"])
+
         if dataset_name == 'cityscapes':
             if self.format_client == "RGB":
                 return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
@@ -99,18 +100,27 @@ class DatasetHandler(object):
                 return dataset(paths, 'data/HHA_DATA', transform=train_transform, test_transform=test_transform,
                                hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
                                quadruple=self.args.quadruple_dataset and split == 'train')
+            #else:
+                #words = [w.replace('train/', 'trainRGB/') for w in paths["x"]]
+                #paths["x"].extend(words)
+                #return dataset(paths, 'data/MIX_DATA', transform=train_transform, test_transform=test_transform,
+                               #hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                              # quadruple=self.args.quadruple_dataset and split == 'train')
 
-        #Questo non serve modificarlo sicuramete
         if dataset_name in ['crosscity', 'mapillary']:
             return dataset(paths, root='data', transform=train_transform, test_transform=test_transform,
                            hp_filtered=hp_filtered)
         raise NotImplementedError
 
     def __target_dataset_init(self):
-
-        dataset_name = self.args.target_dataset
+        #qui ci sono i paths
+        dataset_name = self.args.target_dataset #cityscapes
+        #data/cityscapes/splits/heterogeneous/train
+        #data/cityscapes/splits/heterogeneous/test
         train_data_dir, test_data_dir = self.__get_paths('data', dataset_name, self.args.clients_type)
-        train_data, test_data = self.__read_target_data(train_data_dir, test_data_dir)
+
+        train_data, test_data = self.__read_target_data(train_data_dir, test_data_dir) #dizionari annidati
+
         train_data = self.__preprocess_target_train_data(train_data)
 
         if self.args.framework == 'federated':
@@ -124,7 +134,7 @@ class DatasetHandler(object):
         train_transform, test_transform, dataset = \
             get_dataset(self.args.model, dataset_name, self.args.double_dataset, self.args.quadruple_dataset,
                         cv2=self.args.cv2)
-        train_users, test_users = train_data.keys(), test_data.keys()
+        train_users,test_users = train_data.keys(), test_data.keys()
 
         for users, split_data, split in zip((train_users, test_users), (train_data, test_data), ('train', 'test')):
 

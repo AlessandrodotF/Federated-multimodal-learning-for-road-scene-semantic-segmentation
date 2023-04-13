@@ -40,14 +40,14 @@ class OracleTrainer(Trainer):
             self.plot_train_metric(r, partial_train_metric, losses)
             #Class StreamSegMetrics
             partial_train_metric.reset()
+
             #Class OracleServer
             self.server.update_model()
+            #self.model.load_state_dict(self.server.model_params_dict)
+            #self.model_rgb.load_state_dict(self.server.model_rgb_params_dict)
 
-            self.model.load_state_dict(self.server.model_params_dict)
-            self.model_rgb.load_state_dict(self.server.model_rgb_params_dict)
-
-            self.save_model(r + 1, optimizer=self.server.optimizer)
-            self.save_model_rgb(r + 1, optimizer=self.server.optimizer_rgb)
+            #self.save_model(r + 1, optimizer=self.server.optimizer)
+            #self.save_model_rgb(r + 1, optimizer=self.server.optimizer_rgb)
 
             if (r + 1) % self.args.eval_interval == 0 and \
                     self.all_target_client.loader.dataset.ds_type not in ('unsupervised',):
@@ -55,6 +55,8 @@ class OracleTrainer(Trainer):
                           cl_type='target')
 
             if (r + 1) % self.args.test_interval == 0 or (r + 1) == self.args.num_rounds:
+                #sembra entrare solo qui
+                #self.test si riferisce a general_trainer
                 max_scores, _ = self.test(self.target_test_clients, test_metric, r, 'ROUND', max_scores,
                                           cl_type='target')
 

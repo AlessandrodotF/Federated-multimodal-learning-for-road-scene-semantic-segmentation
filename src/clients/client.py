@@ -33,9 +33,18 @@ class Client:
         if self.dataset.root == 'data':
             self.format_client = "RGB"
             self.dataset.format_client = "RGB"
-        else:
+            #print("DA CLIENT.PY self.dataset.root ", self.dataset.root)
+
+        if self.dataset.root == 'data/HHA_DATA':
             self.format_client = "HHA"
             self.dataset.format_client = "HHA"
+            #print("DA CLIENT.PY self.dataset.root ", self.dataset.root)
+
+        #if self.dataset.root == 'data/MIX_DATA':
+        #    self.format_client = "MIX"
+        #    self.dataset.format_client = "MIX"
+        #    print("self.dataset.root ", self.dataset.root)
+
 
 
         if args.random_seed is not None:
@@ -100,7 +109,7 @@ class Client:
         return dict_calc_losses, outputs
 
     def get_test_output(self, images):
-
+        #serve nella fase di testing
         if self.args.model == 'deeplabv3':
             if self.args.fw_task == 'mcd':
                 return self.model(images, classifier1=True)

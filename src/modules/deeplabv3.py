@@ -21,7 +21,7 @@ def _deeplabv3_mobilenetv2(
 
     backbone = create_feature_extractor(backbone, return_layers)
     classifier = DeepLabHead(out_inplanes, num_classes)
-
+    #encoder=backbone,decoder=classifier
     return DeepLabV3(backbone, classifier)
 
 

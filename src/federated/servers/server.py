@@ -1,6 +1,6 @@
 import copy
 import numpy as np
-
+import random
 from torch import optim
 
 
@@ -94,8 +94,8 @@ class Server:
                 possible_clients_rgb.append(c)
             else:
                 possible_clients_HHA.append(c)
-
-        if np.random.choice(["HHA","RGB"]) == "RGB":
+        #Uniform random choice
+        if np.random.choice(["RGB", "HHA"]) == "RGB":
             self.selected_clients = np.random.choice(possible_clients_rgb, num_clients, replace=False)
         else:
             self.selected_clients = np.random.choice(possible_clients_HHA, num_clients, replace=False)

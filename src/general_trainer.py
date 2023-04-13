@@ -33,8 +33,9 @@ class GeneralTrainer(object):
                 yaml_config = yaml.safe_load(f)
                 self.args = {**vars(self.args), **{key: value for key, value in yaml_config.items()
                                                    if key in vars(self.args) and key != 'wandb_id'}}
+
         writer.write(f'Initializing model...')
-        #parte originale
+        #parte originale: la posso usare sia per HHA che MIX
         self.model = self.model_init(args, device)
         #prova
         self.model_rgb = self.model_init(args, device)
@@ -127,6 +128,7 @@ class GeneralTrainer(object):
 
     def __clients_setup(self):
         client_class = dynamic_import(self.args.framework, self.args.fw_task, 'client')
+        #clients_args determina il fatto di avere 1 solo test user
         for split, cl_data_args in self.clients_args.items():
             if split == 'all_train':
                 continue
@@ -135,20 +137,38 @@ class GeneralTrainer(object):
                 batch_size = self.args.batch_size if split == 'train' else self.args.test_batch_size
 
                 if cl_data_arg["dataset"].root == "data":
+                    #print("Se va qui è ", cl_data_arg["dataset"].root)
                     self.format_client="RGB"
-                    print("clients_shared_args")
                     cl_args = {**self.clients_shared_args_rgb, **cl_data_arg}
-                else:
+
+                elif cl_data_arg["dataset"].root == "data/HHA_DATA":
+                    #print("Se va qui è ", cl_data_arg["dataset"].root)
                     self.format_client="HHA"
-                    print("clients_shared_args_HHA")
                     cl_args = {**self.clients_shared_args, **cl_data_arg}
+                else:
+                    print("NON FUNZIONA MA PARTE COMUNQUE IL CODICE")
+                    cl_args = {**self.clients_shared_args, **cl_data_arg}
+
+                #else:
+                    #print("Se va qui è ", cl_data_arg["dataset"].root)
+                    #self.format_client="MIX"
+                    #cl_args = {**self.clients_shared_args, **cl_data_arg}
 
                 cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
 
                 if 'source' not in str(cl):
-                    self.target_train_clients.append(cl) if split == 'train' else self.target_test_clients.append(cl)
+                    #entra qui
+                    if split == 'train':
+                        #qui seleziona solo per il train
+                        self.target_train_clients.append(cl)
+                    else:
+                        #ho solo 1 test user che esce da qui
+                        self.target_test_clients.append(cl)
                 else:
+                    #non ci entra
                     self.source_train_clients.append(cl) if split == 'train' else self.source_test_clients.append(cl)
+
+
 
     def __get_ret_score(self):
         if self.model.module.task == 'classification':
