@@ -182,14 +182,11 @@ class OracleClient(Client):
         return self.args.num_rounds * self.args.num_epochs * self.len_loader
 
     def train(self, partial_metric, r=None):
-
+        #print(self.format_client)
         if self.args.fedprox:
             self.server_model = copy.deepcopy(self.model)
         optimizer, scheduler = get_optimizer_and_scheduler(self.args, self.model.parameters(), self.max_iter())
 
-        #defaultdict is a container like dictionaries present in the module collections
-        #dictionaries and defaultdict are almost same except for the fact that defaultdict never raises a KeyError.
-        #It provides a default value for the key that does not exists.
         dict_losses_list = defaultdict(lambda: [])
         self.model.train()
 
@@ -211,8 +208,8 @@ class OracleClient(Client):
                 layer.training = True
 
     def test(self, metric, swa=False):
-
         self.model.eval()
+
 
         if swa:
             self.switch_bn_stats_to_test()
@@ -228,15 +225,19 @@ class OracleClient(Client):
                     break
 
                 if (i + 1) % self.args.print_interval == 0:
+
                     self.writer.write(f'{self}: {i + 1}/{self.len_loader}, '
                                       f'{round((i + 1) / self.len_loader * 100, 2)}%')
 
                 if self.args.hp_filtered:
+                    #no
                     original_images, images, images_hpf = images
                 else:
+                    #qui sì
                     original_images, images = images
 
                 if self.args.hp_filtered:
+                    #qui no
                     images = self.add_4th_layer(images, images_hpf)
 
                 images = images.to(self.device, dtype=torch.float32)

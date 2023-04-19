@@ -109,6 +109,7 @@ class Client:
         return dict_calc_losses, outputs
 
     def get_test_output(self, images):
+        #print(self.format_client)
         #serve nella fase di testing
         if self.args.model == 'deeplabv3':
             if self.args.fw_task == 'mcd':

@@ -1,0 +1,1 @@
+{"partial_train_loss_tot": 2.8706424236297607, "trainer/global_step": 1, "_runtime": 15, "_timestamp": 1681463572, "_step": 1, "partial_train__mean iou": 0.033578659301958365, "_wandb": {"runtime": 769}}

@@ -1,8 +1,10 @@
 import copy
+
+import matplotlib.pyplot as plt
 import torch
 from collections import OrderedDict
 from federated.servers.server import Server
-
+from PIL import Image
 
 class OracleServer(Server):
 
@@ -27,6 +29,7 @@ class OracleServer(Server):
     def train_clients(self, partial_metric=None, r=None, metrics=None, target_test_client=None, test_interval=None,
                       ret_score='Mean IoU'):
 
+        # self.optimizer = None
         if self.optimizer is not None:
             self.optimizer.zero_grad()
         if self.optimizer_rgb is not None:
@@ -37,41 +40,39 @@ class OracleServer(Server):
 
         for i, c in enumerate(clients):
             self.writer.write(f"CLIENT {i + 1}/{len(clients)}: {c}")
-            if c.format_client == "HHA":
 
+            if c.dataset.root == "data/HHA_DATA":
+                self.format_client="HHA"
+                #show images
+                #c.dataset.root+"/"+c.dataset.images_dir+"/"+c.dataset.paths["x"][0])
+                #c.dataset.root+"/"+c.dataset.target_dir+"/"+c.dataset.paths["y"][0])
+                #image1 = Image.open(c.dataset.root+"/"+c.dataset.images_dir+"/"+c.dataset.paths["x"][9])
+                #image1.show()
+                #image = Image.open(c.dataset.root+"/"+c.dataset.target_dir+"/"+c.dataset.paths["y"][9])
+                #image.show()
                 c.model.load_state_dict(self.model_params_dict)
                 out = c.train(partial_metric, r=r)
-
                 if self.local_rank == 0:
                     num_samples, update, dict_losses_list = out
                     losses[c.id] = {'loss': dict_losses_list, 'num_samples': num_samples}
-
                 else:
                     num_samples, update = out
-
                 if self.optimizer is not None:
                     update = self._compute_client_delta(update)
-
                 self.updates.append((num_samples, update))
-                self.format_client = "HHA"
 
             else:
+                self.format_client="RGB"
                 c.model.load_state_dict(self.model_rgb_params_dict)
                 out = c.train(partial_metric, r=r)
-
                 if self.local_rank == 0:
                     num_samples, update, dict_losses_list = out
                     losses[c.id] = {'loss': dict_losses_list, 'num_samples': num_samples}
-
                 else:
                     num_samples, update = out
-
                 if self.optimizer_rgb is not None:
                     update = self._compute_client_delta_rgb(update)
-
                 self.updates_rgb.append((num_samples, update))
-                self.format_client = "RGB"
-
         if self.local_rank == 0:
             return losses
         return None
@@ -80,7 +81,6 @@ class OracleServer(Server):
         total_weight = 0.
         base = OrderedDict()
         for (client_samples, client_model) in self.updates:
-
             total_weight += client_samples
             for key, value in client_model.items():
                 if key in base:
@@ -96,7 +96,6 @@ class OracleServer(Server):
         total_weight = 0.
         base = OrderedDict()
         for (client_samples, client_model) in self.updates_rgb:
-
             total_weight += client_samples
             for key, value in client_model.items():
                 if key in base:
@@ -141,19 +140,21 @@ class OracleServer(Server):
             if p.requires_grad:
                 param_norm = p.grad.data.norm(2)
                 total_norm += param_norm.item() ** 2
-        total_grad = total_norm ** 0.5
-        self.writer.write(f"total grad norm RGB: {round(total_grad, 2)}")
-        return total_grad
+        total_grad_rgb = total_norm ** 0.5
+        self.writer.write(f"total grad norm RGB: {round(total_grad_rgb, 2)}")
+        return total_grad_rgb
 
     def update_model(self):
         if self.format_client == "RGB":
+            
             print("RGB AGGREGATION: END OF THE ROUND")
             averaged_sol_n = self._aggregation_rgb()
 
             if self.optimizer_rgb is not None:
                 self._server_opt_rgb(averaged_sol_n)
-                self.total_grad = self._get_model_rgb_total_grad()
+                self.total_grad_rgb = self._get_model_rgb_total_grad()
             else:
+                #entra qui
                 self.model_rgb.load_state_dict(averaged_sol_n)
             self.model_rgb_params_dict = copy.deepcopy(self.model_rgb.state_dict())
 
@@ -167,6 +168,7 @@ class OracleServer(Server):
                 self._server_opt(averaged_sol_n)
                 self.total_grad = self._get_model_total_grad()
             else:
+                #entra qui
                 self.model.load_state_dict(averaged_sol_n)
             self.model_params_dict = copy.deepcopy(self.model.state_dict())
 

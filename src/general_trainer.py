@@ -33,22 +33,17 @@ class GeneralTrainer(object):
                 yaml_config = yaml.safe_load(f)
                 self.args = {**vars(self.args), **{key: value for key, value in yaml_config.items()
                                                    if key in vars(self.args) and key != 'wandb_id'}}
-
         writer.write(f'Initializing model...')
-        #parte originale: la posso usare sia per HHA che MIX
+        #parte originale: la posso usare per HHA
         self.model = self.model_init(args, device)
-        #prova
         self.model_rgb = self.model_init(args, device)
         writer.write('Done.')
 
         writer.write(f'Initializing datasets...')
-        #qui TUTTI i clients e dataset sono creati
         self.clients_args = DatasetHandler(args, writer)()
-
         writer.write('Done.')
 
         writer.write('Initializing clients...')
-        #Ogni client avrà un solo modello
         self.clients_shared_args = {'args': self.args, 'model': self.model,
                                     'writer': self.writer, 'world_size': world_size, 'rank': rank,
                                     'num_gpu': args.n_devices, 'device': device}
@@ -63,6 +58,7 @@ class GeneralTrainer(object):
         writer.write('Done.')
 
         writer.write(f'Initializing server...')
+        #sul server avrò entrambi i modelli
         self.server = self.server_setup()
         writer.write('Done.')
 
@@ -77,6 +73,9 @@ class GeneralTrainer(object):
         writer.write('Done.')
 
         writer.write('Initializing optimizer and scheduler...')
+        #inizia un round, si addestra un client per una singola epoca
+        #si va al prossimo client. get_optimizer_and_scheduler() viene chiamata ogni opoca
+        #è in model_utils.py
         self.optimizer, self.scheduler = self.get_optimizer_and_scheduler()
         writer.write('Done.')
 
@@ -137,22 +136,13 @@ class GeneralTrainer(object):
                 batch_size = self.args.batch_size if split == 'train' else self.args.test_batch_size
 
                 if cl_data_arg["dataset"].root == "data":
-                    #print("Se va qui è ", cl_data_arg["dataset"].root)
+
                     self.format_client="RGB"
                     cl_args = {**self.clients_shared_args_rgb, **cl_data_arg}
 
-                elif cl_data_arg["dataset"].root == "data/HHA_DATA":
-                    #print("Se va qui è ", cl_data_arg["dataset"].root)
+                else:
                     self.format_client="HHA"
                     cl_args = {**self.clients_shared_args, **cl_data_arg}
-                else:
-                    print("NON FUNZIONA MA PARTE COMUNQUE IL CODICE")
-                    cl_args = {**self.clients_shared_args, **cl_data_arg}
-
-                #else:
-                    #print("Se va qui è ", cl_data_arg["dataset"].root)
-                    #self.format_client="MIX"
-                    #cl_args = {**self.clients_shared_args, **cl_data_arg}
 
                 cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
 
@@ -288,19 +278,23 @@ class GeneralTrainer(object):
     def perform_test(self, metric, test_clients, step):
         self.writer.write("Testing...")
         scores = []
+        #c'è soltanto un test client
         for i, c in enumerate(test_clients):
 
             self.writer.write(f"Client {i + 1}/{len(test_clients)} - {c}")
             swa = False
             if self.server is not None:
+                #entra qui ma non sotto
                 if self.server.swa_model is not None:
                     c.model.load_state_dict(self.server.swa_model.state_dict())
                     swa = True
+            #è dentro oracle client
             loss = c.test(metric, swa=swa)
             if type(metric) == list:
                 for m in metric:
                     self.writer.plot_step_loss(m.name, step, loss)
                     self.writer.plot_metric(step, m, str(c), self.ret_score)
+                    print(str(c))
                 scores.append(metric[0].get_results())
             else:
                 self.writer.plot_step_loss(metric.name, step, loss)
@@ -319,7 +313,9 @@ class GeneralTrainer(object):
         mean_max_score = sum(max_scores) / len(max_scores)
 
         if self.server is not None:
+            #entra qui
             if self.server.swa_model is not None:
+                #ma non qui
                 tmp_model = copy.deepcopy(test_clients[0].model.state_dict())
 
         scores = self.perform_test(metric, test_clients, step)

@@ -13,9 +13,12 @@ class Server:
         self.writer = writer
         self.selected_clients = []
         self.local_rank = local_rank
-        self.total_grad = 0
+
         self.source_dataset = source_dataset
-        self.opt_string = optimizer
+        self.opt_string = optimizer #è None
+
+        self.total_grad = 0
+        self.total_grad_rgb = 0
 
         self.model = copy.deepcopy(model)
         self.model_rgb = copy.deepcopy(model_rgb)
@@ -31,8 +34,6 @@ class Server:
 
         self.swa_model = None
         self.swa_model_rgb = None
-
-
 
 
     def train_source(self, *args, **kwargs):
@@ -90,7 +91,7 @@ class Server:
         #IN OGNI ROUND AVRO' O TUTTI RGB O TUTTI HHA
 
         for c in possible_clients:
-            if c.format_client == "RGB":
+            if c.dataset.root == "data":
                 possible_clients_rgb.append(c)
             else:
                 possible_clients_HHA.append(c)
