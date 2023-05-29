@@ -1,3 +1,4 @@
+import copy
 import os
 import json
 import numpy as np
@@ -87,25 +88,30 @@ class DatasetHandler(object):
         self.clients_args['test'].append({'client_id': 'source_test_data', 'dataset': test_ds})
 
     def __gen_ds(self, paths, dataset_name, dataset, train_transform, test_transform, split='train', hp_filtered=False):
-        #uniform random choice
-        #self.format_client = np.random.choice(["RGB", "HHA", "MIX"])
-        self.format_client = np.random.choice(["RGB", "HHA"])
 
-        if dataset_name == 'cityscapes':
-            if self.format_client == "RGB":
+        if self.args.mm_setting=="first":
+            #self.format_client = np.random.choice(["RGB", "HHA", "MIX"])
+            self.format_client = np.random.choice(["RGB", "HHA"])
+            if dataset_name == 'cityscapes':
+                if self.format_client == "RGB":
+                    return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
+                                   hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                                   quadruple=self.args.quadruple_dataset and split == 'train')
+                else:
+                    return dataset(paths, 'data/HHA_DATA', transform=train_transform, test_transform=test_transform,
+                                   hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                                   quadruple=self.args.quadruple_dataset and split == 'train')
+                #else:
+                    #words = [w.replace('train/', 'trainRGB/') for w in paths["x"]]
+                    #paths["x"].extend(words)
+                    #return dataset(paths, 'data/MIX_DATA', transform=train_transform, test_transform=test_transform,
+                                   #hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                                  # quadruple=self.args.quadruple_dataset and split == 'train')
+        else:
+            if dataset_name == 'cityscapes':
                 return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
                                hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
                                quadruple=self.args.quadruple_dataset and split == 'train')
-            else:
-                return dataset(paths, 'data/HHA_DATA', transform=train_transform, test_transform=test_transform,
-                               hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
-                               quadruple=self.args.quadruple_dataset and split == 'train')
-            #else:
-                #words = [w.replace('train/', 'trainRGB/') for w in paths["x"]]
-                #paths["x"].extend(words)
-                #return dataset(paths, 'data/MIX_DATA', transform=train_transform, test_transform=test_transform,
-                               #hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
-                              # quadruple=self.args.quadruple_dataset and split == 'train')
 
         if dataset_name in ['crosscity', 'mapillary']:
             return dataset(paths, root='data', transform=train_transform, test_transform=test_transform,
@@ -139,7 +145,6 @@ class DatasetHandler(object):
         for users, split_data, split in zip((train_users, test_users), (train_data, test_data), ('train', 'test')):
 
             for i, user in enumerate(users):
-
                 ds = self.__gen_ds(split_data[user], dataset_name, dataset, train_transform, test_transform,
                                    split=split, hp_filtered=self.args.hp_filtered)
 
@@ -147,6 +152,17 @@ class DatasetHandler(object):
                     self.target_stats = {'mean': ds.mean, 'std': ds.std}
 
                 self.clients_args[split].append({'client_id': user, 'dataset': ds})
+
+                if user=="test_user" and self.args.mm_setting == "first":
+                    if ds.root=="data":
+                        ds_new=copy.copy(ds)
+                        ds_new.root="data/HHA_DATA"
+                        self.clients_args[split].append({'client_id': user, 'dataset': ds_new})
+                    else:
+                        ds_new=copy.copy(ds)
+                        ds_new.root="data"
+                        self.clients_args[split].append({'client_id': user, 'dataset': ds_new})
+
 
         if self.args.framework == 'federated':
             ds = self.__gen_ds(all_train_data['centralized_user'],

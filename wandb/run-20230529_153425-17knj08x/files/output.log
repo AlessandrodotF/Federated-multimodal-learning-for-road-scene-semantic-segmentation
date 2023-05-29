@@ -1,0 +1,18 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Traceback (most recent call last):
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/__init__.py", line 1, in <module>
+    from .trainers import OracleTrainer, FtdaNoaggrTrainer, FtdaTrainer, FdaTrainer, FdaInvTrainer, McdTrainer, LADDTrainer
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/__init__.py", line 1, in <module>
+    from .oracle_trainer import OracleTrainer
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 25
+    partial_train_metric_2, eval_train_metric_2, test_metric_2, max_scores_2=None):
+                            ^
+SyntaxError: non-default argument follows default argument

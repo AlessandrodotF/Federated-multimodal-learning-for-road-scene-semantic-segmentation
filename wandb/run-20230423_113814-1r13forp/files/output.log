@@ -1,0 +1,85 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/2: Training 2 Clients...
+CLIENT 1/2: erfurt5
+EPOCH 1: ended.
+CLIENT 2/2: weimar3
+EPOCH 1: ended.
+QUI ARRIVA ALL'UPDATE
+HHA AGGREGATION: END OF THE ROUND
+ROUND 2/2: Training 2 Clients...
+CLIENT 1/2: dusseldorf4
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf1
+EPOCH 1: ended.
+QUI ARRIVA ALL'UPDATE
+HHA AGGREGATION: END OF THE ROUND
+Testing...
+Client 1/1 - test_user
+test_user: 20/500, 4.0%
+test_user: 40/500, 8.0%
+test_user: 60/500, 12.0%
+test_user: 80/500, 16.0%
+test_user: 100/500, 20.0%
+test_user: 120/500, 24.0%
+test_user: 140/500, 28.0%
+test_user: 160/500, 32.0%
+test_user: 180/500, 36.0%
+test_user: 200/500, 40.0%
+test_user: 220/500, 44.0%
+test_user: 240/500, 48.0%
+test_user: 260/500, 52.0%
+test_user: 280/500, 56.0%
+test_user: 300/500, 60.0%
+test_user: 320/500, 64.0%
+test_user: 340/500, 68.0%
+test_user: 360/500, 72.0%
+test_user: 380/500, 76.0%
+test_user: 400/500, 80.0%
+test_user: 420/500, 84.0%
+test_user: 440/500, 88.0%
+test_user: 460/500, 92.0%
+test_user: 480/500, 96.0%
+test_user: 500/500, 100.0%
+Done.
+New best result found at round 2
+Test mean iou at round 2: 2.557%
+11111111111111111111111111111111
+self.sample_ids[cl_type][str(test_client)]              : [361  73 374]
+i                                                       : 361
+test_client                                                       : test_user
+self.sample_ids[cl_type][str(test_client)]              : [361  73 374]
+i                                                       : 73
+test_client                                                       : test_user
+self.sample_ids[cl_type][str(test_client)]              : [361  73 374]
+i                                                       : 374
+test_client                                                       : test_user
+22222222222222222222222222222
+33333333333333333333333333
+Training completed.
+Final mIoU: 2.557%
+Elapsed time: 0h, 2min, 29.15s

@@ -53,7 +53,7 @@ class GeneralTrainer(object):
                                     'num_gpu': args.n_devices, 'device': device}
 
         self.source_train_clients, self.source_test_clients = [], []
-        self.target_train_clients, self.target_test_clients = [], []
+        self.target_train_clients, self.target_test_clients, self.target_test_clients_2= [], [],[]
         self.__clients_setup()
         writer.write('Done.')
 
@@ -65,6 +65,10 @@ class GeneralTrainer(object):
         writer.write('Initialize return score, metrics, ckpt, ckpt step...')
         self.ret_score = self.__get_ret_score()
         self.metrics = self.set_metrics(writer, args.num_classes)
+
+        self.ret_score_2 = self.__get_ret_score()
+        self.metrics_2 = self.set_metrics(writer, args.num_classes)
+
         self.checkpoint_step = 0
         self.ckpt_path = os.path.join('checkpoints', args.framework, args.source_dataset, args.target_dataset,
                                       f"{self.writer.wandb.get_job_name(args)}_{self.args.wandb_id}.ckpt")
@@ -73,9 +77,7 @@ class GeneralTrainer(object):
         writer.write('Done.')
 
         writer.write('Initializing optimizer and scheduler...')
-        #inizia un round, si addestra un client per una singola epoca
-        #si va al prossimo client. get_optimizer_and_scheduler() viene chiamata ogni opoca
-        #è in model_utils.py
+        #è in trainer.py
         self.optimizer, self.scheduler = self.get_optimizer_and_scheduler()
         writer.write('Done.')
 
@@ -98,6 +100,7 @@ class GeneralTrainer(object):
         else:
             self.test_plot_counter = -1
 
+        #entrambe liste vuote
         self.train_args = self.get_train_args()
         self.train_kwargs = self.get_train_kwargs()
 
@@ -128,6 +131,7 @@ class GeneralTrainer(object):
     def __clients_setup(self):
         client_class = dynamic_import(self.args.framework, self.args.fw_task, 'client')
         #clients_args determina il fatto di avere 1 solo test user
+
         for split, cl_data_args in self.clients_args.items():
             if split == 'all_train':
                 continue
@@ -135,40 +139,53 @@ class GeneralTrainer(object):
 
                 batch_size = self.args.batch_size if split == 'train' else self.args.test_batch_size
 
-                if cl_data_arg["dataset"].root == "data":
-
-                    self.format_client="RGB"
-                    cl_args = {**self.clients_shared_args_rgb, **cl_data_arg}
-
+                if self.args.mm_setting == "first":
+                    if cl_data_arg["dataset"].root == "data":
+                        self.format_client="RGB"
+                        cl_args = {**self.clients_shared_args_rgb, **cl_data_arg}
+                    else:
+                        self.format_client="HHA"
+                        cl_args = {**self.clients_shared_args, **cl_data_arg}
                 else:
-                    self.format_client="HHA"
                     cl_args = {**self.clients_shared_args, **cl_data_arg}
 
                 cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
 
                 if 'source' not in str(cl):
-                    #entra qui
+                    """ci entra 145 di cui volte"""
+
                     if split == 'train':
-                        #qui seleziona solo per il train
+                        """ 145-numero modelli usati """
                         self.target_train_clients.append(cl)
                     else:
-                        #ho solo 1 test user che esce da qui
-                        self.target_test_clients.append(cl)
+                        if len(self.target_test_clients)==0:
+                            """ = numero dei modelli usati """
+                            self.target_test_clients.append(cl)
+                        else:
+                            self.target_test_clients_2.append(cl)
+
+
                 else:
-                    #non ci entra
+                    """non ci entra mai"""
                     self.source_train_clients.append(cl) if split == 'train' else self.source_test_clients.append(cl)
 
 
 
     def __get_ret_score(self):
-        if self.model.module.task == 'classification':
-            return 'Overall Acc'
-        if self.model.module.task == 'segmentation':
-            return 'Mean IoU'
-        if self.model_rgb.module.task == 'classification':
-            return 'Overall Acc'
-        if self.model_rgb.module.task == 'segmentation':
-            return 'Mean IoU'
+        if self.args.mm_setting =="first":
+            if self.model.module.task == 'classification':
+                return 'Overall Acc'
+            if self.model.module.task == 'segmentation':
+                return 'Mean IoU'
+            if self.model_rgb.module.task == 'classification':
+                return 'Overall Acc'
+            if self.model_rgb.module.task == 'segmentation':
+                return 'Mean IoU'
+        else:
+            if self.model.module.task == 'classification':
+                return 'Overall Acc'
+            if self.model.module.task == 'segmentation':
+                return 'Mean IoU'
         raise NotImplementedError
 
     @staticmethod
@@ -226,8 +243,11 @@ class GeneralTrainer(object):
 
         sample = test_client.dataset[sample_id]
         if test_client.format_client == "HHA":
+
             self.model.eval()
         else:
+
+
             self.model_rgb.eval()
 
         with torch.no_grad():
@@ -264,8 +284,13 @@ class GeneralTrainer(object):
         plot_samples = []
 
         test_client.dataset.test = True
-
+        print(self.sample_ids[cl_type][str(test_client)])
         for i in self.sample_ids[cl_type][str(test_client)]:
+            print("self.sample_ids[cl_type][str(test_client)]              :",self.sample_ids[cl_type][str(test_client)])
+            print("i                                                       :",i)
+            print("test_client                                                       :", test_client)
+
+
             plot_samples.append(self.__get_plot_sample(test_client, i))
 
         test_client.dataset.test = False
@@ -280,12 +305,12 @@ class GeneralTrainer(object):
         scores = []
         #c'è soltanto un test client
         for i, c in enumerate(test_clients):
-
             self.writer.write(f"Client {i + 1}/{len(test_clients)} - {c}")
             swa = False
             if self.server is not None:
                 #entra qui ma non sotto
                 if self.server.swa_model is not None:
+
                     c.model.load_state_dict(self.server.swa_model.state_dict())
                     swa = True
             #è dentro oracle client
@@ -293,12 +318,19 @@ class GeneralTrainer(object):
             if type(metric) == list:
                 for m in metric:
                     self.writer.plot_step_loss(m.name, step, loss)
-                    self.writer.plot_metric(step, m, str(c), self.ret_score)
+                    if c.format_client == "RGB":
+                        self.writer.plot_metric(step, metric, str(c), self.ret_score_2)
+                    else:
+                        self.writer.plot_metric(step, metric, str(c), self.ret_score)
                     print(str(c))
                 scores.append(metric[0].get_results())
             else:
                 self.writer.plot_step_loss(metric.name, step, loss)
-                self.writer.plot_metric(step, metric, str(c), self.ret_score)
+                if c.format_client=="RGB":
+                    self.writer.plot_metric(step, metric, str(c), self.ret_score_2)
+                else:
+                    self.writer.plot_metric(step, metric, str(c), self.ret_score)
+
                 scores.append(metric.get_results())
             if type(metric) == list:
                 for m in metric:
@@ -322,7 +354,11 @@ class GeneralTrainer(object):
 
         metric = metric[0] if isinstance(metric, list) else metric
 
-        ref_scores = [s[self.ret_score] for s in scores]
+        if test_clients[0].format_client=="RGB":
+            ref_scores = [s[self.ret_score_2] for s in scores]
+        else:
+            ref_scores = [s[self.ret_score] for s in scores]
+
         mean_score = sum(ref_scores) / len(scores)
 
         if mean_score > mean_max_score:
@@ -331,16 +367,22 @@ class GeneralTrainer(object):
         for i, score in enumerate(scores):
 
             ref_client = test_clients[i]
-            self.writer.write(f"Test {self.ret_score.lower()} at {step_type.lower()} {step + 1}: "
+            # Test mean iou at round x : score percentuale
+            self.writer.write(f" PROVA Test {self.ret_score.lower()} at {step_type.lower()} {step + 1}: "
                               f"{round(score[self.ret_score] * 100, 3)}%")
 
             if (self.test_plot_counter >= 0 and self.test_plot_counter % 2 == 0) or mean_score > mean_max_score:
                 if self.args.save_samples > 0:
+
                     plot_samples = self.get_plot_samples(ref_client, cl_type=cl_type)
+
                     for plot_sample in plot_samples:
                         self.writer.plot_samples(metric.name, plot_sample, source=cl_type == 'source', prepend=prepend)
                     self.test_plot_counter = 1
+                    #plot scores restituisce il grafico con l'accuracy per classe
                     self.writer.plot_scores_table(metric, str(ref_client), score, step)
+
+
             elif self.test_plot_counter >= 0:
                 self.test_plot_counter += 1
 

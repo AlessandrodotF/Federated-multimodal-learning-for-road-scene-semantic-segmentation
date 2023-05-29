@@ -13,18 +13,25 @@ class Trainer(GeneralTrainer):
 
     def gen_all_target_client(self):
         client_class = dynamic_import(self.args.framework, self.args.fw_task, 'client')
-
-        if self.clients_args['all_train'][0]["dataset"].root == "data/HHA_DATA":
-            cl_args = {**self.clients_shared_args, **self.clients_args['all_train'][0]}
+        if self.args.mm_setting=="first":
+            #ci entra solo una volta, chiamato da general trainer
+            if self.clients_args['all_train'][0]["dataset"].root == "data/HHA_DATA":
+                #entra qui
+                cl_args = {**self.clients_shared_args, **self.clients_args['all_train'][0]}
+            else:
+                cl_args = {**self.clients_shared_args_rgb, **self.clients_args['all_train'][0]}
         else:
-            cl_args = {**self.clients_shared_args_rgb, **self.clients_args['all_train'][0]}
-
+            cl_args = {**self.clients_shared_args, **self.clients_args['all_train'][0]}
         return client_class(**cl_args, batch_size=self.args.test_batch_size, test_user=True)
 
     def server_setup(self):
-        #sul server ho entrambi i modelli
         server_class = dynamic_import(self.args.framework, self.args.fw_task, 'server')
-        server = server_class(self.model, self.model_rgb, self.writer, self.args.local_rank, self.args.server_lr,self.args.server_momentum, self.args.server_opt, self.args.source_dataset)
+        if self.args.mm_setting=="first":
+            #sul server ho entrambi i modelli
+            server = server_class(self.args, self.model, self.model_rgb, self.writer, self.args.local_rank, self.args.server_lr,self.args.server_momentum, self.args.server_opt, self.args.source_dataset)
+        else:
+            server = server_class(self.args, self.model, self.writer, self.args.local_rank, self.args.server_lr,
+                                  self.args.server_momentum, self.args.server_opt, self.args.source_dataset)
         return server
 
     @staticmethod
@@ -35,6 +42,7 @@ class Trainer(GeneralTrainer):
         raise NotImplementedError
 
     def get_optimizer_and_scheduler(self):
+
         return None, None
 
     def load_from_checkpoint(self):
@@ -69,8 +77,20 @@ class Trainer(GeneralTrainer):
         raise NotImplementedError
 
     def plot_train_metric(self, r, metric, losses, plot_metric=True):
+        #local_rank = 0
         if self.args.local_rank == 0:
             round_losses = weight_train_loss(losses)
             self.writer.plot_step_loss(metric.name, r, round_losses)
             if plot_metric:
-                self.writer.plot_metric(r, metric, '', self.ret_score)
+                if self.args.mm_setting=="first":
+                    print(list(losses.keys()))
+                    if "RGB" in list(losses.keys())[0]:
+                        print(losses.keys())
+                        self.writer.plot_metric(r, metric, 'RGB', self.ret_score_2)
+                    else:
+                        print(losses.keys())
+                        self.writer.plot_metric(r, metric, 'HHA', self.ret_score)
+                else:
+                    print(losses.keys())
+                    self.writer.plot_metric(r, metric, '', self.ret_score)
+

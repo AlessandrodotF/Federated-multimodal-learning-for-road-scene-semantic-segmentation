@@ -6,8 +6,9 @@ from torch import optim
 
 class Server:
 
-    def __init__(self, model, model_rgb, writer, local_rank, lr, momentum, optimizer, source_dataset):
+    def __init__(self, args, model, model_rgb, writer, local_rank, lr, momentum, optimizer, source_dataset):
         #questi credo di poterli lasciare invariati
+        self.args=args
         self.momentum = momentum
         self.lr = lr
         self.writer = writer
@@ -84,23 +85,10 @@ class Server:
     def select_clients(self, my_round, possible_clients, num_clients):
         num_clients = min(num_clients, len(possible_clients))
         np.random.seed(my_round)
+        self.selected_clients = np.random.choice(possible_clients, num_clients, replace=False)
 
-        possible_clients_rgb=[]
-        possible_clients_HHA=[]
 
-        #IN OGNI ROUND AVRO' O TUTTI RGB O TUTTI HHA
-
-        for c in possible_clients:
-            if c.dataset.root == "data":
-                possible_clients_rgb.append(c)
-            else:
-                possible_clients_HHA.append(c)
-        #Uniform random choice
-        if np.random.choice(["RGB", "HHA"]) == "RGB":
-            self.selected_clients = np.random.choice(possible_clients_rgb, num_clients, replace=False)
-        else:
-            self.selected_clients = np.random.choice(possible_clients_HHA, num_clients, replace=False)
-
+    """queste funzioni qui sotto per il caso attuale credo non servano"""
     def get_clients_info(self, clients):
         if clients is None:
             clients = self.selected_clients

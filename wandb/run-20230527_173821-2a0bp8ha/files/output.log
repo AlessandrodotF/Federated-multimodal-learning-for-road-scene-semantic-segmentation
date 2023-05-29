@@ -1,0 +1,165 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/10: Training 5 Clients...
+CLIENT 1/5: erfurt5 RGB
+torch.Size([16, 3, 5, 5])
+RGB
+EPOCH 1: ended.
+CLIENT 2/5: weimar3 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+CLIENT 3/5: strasbourg3 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+CLIENT 4/5: tubingen2 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+CLIENT 5/5: weimar6 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/10: Training 5 Clients...
+CLIENT 1/5: dusseldorf4 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+CLIENT 2/5: dusseldorf1 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+CLIENT 3/5: hanover6 RGB
+torch.Size([16, 3, 5, 5])
+RGB
+torch.Size([16, 3, 5, 5])
+RGB
+torch.Size([16, 3, 5, 5])
+RGB
+EPOCH 1: ended.
+CLIENT 4/5: jena0 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+CLIENT 5/5: jena5 HHA
+torch.Size([16, 3, 5, 5])
+HHA
+EPOCH 1: ended.
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Case:   HHA
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/500, 4.0%
+test_user HHA: 40/500, 8.0%
+test_user HHA: 60/500, 12.0%
+test_user HHA: 80/500, 16.0%
+test_user HHA: 100/500, 20.0%
+test_user HHA: 120/500, 24.0%
+test_user HHA: 140/500, 28.0%
+test_user HHA: 160/500, 32.0%
+test_user HHA: 180/500, 36.0%
+test_user HHA: 200/500, 40.0%
+test_user HHA: 220/500, 44.0%
+test_user HHA: 240/500, 48.0%
+test_user HHA: 260/500, 52.0%
+test_user HHA: 280/500, 56.0%
+test_user HHA: 300/500, 60.0%
+test_user HHA: 320/500, 64.0%
+test_user HHA: 340/500, 68.0%
+test_user HHA: 360/500, 72.0%
+test_user HHA: 380/500, 76.0%
+test_user HHA: 400/500, 80.0%
+test_user HHA: 420/500, 84.0%
+test_user HHA: 440/500, 88.0%
+test_user HHA: 460/500, 92.0%
+test_user HHA: 480/500, 96.0%
+test_user HHA: 500/500, 100.0%
+Done.
+New best result found at round 2
+Test mean iou at round 2: 1.982%
+11111111111111111111111111111111
+Case:   RGB
+Testing...
+Client 1/1 - test_user RGB
+test_user RGB: 20/500, 4.0%
+test_user RGB: 40/500, 8.0%
+test_user RGB: 60/500, 12.0%
+test_user RGB: 80/500, 16.0%
+test_user RGB: 100/500, 20.0%
+test_user RGB: 120/500, 24.0%
+test_user RGB: 140/500, 28.0%
+test_user RGB: 160/500, 32.0%
+test_user RGB: 180/500, 36.0%
+test_user RGB: 200/500, 40.0%
+test_user RGB: 220/500, 44.0%
+test_user RGB: 240/500, 48.0%
+test_user RGB: 260/500, 52.0%
+test_user RGB: 280/500, 56.0%
+test_user RGB: 300/500, 60.0%
+test_user RGB: 320/500, 64.0%
+test_user RGB: 340/500, 68.0%
+test_user RGB: 360/500, 72.0%
+test_user RGB: 380/500, 76.0%
+test_user RGB: 400/500, 80.0%
+test_user RGB: 420/500, 84.0%
+test_user RGB: 440/500, 88.0%
+test_user RGB: 460/500, 92.0%
+test_user RGB: 480/500, 96.0%
+test_user RGB: 500/500, 100.0%
+Done.
+New best result found at round 2
+Test mean iou at round 2: 2.086%
+11111111111111111111111111111111
+ROUND 3/10: Training 5 Clients...
+CLIENT 1/5: erfurt3 RGB
+torch.Size([16, 3, 5, 5])
+RGB
+EPOCH 1: ended.

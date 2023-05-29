@@ -1,0 +1,50 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 15, in run_experiment
+    trainer = trainer_class(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 8, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 15, in run_experiment
+    trainer = trainer_class(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 8, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/trainer.py", line 11, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 58, in __init__
+    writer.write('Done.')
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 58, in __init__
+    writer.write('Done.')
+  File "_pydevd_bundle/pydevd_cython.pyx", line 1589, in _pydevd_bundle.pydevd_cython.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython.pyx", line 929, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 920, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 317, in _pydevd_bundle.pydevd_cython.PyDBFrame.do_wait_suspend
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1160, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1175, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2179, in main
+    handle_keyboard_interrupt()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1997, in handle_keyboard_interrupt
+    traceback.print_exception(type(value), value, tb, limit=limit)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 105, in print_exception
+    print(line, file=file, end="")
+KeyboardInterrupt

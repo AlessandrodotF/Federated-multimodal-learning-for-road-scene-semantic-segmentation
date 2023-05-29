@@ -26,19 +26,15 @@ class Client:
         self.world_size = world_size
         self.rank = rank
 
-        #Francesco
-        #self.format_client = random.choice(["RGB", "HHA"])
         #self.dataset.format_client = self.format_client
+        if self.args.mm_setting=="first":
+            if self.dataset.root == 'data':
+                self.format_client = "RGB"
+                self.dataset.format_client = "RGB"
 
-        if self.dataset.root == 'data':
-            self.format_client = "RGB"
-            self.dataset.format_client = "RGB"
-            #print("DA CLIENT.PY self.dataset.root ", self.dataset.root)
-
-        if self.dataset.root == 'data/HHA_DATA':
-            self.format_client = "HHA"
-            self.dataset.format_client = "HHA"
-            #print("DA CLIENT.PY self.dataset.root ", self.dataset.root)
+            if self.dataset.root == 'data/HHA_DATA':
+                self.format_client = "HHA"
+                self.dataset.format_client = "HHA"
 
         #if self.dataset.root == 'data/MIX_DATA':
         #    self.format_client = "MIX"
@@ -100,6 +96,10 @@ class Client:
 
         if self.args.model in ('deeplabv3',):
             outputs = self.model(images)['out']
+            #print(self.format_client)
+            #print(outputs.size())
+            #print( self.model(images).size())
+            #print(labels)
             loss_tot = self.reduction(self.criterion(outputs, labels), labels)
             dict_calc_losses = {'loss_tot': loss_tot}
 
@@ -135,10 +135,9 @@ class Client:
     def test(self, *args, **kwargs):
         raise NotImplementedError
 
-    def __str__(self) -> object:
-        return self.id
-    def __str__(self) -> object:
-        return self.id +" " +self.format_client
+    def __str__(self):
+        return self.id+" "+self.format_client
+
     @property
     def num_samples(self):
         return len(self.dataset)

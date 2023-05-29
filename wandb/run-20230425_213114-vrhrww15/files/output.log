@@ -1,0 +1,55 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/2: Training 2 Clients...
+CLIENT 1/2: erfurt5
+EPOCH 1: ended.
+CLIENT 2/2: weimar3
+EPOCH 1: ended.
+QUI ARRIVA ALL'UPDATE
+HHA AGGREGATION: END OF THE ROUND
+ROUND 2/2: Training 2 Clients...
+CLIENT 1/2: dusseldorf4
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 20, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 72, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 37, in perform_fed_oracle_training
+    losses = self.server.train_clients(partial_metric=partial_train_metric)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 54, in train_clients
+    out = c.train(partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 194, in train
+    dict_all_iters_losses = self.run_epoch(epoch, optimizer, metric=partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 166, in run_epoch
+    self.__exec_epoch(optimizer, cur_epoch, metric, scheduler, plot_lr, dict_all_iters_losses,
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 145, in __exec_epoch
+    self.update_metric(metric, outputs, labels)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 95, in update_metric
+    labels = labels.cpu().numpy()
+KeyboardInterrupt

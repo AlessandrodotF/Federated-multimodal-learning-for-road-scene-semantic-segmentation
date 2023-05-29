@@ -23,6 +23,7 @@ class Trainer(GeneralTrainer):
         raise NotImplementedError
 
     def get_optimizer_and_scheduler(self):
+
         return get_optimizer_and_scheduler(self.args, self.model.parameters(), self.max_iter())
 
     def load_from_checkpoint(self):

@@ -76,6 +76,7 @@ def get_optimizer(opt_name, params, lr, weight_decay, momentum, nesterov):
 
 
 def get_optimizer_and_scheduler(args, model_parameters, max_iter, lr=None):
+
     params = [{"params": filter(lambda p: p.requires_grad, model_parameters),
                'weight_decay': args.weight_decay}]
     optimizer = get_optimizer(args.optimizer, params, args.lr if lr is None else lr, args.weight_decay, args.momentum,

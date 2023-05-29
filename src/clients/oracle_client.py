@@ -90,16 +90,14 @@ class OracleClient(Client):
 
         for cur_step, samples in enumerate(self.loader):
             torch.cuda.empty_cache()
-
+            ###############  non entra  ############################
             if stop_at_step is not None and cur_step >= stop_at_step:
                 break
-
             if self.args.teacher_step > 0 and self.args.teacher_upd_step and \
                     'fda_inv' in self.args.fw_task and self.args.centr_fda_ft_uda:
                 teacher_model = copy.deepcopy(self.model)
                 teacher_model.eval()
                 self.set_client_teacher(cur_step, teacher_model)
-
             if self.args.teacher_kd_step > 0 and self.args.teacher_kd_upd_step and \
                     'fda_inv' in self.args.fw_task and self.args.centr_fda_ft_uda:
                 if cur_step % self.args.teacher_kd_step == 0 and 'fda_inv' in self.args.fw_task and \
@@ -109,11 +107,12 @@ class OracleClient(Client):
                     teacher_kd_model.eval()
                     self.teacher_kd_model = teacher_kd_model
                     self.writer.write("Done.")
-
+            #######################################################
             images, labels = self.process_samples(self.loader, samples)
 
             optimizer.zero_grad()
 
+            ###############  non entra  ############################
             if self.args.batch_norm_round_0 and r == 0:
                 with torch.no_grad():
                     if self.args.mixed_precision:
@@ -122,15 +121,20 @@ class OracleClient(Client):
                     else:
                         dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
                 optimizer.zero_grad()
+            ######################################################
             else:
+                ###############  non entra  ############################
                 if self.args.mixed_precision:
                     with autocast():
                         dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
                     self.scaler.scale(dict_calc_losses['loss_tot']).backward()
+                 ###########################################################
                 else:
+                    #QUI#
                     dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
                     dict_calc_losses['loss_tot'].backward()
 
+            ############################################################
             if self.args.fedprox:
                 self.handle_grad()
             self.handle_logs(cur_step, cur_epoch, dict_calc_losses, metric, scheduler, plot_lr)
@@ -140,13 +144,12 @@ class OracleClient(Client):
                 profiler.step()
             if scheduler is not None:
                 scheduler.step()
-
+            # no
             if self.update_metric_condition(cur_epoch) and not self.args.ignore_train_metrics:
                 self.update_metric(metric, outputs, labels)
-
             if self.args.mixed_precision:
                 self.scaler.update()
-
+            #
             self.update_all_iters_losses(dict_all_iters_losses, dict_calc_losses)
 
     def run_epoch(self, cur_epoch, optimizer, metric=None, scheduler=None, e_name='EPOCH', plot_lr=True,
@@ -182,9 +185,11 @@ class OracleClient(Client):
         return self.args.num_rounds * self.args.num_epochs * self.len_loader
 
     def train(self, partial_metric, r=None):
-        #print(self.format_client)
+
+        #self.args.fedprox = FALSE
         if self.args.fedprox:
             self.server_model = copy.deepcopy(self.model)
+
         optimizer, scheduler = get_optimizer_and_scheduler(self.args, self.model.parameters(), self.max_iter())
 
         dict_losses_list = defaultdict(lambda: [])
@@ -198,6 +203,8 @@ class OracleClient(Client):
 
         if self.args.fedprox:
             del self.server_model
+
+        #local_rank=0
         if self.args.local_rank == 0:
             return len(self.dataset), copy.deepcopy(self.model.state_dict()), dict_losses_list
         return len(self.dataset), copy.deepcopy(self.model.state_dict())

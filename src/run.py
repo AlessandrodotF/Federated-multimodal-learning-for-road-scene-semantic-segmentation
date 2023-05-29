@@ -17,13 +17,16 @@ def run_experiment():
 
     writer.write("The experiment begins...")
     #max_score = oracle_trainer.train
-    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+    max_score,max_score_2 = trainer.train(*trainer.train_args, **trainer.train_kwargs)
     writer.write("Training completed.")
 
     if trainer.model.module.task == 'classification':
         writer.write(f"Final Overall Acc: {round(max_score[0] * 100, 3)}%")
     elif trainer.model.module.task == 'segmentation':
         writer.write(f"Final mIoU: {round(max_score[0] * 100, 3)}%")
+        if args.mm_setting=="first":
+            writer.write(f"Final mIoU: {round(max_score_2[0] * 100, 3)}%")
+
     else:
         raise NotImplementedError
 
@@ -42,7 +45,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     args = modify_command_options(args)
     check_args(args)
-
     if args.ignore_warnings:
         warnings.filterwarnings("ignore")
 

@@ -8,8 +8,8 @@ from PIL import Image
 
 class OracleServer(Server):
 
-    def __init__(self, model, model_rgb, writer, local_rank, lr, momentum, optimizer=None, source_dataset=None):
-        super().__init__(model, model_rgb, writer, local_rank, lr, momentum, optimizer=optimizer, source_dataset=source_dataset)
+    def __init__(self, args, model, model_rgb, writer, local_rank, lr, momentum, optimizer=None, source_dataset=None):
+        super().__init__(args, model, model_rgb, writer, local_rank, lr, momentum, optimizer=optimizer, source_dataset=source_dataset)
 
     def train_source(self, *args, **kwargs):
         pass
@@ -27,54 +27,56 @@ class OracleServer(Server):
         return delta
 
     def train_clients(self, partial_metric=None, r=None, metrics=None, target_test_client=None, test_interval=None,
-                      ret_score='Mean IoU'):
-
+                      ret_score='Mean IoU', partial_metric_2=None):
+        #local_rank credo sia sempre 0
         # self.optimizer = None
         if self.optimizer is not None:
             self.optimizer.zero_grad()
         if self.optimizer_rgb is not None:
             self.optimizer_rgb.zero_grad()
 
+
         clients = self.selected_clients
         losses = {}
-
+        losses_rgb = {}
         for i, c in enumerate(clients):
-            self.writer.write(f"CLIENT {i + 1}/{len(clients)}: {c}")
+            self.writer.write(f"CLIENT {i + 1}/{len(clients)}: {c.id} {c.format_client}")
 
-            if c.dataset.root == "data/HHA_DATA":
-                self.format_client="HHA"
-                #show images
-                #c.dataset.root+"/"+c.dataset.images_dir+"/"+c.dataset.paths["x"][0])
-                #c.dataset.root+"/"+c.dataset.target_dir+"/"+c.dataset.paths["y"][0])
-                #image1 = Image.open(c.dataset.root+"/"+c.dataset.images_dir+"/"+c.dataset.paths["x"][9])
-                #image1.show()
-                #image = Image.open(c.dataset.root+"/"+c.dataset.target_dir+"/"+c.dataset.paths["y"][9])
-                #image.show()
+            if c.format_client=="HHA":
+                print("train HHA")
                 c.model.load_state_dict(self.model_params_dict)
+                #def train in oracle client
                 out = c.train(partial_metric, r=r)
+                #local_rank=0
                 if self.local_rank == 0:
                     num_samples, update, dict_losses_list = out
-                    losses[c.id] = {'loss': dict_losses_list, 'num_samples': num_samples}
+                    losses[c.id+c.format_client] = {'loss': dict_losses_list, 'num_samples': num_samples}
                 else:
                     num_samples, update = out
+                #self.optimizer_rgb is NONE
                 if self.optimizer is not None:
                     update = self._compute_client_delta(update)
                 self.updates.append((num_samples, update))
 
             else:
-                self.format_client="RGB"
+                print("train RGB")
+
                 c.model.load_state_dict(self.model_rgb_params_dict)
-                out = c.train(partial_metric, r=r)
+                #def train in oracle client
+                out = c.train(partial_metric_2, r=r)
+                #local_rank=0
                 if self.local_rank == 0:
-                    num_samples, update, dict_losses_list = out
-                    losses[c.id] = {'loss': dict_losses_list, 'num_samples': num_samples}
+                    num_samples, update, dict_losses_rgb_list = out
+                    losses_rgb[c.id+c.format_client] = {'loss': dict_losses_rgb_list, 'num_samples': num_samples}
                 else:
                     num_samples, update = out
+                #self.optimizer_rgb is NONE
                 if self.optimizer_rgb is not None:
                     update = self._compute_client_delta_rgb(update)
                 self.updates_rgb.append((num_samples, update))
+
         if self.local_rank == 0:
-            return losses
+            return losses, losses_rgb
         return None
 
     def _aggregation(self):
@@ -102,11 +104,11 @@ class OracleServer(Server):
                     base[key] += client_samples * value.type(torch.FloatTensor)
                 else:
                     base[key] = client_samples * value.type(torch.FloatTensor)
-        averaged_sol_n = copy.deepcopy(self.model_rgb_params_dict)
+        averaged_sol_n_rgb = copy.deepcopy(self.model_rgb_params_dict)
         for key, value in base.items():
             if total_weight != 0:
-                averaged_sol_n[key] = value.to(self.local_rank) / total_weight
-        return averaged_sol_n
+                averaged_sol_n_rgb[key] = value.to(self.local_rank) / total_weight
+        return averaged_sol_n_rgb
 
     def _server_opt(self, pseudo_gradient):
         for n, p in self.model.named_parameters():
@@ -145,30 +147,40 @@ class OracleServer(Server):
         return total_grad_rgb
 
     def update_model(self):
-        if self.format_client == "RGB":
-            
-            print("RGB AGGREGATION: END OF THE ROUND")
-            averaged_sol_n = self._aggregation_rgb()
 
+        print("AGGREGATION: END OF THE ROUND")
+        if self.args.mm_setting=="first":
+            averaged_sol_n_rgb = self._aggregation_rgb()
+            averaged_sol_n = self._aggregation()
+
+            # self.optimizer_rgb is NONE
             if self.optimizer_rgb is not None:
-                self._server_opt_rgb(averaged_sol_n)
+                self._server_opt_rgb(averaged_sol_n_rgb)
                 self.total_grad_rgb = self._get_model_rgb_total_grad()
             else:
                 #entra qui
-                self.model_rgb.load_state_dict(averaged_sol_n)
-            self.model_rgb_params_dict = copy.deepcopy(self.model_rgb.state_dict())
-
-            self.updates_rgb = []
-        else:
-            print("HHA AGGREGATION: END OF THE ROUND")
-
-            averaged_sol_n = self._aggregation()
+                self.model_rgb.load_state_dict(averaged_sol_n_rgb)
 
             if self.optimizer is not None:
                 self._server_opt(averaged_sol_n)
                 self.total_grad = self._get_model_total_grad()
             else:
                 #entra qui
+                self.model.load_state_dict(averaged_sol_n)
+
+            self.model_rgb_params_dict = copy.deepcopy(self.model_rgb.state_dict())
+            self.model_params_dict = copy.deepcopy(self.model.state_dict())
+
+            self.updates_rgb = []
+            self.updates = []
+
+        else:
+            averaged_sol_n = self._aggregation()
+
+            if self.optimizer is not None:
+                self._server_opt(averaged_sol_n)
+                self.total_grad = self._get_model_total_grad()
+            else:
                 self.model.load_state_dict(averaged_sol_n)
             self.model_params_dict = copy.deepcopy(self.model.state_dict())
 

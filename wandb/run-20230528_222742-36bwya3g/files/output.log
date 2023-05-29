@@ -1,0 +1,281 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/15: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+HHA {'weimar3HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa8c814670>, {'loss_tot': [tensor(2.6003, device='cuda:0')]}), 'num_samples': 34}}
+RGB {'erfurt5RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa8ddb0f70>, {'loss_tot': [tensor(2.2858, device='cuda:0')]}), 'num_samples': 26}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/15: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 HHA
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf1 HHA
+EPOCH 1: ended.
+HHA {'dusseldorf4HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e102c10>, {'loss_tot': [tensor(1.8179, device='cuda:0')]}), 'num_samples': 54}, 'dusseldorf1HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e175820>, {'loss_tot': [tensor(1.9644, device='cuda:0')]}), 'num_samples': 54}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 3/15: Training 2 Clients...
+CLIENT 1/2: erfurt3 RGB
+EPOCH 1: ended.
+CLIENT 2/2: tubingen6 RGB
+EPOCH 1: ended.
+RGB {'erfurt3RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11c700>, {'loss_tot': [tensor(2.4595, device='cuda:0')]}), 'num_samples': 26}, 'tubingen6RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e168940>, {'loss_tot': [tensor(2.2480, device='cuda:0')]}), 'num_samples': 36}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 4/15: Training 2 Clients...
+CLIENT 1/2: tubingen1 HHA
+EPOCH 1: ended.
+CLIENT 2/2: erfurt4 RGB
+EPOCH 1: ended.
+HHA {'tubingen1HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11c820>, {'loss_tot': [tensor(2.1029, device='cuda:0')]}), 'num_samples': 36}}
+RGB {'erfurt4RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11cf70>, {'loss_tot': [tensor(2.1727, device='cuda:0')]}), 'num_samples': 26}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 5/15: Training 2 Clients...
+CLIENT 1/2: cologne2 HHA
+EPOCH 1: ended.
+CLIENT 2/2: darmstadt3 HHA
+EPOCH 1: ended.
+HHA {'cologne2HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11c700>, {'loss_tot': [tensor(1.9569, device='cuda:0')]}), 'num_samples': 38}, 'darmstadt3HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e0f6ca0>, {'loss_tot': [tensor(1.6700, device='cuda:0')]}), 'num_samples': 20}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 6/15: Training 2 Clients...
+CLIENT 1/2: zurich6 RGB
+EPOCH 1: ended.
+CLIENT 2/2: aachen7 HHA
+EPOCH 1: ended.
+HHA {'aachen7HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e168820>, {'loss_tot': [tensor(1.8792, device='cuda:0')]}), 'num_samples': 42}}
+RGB {'zurich6RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e1755e0>, {'loss_tot': [tensor(1.8577, device='cuda:0')]}), 'num_samples': 30}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 7/15: Training 2 Clients...
+CLIENT 1/2: weimar4 HHA
+EPOCH 1: ended.
+CLIENT 2/2: bremen0 RGB
+EPOCH 1: ended.
+HHA {'weimar4HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11c700>, {'loss_tot': [tensor(1.9980, device='cuda:0')]}), 'num_samples': 34}}
+RGB {'bremen0RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e0f6280>, {'loss_tot': [tensor(1.8776, device='cuda:0')]}), 'num_samples': 78}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 8/15: Training 2 Clients...
+CLIENT 1/2: monchengladbach1 RGB
+EPOCH 1: ended.
+CLIENT 2/2: zurich4 HHA
+EPOCH 1: ended.
+HHA {'zurich4HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e137790>, {'loss_tot': [tensor(1.7613, device='cuda:0')]}), 'num_samples': 30}}
+RGB {'monchengladbach1RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e05dc10>, {'loss_tot': [tensor(2.3029, device='cuda:0')]}), 'num_samples': 22}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 9/15: Training 2 Clients...
+CLIENT 1/2: darmstadt2 RGB
+EPOCH 1: ended.
+CLIENT 2/2: hanover0 RGB
+EPOCH 1: ended.
+RGB {'darmstadt2RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11c700>, {'loss_tot': [tensor(1.0563, device='cuda:0')]}), 'num_samples': 20}, 'hanover0RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e166040>, {'loss_tot': [tensor(1.9947, device='cuda:0')]}), 'num_samples': 48}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 10/15: Training 2 Clients...
+CLIENT 1/2: hamburg2 RGB
+EPOCH 1: ended.
+CLIENT 2/2: bremen5 RGB
+EPOCH 1: ended.
+RGB {'hamburg2RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e137790>, {'loss_tot': [tensor(1.6967, device='cuda:0')]}), 'num_samples': 62}, 'bremen5RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e1688b0>, {'loss_tot': [tensor(1.8893, device='cuda:0')]}), 'num_samples': 78}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Case:   HHA
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/500, 4.0%
+test_user HHA: 40/500, 8.0%
+test_user HHA: 60/500, 12.0%
+test_user HHA: 80/500, 16.0%
+test_user HHA: 100/500, 20.0%
+test_user HHA: 120/500, 24.0%
+test_user HHA: 140/500, 28.0%
+test_user HHA: 160/500, 32.0%
+test_user HHA: 180/500, 36.0%
+test_user HHA: 200/500, 40.0%
+test_user HHA: 220/500, 44.0%
+test_user HHA: 240/500, 48.0%
+test_user HHA: 260/500, 52.0%
+test_user HHA: 280/500, 56.0%
+test_user HHA: 300/500, 60.0%
+test_user HHA: 320/500, 64.0%
+test_user HHA: 340/500, 68.0%
+test_user HHA: 360/500, 72.0%
+test_user HHA: 380/500, 76.0%
+test_user HHA: 400/500, 80.0%
+test_user HHA: 420/500, 84.0%
+test_user HHA: 440/500, 88.0%
+test_user HHA: 460/500, 92.0%
+test_user HHA: 480/500, 96.0%
+test_user HHA: 500/500, 100.0%
+Done.
+New best result found at round 10
+ PROVA Test mean iou at round 10: 2.287%
+Case:   RGB
+Testing...
+Client 1/1 - test_user RGB
+test_user RGB: 20/500, 4.0%
+test_user RGB: 40/500, 8.0%
+test_user RGB: 60/500, 12.0%
+test_user RGB: 80/500, 16.0%
+test_user RGB: 100/500, 20.0%
+test_user RGB: 120/500, 24.0%
+test_user RGB: 140/500, 28.0%
+test_user RGB: 160/500, 32.0%
+test_user RGB: 180/500, 36.0%
+test_user RGB: 200/500, 40.0%
+test_user RGB: 220/500, 44.0%
+test_user RGB: 240/500, 48.0%
+test_user RGB: 260/500, 52.0%
+test_user RGB: 280/500, 56.0%
+test_user RGB: 300/500, 60.0%
+test_user RGB: 320/500, 64.0%
+test_user RGB: 340/500, 68.0%
+test_user RGB: 360/500, 72.0%
+test_user RGB: 380/500, 76.0%
+test_user RGB: 400/500, 80.0%
+test_user RGB: 420/500, 84.0%
+test_user RGB: 440/500, 88.0%
+test_user RGB: 460/500, 92.0%
+test_user RGB: 480/500, 96.0%
+test_user RGB: 500/500, 100.0%
+Done.
+New best result found at round 10
+ PROVA Test mean iou at round 10: 1.987%
+ROUND 11/15: Training 2 Clients...
+CLIENT 1/2: strasbourg5 RGB
+EPOCH 1: ended.
+CLIENT 2/2: hamburg2 RGB
+EPOCH 1: ended.
+RGB {'strasbourg5RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11c4c0>, {'loss_tot': [tensor(1.7418, device='cuda:0')]}), 'num_samples': 90}, 'hamburg2RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e1684c0>, {'loss_tot': [tensor(1.8788, device='cuda:0')]}), 'num_samples': 62}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 12/15: Training 2 Clients...
+CLIENT 1/2: aachen3 HHA
+EPOCH 1: ended.
+CLIENT 2/2: zurich4 HHA
+EPOCH 1: ended.
+HHA {'aachen3HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e1688b0>, {'loss_tot': [tensor(1.2638, device='cuda:0')]}), 'num_samples': 42}, 'zurich4HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e137790>, {'loss_tot': [tensor(1.8752, device='cuda:0')]}), 'num_samples': 30}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 13/15: Training 2 Clients...
+CLIENT 1/2: hamburg6 RGB
+EPOCH 1: ended.
+CLIENT 2/2: erfurt1 RGB
+EPOCH 1: ended.
+RGB {'hamburg6RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e1684c0>, {'loss_tot': [tensor(1.7369, device='cuda:0')]}), 'num_samples': 62}, 'erfurt1RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e11c4c0>, {'loss_tot': [tensor(2.0791, device='cuda:0')]}), 'num_samples': 26}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 14/15: Training 2 Clients...
+CLIENT 1/2: stuttgart3 RGB
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf5 HHA
+EPOCH 1: ended.
+HHA {'dusseldorf5HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e0409d0>, {'loss_tot': [tensor(1.6604, device='cuda:0')]}), 'num_samples': 54}}
+RGB {'stuttgart3RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e175700>, {'loss_tot': [tensor(2.1976, device='cuda:0')]}), 'num_samples': 48}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 15/15: Training 2 Clients...
+CLIENT 1/2: monchengladbach2 HHA
+EPOCH 1: ended.
+CLIENT 2/2: hamburg0 RGB
+EPOCH 1: ended.
+HHA {'monchengladbach2HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e1684c0>, {'loss_tot': [tensor(2.6445, device='cuda:0')]}), 'num_samples': 22}}
+RGB {'hamburg0RGB': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7faa6e1688b0>, {'loss_tot': [tensor(1.5998, device='cuda:0')]}), 'num_samples': 62}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Case:   HHA
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/500, 4.0%
+test_user HHA: 40/500, 8.0%
+test_user HHA: 60/500, 12.0%
+test_user HHA: 80/500, 16.0%
+test_user HHA: 100/500, 20.0%
+test_user HHA: 120/500, 24.0%
+test_user HHA: 140/500, 28.0%
+test_user HHA: 160/500, 32.0%
+test_user HHA: 180/500, 36.0%
+test_user HHA: 200/500, 40.0%
+test_user HHA: 220/500, 44.0%
+test_user HHA: 240/500, 48.0%
+test_user HHA: 260/500, 52.0%
+test_user HHA: 280/500, 56.0%
+test_user HHA: 300/500, 60.0%
+test_user HHA: 320/500, 64.0%
+test_user HHA: 340/500, 68.0%
+test_user HHA: 360/500, 72.0%
+test_user HHA: 380/500, 76.0%
+test_user HHA: 400/500, 80.0%
+test_user HHA: 420/500, 84.0%
+test_user HHA: 440/500, 88.0%
+test_user HHA: 460/500, 92.0%
+test_user HHA: 480/500, 96.0%
+test_user HHA: 500/500, 100.0%
+Done.
+New best result found at round 15
+ PROVA Test mean iou at round 15: 2.979%
+Case:   RGB
+Testing...
+Client 1/1 - test_user RGB
+test_user RGB: 20/500, 4.0%
+test_user RGB: 40/500, 8.0%
+test_user RGB: 60/500, 12.0%
+test_user RGB: 80/500, 16.0%
+test_user RGB: 100/500, 20.0%
+test_user RGB: 120/500, 24.0%
+test_user RGB: 140/500, 28.0%
+test_user RGB: 160/500, 32.0%
+test_user RGB: 180/500, 36.0%
+test_user RGB: 200/500, 40.0%
+test_user RGB: 220/500, 44.0%
+test_user RGB: 240/500, 48.0%
+test_user RGB: 260/500, 52.0%
+test_user RGB: 280/500, 56.0%
+test_user RGB: 300/500, 60.0%
+test_user RGB: 320/500, 64.0%
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 51, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 20, in run_experiment
+    max_score,max_score_2 = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 92, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 85, in perform_fed_oracle_training
+    max_scores_2, _ = self.test(self.target_test_clients_2, test_metric, r, 'ROUND', max_scores_2,
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 352, in test
+    scores = self.perform_test(metric, test_clients, step)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 316, in perform_test
+    loss = c.test(metric, swa=swa)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 254, in test
+    self.update_metric(metric, outputs, labels, is_test=True)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 91, in update_metric
+    labels = labels.cpu().numpy()
+KeyboardInterrupt

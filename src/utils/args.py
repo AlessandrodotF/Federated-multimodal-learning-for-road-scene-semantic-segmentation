@@ -332,5 +332,6 @@ def parse_args():
                         help='not update train metrics if set')
     parser.add_argument('--save_clients_order', action='store_true', default=False,
                         help='save to file the order of clients per round, for debug')
+    parser.add_argument('--mm_setting', type=str, default='first', help='experiment type')
 
     return parser
