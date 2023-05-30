@@ -24,7 +24,6 @@ class OracleTrainer(Trainer):
     def perform_fed_oracle_training(self, partial_train_metric, eval_train_metric, test_metric, partial_train_metric_2,
                                     eval_train_metric_2, test_metric_2, max_scores=None, max_scores_2=None):
 
-        #inizializza il vettore:
         if max_scores is None:
             max_scores = [0]*len(self.target_test_clients)
             max_scores_2 = [0]*len(self.target_test_clients_2)
@@ -35,6 +34,7 @@ class OracleTrainer(Trainer):
 
             #train singolo round
             ########################################################################
+
             self.server.select_clients(r, self.target_train_clients, num_clients=self.args.clients_per_round)
 
 
@@ -74,11 +74,16 @@ class OracleTrainer(Trainer):
             #     self.save_model(r + 1, optimizer=self.server.optimizer)
 
 
-            # if (r + 1) % self.args.eval_interval == 0 and \
-            #         self.all_target_client.loader.dataset.ds_type not in ('unsupervised',):
-            #     # dovrebbe essere cambiato ma non viene usato
-            #     self.test([self.all_target_client], eval_train_metric, r, 'ROUND', self.get_fake_max_scores(False, 1),
-            #               cl_type='target')
+            if (r + 1) % self.args.eval_interval == 0 and \
+                    self.all_target_client.loader.dataset.ds_type not in ('unsupervised',):
+                if self.args.mm_setting=="first":
+                    self.test([self.all_target_client], eval_train_metric, r, 'ROUND', self.get_fake_max_scores(False, 1),
+                              cl_type='target')
+                    self.test([self.all_target_client_2], eval_train_metric_2, r, 'ROUND', self.get_fake_max_scores(False, 1),
+                              cl_type='target')
+                else:
+                    self.test([self.all_target_client], eval_train_metric, r, 'ROUND', self.get_fake_max_scores(False, 1),
+                              cl_type='target')
 
             if (r + 1) % self.args.test_interval == 0 or (r + 1) == self.args.num_rounds:
                 #sembra entrare solo qui, self.test si riferisce a general_trainer

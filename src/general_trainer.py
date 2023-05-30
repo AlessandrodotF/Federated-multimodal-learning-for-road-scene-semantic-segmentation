@@ -53,7 +53,7 @@ class GeneralTrainer(object):
                                     'num_gpu': args.n_devices, 'device': device}
 
         self.source_train_clients, self.source_test_clients = [], []
-        self.target_train_clients, self.target_test_clients, self.target_test_clients_2= [], [],[]
+        self.target_train_clients, self.target_test_clients, self.target_test_clients_2= [], [], []
         self.__clients_setup()
         writer.write('Done.')
 

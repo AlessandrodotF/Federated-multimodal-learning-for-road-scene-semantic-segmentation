@@ -19,7 +19,7 @@ CL_TYPE = {
 }
 
 MODELS = {
-    'cityscapes': ['deeplabv3'],
+    'cityscapes': ['deeplabv3', 'multi_deeplabv3'],
     'crosscity': ['deeplabv3'],
     'mapillary': ['deeplabv3'],
 }

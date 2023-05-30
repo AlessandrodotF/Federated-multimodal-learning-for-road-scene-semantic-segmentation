@@ -9,20 +9,41 @@ class Trainer(GeneralTrainer):
 
     def __init__(self, args, writer, device, rank, world_size):
         super().__init__(args, writer, device, rank, world_size)
-        self.all_target_client = self.gen_all_target_client()
 
+        if self.args.mm_setting=="first":
+            self.all_train_list = self.gen_all_target_client()
+            if self.all_train_list[0].format_client=="RGB":
+                self.all_target_client_2=self.all_train_list[0]
+            else:
+                self.all_target_client_2 = self.all_train_list[1]
+
+            if self.all_train_list[1].format_client=="HHA":
+                self.all_target_client = self.all_train_list[1]
+            else:
+                self.all_target_client = self.all_train_list[0]
+
+        else:
+            self.all_target_client = self.gen_all_target_client()
+
+        print("ciao")
     def gen_all_target_client(self):
         client_class = dynamic_import(self.args.framework, self.args.fw_task, 'client')
+
         if self.args.mm_setting=="first":
-            #ci entra solo una volta, chiamato da general trainer
-            if self.clients_args['all_train'][0]["dataset"].root == "data/HHA_DATA":
-                #entra qui
-                cl_args = {**self.clients_shared_args, **self.clients_args['all_train'][0]}
-            else:
-                cl_args = {**self.clients_shared_args_rgb, **self.clients_args['all_train'][0]}
+            all_train_list=[]
+            for i in range (0,len(self.clients_args["all_train"])):
+
+                if self.clients_args['all_train'][i]["dataset"].root == "data":
+                    cl_args = {**self.clients_shared_args_rgb, **self.clients_args['all_train'][i]}
+                else:
+                    cl_args = {**self.clients_shared_args, **self.clients_args['all_train'][i]}
+
+                all_train_list.append(client_class(**cl_args,batch_size=self.args.test_batch_size, test_user=True))
+            return all_train_list
+
         else:
             cl_args = {**self.clients_shared_args, **self.clients_args['all_train'][0]}
-        return client_class(**cl_args, batch_size=self.args.test_batch_size, test_user=True)
+            return client_class(**cl_args, batch_size=self.args.test_batch_size, test_user=True)
 
     def server_setup(self):
         server_class = dynamic_import(self.args.framework, self.args.fw_task, 'server')

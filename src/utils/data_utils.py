@@ -163,8 +163,22 @@ class DatasetHandler(object):
                         ds_new.root="data"
                         self.clients_args[split].append({'client_id': user, 'dataset': ds_new})
 
+        if self.args.framework == 'federated' and self.args.mm_setting=="first":
+            ds = self.__gen_ds(all_train_data['centralized_user'],
+                               dataset_name, dataset, train_transform, test_transform, split='test')
 
-        if self.args.framework == 'federated':
+            self.clients_args['all_train'].append({'client_id': 'all_target_train_data', 'dataset': ds})
+
+            if ds.root == "data":
+                ds_new = copy.copy(ds)
+                ds_new.root = "data/HHA_DATA"
+                self.clients_args['all_train'].append({'client_id': 'all_target_train_data', 'dataset': ds_new})
+            else:
+                ds_new = copy.copy(ds)
+                ds_new.root = "data"
+                self.clients_args['all_train'].append({'client_id': 'all_target_train_data', 'dataset': ds_new})
+
+        if self.args.framework == 'federated'and self.args.mm_setting!="first":
             ds = self.__gen_ds(all_train_data['centralized_user'],
                                dataset_name, dataset, train_transform, test_transform, split='test')
             self.clients_args['all_train'].append({'client_id': 'all_target_train_data', 'dataset': ds})

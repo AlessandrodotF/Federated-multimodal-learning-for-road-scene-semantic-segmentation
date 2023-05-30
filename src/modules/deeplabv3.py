@@ -7,6 +7,21 @@ from .mobilenetv2 import MobileNetV2
 from torchvision.models.feature_extraction import create_feature_extractor
 from torchvision.models.segmentation.deeplabv3 import DeepLabV3, DeepLabHead
 from torchvision._internally_replaced_utils import load_state_dict_from_url
+from torch import nn
+class multi_deeplabv3(nn.Module):
+    def __init__(self, backbone1,backbone2, classifier):
+        super().__init__()
+        self.backbone1=backbone1
+        self.backbone2=backbone2
+        self.classifier= classifier
+
+    def forward(self, x,z):
+        x=self.backbone1(x)
+        z=self.backbone2(z)
+        x=self.classifier(x)
+        z=self.classifier(z)
+
+        return x,z
 
 
 def _deeplabv3_mobilenetv2(
