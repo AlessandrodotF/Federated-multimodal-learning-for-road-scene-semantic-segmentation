@@ -1,0 +1,68 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/15: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+end
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+end
+{'Total samples': array(56), 'Overall Acc': 0.3055006768921618, 'Mean Acc': 0.08740321188583791, 'Mean Precision': 0.09267607041158292, 'FreqW Acc': 0.19081536573971872, 'Mean IoU': 0.0458909573625919, 'Class IoU': {0: 0.27302554291262154, 1: 0.13568296875712524, 2: 0.2570593152804784, 3: 0.0, 4: 0.0, 5: 0.012112108912718925, 6: 0.0, 7: 0.0, 8: 0.02957916068308191, 9: 0.0, 10: 0.013390704471487682, 11: 0.00995278638776662, 12: 0.0, 13: 0.003452730396189982, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Acc': {0: 0.46667891799783356, 1: 0.14470278805024692, 2: 0.41001831325608096, 3: 0.0, 4: 0.0, 5: 0.013813463570586673, 6: 0.0, 7: 0.0, 8: 0.036842284972758085, 9: 0.0, 10: 0.25197288370408577, 11: 0.07044339534988228, 12: 0.0, 13: 0.003979343271932264, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Prec': {0: 0.39684743093338576, 1: 0.6852108118802807, 2: 0.4079572404450298, 3: 0.0, 4: 0.0, 5: 0.08953460900318104, 6: 0.0, 7: 0.0, 8: 0.1304655164383531, 9: 0.0, 10: 0.013945058623860624, 11: 0.01145756485334424, 12: 0.0, 13: 0.02542710564264016, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 117, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 64, in perform_fed_oracle_training
+    self.server.update_model()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 265, in update_model
+    averaged_sol_n_hha, averaged_sol_n_rgb, averaged_sol_n_decoder = self._aggregation_second_exp()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 187, in _aggregation_second_exp
+    for key, value in base_hha.items():
+KeyboardInterrupt
+Exception ignored in: '_pydevd_frame_eval.pydevd_frame_evaluator.get_bytecode_while_frame_eval'
+Traceback (most recent call last):
+  File "_pydevd_frame_eval/pydevd_frame_evaluator.pyx", line 167, in _pydevd_frame_eval.pydevd_frame_evaluator.get_func_code_info
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd_file_utils.py", line 577, in get_abs_path_real_path_and_base_from_file
+    abs_path, real_path = _NormPaths(f)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd_file_utils.py", line 238, in _NormPaths
+    real_path = _NormPath(filename, rPath)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd_file_utils.py", line 246, in _NormPath
+    r = normpath(filename)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/posixpath.py", line 392, in realpath
+    path, ok = _joinrealpath(filename[:0], filename, {})
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/posixpath.py", line 426, in _joinrealpath
+    if not islink(newpath):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/posixpath.py", line 167, in islink
+    st = os.lstat(path)
+KeyboardInterrupt:
+Exception ignored in: <module 'threading' from '/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py'>
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py", line 1435, in _shutdown
+    atexit_call()
+SystemError: <function _python_exit at 0x7f604c973700> returned NULL without setting an error

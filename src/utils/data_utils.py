@@ -89,7 +89,7 @@ class DatasetHandler(object):
 
     def __gen_ds(self, paths, dataset_name, dataset, train_transform, test_transform, split='train', hp_filtered=False):
 
-        if self.args.mm_setting=="first":
+        if self.args.mm_setting=="first" or self.args.mm_setting=="second":
             #self.format_client = np.random.choice(["RGB", "HHA", "MIX"])
             self.format_client = np.random.choice(["RGB", "HHA"])
             if dataset_name == 'cityscapes':
@@ -107,7 +107,7 @@ class DatasetHandler(object):
                     #return dataset(paths, 'data/MIX_DATA', transform=train_transform, test_transform=test_transform,
                                    #hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
                                   # quadruple=self.args.quadruple_dataset and split == 'train')
-        else:
+        if self.args.mm_setting=="zero":
             if dataset_name == 'cityscapes':
                 return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
                                hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',

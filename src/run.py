@@ -13,17 +13,19 @@ def run_experiment():
 
     trainer_class = dynamic_import(args.framework, args.fw_task, 'trainer')
     trainer = trainer_class(args, writer, device, rank, world_size)
-    #trainer=OracleTrainer(...)
-
     writer.write("The experiment begins...")
-    #max_score = oracle_trainer.train
-    max_score,max_score_2 = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+
+    if args.mm_setting=="first":
+        max_score,max_score_2 = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+    else:
+        max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
     writer.write("Training completed.")
 
     if trainer.model.module.task == 'classification':
         writer.write(f"Final Overall Acc: {round(max_score[0] * 100, 3)}%")
     elif trainer.model.module.task == 'segmentation':
         writer.write(f"Final mIoU: {round(max_score[0] * 100, 3)}%")
+
         if args.mm_setting=="first":
             writer.write(f"Final mIoU: {round(max_score_2[0] * 100, 3)}%")
 

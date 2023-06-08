@@ -6,36 +6,35 @@ from torch import optim
 
 class Server:
 
-    def __init__(self, args, model, model_rgb, writer, local_rank, lr, momentum, optimizer, source_dataset):
-        #questi credo di poterli lasciare invariati
-        self.args=args
+    def __init__(self, args, model, writer, local_rank, lr, momentum, optimizer, source_dataset, model_rgb):
+
+        self.args = args
         self.momentum = momentum
         self.lr = lr
         self.writer = writer
         self.selected_clients = []
         self.local_rank = local_rank
-
         self.source_dataset = source_dataset
         self.opt_string = optimizer #è None
-
         self.total_grad = 0
-        self.total_grad_rgb = 0
-
         self.model = copy.deepcopy(model)
-        self.model_rgb = copy.deepcopy(model_rgb)
-
         self.model_params_dict = copy.deepcopy(self.model.state_dict())
-        self.model_rgb_params_dict = copy.deepcopy(self.model_rgb.state_dict())
-
-        self.updates = []
-        self.updates_rgb = []
-
         self.optimizer = self.__get_optimizer()
-        self.optimizer_rgb = self.__get_optimizer_rgb()
-
         self.swa_model = None
-        self.swa_model_rgb = None
+        self.updates = []
 
+        if self.args.mm_setting == "first":
+            self.total_grad_rgb = 0
+            self.model_rgb = copy.deepcopy(model_rgb)
+            self.model_rgb_params_dict = copy.deepcopy(self.model_rgb.state_dict())
+            self.updates_rgb = []
+            self.optimizer_rgb = self.__get_optimizer_rgb()
+            self.swa_model_rgb = None
+
+        if self.args.mm_setting == "second":
+            self.rgb_backbone_params_dict = copy.deepcopy(self.model.module.rgb_backbone.state_dict())
+            self.hha_backbone_params_dict = copy.deepcopy(self.model.module.hha_backbone.state_dict())
+            self.classifier_params_dict = copy.deepcopy(self.model.module.classifier.state_dict())
 
     def train_source(self, *args, **kwargs):
         raise NotImplementedError
@@ -110,12 +109,3 @@ class Server:
             param1.data += param2.data * alpha
 
 
-    def setup_swa_model_rgb(self, swa_ckpt=None):
-        self.swa_model_rgb = copy.deepcopy(self.model_rgb)
-        if swa_ckpt is not None:
-            self.swa_model_rgb.load_state_dict(swa_ckpt)
-
-    def update_swa_model_rgb(self, alpha):
-        for param1, param2 in zip(self.swa_model_rgb.parameters(), self.model_rgb.parameters()):
-            param1.data *= (1.0 - alpha)
-            param1.data += param2.data * alpha

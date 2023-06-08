@@ -1,0 +1,79 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/15: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+end
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+end
+{'Total samples': array(56), 'Overall Acc': 0.30442424909631555, 'Mean Acc': 0.08716430332745535, 'Mean Precision': 0.0926120448578724, 'FreqW Acc': 0.18991147683575263, 'Mean IoU': 0.04568551949260583, 'Class IoU': {0: 0.2728669071427331, 1: 0.1341779742423299, 2: 0.2548084336997926, 3: 0.0, 4: 0.0, 5: 0.012112108912718925, 6: 0.0, 7: 0.0, 8: 0.030234392464958737, 9: 0.0, 10: 0.013390704471487682, 11: 0.00995278638776662, 12: 0.0, 13: 0.0034250045599057448, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Acc': {0: 0.4675654960664552, 1: 0.14301452578301727, 2: 0.40621314635248545, 3: 0.0, 4: 0.0, 5: 0.013813463570586673, 6: 0.0, 7: 0.0, 8: 0.037653881611852846, 9: 0.0, 10: 0.25197288370408577, 11: 0.07044339534988228, 12: 0.0, 13: 0.0039520608009199956, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Prec': {0: 0.3958745875836912, 1: 0.684701098164165, 2: 0.4060493065401585, 3: 0.0, 4: 0.0, 5: 0.08953460900318104, 6: 0.0, 7: 0.0, 8: 0.13302773576203267, 9: 0.0, 10: 0.013945058623860624, 11: 0.01145756485334424, 12: 0.0, 13: 0.025038891769142434, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 117, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 64, in perform_fed_oracle_training
+    self.server.update_model()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 264, in update_model
+    else:
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 117, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 64, in perform_fed_oracle_training
+    self.server.update_model()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 264, in update_model
+    else:
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 155, in _aggregation_second_exp
+    total_weight_hha += client_samples
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 155, in _aggregation_second_exp
+    total_weight_hha += client_samples
+  File "_pydevd_bundle/pydevd_cython.pyx", line 1589, in _pydevd_bundle.pydevd_cython.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython.pyx", line 929, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 920, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 317, in _pydevd_bundle.pydevd_cython.PyDBFrame.do_wait_suspend
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1160, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1175, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2179, in main
+    handle_keyboard_interrupt()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1997, in handle_keyboard_interrupt
+    traceback.print_exception(type(value), value, tb, limit=limit)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 105, in print_exception
+    print(line, file=file, end="")
+KeyboardInterrupt

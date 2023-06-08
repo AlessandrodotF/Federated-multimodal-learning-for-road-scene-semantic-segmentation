@@ -36,7 +36,8 @@ class GeneralTrainer(object):
         writer.write(f'Initializing model...')
         #parte originale: la posso usare per HHA
         self.model = self.model_init(args, device)
-        self.model_rgb = self.model_init(args, device)
+        if self.args.mm_setting=="first":
+            self.model_rgb = self.model_init(args, device)
         writer.write('Done.')
 
         writer.write(f'Initializing datasets...')
@@ -47,18 +48,18 @@ class GeneralTrainer(object):
         self.clients_shared_args = {'args': self.args, 'model': self.model,
                                     'writer': self.writer, 'world_size': world_size, 'rank': rank,
                                     'num_gpu': args.n_devices, 'device': device}
-
-        self.clients_shared_args_rgb = {'args': self.args, 'model': self.model_rgb,
+        if self.args.mm_setting=="first":
+            self.target_test_clients_2 = []
+            self.clients_shared_args_rgb = {'args': self.args, 'model': self.model_rgb,
                                     'writer': self.writer, 'world_size': world_size, 'rank': rank,
                                     'num_gpu': args.n_devices, 'device': device}
 
         self.source_train_clients, self.source_test_clients = [], []
-        self.target_train_clients, self.target_test_clients, self.target_test_clients_2= [], [], []
+        self.target_train_clients, self.target_test_clients = [], []
         self.__clients_setup()
         writer.write('Done.')
 
         writer.write(f'Initializing server...')
-        #sul server avrò entrambi i modelli
         self.server = self.server_setup()
         writer.write('Done.')
 
@@ -66,8 +67,9 @@ class GeneralTrainer(object):
         self.ret_score = self.__get_ret_score()
         self.metrics = self.set_metrics(writer, args.num_classes)
 
-        self.ret_score_2 = self.__get_ret_score()
-        self.metrics_2 = self.set_metrics(writer, args.num_classes)
+        if self.args.mm_setting=="first":
+            self.ret_score_2 = self.__get_ret_score()
+            self.metrics_2 = self.set_metrics(writer, args.num_classes)
 
         self.checkpoint_step = 0
         self.ckpt_path = os.path.join('checkpoints', args.framework, args.source_dataset, args.target_dataset,
@@ -151,25 +153,27 @@ class GeneralTrainer(object):
 
                 cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
 
-                if 'source' not in str(cl):
-                    """ci entra 145 di cui volte"""
-
-                    if split == 'train':
-                        """ 145-numero modelli usati """
-                        self.target_train_clients.append(cl)
-                    else:
-                        if len(self.target_test_clients)==0:
-                            """ = numero dei modelli usati """
-                            self.target_test_clients.append(cl)
+                if self.args.mm_setting=="first":
+                    if 'source' not in str(cl):
+                        """ci entra 145 di cui volte"""
+                        if split == 'train':
+                            """ 145-numero modelli usati """
+                            self.target_train_clients.append(cl)
                         else:
-                            self.target_test_clients_2.append(cl)
-
+                            if len(self.target_test_clients)==0:
+                                """ = numero dei modelli usati """
+                                self.target_test_clients.append(cl)
+                            else:
+                                self.target_test_clients_2.append(cl)
+                    else:
+                        """non ci entra mai"""
+                        self.source_train_clients.append(cl) if split == 'train' else self.source_test_clients.append(cl)
 
                 else:
-                    """non ci entra mai"""
-                    self.source_train_clients.append(cl) if split == 'train' else self.source_test_clients.append(cl)
-
-
+                    if 'source' not in str(cl):
+                        self.target_train_clients.append(cl) if split == 'train' else self.target_test_clients.append(cl)
+                    else:
+                        self.source_train_clients.append(cl) if split == 'train' else self.source_test_clients.append(cl)
 
     def __get_ret_score(self):
         if self.args.mm_setting =="first":
@@ -308,9 +312,7 @@ class GeneralTrainer(object):
             self.writer.write(f"Client {i + 1}/{len(test_clients)} - {c}")
             swa = False
             if self.server is not None:
-                #entra qui ma non sotto
                 if self.server.swa_model is not None:
-
                     c.model.load_state_dict(self.server.swa_model.state_dict())
                     swa = True
             #è dentro oracle client
@@ -318,16 +320,22 @@ class GeneralTrainer(object):
             if type(metric) == list:
                 for m in metric:
                     self.writer.plot_step_loss(m.name, step, loss)
-                    if c.format_client == "RGB":
-                        self.writer.plot_metric(step, metric, str(c), self.ret_score_2)
+                    if self.args.mm_setting=="first":
+                        if c.format_client == "RGB":
+                            self.writer.plot_metric(step, metric, str(c), self.ret_score_2)
+                        else:
+                            self.writer.plot_metric(step, metric, str(c), self.ret_score)
                     else:
                         self.writer.plot_metric(step, metric, str(c), self.ret_score)
-                    print(str(c))
+
                 scores.append(metric[0].get_results())
             else:
                 self.writer.plot_step_loss(metric.name, step, loss)
-                if c.format_client=="RGB":
-                    self.writer.plot_metric(step, metric, str(c), self.ret_score_2)
+                if self.args.mm_setting == "first":
+                    if c.format_client=="RGB":
+                        self.writer.plot_metric(step, metric, str(c), self.ret_score_2)
+                    else:
+                        self.writer.plot_metric(step, metric, str(c), self.ret_score)
                 else:
                     self.writer.plot_metric(step, metric, str(c), self.ret_score)
 
@@ -345,17 +353,18 @@ class GeneralTrainer(object):
         mean_max_score = sum(max_scores) / len(max_scores)
 
         if self.server is not None:
-            #entra qui
             if self.server.swa_model is not None:
-                #ma non qui
                 tmp_model = copy.deepcopy(test_clients[0].model.state_dict())
 
         scores = self.perform_test(metric, test_clients, step)
 
         metric = metric[0] if isinstance(metric, list) else metric
 
-        if test_clients[0].format_client=="RGB":
-            ref_scores = [s[self.ret_score_2] for s in scores]
+        if self.args.mm_setting=="first":
+            if test_clients[0].format_client=="RGB":
+                ref_scores = [s[self.ret_score_2] for s in scores]
+            else:
+                ref_scores = [s[self.ret_score] for s in scores]
         else:
             ref_scores = [s[self.ret_score] for s in scores]
 

@@ -25,7 +25,6 @@ class Trainer(GeneralTrainer):
         else:
             self.all_target_client = self.gen_all_target_client()
 
-        print("ciao")
     def gen_all_target_client(self):
         client_class = dynamic_import(self.args.framework, self.args.fw_task, 'client')
 
@@ -49,7 +48,7 @@ class Trainer(GeneralTrainer):
         server_class = dynamic_import(self.args.framework, self.args.fw_task, 'server')
         if self.args.mm_setting=="first":
             #sul server ho entrambi i modelli
-            server = server_class(self.args, self.model, self.model_rgb, self.writer, self.args.local_rank, self.args.server_lr,self.args.server_momentum, self.args.server_opt, self.args.source_dataset)
+            server = server_class(self.args, self.model, self.writer, self.args.local_rank, self.args.server_lr,self.args.server_momentum, self.args.server_opt, self.args.source_dataset, self.model_rgb)
         else:
             server = server_class(self.args, self.model, self.writer, self.args.local_rank, self.args.server_lr,
                                   self.args.server_momentum, self.args.server_opt, self.args.source_dataset)
@@ -98,20 +97,19 @@ class Trainer(GeneralTrainer):
         raise NotImplementedError
 
     def plot_train_metric(self, r, metric, losses, plot_metric=True):
-        #local_rank = 0
+        #OK
         if self.args.local_rank == 0:
             round_losses = weight_train_loss(losses)
             self.writer.plot_step_loss(metric.name, r, round_losses)
             if plot_metric:
                 if self.args.mm_setting=="first":
-                    print(list(losses.keys()))
                     if "RGB" in list(losses.keys())[0]:
-                        print(losses.keys())
+                        print("plot_train_metric RGB case")
+
                         self.writer.plot_metric(r, metric, 'RGB', self.ret_score_2)
                     else:
-                        print(losses.keys())
+                        print("plot_train_metric HHA case")
                         self.writer.plot_metric(r, metric, 'HHA', self.ret_score)
                 else:
-                    print(losses.keys())
                     self.writer.plot_metric(r, metric, '', self.ret_score)
 

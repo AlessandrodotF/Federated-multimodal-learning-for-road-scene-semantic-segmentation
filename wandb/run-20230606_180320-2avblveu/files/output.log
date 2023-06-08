@@ -1,0 +1,83 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/15: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+end
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+end
+{'Total samples': array(56), 'Overall Acc': 0.3033944740907755, 'Mean Acc': 0.0869688781967019, 'Mean Precision': 0.09212694301982158, 'FreqW Acc': 0.1891485427948362, 'Mean IoU': 0.045531198639435916, 'Class IoU': {0: 0.272067501730504, 1: 0.13392616333181628, 2: 0.25328196937149755, 3: 0.0, 4: 0.0, 5: 0.012112108912718925, 6: 0.0, 7: 0.0, 8: 0.03035881862940276, 9: 0.0, 10: 0.013390704471487682, 11: 0.00995278638776662, 12: 0.0, 13: 0.0034091253957808814, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Acc': {0: 0.466815176710099, 1: 0.14302714044503892, 2: 0.40367814986193473, 3: 0.0, 4: 0.0, 5: 0.013813463570586673, 6: 0.0, 7: 0.0, 8: 0.037811473192259595, 9: 0.0, 10: 0.25197288370408577, 11: 0.07044339534988228, 12: 0.0, 13: 0.003940368313343309, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Prec': {0: 0.39472910242502923, 1: 0.6779105340188148, 2: 0.4047029890846962, 3: 0.0, 4: 0.0, 5: 0.08953460900318104, 6: 0.0, 7: 0.0, 8: 0.13346931206996598, 9: 0.0, 10: 0.013945058623860624, 11: 0.01145756485334424, 12: 0.0, 13: 0.024662747297717592, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 136, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 81, in perform_fed_oracle_training
+    self.server.update_model()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 278, in update_model
+    self.model.module.rgb_backbone.load_state_dict(averaged_sol_n_rgb)
+KeyboardInterrupt
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydevd_bundle/pydevd_constants.py", line 58, in dummy_excepthook
+    def dummy_excepthook(exctype, value, traceback):
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2177, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1489, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1496, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 136, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 81, in perform_fed_oracle_training
+    self.server.update_model()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 278, in update_model
+    self.model.module.rgb_backbone.load_state_dict(averaged_sol_n_rgb)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 278, in update_model
+    self.model.module.rgb_backbone.load_state_dict(averaged_sol_n_rgb)
+  File "_pydevd_bundle/pydevd_cython.pyx", line 1589, in _pydevd_bundle.pydevd_cython.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython.pyx", line 929, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 920, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 317, in _pydevd_bundle.pydevd_cython.PyDBFrame.do_wait_suspend
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1160, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1175, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt

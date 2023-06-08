@@ -2,26 +2,99 @@ import copy
 from collections import OrderedDict
 
 import torch
-
 from .mobilenetv2 import MobileNetV2
 from torchvision.models.feature_extraction import create_feature_extractor
 from torchvision.models.segmentation.deeplabv3 import DeepLabV3, DeepLabHead
 from torchvision._internally_replaced_utils import load_state_dict_from_url
 from torch import nn
-class multi_deeplabv3(nn.Module):
-    def __init__(self, backbone1,backbone2, classifier):
-        super().__init__()
-        self.backbone1=backbone1
-        self.backbone2=backbone2
-        self.classifier= classifier
 
-    def forward(self, x,z):
-        x=self.backbone1(x)
-        z=self.backbone2(z)
-        x=self.classifier(x)
-        z=self.classifier(z)
+class MultiDeepLabV3(nn.Module):
+    def __init__(self, backbone1, backbone2, classifier):
+        super(MultiDeepLabV3, self).__init__()
+        self.rgb_backbone = backbone1
+        self.hha_backbone = backbone2
+        self.classifier = classifier
 
-        return x,z
+    def forward(self, x_rgb=None, z_hha=None):
+        if x_rgb is not None:
+            features = self.rgb_backbone(x_rgb)
+            output = self.classifier(features['out'])
+        elif z_hha is not None:
+            features = self.hha_backbone(z_hha)
+            output = self.classifier(features['out'])
+        else:
+            raise ValueError("Either x_rgb or z_hha should be provided.")
+
+        return output
+
+
+def _multi_deeplabv3_mobilenetv2(backbone1: MobileNetV2, backbone2: MobileNetV2, num_classes: int) -> MultiDeepLabV3:
+    backbone1 = backbone1.features
+    backbone2 = backbone2.features
+
+    out_pos = len(backbone1) - 1
+    out_inplanes = backbone1[out_pos][0].out_channels
+
+    return_layers = {str(out_pos): "out"}
+
+    backbone1 = create_feature_extractor(backbone1, return_layers)
+    backbone2 = create_feature_extractor(backbone2, return_layers)
+
+    classifier = DeepLabHead(out_inplanes, num_classes)
+
+    return MultiDeepLabV3(backbone1, backbone2, classifier)
+
+
+def multi_deeplabv3_mobilenetv2(num_classes: int = 21, in_channels: int = 3) -> MultiDeepLabV3:
+    width_mult = 1
+    rgb_backbone = MobileNetV2(width_mult=width_mult, in_channels=in_channels)
+    hha_backbone = MobileNetV2(width_mult=width_mult, in_channels=in_channels)
+
+    model_urls = {
+        0.5: 'https://github.com/d-li14/mobilenetv2.pytorch/raw/master/pretrained/mobilenetv2_0.5-eaa6f9ad.pth',
+        1.0: 'https://github.com/d-li14/mobilenetv2.pytorch/raw/master/pretrained/mobilenetv2_1.0-0c6065bc.pth'
+    }
+
+    state_dict_rgb = load_state_dict_from_url(model_urls[width_mult], progress=True)
+    state_dict_hha = load_state_dict_from_url(model_urls[width_mult], progress=True)
+
+    state_dict_updated_rgb = state_dict_rgb.copy()
+    state_dict_updated_hha = state_dict_hha.copy()
+
+    for k, v in state_dict_rgb.items():
+        if 'features' not in k and 'classifier' not in k:
+            state_dict_updated_rgb[k.replace('conv', 'features.18')] = v
+            del state_dict_updated_rgb[k]
+
+    for k, v in state_dict_hha.items():
+        if 'features' not in k and 'classifier' not in k:
+            state_dict_updated_hha[k.replace('conv', 'features.18')] = v
+            del state_dict_updated_hha[k]
+
+    if in_channels == 4:
+        aux_rgb = torch.zeros((32, 4, 3, 3))
+        aux_hha = torch.zeros((32, 4, 3, 3))
+        aux_rgb[:, 0, :, :] = copy.deepcopy(state_dict_updated_rgb['features.0.0.weight'][:, 0, :, :])
+        aux_rgb[:, 1, :, :] = copy.deepcopy(state_dict_updated_rgb['features.0.0.weight'][:, 1, :, :])
+        aux_rgb[:, 2, :, :] = copy.deepcopy(state_dict_updated_rgb['features.0.0.weight'][:, 2, :, :])
+        aux_rgb[:, 3, :, :] = copy.deepcopy(state_dict_updated_rgb['features.0.0.weight'][:, 0, :, :])
+        state_dict_updated_rgb['features.0.0.weight'] = aux_rgb
+
+        aux_hha[:, 0, :, :] = copy.deepcopy(state_dict_updated_hha['features.0.0.weight'][:, 0, :, :])
+        aux_hha[:, 1, :, :] = copy.deepcopy(state_dict_updated_hha['features.0.0.weight'][:, 1, :, :])
+        aux_hha[:, 2, :, :] = copy.deepcopy(state_dict_updated_hha['features.0.0.weight'][:, 2, :, :])
+        aux_hha[:, 3, :, :] = copy.deepcopy(state_dict_updated_hha['features.0.0.weight'][:, 0, :, :])
+        state_dict_updated_hha['features.0.0.weight'] = aux_hha
+
+    rgb_backbone.load_state_dict(state_dict_updated_rgb)
+    hha_backbone.load_state_dict(state_dict_updated_hha)
+
+    model = _multi_deeplabv3_mobilenetv2(rgb_backbone, hha_backbone, num_classes)
+    model.task = 'segmentation'
+
+    return model
+
+
 
 
 def _deeplabv3_mobilenetv2(
@@ -38,7 +111,6 @@ def _deeplabv3_mobilenetv2(
     classifier = DeepLabHead(out_inplanes, num_classes)
     #encoder=backbone,decoder=classifier
     return DeepLabV3(backbone, classifier)
-
 
 def deeplabv3_mobilenetv2(
         num_classes: int = 21,
@@ -66,7 +138,9 @@ def deeplabv3_mobilenetv2(
         state_dict_updated['features.0.0.weight'] = aux
     backbone.load_state_dict(state_dict_updated, strict=False)
 
+
     model = _deeplabv3_mobilenetv2(backbone, num_classes)
     model.task = 'segmentation'
 
     return model
+

@@ -6,6 +6,7 @@ from clients.client import Client
 from torch.cuda.amp import autocast
 from collections import defaultdict
 from utils import get_optimizer_and_scheduler
+import torch.nn.functional as F
 
 
 class OracleClient(Client):
@@ -121,9 +122,8 @@ class OracleClient(Client):
                     else:
                         dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
                 optimizer.zero_grad()
-            ######################################################
+
             else:
-                ###############  non entra  ############################
                 if self.args.mixed_precision:
                     with autocast():
                         dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
@@ -217,14 +217,11 @@ class OracleClient(Client):
     def test(self, metric, swa=False):
         self.model.eval()
 
-
         if swa:
             self.switch_bn_stats_to_test()
-
         self.dataset.test = True
 
         tot_loss = 0.0
-
         with torch.no_grad():
             for i, (images, labels) in enumerate(self.loader):
 
@@ -251,6 +248,10 @@ class OracleClient(Client):
                 labels = labels.to(self.device, dtype=torch.long)
 
                 outputs = self.get_test_output(images)
+                if self.args.model == 'multi_deeplabv3':
+                    # Interpolate outputs to match the size of labels
+                    outputs = F.interpolate(outputs, size=labels.size()[1:], mode='bilinear', align_corners=False)
+
                 self.update_metric(metric, outputs, labels, is_test=True)
 
                 if outputs.shape != labels.shape:

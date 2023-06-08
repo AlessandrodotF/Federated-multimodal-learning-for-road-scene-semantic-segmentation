@@ -8,6 +8,7 @@ from torch.cuda.amp import GradScaler
 from torch import nn, distributed
 from utils import HardNegativeMining, MeanReduction
 from torch.utils.data.distributed import DistributedSampler
+import torch.nn.functional as F
 
 class Client:
 
@@ -26,8 +27,7 @@ class Client:
         self.world_size = world_size
         self.rank = rank
 
-        #self.dataset.format_client = self.format_client
-        if self.args.mm_setting=="first":
+        if self.args.mm_setting == "first" or self.args.mm_setting == "second":
             if self.dataset.root == 'data':
                 self.format_client = "RGB"
                 self.dataset.format_client = "RGB"
@@ -96,27 +96,47 @@ class Client:
 
         if self.args.model in ('deeplabv3',):
             outputs = self.model(images)['out']
-            #print(self.format_client)
-            #print(outputs.size())
-            #print( self.model(images).size())
-            #print(labels)
             loss_tot = self.reduction(self.criterion(outputs, labels), labels)
             dict_calc_losses = {'loss_tot': loss_tot}
+            return dict_calc_losses, outputs
 
+        elif self.args.model in ('multi_deeplabv3',):
+            if self.format_client == "RGB":
+                encoder = self.model.module.rgb_backbone
+                outputs_encoder = encoder(images)
+                outputs = self.model.module.classifier(outputs_encoder['out'])
+            else:
+                encoder = self.model.module.hha_backbone
+                outputs_encoder = encoder(images)
+                outputs = self.model.module.classifier(outputs_encoder['out'])
+            if outputs.size() != labels.size():
+                    outputs = F.interpolate(outputs, size=labels.size()[1:], mode='bilinear', align_corners=False)
+
+            loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+            dict_calc_losses = {'loss_tot': loss_tot}
+            return dict_calc_losses, outputs
         else:
             raise NotImplementedError
 
-        return dict_calc_losses, outputs
-
     def get_test_output(self, images):
-        #print(self.format_client)
-        #serve nella fase di testing
         if self.args.model == 'deeplabv3':
             if self.args.fw_task == 'mcd':
                 return self.model(images, classifier1=True)
             return self.model(images)['out']
 
-        return self.model(images)
+        elif self.args.model == 'multi_deeplabv3':
+            if self.format_client == "RGB":
+                encoder = self.model.module.rgb_backbone
+                outputs_encoder = encoder(images)
+                outputs = self.model.module.classifier(outputs_encoder['out'])
+            else:
+                encoder = self.model.module.hha_backbone
+                outputs_encoder = encoder(images)
+                outputs = self.model.module.classifier(outputs_encoder['out'])
+            return outputs
+
+        else:
+            raise NotImplementedError
 
     def calc_test_loss(self, outputs, labels):
         return self.reduction(self.criterion(outputs, labels), labels)

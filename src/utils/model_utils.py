@@ -1,6 +1,6 @@
 from torch import optim
 from modules import deeplabv3_mobilenetv2
-from modules import multi_deeplabv3
+from modules import multi_deeplabv3_mobilenetv2
 
 def get_scheduler(opts, optimizer, max_iter=None):
     if opts.lr_policy == 'poly':
@@ -85,14 +85,18 @@ def get_optimizer_and_scheduler(args, model_parameters, max_iter, lr=None):
     return optimizer, scheduler
 
 
+
 def make_model(args, augm_model=False):
+
+
     dict_model = {
         'deeplabv3': {'model': deeplabv3_mobilenetv2, 'kwargs': {}},
+        'multi_deeplabv3': {'model': multi_deeplabv3_mobilenetv2, 'kwargs': {}},
     }
 
     if args.hp_filtered and augm_model:
         dict_model[args.model]['kwargs']['in_channels'] = 4
-    # args.model controlla quale usare di quelli dichiariti
+
     return dict_model[args.model]['model'](args.num_classes, **dict_model[args.model]['kwargs'])
 
 
