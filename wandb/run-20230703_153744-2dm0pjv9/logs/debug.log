@@ -1,0 +1,14 @@
+2023-07-03 15:37:44,310 INFO    MainThread:12190 [wandb_setup.py:_flush():69] setting env: {}
+2023-07-03 15:37:44,311 INFO    MainThread:12190 [wandb_setup.py:_flush():69] setting login settings: {}
+2023-07-03 15:37:44,311 INFO    MainThread:12190 [wandb_init.py:_log_setup():342] Logging user logs to /home/utente/Scrivania/PROVA/LADD/wandb/run-20230703_153744-2dm0pjv9/logs/debug.log
+2023-07-03 15:37:44,312 INFO    MainThread:12190 [wandb_init.py:_log_setup():343] Logging internal logs to /home/utente/Scrivania/PROVA/LADD/wandb/run-20230703_153744-2dm0pjv9/logs/debug-internal.log
+2023-07-03 15:37:44,312 INFO    MainThread:12190 [wandb_init.py:init():375] calling init triggers
+2023-07-03 15:37:44,313 INFO    MainThread:12190 [wandb_init.py:init():380] wandb.init called with sweep_config: {}
+config: {}
+2023-07-03 15:37:44,313 INFO    MainThread:12190 [wandb_init.py:init():424] starting backend
+2023-07-03 15:37:44,313 INFO    MainThread:12190 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-07-03 15:37:44,339 INFO    MainThread:12190 [backend.py:ensure_launched():135] starting backend process...
+2023-07-03 15:37:44,347 INFO    MainThread:12190 [backend.py:ensure_launched():139] started backend process with pid: 12223
+2023-07-03 15:37:44,349 INFO    MainThread:12190 [wandb_init.py:init():429] backend started and connected
+2023-07-03 15:37:44,351 INFO    MainThread:12190 [wandb_init.py:init():477] updated telemetry
+2023-07-03 15:37:44,352 INFO    MainThread:12190 [wandb_init.py:init():500] communicating current version

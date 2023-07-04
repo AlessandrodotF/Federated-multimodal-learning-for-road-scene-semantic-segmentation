@@ -1,12 +1,13 @@
 import copy
 import torch
-
+import numpy as np
 from torch import distributed
 from clients.client import Client
 from torch.cuda.amp import autocast
 from collections import defaultdict
 from utils import get_optimizer_and_scheduler
 import torch.nn.functional as F
+import matplotlib.pyplot as plt
 
 
 class OracleClient(Client):
@@ -79,6 +80,7 @@ class OracleClient(Client):
         else:
             images = samples[0].to(self.device, dtype=torch.float32)
             labels = samples[1].to(self.device, dtype=torch.long)
+
         return images, labels
 
     def __exec_epoch(self, optimizer, cur_epoch, metric, scheduler, plot_lr, dict_all_iters_losses, profiler=None,
@@ -86,9 +88,10 @@ class OracleClient(Client):
 
         self.model.train()
 
+
         if self.args.stop_epoch_at_step != -1:
             stop_at_step = self.args.stop_epoch_at_step
-
+        # questo da problemi
         for cur_step, samples in enumerate(self.loader):
             torch.cuda.empty_cache()
             ###############  non entra  ############################
@@ -109,6 +112,20 @@ class OracleClient(Client):
                     self.teacher_kd_model = teacher_kd_model
                     self.writer.write("Done.")
             #######################################################
+            # for i in range(samples[0].shape[0]):
+            #     x_rgb = samples[0][i].cpu().numpy()
+            #     x_rgb = np.transpose(x_rgb, (1, 2, 0))
+            #     plt.imshow(x_rgb)
+            #     plt.axis('off')
+            #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_{i}.png')
+            #     plt.clf()
+            #
+            # for i in range(samples[1].shape[0]):
+            #     label = samples[1][i].cpu().numpy()
+            #     plt.imshow(label, cmap='gray')
+            #     plt.axis('off')
+            #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/label_{i}.png')
+            #     plt.clf()
             images, labels = self.process_samples(self.loader, samples)
 
             optimizer.zero_grad()
@@ -156,7 +173,10 @@ class OracleClient(Client):
                   stop_at_step=None, r=None):
 
         dict_all_iters_losses = defaultdict(lambda: 0)
+
         self.loader.sampler.set_epoch(cur_epoch)
+        # if self.args.mm_setting=="third":
+        #     self.loader.sampler.shuffle=False
 
         if self.profiler_path:
             with torch.profiler.profile(schedule=torch.profiler.schedule(wait=2, warmup=2, active=6, repeat=1),
@@ -222,6 +242,7 @@ class OracleClient(Client):
         self.dataset.test = True
 
         tot_loss = 0.0
+
         with torch.no_grad():
             for i, (images, labels) in enumerate(self.loader):
 
@@ -229,29 +250,45 @@ class OracleClient(Client):
                     break
 
                 if (i + 1) % self.args.print_interval == 0:
-
                     self.writer.write(f'{self}: {i + 1}/{self.len_loader}, '
                                       f'{round((i + 1) / self.len_loader * 100, 2)}%')
 
                 if self.args.hp_filtered:
-                    #no
+                    # no
                     original_images, images, images_hpf = images
                 else:
-                    #qui sì
+                    # qui sì, original_img e img sono la stessa cosa!
                     original_images, images = images
 
                 if self.args.hp_filtered:
-                    #qui no
+                    # qui no
                     images = self.add_4th_layer(images, images_hpf)
 
+
+                # circa qui andrebbero sdoppiate le imagini e le labels, il resto dovrebbe andare bene
                 images = images.to(self.device, dtype=torch.float32)
                 labels = labels.to(self.device, dtype=torch.long)
 
-                outputs = self.get_test_output(images)
-                if self.args.model == 'multi_deeplabv3':
-                    # Interpolate outputs to match the size of labels
-                    outputs = F.interpolate(outputs, size=labels.size()[1:], mode='bilinear', align_corners=False)
+                # for i in range(len(images)):
+                #     x_rgb = images[i].cpu().numpy()
+                #     x_rgb = np.transpose(x_rgb, (1, 2, 0))
+                #     plt.imshow(x_rgb)
+                #     plt.axis('off')
+                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_{i}.png')
+                #     plt.clf()
+                #
+                # for i in range(len(labels)):
+                #     label = labels[i].cpu().numpy()
+                #     plt.imshow(label, cmap='gray')
+                #     plt.axis('off')
+                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/label_{i}.png')
+                #     plt.clf()
+                if self.args.mm_setting == "third":
+                    labels = labels[::2]
 
+                outputs = self.get_test_output(images)
+
+                # dentro update_metric c'è già un interpolazione
                 self.update_metric(metric, outputs, labels, is_test=True)
 
                 if outputs.shape != labels.shape:
@@ -267,6 +304,7 @@ class OracleClient(Client):
         self.dataset.test = False
 
         return {f'{self}_loss': mean_loss}
+
 
     def handle_grad(self):
         for client_param, server_param in zip(self.model.parameters(), self.server_model.parameters()):

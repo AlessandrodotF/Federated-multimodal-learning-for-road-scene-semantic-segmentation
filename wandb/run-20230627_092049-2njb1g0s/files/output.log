@@ -1,0 +1,47 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+plot_train_metric HHA case
+{'Total samples': array(32), 'Overall Acc': 0.35457613738240246, 'Mean Acc': 0.09753475323740847, 'Mean Precision': 0.06540921342008307, 'FreqW Acc': 0.2290641675342005, 'Mean IoU': 0.060016760808319705, 'Class IoU': {0: 0.3688550093335393, 1: 0.0, 2: 0.3629516234959315, 3: 0.0, 4: 'X', 5: 0.0, 6: 'X', 7: 0.0005290377897117744, 8: 0.01050442968195109, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.03737779020702252, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Acc': {0: 0.5528683600884234, 1: 0.0, 2: 0.5870210396558972, 3: 0.0, 4: 'X', 5: 0.0, 6: 'X', 7: 0.06954436442500676, 8: 0.012390513407813027, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.046127514509169666, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Prec': {0: 0.5256674105086112, 1: 0.0, 2: 0.4874074240305054, 3: 0.0, 4: 'X', 5: 0.0, 6: 'X', 7: 0.000532809098169775, 8: 0.06455349620666409, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.16461391513762785, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}}
+plot_train_metric RGB case
+{'Total samples': array(24), 'Overall Acc': 0.405545552601401, 'Mean Acc': 0.12048811959073329, 'Mean Precision': 0.07611190865990108, 'FreqW Acc': 0.2714472759295562, 'Mean IoU': 0.06537787400181917, 'Class IoU': {0: 0.4010909145847104, 1: 0.040860991140488925, 2: 0.3096854136733512, 3: 'X', 4: 'X', 5: 0.0, 6: 'X', 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.03289716862327958, 12: 0.0, 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Acc': {0: 0.6886055590845832, 1: 0.04816863137893798, 2: 0.3547838818500389, 3: 'X', 4: 'X', 5: 0.0, 6: 'X', 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.3542993627752393, 12: 0.0, 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Prec': {0: 0.48995826788567143, 1: 0.21218715994364726, 2: 0.70898555517648, 3: 'X', 4: 'X', 5: 0.0, 6: 'X', 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.034995281532321856, 12: 0.0, 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/6: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 HHA
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf1 HHA
+EPOCH 1: ended.
+plot_train_metric HHA case
+{'Total samples': array(96), 'Overall Acc': 0.5200054920498376, 'Mean Acc': 0.10781239441428477, 'Mean Precision': 0.09456349907705257, 'FreqW Acc': 0.35151594852929513, 'Mean IoU': 0.06792232020227693, 'Class IoU': {0: 0.6130820488507402, 1: 0.03697194802931807, 2: 0.20696180254670465, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.21558272801981732, 9: 0.0, 10: 0.02401505904480937, 11: 0.0, 12: 0.0, 13: 0.05806585694731815, 14: 0.0, 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Acc': {0: 0.8626808716470517, 1: 0.042148586040180874, 2: 0.3452036201525958, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.46267973281197405, 9: 0.0, 10: 0.029198776976869862, 11: 0.0, 12: 0.0, 13: 0.09089911741416866, 14: 0.0, 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Prec': {0: 0.6793820503194345, 1: 0.23137730183004634, 2: 0.34071916133224756, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.2875820671840804, 9: 0.0, 10: 0.11915359357463869, 11: 0.0, 12: 0.0, 13: 0.13849230822355146, 14: 0.0, 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Testing...

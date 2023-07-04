@@ -1,0 +1,68 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 MIX
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 MIX
+EPOCH 1: ended.
+{'Total samples': array(112), 'Overall Acc': 0.24674606345823713, 'Mean Acc': 0.11718183389546546, 'Mean Precision': 0.05034899937585079, 'FreqW Acc': 0.1211439139925916, 'Mean IoU': 0.05127659177680807, 'Class IoU': {0: 0.2866171782509607, 1: 0.002373263821313034, 2: 0.010933062411843577, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.052143675271701315, 9: 0.0, 10: 0.21197532978907016, 11: 0.0, 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Acc': {0: 0.593591217979124, 1: 0.0037435561737226178, 2: 0.014464640293043155, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.05910704277919759, 9: 0.0, 10: 0.6180937156250328, 11: 0.0, 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Prec': {0: 0.3565935290984622, 1: 0.006441847366712128, 2: 0.04286037564865986, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.3068121211972455, 9: 0.0, 10: 0.2439231148300853, 11: 0.0, 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/6: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 MIX
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf1 MIX
+EPOCH 1: ended.
+{'Total samples': array(208), 'Overall Acc': 0.22599152750491158, 'Mean Acc': 0.05642662333546497, 'Mean Precision': 0.041039361634187255, 'FreqW Acc': 0.13062772099724757, 'Mean IoU': 0.030894806797436464, 'Class IoU': {0: 0.23465955110297085, 1: 0.0, 2: 0.110678821108762, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.09434637235561556, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.02373735739419856, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Acc': {0: 0.3929086471784544, 1: 0.0, 2: 0.17631595106083417, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.22783023709134909, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.04934451470133679, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Prec': {0: 0.36813809303462686, 1: 0.0, 2: 0.22917300584004244, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.1386960890996824, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.043740683075206274, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+qui
+Testing...
+Client 1/1 - all_target_train_data MIX
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 247, in test
+    for i, (images, labels) in enumerate(self.loader):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+    return self._process_data(data)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+    data.reraise()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/_utils.py", line 434, in reraise
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/utente/Scrivania/PROVA/LADD/src/dataset/target/target_dataset.py", line 52, in __getitem__
+    plot_x, x, y = self._apply_test_transform(x, y, x_hpf=x_hpf)
+  File "/home/utente/Scrivania/PROVA/LADD/src/dataset/target/target_dataset.py", line 99, in _apply_test_transform
+    return self.test_transform(x), self.test_transform(x), self.target_transform(y)
+  File "/home/utente/Scrivania/PROVA/LADD/src/dataset/transform.py", line 39, in __call__
+    img, img.filename = t(img)
+ValueError: too many values to unpack (expected 2)

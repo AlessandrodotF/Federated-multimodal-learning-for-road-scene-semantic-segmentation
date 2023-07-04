@@ -1,0 +1,187 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 MIX
+__getitem__
+_get_images
+_apply_train_transform
+__getitem__
+_get_images
+_apply_train_transform
+__getitem__
+_get_images
+_apply_train_transform
+__getitem__
+_get_images
+_apply_train_transform
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+KeyboardInterrupt

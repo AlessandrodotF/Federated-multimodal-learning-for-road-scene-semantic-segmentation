@@ -1,4 +1,5 @@
 from torch import optim
+import copy
 from modules import deeplabv3_mobilenetv2
 from modules import multi_deeplabv3_mobilenetv2
 
@@ -98,6 +99,7 @@ def make_model(args, augm_model=False):
         dict_model[args.model]['kwargs']['in_channels'] = 4
 
     return dict_model[args.model]['model'](args.num_classes, **dict_model[args.model]['kwargs'])
+
 
 
 def schedule_cycling_lr(r, c, lr1, lr2):

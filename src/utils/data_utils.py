@@ -88,30 +88,55 @@ class DatasetHandler(object):
         self.clients_args['test'].append({'client_id': 'source_test_data', 'dataset': test_ds})
 
     def __gen_ds(self, paths, dataset_name, dataset, train_transform, test_transform, split='train', hp_filtered=False):
-
-        if self.args.mm_setting=="first" or self.args.mm_setting=="second":
-            #self.format_client = np.random.choice(["RGB", "HHA", "MIX"])
-            self.format_client = np.random.choice(["RGB", "HHA"])
-            if dataset_name == 'cityscapes':
+        if dataset_name == 'cityscapes':
+            if self.args.mm_setting=="first" or self.args.mm_setting=="second":
+                self.format_client = np.random.choice(["RGB", "HHA"])
                 if self.format_client == "RGB":
                     return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
-                                   hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
-                                   quadruple=self.args.quadruple_dataset and split == 'train')
+                                       hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                                       quadruple=self.args.quadruple_dataset and split == 'train')
                 else:
                     return dataset(paths, 'data/HHA_DATA', transform=train_transform, test_transform=test_transform,
-                                   hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
-                                   quadruple=self.args.quadruple_dataset and split == 'train')
-                #else:
-                    #words = [w.replace('train/', 'trainRGB/') for w in paths["x"]]
-                    #paths["x"].extend(words)
-                    #return dataset(paths, 'data/MIX_DATA', transform=train_transform, test_transform=test_transform,
-                                   #hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
-                                  # quadruple=self.args.quadruple_dataset and split == 'train')
-        if self.args.mm_setting=="zero":
-            if dataset_name == 'cityscapes':
-                return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
+                                       hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                                       quadruple=self.args.quadruple_dataset and split == 'train')
+
+            elif self.args.mm_setting == "third":
+                if split=="train":
+                    hha_paths_imgs=paths["x"]
+                    hha_paths_lbls=paths["y"]
+
+                    rgb_paths_imgs = [w.replace('train/', 'trainRGB/') for w in hha_paths_imgs]
+                    rgb_paths_lbls = [w.replace('train/', 'trainRGB/') for w in hha_paths_lbls]
+
+
+                if split=="test":
+                    hha_paths_imgs=paths["x"]
+                    hha_paths_lbls=paths["y"]
+
+                    rgb_paths_imgs = [w.replace('train/', 'trainRGB/') for w in hha_paths_imgs]
+                    rgb_paths_imgs = [w.replace('val/', 'valRGB/') for w in rgb_paths_imgs]
+
+                    rgb_paths_lbls = [w.replace('train/', 'trainRGB/') for w in hha_paths_lbls]
+                    rgb_paths_lbls = [w.replace('val/', 'valRGB/') for w in rgb_paths_lbls]
+
+                combined_paths_imgs, combined_paths_lbls = [],[]
+                for rgb_path_img, hha_path_img, rgb_path_lbl, hha_path_lbl in zip(rgb_paths_imgs, hha_paths_imgs, rgb_paths_lbls,hha_paths_lbls):
+                    combined_paths_imgs.append(rgb_path_img)
+                    combined_paths_imgs.append(hha_path_img)
+                    combined_paths_lbls.append(rgb_path_lbl)
+                    combined_paths_lbls.append(hha_path_lbl)
+
+                paths["x"]=combined_paths_imgs
+                paths["y"]=combined_paths_lbls
+
+                return dataset(paths, 'data/MIX_DATA', transform=train_transform, test_transform=test_transform,
                                hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
                                quadruple=self.args.quadruple_dataset and split == 'train')
+
+            else:
+                return dataset(paths, 'data', transform=train_transform, test_transform=test_transform,
+                                   hp_filtered=hp_filtered, double=self.args.double_dataset and split == 'train',
+                                   quadruple=self.args.quadruple_dataset and split == 'train')
 
         if dataset_name in ['crosscity', 'mapillary']:
             return dataset(paths, root='data', transform=train_transform, test_transform=test_transform,
@@ -154,6 +179,7 @@ class DatasetHandler(object):
                 self.clients_args[split].append({'client_id': user, 'dataset': ds})
 
                 if user=="test_user" and self.args.mm_setting == "first":
+                    # self.clients_args[test_user] x 2
                     if ds.root=="data":
                         ds_new=copy.copy(ds)
                         ds_new.root="data/HHA_DATA"
@@ -164,11 +190,10 @@ class DatasetHandler(object):
                         self.clients_args[split].append({'client_id': user, 'dataset': ds_new})
 
         if self.args.framework == 'federated' and self.args.mm_setting=="first":
+            # self.clients_args['all_train'] x 2
             ds = self.__gen_ds(all_train_data['centralized_user'],
                                dataset_name, dataset, train_transform, test_transform, split='test')
-
             self.clients_args['all_train'].append({'client_id': 'all_target_train_data', 'dataset': ds})
-
             if ds.root == "data":
                 ds_new = copy.copy(ds)
                 ds_new.root = "data/HHA_DATA"

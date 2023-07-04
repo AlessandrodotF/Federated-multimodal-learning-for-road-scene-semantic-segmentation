@@ -9,6 +9,26 @@ from torch import nn, distributed
 from utils import HardNegativeMining, MeanReduction
 from torch.utils.data.distributed import DistributedSampler
 import torch.nn.functional as F
+import matplotlib.pyplot as plt
+from torch.utils.data import SubsetRandomSampler
+
+class PairsSampler(DistributedSampler):
+    def __init__(self, dataset):
+        self.dataset = dataset
+        self.num_pairs = len(dataset) // 2
+
+    def __iter__(self):
+        indices = list(range(self.num_pairs))
+        random.shuffle(indices)
+        # Espandi gli indici delle coppie in indici di immagini
+        indices = [i * 2 for i in indices] + [i * 2 + 1 for i in indices]
+        indices.sort()  # Ordina gli indici per mantenere la corrispondenza tra le coppie
+
+        return iter(indices)
+
+    def __len__(self):
+        return len(self.dataset)
+
 
 class Client:
 
@@ -36,23 +56,33 @@ class Client:
                 self.format_client = "HHA"
                 self.dataset.format_client = "HHA"
 
-        #if self.dataset.root == 'data/MIX_DATA':
-        #    self.format_client = "MIX"
-        #    self.dataset.format_client = "MIX"
-        #    print("self.dataset.root ", self.dataset.root)
+        if self.dataset.root == 'data/MIX_DATA':
+            self.format_client = "MIX"
+            self.dataset.format_client = "MIX"
+
 
 
 
         if args.random_seed is not None:
             g = torch.Generator()
             g.manual_seed(args.random_seed)
-            self.loader = data.DataLoader(self.dataset, batch_size=self.batch_size, worker_init_fn=self.seed_worker,
-                                          sampler=DistributedSampler(self.dataset, num_replicas=world_size, rank=rank),
-                                          num_workers=4 * num_gpu, drop_last=True, pin_memory=True, generator=g)
-            self.loader_full = data.DataLoader(self.dataset, batch_size=1, worker_init_fn=self.seed_worker,
-                                               sampler=DistributedSampler(self.dataset, num_replicas=world_size,
-                                                                          rank=rank, shuffle=False),
-                                               num_workers=4 * num_gpu, drop_last=False, pin_memory=True, generator=g)
+            if self.args.mm_setting != "third":
+                self.loader = data.DataLoader(self.dataset, batch_size=self.batch_size, worker_init_fn=self.seed_worker,
+                                              sampler=DistributedSampler(self.dataset, num_replicas=world_size, rank=rank),
+                                              num_workers=4 * num_gpu, drop_last=True, pin_memory=True, generator=g)
+                self.loader_full = data.DataLoader(self.dataset, batch_size=1, worker_init_fn=self.seed_worker,
+                                                   sampler=DistributedSampler(self.dataset, num_replicas=world_size,
+                                                                              rank=rank, shuffle=False),
+                                                   num_workers=4 * num_gpu, drop_last=False, pin_memory=True, generator=g)
+            else:
+
+                # Creazione del campionatore personalizzato per le coppie
+                pair_sampler = PairsSampler(self.dataset)
+
+                self.loader = data.DataLoader(self.dataset, batch_size=self.batch_size, worker_init_fn=self.seed_worker,
+                                              sampler=pair_sampler, num_workers=4 * num_gpu, drop_last=True, pin_memory=True, generator=g)
+                self.loader_full = data.DataLoader(self.dataset, batch_size=1, worker_init_fn=self.seed_worker,
+                                                   sampler=pair_sampler, num_workers=4 * num_gpu, drop_last=False, pin_memory=True, generator=g)
         else:
             self.loader = data.DataLoader(self.dataset, batch_size=self.batch_size,
                                           sampler=DistributedSampler(self.dataset, num_replicas=world_size, rank=rank),
@@ -63,9 +93,9 @@ class Client:
                                                num_workers=4 * num_gpu, drop_last=False, pin_memory=True)
 
         self.criterion, self.reduction = self.__get_criterion_and_reduction_rules()
-
         if self.args.mixed_precision:
             self.scaler = GradScaler()
+
 
         self.profiler_path = os.path.join('profiler', self.args.profiler_folder) if self.args.profiler_folder else None
 
@@ -101,20 +131,41 @@ class Client:
             return dict_calc_losses, outputs
 
         elif self.args.model in ('multi_deeplabv3',):
-            if self.format_client == "RGB":
-                encoder = self.model.module.rgb_backbone
-                outputs_encoder = encoder(images)
-                outputs = self.model.module.classifier(outputs_encoder['out'])
-            else:
-                encoder = self.model.module.hha_backbone
-                outputs_encoder = encoder(images)
-                outputs = self.model.module.classifier(outputs_encoder['out'])
-            if outputs.size() != labels.size():
-                    outputs = F.interpolate(outputs, size=labels.size()[1:], mode='bilinear', align_corners=False)
+            if self.args.mm_setting=="second":
+                if self.format_client == "RGB":
 
-            loss_tot = self.reduction(self.criterion(outputs, labels), labels)
-            dict_calc_losses = {'loss_tot': loss_tot}
-            return dict_calc_losses, outputs
+                    outputs=self.model.module.rgb_backbone(images)
+                    outputs=self.model.module.classifier(outputs["out"])
+                    outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
+
+                    loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                    dict_calc_losses = {'loss_tot': loss_tot}
+                    return dict_calc_losses, outputs
+                else:
+                    outputs=self.model.module.hha_backbone(images)
+                    outputs=self.model.module.classifier(outputs["out"])
+                    outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
+
+                    loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                    dict_calc_losses = {'loss_tot': loss_tot}
+                    return dict_calc_losses, outputs
+            else:
+
+                batch_size=images.size(0)
+                num_channels = images.size(1)
+                height = images.size(2)
+                width = images.size(3)
+                # images sarà un tensore (4,2 (input), 3, 100, 100)
+                images = images.view(batch_size // 2, 2, num_channels, height, width)
+                x_rgb = images[:, 0, :, :]
+                z_hha = images[:, 1, :, :]
+                # # sistema le labels terzo caso
+                labels = labels[::2]
+
+                outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
+                loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                dict_calc_losses = {'loss_tot': loss_tot}
+                return dict_calc_losses, outputs
         else:
             raise NotImplementedError
 
@@ -125,16 +176,25 @@ class Client:
             return self.model(images)['out']
 
         elif self.args.model == 'multi_deeplabv3':
-            if self.format_client == "RGB":
-                encoder = self.model.module.rgb_backbone
-                outputs_encoder = encoder(images)
-                outputs = self.model.module.classifier(outputs_encoder['out'])
+            if self.args.mm_setting=="second":
+                if self.format_client == "RGB":
+                    outputs = self.model.module.rgb_backbone(images)
+                    outputs = self.model.module.classifier(outputs['out'])
+                else:
+                    outputs = self.model.module.hha_backbone(images)
+                    outputs = self.model.module.classifier(outputs['out'])
+                return outputs
             else:
-                encoder = self.model.module.hha_backbone
-                outputs_encoder = encoder(images)
-                outputs = self.model.module.classifier(outputs_encoder['out'])
-            return outputs
+                batch_size = images.size(0)
+                num_channels = images.size(1)
+                height = images.size(2)
+                width = images.size(3)
+                images = images.view(batch_size // 2, 2, num_channels, height, width)
+                x_rgb = images[:, 0, :, :]
+                z_hha = images[:, 1, :, :]
+                outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
 
+                return outputs
         else:
             raise NotImplementedError
 
@@ -156,8 +216,10 @@ class Client:
         raise NotImplementedError
 
     def __str__(self):
-        return self.id+" "+self.format_client
-
+        if self.args.mm_setting != "zero":
+            return self.id+" "+self.format_client
+        else:
+            return self.id
     @property
     def num_samples(self):
         return len(self.dataset)

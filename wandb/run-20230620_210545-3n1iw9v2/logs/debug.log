@@ -1,0 +1,142 @@
+2023-06-20 21:05:45,495 INFO    MainThread:7171 [wandb_setup.py:_flush():69] setting env: {}
+2023-06-20 21:05:45,495 INFO    MainThread:7171 [wandb_setup.py:_flush():69] setting login settings: {}
+2023-06-20 21:05:45,496 INFO    MainThread:7171 [wandb_init.py:_log_setup():342] Logging user logs to /home/utente/Scrivania/PROVA/LADD/wandb/run-20230620_210545-3n1iw9v2/logs/debug.log
+2023-06-20 21:05:45,496 INFO    MainThread:7171 [wandb_init.py:_log_setup():343] Logging internal logs to /home/utente/Scrivania/PROVA/LADD/wandb/run-20230620_210545-3n1iw9v2/logs/debug-internal.log
+2023-06-20 21:05:45,496 INFO    MainThread:7171 [wandb_init.py:init():375] calling init triggers
+2023-06-20 21:05:45,497 INFO    MainThread:7171 [wandb_init.py:init():380] wandb.init called with sweep_config: {}
+config: {}
+2023-06-20 21:05:45,497 INFO    MainThread:7171 [wandb_init.py:init():424] starting backend
+2023-06-20 21:05:45,497 INFO    MainThread:7171 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-06-20 21:05:45,522 INFO    MainThread:7171 [backend.py:ensure_launched():135] starting backend process...
+2023-06-20 21:05:45,532 INFO    MainThread:7171 [backend.py:ensure_launched():139] started backend process with pid: 7203
+2023-06-20 21:05:45,534 INFO    MainThread:7171 [wandb_init.py:init():429] backend started and connected
+2023-06-20 21:05:45,535 INFO    MainThread:7171 [wandb_init.py:init():477] updated telemetry
+2023-06-20 21:05:45,536 INFO    MainThread:7171 [wandb_init.py:init():500] communicating current version
+2023-06-20 21:05:46,822 INFO    MainThread:7171 [wandb_init.py:init():505] got version response upgrade_message: "wandb version 0.15.4 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-06-20 21:05:46,823 INFO    MainThread:7171 [wandb_init.py:init():513] communicating run to backend with 30 second timeout
+2023-06-20 21:05:47,522 INFO    MainThread:7171 [wandb_init.py:init():540] starting run threads in backend
+2023-06-20 21:05:49,785 INFO    MainThread:7171 [wandb_run.py:_console_start():1601] atexit reg
+2023-06-20 21:05:49,786 INFO    MainThread:7171 [wandb_run.py:_redirect():1475] redirect: SettingsConsole.REDIRECT
+2023-06-20 21:05:49,786 INFO    MainThread:7171 [wandb_run.py:_redirect():1480] Redirecting console.
+2023-06-20 21:05:49,791 INFO    MainThread:7171 [wandb_run.py:_redirect():1536] Redirects installed.
+2023-06-20 21:05:49,791 INFO    MainThread:7171 [wandb_init.py:init():565] run started, returning control to user process
+2023-06-20 21:05:49,795 INFO    MainThread:7171 [wandb_run.py:_config_callback():843] config_cb None None {'framework': 'federated', 'fw_task': 'oracle', 'local_rank': 0, 'device_ids': [0], 'random_seed': 42, 'source_dataset': '', 'target_dataset': 'cityscapes', 'double_dataset': True, 'quadruple_dataset': False, 'cv2': False, 'random_flip': False, 'color_jitter': False, 'gaussian_blur': False, 'clients_type': 'heterogeneous', 'centr_fda_ft_uda': False, 'disable_batch_norm': False, 'batch_norm_round_0': False, 'hp_filtered': False, 'discr_loss': 'diff2d', 'repeat_phase_3': 4, 'discr_loss_multiplier': 1, 'pretrain': False, 'n_images_per_style': 1000, 'fda_L': 0.01, 'fda_b': 'None', 'fda_size': [1024, 512], 'train_source_round_interval': 'None', 'lr_factor_server_retrain': 1.0, 'num_source_epochs_factor_retrain': 1.0, 'num_source_steps_retrain': 'None', 'source_style_to_source': False, 'style_only_train': False, 'fda_loss': 'selftrain', 'lambda_selftrain': 1, 'lambda_entropy': 0.005, 'teacher_step': 1, 'teacher_kd_step': -1, 'teacher_upd_step': False, 'teacher_kd_upd_step': False, 'teacher_kd_mult_factor': -1.0, 'teacher_kd_mult_step': 5, 'ignore255_kdloss': False, 'count_classes_teacher_step': -1, 'temperature': 0.01, 'weights_lovasz': False, 'multiple_styles': False, 'lr_fed': 0.005, 'stop_epoch_at_step': -1, 'freezing': 'None', 'distinct_batch_norm': False, 'only_update_bn_server': False, 'silobn': False, 'n_clients_per_city': False, 'alpha_kd': 0.5, 'lambda_kd': 0.0, 'swa_start': -1, 'swa_c': 1, 'swa_lr': 0.0001, 'swa_teacher_start': -1, 'swa_teacher_c': 1, 'train_with_global_model': False, 'style_clusters_dir': 'None', 'cluster_layers': 'bn', 'global_aggregation_round': 'None', 'fedavg_bootstap': 0, 'test_only_with_global_model': False, 'save_cluster_models': False, 'force_k': 0, 'model': 'deeplabv3', 'hnm': True, 'server_opt': 'None', 'algorithm': 'FedAvg', 'server_lr': 'None', 'server_momentum': 'None', 'num_rounds': 1, 'num_source_rounds': 'None', 'num_epochs': 1, 'num_source_epochs': 'None', 'clients_per_round': 3, 'batch_size': 8, 'test_batch_size': 2, 'eval_interval': 20, 'test_interval': 10, 'server_eval_interval': 1, 'server_test_interval': 1, 'mixed_precision': False, 'test_source': False, 'optimizer': 'SGD', 'lr': 0.05, 'weight_decay': 0.0, 'momentum': 0.9, 'nesterov': False, 'lr_policy': 'None', 'lr_power': 'None', 'lr_decay_step': 'None', 'lr_decay_factor': 'None', 'warmup_iters': 'None', 'name': 'prova_pc', 'print_interval': 20, 'plot_interval': 10, 'save_samples': 0, 'wandb_offline': False, 'wandb_entity': 'alessandro-fella-1', 'load': False, 'wandb_id': '3n1iw9v2', 'load_FDA': False, 'load_FDA_id': 'None', 'load_FDA_best': False, 'load_yaml_config': 'None', 'fedprox': False, 'fedprox_mu': 0.01, 'ignore_warnings': True, 'profiler_folder': 'None', 'ignore_train_metrics': False, 'save_clients_order': False, 'mm_setting': 'first', 'num_classes': 19, 'total_batch_size': 8, 'n_devices': 1}
+2023-06-20 21:07:05,255 INFO    MainThread:7171 [wandb_run.py:_atexit_cleanup():1571] got exitcode: 0
+2023-06-20 21:07:05,256 INFO    MainThread:7171 [wandb_run.py:_restore():1543] restore
+2023-06-20 21:07:07,694 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 1897
+  total_bytes: 1897
+}
+
+2023-06-20 21:07:07,802 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 1897
+  total_bytes: 1897
+}
+
+2023-06-20 21:07:08,200 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 1897
+  total_bytes: 1897
+}
+
+2023-06-20 21:07:08,680 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  uploaded_bytes: 1897
+  total_bytes: 13481
+}
+
+2023-06-20 21:07:08,783 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 1897
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:08,887 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 1897
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:09,002 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 1897
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:09,107 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 21576
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:09,212 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 21576
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:09,316 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 21576
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:09,421 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 21576
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:09,526 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 21576
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:10,056 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 21576
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:10,161 INFO    MainThread:7171 [wandb_run.py:_wait_for_finish():1693] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 21576
+  total_bytes: 21576
+}
+
+2023-06-20 21:07:11,638 INFO    MainThread:7171 [wandb_run.py:_show_files():1915] logging synced files

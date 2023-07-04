@@ -1,0 +1,60 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 MIX
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 MIX
+EPOCH 1: ended.
+{'Total samples': array(112), 'Overall Acc': 0.24062296513348724, 'Mean Acc': 0.11520622509760313, 'Mean Precision': 0.043551647761845474, 'FreqW Acc': 0.1150848528331556, 'Mean IoU': 0.04872907703313463, 'Class IoU': {0: 0.2838470806760283, 1: 0.0005180340607327847, 2: 0.01071464544708508, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.026436651032746096, 9: 0.0, 10: 0.21022495582081308, 11: 0.0, 12: 'X', 13: 0.0042784803270755735, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Acc': {0: 0.5911082070016147, 1: 0.0008182636445295339, 2: 0.01299831984095008, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.030431533719125433, 9: 0.0, 10: 0.6180937156250328, 11: 0.0, 12: 'X', 13: 0.013818436242381832, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Prec': {0: 0.3531963805473118, 1: 0.0014098903809731808, 2: 0.05748058088095369, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.16762708375346638, 9: 0.0, 10: 0.24160824822320187, 11: 0.0, 12: 'X', 13: 0.006159123689157096, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/6: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 MIX
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf1 MIX
+EPOCH 1: ended.
+{'Total samples': array(208), 'Overall Acc': 0.17210113785199738, 'Mean Acc': 0.04255370634420466, 'Mean Precision': 0.033692442064140966, 'FreqW Acc': 0.09930355074857314, 'Mean IoU': 0.02351205536436919, 'Class IoU': {0: 0.17137368540980794, 1: 0.0, 2: 0.09638426644503872, 3: 0.0, 4: 0.0007254859931618742, 5: 0.0020944095375625797, 6: 0.0, 7: 0.0, 8: 0.05299127674675689, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.029111706333209874, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Acc': {0: 0.29194076210468706, 1: 0.0, 2: 0.1537079962538043, 3: 0.0, 4: 0.002063789868571117, 5: 0.005035506778241736, 6: 0.0, 7: 0.0, 8: 0.12308837113720032, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.06246916902056542, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Prec': {0: 0.29326810568580053, 1: 0.0, 2: 0.20536854249349892, 3: 0.0, 4: 0.001117517080204264, 5: 0.003573064589850066, 6: 0.0, 7: 0.0, 8: 0.08512966731292218, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.05169950205640244, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+qui
+Testing...
+Client 1/1 - all_target_train_data MIX
+WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 137, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 111, in perform_fed_oracle_training
+    self.test([self.all_target_client], eval_train_metric, r, 'ROUND', self.get_fake_max_scores(False, 1),
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 354, in test
+    scores = self.perform_test(metric, test_clients, step)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 314, in perform_test
+    loss = c.test(metric, swa=swa)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 280, in test
+    for i in range(len(labels)):
+KeyboardInterrupt

@@ -1,0 +1,44 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+end
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+end
+{'Total samples': array(56), 'Overall Acc': 0.34189816101160647, 'Mean Acc': 0.08539346458681907, 'Mean Precision': 0.08987022672451478, 'FreqW Acc': 0.23137286583770647, 'Mean IoU': 0.05069407248164017, 'Class IoU': {0: 0.37168904407608955, 1: 0.03817941758897199, 2: 0.3094230782601561, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.003412969282499893, 7: 0.0, 8: 0.06048856145735738, 9: 0.0, 10: 0.02788066672006723, 11: 0.00871428052689756, 12: 0.0, 13: 0.04179239589514704, 14: 0.0, 15: 'X', 16: 'X', 17: 0.0, 18: 0.000218818380696101}, 'Class Acc': {0: 0.4319208176268382, 1: 0.049865874687443336, 2: 0.5859236029634753, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.027223230440611198, 7: 0.0, 8: 0.08434878936429356, 9: 0.0, 10: 0.167807596766959, 11: 0.05433552183510629, 12: 0.0, 13: 0.04899764150798946, 14: 0.0, 15: 'X', 16: 'X', 17: 0.0, 18: 0.0012658227832078193}, 'Class Prec': {0: 0.7271765849127539, 1: 0.14008881710805485, 2: 0.39602174813134366, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0038870173610036237, 7: 0.0, 8: 0.1761643760107923, 9: 0.0, 10: 0.03235414354923374, 11: 0.010272213661604511, 12: 0.0, 13: 0.2213049267348462, 14: 0.0, 15: 'X', 16: 'X', 17: 0.0, 18: 0.00026448029614798194}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/6: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 HHA
+EPOCH 1: ended.
+end
+CLIENT 2/2: dusseldorf1 HHA
+EPOCH 1: ended.
+end
+{'Total samples': array(96), 'Overall Acc': 0.5455570249873619, 'Mean Acc': 0.13235266860265027, 'Mean Precision': 0.1257830265042842, 'FreqW Acc': 0.41455148991921004, 'Mean IoU': 0.08837634417299986, 'Class IoU': {0: 0.6807803939202306, 1: 0.10281936512704097, 2: 0.3960674236615486, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.18728854637321943, 9: 0.0, 10: 0.14986887940526306, 11: 0.0, 12: 0.0, 13: 0.16232593079969498, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 0.0}, 'Class Acc': {0: 0.7654354022431347, 1: 0.21518748821730901, 2: 0.6173929120070721, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.30750432091074803, 9: 0.0, 10: 0.2342899100460659, 11: 0.0, 12: 0.0, 13: 0.3748906700260257, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 0.0}, 'Class Prec': {0: 0.8602472493319945, 1: 0.16450929145834772, 2: 0.5249044726609372, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.32390048942129507, 9: 0.0, 10: 0.2937476025970944, 11: 0.0, 12: 0.0, 13: 0.22256839811173054, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Testing...

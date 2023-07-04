@@ -38,6 +38,7 @@ class TargetDataset(data.Dataset, metaclass=ABCMeta):
         self.style_tf_fn = None
 
     def __getitem__(self, index):
+
         index = self._preprocess_index(index)
         x, y, x_hpf = self._get_images(index)
 
@@ -85,9 +86,11 @@ class TargetDataset(data.Dataset, metaclass=ABCMeta):
 
     @staticmethod
     def _preprocess_images(x, y, original_index):
+
         return x, y
 
     def _apply_test_transform(self, x, y, x_hpf=None):
+
         if x_hpf is not None:
             x_hpf = tr.Resize((x.size[1], x.size[0]))(x_hpf)
             x, x_hpf = self.test_transform(x, x_hpf)
@@ -96,6 +99,7 @@ class TargetDataset(data.Dataset, metaclass=ABCMeta):
         return self.test_transform(x), self.test_transform(x), self.target_transform(y)
 
     def _apply_train_transform(self, x, y, x_hpf=None):
+
         if self.ds_type == 'supervised':
             x, y = self.transform(x, y)
             y = self.target_transform(y)

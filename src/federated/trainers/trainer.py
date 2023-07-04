@@ -104,11 +104,9 @@ class Trainer(GeneralTrainer):
             if plot_metric:
                 if self.args.mm_setting=="first":
                     if "RGB" in list(losses.keys())[0]:
-                        print("plot_train_metric RGB case")
 
                         self.writer.plot_metric(r, metric, 'RGB', self.ret_score_2)
                     else:
-                        print("plot_train_metric HHA case")
                         self.writer.plot_metric(r, metric, 'HHA', self.ret_score)
                 else:
                     self.writer.plot_metric(r, metric, '', self.ret_score)

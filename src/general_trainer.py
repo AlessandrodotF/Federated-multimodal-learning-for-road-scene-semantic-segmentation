@@ -33,7 +33,7 @@ class GeneralTrainer(object):
                 yaml_config = yaml.safe_load(f)
                 self.args = {**vars(self.args), **{key: value for key, value in yaml_config.items()
                                                    if key in vars(self.args) and key != 'wandb_id'}}
-        writer.write(f'Initializing model...')
+        writer.write(f'Initializing model...experiments {self.args.mm_setting}' )
         #parte originale: la posso usare per HHA
         self.model = self.model_init(args, device)
         if self.args.mm_setting=="first":
@@ -290,11 +290,6 @@ class GeneralTrainer(object):
         test_client.dataset.test = True
         print(self.sample_ids[cl_type][str(test_client)])
         for i in self.sample_ids[cl_type][str(test_client)]:
-            print("self.sample_ids[cl_type][str(test_client)]              :",self.sample_ids[cl_type][str(test_client)])
-            print("i                                                       :",i)
-            print("test_client                                                       :", test_client)
-
-
             plot_samples.append(self.__get_plot_sample(test_client, i))
 
         test_client.dataset.test = False

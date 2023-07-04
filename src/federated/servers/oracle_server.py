@@ -45,8 +45,12 @@ class OracleServer(Server):
         clients = self.selected_clients
 
         for i, c in enumerate(clients):
-            self.writer.write(f"CLIENT {i + 1}/{len(clients)}: {c.id} {c.format_client}")
+            if self.args.mm_setting =="zero":
+                self.writer.write(f"CLIENT {i + 1}/{len(clients)}: {c.id} ")
+            else:
+                self.writer.write(f"CLIENT {i + 1}/{len(clients)}: {c.id} {c.format_client}")
 
+            # FINO QUI VENGONO PASSATI CORRETTAMENTE LE COPPIE DI IMMAGINI E LE COPPIE DI LABELS
             if self.args.mm_setting=="first":
                 if c.format_client=="HHA":
                     c.model.load_state_dict(self.model_params_dict)
@@ -104,6 +108,19 @@ class OracleServer(Server):
                         update = self._compute_client_delta(update)
                     self.updates_rgb.append((num_samples, update))
                     print("end")
+            else:
+                c.model.load_state_dict(self.model_params_dict)
+                out = c.train(partial_metric, r=r)
+                if self.local_rank == 0:
+                    num_samples, update, dict_losses_list = out
+                    losses[c.id] = {'loss': dict_losses_list, 'num_samples': num_samples}
+                else:
+                    num_samples, update = out
+                if self.optimizer is not None:
+                    update = self._compute_client_delta(update)
+
+                self.updates.append((num_samples, update))
+
 
         if self.local_rank == 0 and self.args.mm_setting=="first":
             return losses, losses_rgb

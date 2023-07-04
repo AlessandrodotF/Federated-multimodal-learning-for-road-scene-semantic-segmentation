@@ -24,14 +24,15 @@ class Server:
         self.updates = []
 
         if self.args.mm_setting == "first":
+            self.updates_rgb = []
             self.total_grad_rgb = 0
             self.model_rgb = copy.deepcopy(model_rgb)
             self.model_rgb_params_dict = copy.deepcopy(self.model_rgb.state_dict())
-            self.updates_rgb = []
             self.optimizer_rgb = self.__get_optimizer_rgb()
             self.swa_model_rgb = None
 
         if self.args.mm_setting == "second":
+            self.updates_rgb = []
             self.rgb_backbone_params_dict = copy.deepcopy(self.model.module.rgb_backbone.state_dict())
             self.hha_backbone_params_dict = copy.deepcopy(self.model.module.hha_backbone.state_dict())
             self.classifier_params_dict = copy.deepcopy(self.model.module.classifier.state_dict())
@@ -87,7 +88,6 @@ class Server:
         self.selected_clients = np.random.choice(possible_clients, num_clients, replace=False)
 
 
-    """queste funzioni qui sotto per il caso attuale credo non servano"""
     def get_clients_info(self, clients):
         if clients is None:
             clients = self.selected_clients

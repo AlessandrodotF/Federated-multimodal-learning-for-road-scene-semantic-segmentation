@@ -1,0 +1,119 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+ciao
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7fadf6b68b80>
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1328, in __del__
+    self._shutdown_workers()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1283, in _shutdown_workers
+    self._pin_memory_thread.join()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py", line 1053, in join
+    self._wait_for_tstate_lock()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py", line 1069, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt:
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 15, in run_experiment
+    trainer = trainer_class(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 8, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/trainer.py", line 11, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 59, in __init__
+    self.__clients_setup()
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 154, in __clients_setup
+    cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 18, in __init__
+    super().__init__(args, client_id, dataset, model, writer, batch_size, world_size, rank, num_gpu,
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 109, in __init__
+    label = samples[1][i].cpu().numpy()
+KeyboardInterrupt

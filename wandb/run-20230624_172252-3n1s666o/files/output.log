@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/__init__.py", line 1, in <module>
+    from .oracle_client import OracleClient
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 5, in <module>
+    from clients.client import Client
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 100
+    else:
+    ^
+SyntaxError: invalid syntax
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient

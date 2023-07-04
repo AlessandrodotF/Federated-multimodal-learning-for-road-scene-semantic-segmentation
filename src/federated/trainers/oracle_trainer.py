@@ -94,7 +94,7 @@ class OracleTrainer(Trainer):
                     max_scores, _ = self.test(self.target_test_clients, test_metric, r, 'ROUND', max_scores,
                                                   cl_type='target')
 
-            #caso base
+            #caso base + terzo
             else:
                 losses = self.server.train_clients(partial_metric=partial_train_metric)
                 self.plot_train_metric(r, partial_train_metric, losses)

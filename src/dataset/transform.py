@@ -25,13 +25,22 @@ class Compose(object):
         self.transforms = transforms
 
     def __call__(self, img, lbl=None):
+
         if lbl is not None:
             for t in self.transforms:
-                img, lbl = t(img, lbl)
+                if t.__class__.__name__=="RandomScale_new":
+                    img, lbl, img.filename,lbl.filename= t(img, lbl)
+                else:
+                    img, lbl= t(img, lbl)
+
             return img, lbl
         else:
             for t in self.transforms:
-                img = t(img)
+                if t.__class__.__name__=="RandomScale_new":
+                    img, img.filename = t(img)
+                else:
+                    img = t(img)
+
             return img
 
     def __repr__(self):
@@ -252,12 +261,69 @@ class RandomVerticalFlip(object):
     def __repr__(self):
         return self.__class__.__name__ + '(p={})'.format(self.p)
 
+class RandomScale_new(object):
+    def __init__(self, scale_range, interpolation=Image.BILINEAR):
+        self.scale_range = scale_range
+        self.interpolation = interpolation
+        self.scale_factors_rgb = {}
+        self.scale_factor_hha= {}
+        self.previous_keyword = ""
 
+    def get_scale(self, img):
+
+        if "RGB" in img.filename:
+            if img.filename in self.scale_factors_rgb:
+                scale = self.scale_factors_rgb[img.filename]
+            elif img.filename.replace("RGB", "") in self.scale_factor_hha:
+                scale = self.scale_factor_hha[img.filename.replace("RGB", "")]
+            else:
+                scale = random.uniform(self.scale_range[0], self.scale_range[1])
+                self.scale_factors_rgb[img.filename] = scale
+                self.scale_factor_hha[img.filename.replace("RGB", "")] = scale
+        else:
+            if img.filename in self.scale_factor_hha:
+                scale = self.scale_factor_hha[img.filename]
+            elif img.filename.replace("train", "trainRGB") in self.scale_factors_rgb:
+                scale = self.scale_factors_rgb[img.filename.replace("train", "trainRGB")]
+            elif img.filename.replace("trainRGB", "train") in self.scale_factors_rgb:
+                scale = self.scale_factors_rgb[img.filename.replace("trainRGB", "train")]
+            else:
+                scale = random.uniform(self.scale_range[0], self.scale_range[1])
+                self.scale_factor_hha[img.filename] = scale
+
+        city = img.filename.split("/")[-2]
+        if city != self.previous_keyword:
+            if self.previous_keyword == "":
+                self.previous_keyword = city
+            else:
+                self.scale_factors_rgb = {}
+                self.scale_factor_hha = {}
+                self.previous_keyword = city
+        else:
+                self.previous_keyword = city
+        return scale
+    def __call__(self, img, lbl=None):
+        scale = self.get_scale(img)
+        target_size = (int(img.size[1] * scale), int(img.size[0] * scale))
+
+        if lbl is not None:
+            if img.size != lbl.size:
+                img = F.resize(img, (lbl.size[1], lbl.size[0]), self.interpolation)
+            return F.resize(img, target_size, self.interpolation), F.resize(lbl, target_size, Image.NEAREST), img.filename,lbl.filename
+        else:
+            return F.resize(img, target_size, self.interpolation), img.filename
+
+
+    def __repr__(self):
+        interpolate_str = _pil_interpolation_to_str[self.interpolation]
+        return self.__class__.__name__ + '(scale_range={0}, interpolation={1})'.format(self.scale_range,
+                                                                                interpolate_str)
 class RandomScale(object):
 
     def __init__(self, scale_range, interpolation=Image.BILINEAR):
         self.scale_range = scale_range
         self.interpolation = interpolation
+
 
     def __call__(self, img, lbl=None):
         scale = random.uniform(self.scale_range[0], self.scale_range[1])
@@ -301,6 +367,85 @@ class Normalize(object):
 
     def __repr__(self):
         return self.__class__.__name__ + '(mean={0}, std={1})'.format(self.mean, self.std)
+class RandomCrop_new(object):
+
+    def __init__(self, size, padding=0, pad_if_needed=False):
+        if isinstance(size, numbers.Number):
+            self.size = (int(size), int(size))
+        else:
+            self.size = size
+        self.padding = padding
+        self.pad_if_needed = pad_if_needed
+        self.crop_values = {}
+        self.prev_city = ""
+
+    def get_params(self,img, output_size):
+        city = img.filename.split("/")[-2]
+        if city != self.prev_city:
+            if self.prev_city=="":
+                self.prev_city=city
+            else:
+                self.crop_values = {}
+                self.prev_city = city
+        else:
+            self.prev_city = city
+
+        w, h = img.size
+        th, tw = output_size
+        if w == tw and h == th:
+            return 0, 0, h, w
+
+
+        if "trainRGB" in img.filename:
+            filename = img.filename.replace("trainRGB", "train")
+        elif "valRGB" in img.filename:
+                filename = img.filename.replace("valRGB", "val")
+        else:
+            filename = img.filename
+
+        if filename in self.crop_values:
+            return self.crop_values[filename]
+        else:
+            i = random.randint(0, h - th)
+            j = random.randint(0, w - tw)
+            crop_values = (i, j, th, tw)
+            self.crop_values[filename] = crop_values
+            return crop_values
+    def __call__(self, img, lbl=None):
+
+        if lbl is None:
+            if self.padding > 0:
+                img = F.pad(img, self.padding)
+            if self.pad_if_needed and img.size[0] < self.size[1]:
+                img = F.pad(img, padding=int((1 + self.size[1] - img.size[0]) / 2))
+            if self.pad_if_needed and img.size[1] < self.size[0]:
+                img = F.pad(img, padding=int((1 + self.size[0] - img.size[1]) / 2))
+
+            i, j, h, w = self.get_params(img, self.size)
+
+            return F.crop(img, i, j, h, w)
+
+        else:
+            assert img.size == lbl.size, 'size of img and lbl should be the same. %s, %s' % (img.size, lbl.size)
+            if self.padding > 0:
+                img = F.pad(img, self.padding)
+                lbl = F.pad(lbl, self.padding)
+
+            if self.pad_if_needed and img.size[0] < self.size[1]:
+                img = F.pad(img, padding=int((1 + self.size[1] - img.size[0]) / 2))
+                lbl = F.pad(lbl, padding=int((1 + self.size[1] - lbl.size[0]) / 2), fill=255)
+
+            if self.pad_if_needed and img.size[1] < self.size[0]:
+                img = F.pad(img, padding=int((1 + self.size[0] - img.size[1]) / 2))
+                lbl = F.pad(lbl, padding=int((1 + self.size[0] - lbl.size[1]) / 2), fill=255)
+
+            i, j, h, w = self.get_params(img, self.size)
+
+            return F.crop(img, i, j, h, w), F.crop(lbl, i, j, h, w)
+
+    def __repr__(self):
+        return self.__class__.__name__ + '(size={0}, padding={1})'.format(self.size, self.padding)
+
 
 
 class RandomCrop(object):
@@ -312,6 +457,7 @@ class RandomCrop(object):
             self.size = size
         self.padding = padding
         self.pad_if_needed = pad_if_needed
+
 
     @staticmethod
     def get_params(img, output_size):
