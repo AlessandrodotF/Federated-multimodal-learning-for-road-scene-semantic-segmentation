@@ -178,7 +178,7 @@ class DatasetHandler(object):
 
                 self.clients_args[split].append({'client_id': user, 'dataset': ds})
 
-                if user=="test_user" and self.args.mm_setting == "first":
+                if user=="test_user" and self.args.mm_setting == "first" or user=="test_user" and self.args.mm_setting == "second":
                     # self.clients_args[test_user] x 2
                     if ds.root=="data":
                         ds_new=copy.copy(ds)
@@ -189,7 +189,7 @@ class DatasetHandler(object):
                         ds_new.root="data"
                         self.clients_args[split].append({'client_id': user, 'dataset': ds_new})
 
-        if self.args.framework == 'federated' and self.args.mm_setting=="first":
+        if self.args.framework == 'federated' and self.args.mm_setting=="first" or self.args.framework == 'federated' and self.args.mm_setting=="second":
             # self.clients_args['all_train'] x 2
             ds = self.__gen_ds(all_train_data['centralized_user'],
                                dataset_name, dataset, train_transform, test_transform, split='test')
@@ -203,7 +203,7 @@ class DatasetHandler(object):
                 ds_new.root = "data"
                 self.clients_args['all_train'].append({'client_id': 'all_target_train_data', 'dataset': ds_new})
 
-        if self.args.framework == 'federated'and self.args.mm_setting!="first":
+        if (self.args.framework == 'federated'and self.args.mm_setting=="third") or (self.args.framework == 'federated'and self.args.mm_setting=="zero"):
             ds = self.__gen_ds(all_train_data['centralized_user'],
                                dataset_name, dataset, train_transform, test_transform, split='test')
             self.clients_args['all_train'].append({'client_id': 'all_target_train_data', 'dataset': ds})

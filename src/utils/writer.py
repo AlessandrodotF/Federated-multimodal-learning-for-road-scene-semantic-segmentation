@@ -78,7 +78,6 @@ class Writer:
     def plot_metric(self, step, metric, cl_name, ret_score):
         if self.local_rank == 0:
             train_score = metric.get_results()
-            print(train_score)
             self.wandb.log_metrics({f'{metric.name}_{cl_name}_{ret_score.lower()}': train_score[ret_score]},
                                    step=step + 1)
 

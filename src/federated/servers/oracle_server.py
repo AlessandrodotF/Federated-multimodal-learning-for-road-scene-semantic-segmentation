@@ -50,7 +50,6 @@ class OracleServer(Server):
             else:
                 self.writer.write(f"CLIENT {i + 1}/{len(clients)}: {c.id} {c.format_client}")
 
-            # FINO QUI VENGONO PASSATI CORRETTAMENTE LE COPPIE DI IMMAGINI E LE COPPIE DI LABELS
             if self.args.mm_setting=="first":
                 if c.format_client=="HHA":
                     c.model.load_state_dict(self.model_params_dict)

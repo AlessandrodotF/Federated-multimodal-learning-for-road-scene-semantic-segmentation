@@ -175,8 +175,7 @@ class OracleClient(Client):
         dict_all_iters_losses = defaultdict(lambda: 0)
 
         self.loader.sampler.set_epoch(cur_epoch)
-        # if self.args.mm_setting=="third":
-        #     self.loader.sampler.shuffle=False
+
 
         if self.profiler_path:
             with torch.profiler.profile(schedule=torch.profiler.schedule(wait=2, warmup=2, active=6, repeat=1),

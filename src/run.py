@@ -26,7 +26,7 @@ def run_experiment():
     elif trainer.model.module.task == 'segmentation':
         writer.write(f"Final mIoU: {round(max_score[0] * 100, 3)}%")
 
-        if args.mm_setting=="first":
+        if args.mm_setting=="first" or args.mm_setting=="second" :
             writer.write(f"Final mIoU: {round(max_score_2[0] * 100, 3)}%")
 
     else:

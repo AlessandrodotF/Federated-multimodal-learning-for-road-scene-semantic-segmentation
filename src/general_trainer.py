@@ -53,7 +53,8 @@ class GeneralTrainer(object):
             self.clients_shared_args_rgb = {'args': self.args, 'model': self.model_rgb,
                                     'writer': self.writer, 'world_size': world_size, 'rank': rank,
                                     'num_gpu': args.n_devices, 'device': device}
-
+        if self.args.mm_setting=="second":
+            self.target_test_clients_2 = []
         self.source_train_clients, self.source_test_clients = [], []
         self.target_train_clients, self.target_test_clients = [], []
         self.__clients_setup()
@@ -153,7 +154,7 @@ class GeneralTrainer(object):
 
                 cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
 
-                if self.args.mm_setting=="first":
+                if self.args.mm_setting=="first" or  self.args.mm_setting=="second":
                     if 'source' not in str(cl):
                         """ci entra 145 di cui volte"""
                         if split == 'train':
