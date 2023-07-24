@@ -148,6 +148,16 @@ class OracleClient(Client):
                  ###########################################################
                 else:
                     #QUI#
+
+                    if self.args.mm_setting=="third":
+                        batch_size = images.size(0)
+                        num_channels = images.size(1)
+                        height = images.size(2)
+                        width = images.size(3)
+                        # images sarà un tensore (4,2 (input), 3, 100, 100)
+                        images = images.view(batch_size // 2, 2, num_channels, height, width)
+                        labels = labels[::2]
+
                     dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
                     dict_calc_losses['loss_tot'].backward()
 
@@ -256,7 +266,7 @@ class OracleClient(Client):
                     # no
                     original_images, images, images_hpf = images
                 else:
-                    # qui sì, original_img e img sono la stessa cosa!
+                    # qui sì, original_img e img sono la stessa cosa
                     original_images, images = images
 
                 if self.args.hp_filtered:
@@ -268,6 +278,7 @@ class OracleClient(Client):
                 images = images.to(self.device, dtype=torch.float32)
                 labels = labels.to(self.device, dtype=torch.long)
 
+                # stampa immagini, arrivano nell'rdine giusto
                 # for i in range(len(images)):
                 #     x_rgb = images[i].cpu().numpy()
                 #     x_rgb = np.transpose(x_rgb, (1, 2, 0))

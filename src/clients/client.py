@@ -151,16 +151,9 @@ class Client:
                     return dict_calc_losses, outputs
             else:
 
-                batch_size=images.size(0)
-                num_channels = images.size(1)
-                height = images.size(2)
-                width = images.size(3)
-                # images sarà un tensore (4,2 (input), 3, 100, 100)
-                images = images.view(batch_size // 2, 2, num_channels, height, width)
                 x_rgb = images[:, 0, :, :]
                 z_hha = images[:, 1, :, :]
                 # # sistema le labels terzo caso
-                labels = labels[::2]
 
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
                 loss_tot = self.reduction(self.criterion(outputs, labels), labels)
