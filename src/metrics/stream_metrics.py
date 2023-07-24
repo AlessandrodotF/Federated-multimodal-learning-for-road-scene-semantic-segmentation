@@ -11,7 +11,6 @@ class StreamSegMetrics:
         self.confusion_matrix = np.zeros((n_classes, n_classes))
         self.total_samples = 0
         self.results = {}
-        print("ciao")
 
     def _fast_hist(self, label_true, label_pred):
         mask = (label_true >= 0) & (label_true < self.n_classes)

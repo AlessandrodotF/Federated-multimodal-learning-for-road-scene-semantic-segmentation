@@ -15,7 +15,7 @@ def run_experiment():
     trainer = trainer_class(args, writer, device, rank, world_size)
     writer.write("The experiment begins...")
 
-    if args.mm_setting=="first":
+    if args.mm_setting=="first" or args.mm_setting=="second" :
         max_score,max_score_2 = trainer.train(*trainer.train_args, **trainer.train_kwargs)
     else:
         max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)

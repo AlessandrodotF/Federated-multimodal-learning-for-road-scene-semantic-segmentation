@@ -93,8 +93,10 @@ class OracleTrainer(Trainer):
 
                 if (r + 1) % self.args.test_interval == 0 or (r + 1) == self.args.num_rounds:
                     #self.test si riferisce a general_trainer
+                    print("Case:  ", self.target_test_clients[0].format_client)
                     max_scores, _ = self.test(self.target_test_clients, test_metric, r, 'ROUND', max_scores,
                                                   cl_type='target')
+                    print("Case:  ", self.target_test_clients_2[0].format_client)
                     max_scores_2, _ = self.test(self.target_test_clients_2, test_metric_2, r, 'ROUND', max_scores_2,
                                                     cl_type='target')
             #caso base + terzo
@@ -119,7 +121,7 @@ class OracleTrainer(Trainer):
                                                   cl_type='target')
 
 
-        if self.args.mm_setting == "first":
+        if self.args.mm_setting == "first" or self.args.mm_setting== "second":
             return max_scores, max_scores_2
         else:
             return max_scores

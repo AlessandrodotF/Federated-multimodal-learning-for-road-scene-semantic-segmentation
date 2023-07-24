@@ -55,6 +55,8 @@ class GeneralTrainer(object):
                                     'num_gpu': args.n_devices, 'device': device}
         if self.args.mm_setting=="second":
             self.target_test_clients_2 = []
+            self.metrics_2 = self.set_metrics(writer, args.num_classes)
+
         self.source_train_clients, self.source_test_clients = [], []
         self.target_train_clients, self.target_test_clients = [], []
         self.__clients_setup()

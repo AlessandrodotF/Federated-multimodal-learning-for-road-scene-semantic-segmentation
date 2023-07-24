@@ -24,7 +24,7 @@ def get_dataset(model_name, dataset_name, double_dataset=None, quadruple_dataset
             dataset = partial(Cityscapes, mean=mean, std=std, cv2=cv2)
             train_transform = [
                 tr.RandomScale((0.7, 2)),
-                tr.RandomCrop((512, 1024)),
+                tr.RandomCrop((20, 20)),
                 tr.ToTensor(),
                 tr.Normalize(mean=mean, std=std),
             ]
