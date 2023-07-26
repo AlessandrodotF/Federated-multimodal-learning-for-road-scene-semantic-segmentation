@@ -4,7 +4,7 @@ random_seed=42
 ignore_warnings
 wandb_entity=alessandro-fella-1
 
-save_samples=3
+save_samples=0
 
 target_dataset=cityscapes
 clients_type=heterogeneous
@@ -14,14 +14,14 @@ framework=federated
 
 fw_task=oracle
 algorithm=FedAvg
-num_rounds=4
-clients_per_round=1
+num_rounds=5000
+clients_per_round=5
 
 num_epochs=1
 model=deeplabv3
 hnm
-batch_size=16
-test_batch_size=1
+batch_size=8
+test_batch_size=2
 
 optimizer=SGD
 weight_decay=0
@@ -32,3 +32,4 @@ eval_interval=50
 test_interval=10
 print_interval=20
 plot_interval=10
+mm_setting=first

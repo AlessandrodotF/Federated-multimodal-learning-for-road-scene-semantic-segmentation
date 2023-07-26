@@ -291,7 +291,6 @@ class GeneralTrainer(object):
         plot_samples = []
 
         test_client.dataset.test = True
-        print(self.sample_ids[cl_type][str(test_client)])
         for i in self.sample_ids[cl_type][str(test_client)]:
             plot_samples.append(self.__get_plot_sample(test_client, i))
 

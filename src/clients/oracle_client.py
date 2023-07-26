@@ -69,6 +69,7 @@ class OracleClient(Client):
         return tmp
 
     def process_samples(self, loader, samples):
+        # supervised
         if loader.dataset.ds_type == 'unsupervised':
             if not self.args.hp_filtered:
                 images = samples.to(self.device, dtype=torch.float32)
@@ -112,20 +113,7 @@ class OracleClient(Client):
                     self.teacher_kd_model = teacher_kd_model
                     self.writer.write("Done.")
             #######################################################
-            # for i in range(samples[0].shape[0]):
-            #     x_rgb = samples[0][i].cpu().numpy()
-            #     x_rgb = np.transpose(x_rgb, (1, 2, 0))
-            #     plt.imshow(x_rgb)
-            #     plt.axis('off')
-            #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_{i}.png')
-            #     plt.clf()
-            #
-            # for i in range(samples[1].shape[0]):
-            #     label = samples[1][i].cpu().numpy()
-            #     plt.imshow(label, cmap='gray')
-            #     plt.axis('off')
-            #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/label_{i}.png')
-            #     plt.clf()
+
             images, labels = self.process_samples(self.loader, samples)
 
             optimizer.zero_grad()
@@ -150,14 +138,23 @@ class OracleClient(Client):
                     #QUI#
 
                     if self.args.mm_setting=="third":
-                        batch_size = images.size(0)
-                        num_channels = images.size(1)
-                        height = images.size(2)
-                        width = images.size(3)
-                        # images sarà un tensore (4,2 (input), 3, 100, 100)
-                        images = images.view(batch_size // 2, 2, num_channels, height, width)
-                        labels = labels[::2]
 
+                        # stampa immagini, arrivano nell'rdine giusto
+                        # for i in range(len(images)):
+                        #     x_rgb = images[i].cpu().numpy()
+                        #     x_rgb = np.transpose(x_rgb, (1, 2, 0))
+                        #     plt.imshow(x_rgb)
+                        #     plt.axis('off')
+                        #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_{i}.png')
+                        #     plt.clf()
+                        #
+                        # for i in range(len(labels)):
+                        #     label = labels[i].cpu().numpy()
+                        #     plt.imshow(label, cmap='gray')
+                        #     plt.axis('off')
+                        #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/label_{i}.png')
+                        #     plt.clf()
+                        labels = labels[::2]
                     dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
                     dict_calc_losses['loss_tot'].backward()
 
@@ -166,17 +163,16 @@ class OracleClient(Client):
                 self.handle_grad()
             self.handle_logs(cur_step, cur_epoch, dict_calc_losses, metric, scheduler, plot_lr)
             self.scaler.step(optimizer) if self.args.mixed_precision else optimizer.step()
-
             if profiler is not None:
                 profiler.step()
             if scheduler is not None:
                 scheduler.step()
-            # no
+
             if self.update_metric_condition(cur_epoch) and not self.args.ignore_train_metrics:
                 self.update_metric(metric, outputs, labels)
             if self.args.mixed_precision:
                 self.scaler.update()
-            #
+            ############################################################
             self.update_all_iters_losses(dict_all_iters_losses, dict_calc_losses)
 
     def run_epoch(self, cur_epoch, optimizer, metric=None, scheduler=None, e_name='EPOCH', plot_lr=True,

@@ -120,6 +120,17 @@ class Client:
                 prediction.unsqueeze(0).double(), labels.shape[1:], mode='nearest').squeeze(0).long()
         labels = labels.cpu().numpy()
         prediction = prediction.cpu().numpy()
+
+        # for i in range(len(labels)):
+        #     plt.imshow(labels[i], cmap='gray')
+        #     plt.axis('off')
+        #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/label_{i}.png')
+        #     plt.clf()
+        # for i in range(len(prediction)):
+        #     plt.imshow(prediction[i], cmap='gray')
+        #     plt.axis('off')
+        #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/pred_{i}.png')
+        #     plt.clf()
         metric.update(labels, prediction)
 
     def calc_loss_and_output(self, images, labels):
@@ -150,11 +161,29 @@ class Client:
                     dict_calc_losses = {'loss_tot': loss_tot}
                     return dict_calc_losses, outputs
             else:
-
+                batch_size = images.size(0)
+                num_channels = images.size(1)
+                height = images.size(2)
+                width = images.size(3)
+                images = images.view(batch_size // 2, 2, num_channels, height, width)
                 x_rgb = images[:, 0, :, :]
                 z_hha = images[:, 1, :, :]
-                # # sistema le labels terzo caso
-
+                # sistema le labels terzo caso
+                # for i in range(x_rgb.shape[0]):
+                #     x_rgb_image = x_rgb[i].cpu().numpy()  # Assume che la prima immagine RGB sia nell'indice 0
+                #     x_rgb_image = np.transpose(x_rgb_image, (1, 2, 0))
+                #     plt.imshow(x_rgb_image)
+                #     plt.axis('off')
+                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_rgb_{i}.png')
+                #     plt.show()
+                #
+                # for i in range(z_hha.shape[0]):
+                #     z_hha_image = z_hha[i].cpu().numpy()  # Assume che la prima immagine RGB sia nell'indice 0
+                #     z_hha_image = np.transpose(z_hha_image, (1, 2, 0))
+                #     plt.imshow(z_hha_image)
+                #     plt.axis('off')
+                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_hha_{i}.png')
+                #     plt.show()
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
                 loss_tot = self.reduction(self.criterion(outputs, labels), labels)
                 dict_calc_losses = {'loss_tot': loss_tot}
