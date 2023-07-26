@@ -1,0 +1,75 @@
+Downloading: "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth" to /home/utente/.cache/torch/hub/checkpoints/mobilenet_v2-b0353104.pth
+  1% 192k/13.6M [00:00<01:21, 173kB/s]
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+
+
+
+
+
+
+
+ 17% 2.27M/13.6M [00:15<01:18, 151kB/s]
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 15, in run_experiment
+    trainer = trainer_class(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 8, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/trainer.py", line 11, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 38, in __init__
+    self.model = self.model_init(args, device)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 112, in model_init
+    model = make_model(args)
+  File "/home/utente/Scrivania/PROVA/LADD/src/utils/model_utils.py", line 100, in make_model
+    return dict_model[args.model]['model'](args.num_classes, **dict_model[args.model]['kwargs'])
+  File "/home/utente/Scrivania/PROVA/LADD/src/modules/deeplabv3.py", line 71, in multi_deeplabv3_mobilenetv2
+    rgb_backbone = MobileNetV2(width_mult=width_mult)
+  File "/home/utente/Scrivania/PROVA/LADD/src/modules/deeplabv3.py", line 15, in __init__
+    self.model = mobilenet_v2(pretrained=pretrained, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torchvision/models/mobilenetv2.py", line 194, in mobilenet_v2
+    state_dict = load_state_dict_from_url(model_urls['mobilenet_v2'],
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/hub.py", line 586, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/hub.py", line 474, in download_url_to_file
+    buffer = u.read(8192)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/http/client.py", line 462, in read
+    n = self.readinto(b)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/http/client.py", line 506, in readinto
+    n = self.fp.readinto(b)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2179, in main
+    handle_keyboard_interrupt()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1997, in handle_keyboard_interrupt
+    traceback.print_exception(type(value), value, tb, limit=limit)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 103, in print_exception
+    for line in TracebackException(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 517, in __init__
+    self.stack = StackSummary.extract(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 366, in extract
+    f.line
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 288, in line
+    self._line = linecache.getline(self.filename, self.lineno).strip()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/linecache.py", line 30, in getline
+    lines = getlines(filename, module_globals)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/linecache.py", line 137, in updatecache
+    lines = fp.readlines()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+KeyboardInterrupt

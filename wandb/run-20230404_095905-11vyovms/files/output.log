@@ -1,0 +1,357 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+0
+<dataset.target.cityscapes.Cityscapes object at 0x7fa13ab42c40>
+1
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdba30>
+2
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdba90>
+3
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdbaf0>
+4
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb700>
+5
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb610>
+6
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb670>
+7
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb9a0>
+8
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb940>
+9
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb8e0>
+10
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb850>
+11
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb4c0>
+12
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb520>
+13
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103fdb6d0>
+14
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103f976d0>
+15
+<dataset.target.cityscapes.Cityscapes object at 0x7fa10289e1c0>
+16
+<dataset.target.cityscapes.Cityscapes object at 0x7fa10289e2e0>
+17
+<dataset.target.cityscapes.Cityscapes object at 0x7fa10289e430>
+18
+<dataset.target.cityscapes.Cityscapes object at 0x7fa125632520>
+19
+<dataset.target.cityscapes.Cityscapes object at 0x7fa1256324c0>
+20
+<dataset.target.cityscapes.Cityscapes object at 0x7fa1040066d0>
+21
+<dataset.target.cityscapes.Cityscapes object at 0x7fa104006910>
+22
+<dataset.target.cityscapes.Cityscapes object at 0x7fa104006310>
+23
+<dataset.target.cityscapes.Cityscapes object at 0x7fa104006730>
+24
+<dataset.target.cityscapes.Cityscapes object at 0x7fa104006160>
+25
+<dataset.target.cityscapes.Cityscapes object at 0x7fa104006820>
+26
+<dataset.target.cityscapes.Cityscapes object at 0x7fa102893d00>
+27
+<dataset.target.cityscapes.Cityscapes object at 0x7fa102893e50>
+28
+<dataset.target.cityscapes.Cityscapes object at 0x7fa102893d30>
+29
+<dataset.target.cityscapes.Cityscapes object at 0x7fa1027f7c40>
+30
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe040>
+31
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe0a0>
+32
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe100>
+33
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe160>
+34
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe1c0>
+35
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe220>
+36
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe280>
+37
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe2e0>
+38
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe340>
+39
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe3a0>
+40
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe400>
+41
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe460>
+42
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe4c0>
+43
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe520>
+44
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe580>
+45
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe5e0>
+46
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe640>
+47
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe6a0>
+48
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe700>
+49
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe760>
+50
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe7c0>
+51
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe820>
+52
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe880>
+53
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe8e0>
+54
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe940>
+55
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfe9a0>
+56
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfea00>
+57
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfea60>
+58
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfeac0>
+59
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfeb20>
+60
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfeb80>
+61
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfebe0>
+62
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfec40>
+63
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfeca0>
+64
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfed00>
+65
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfed60>
+66
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfedc0>
+67
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfee20>
+68
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfee80>
+69
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfeee0>
+70
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfef40>
+71
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103dfefa0>
+72
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05040>
+73
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e050a0>
+74
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05100>
+75
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05160>
+76
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e051c0>
+77
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05220>
+78
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05280>
+79
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e052e0>
+80
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05340>
+81
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e053a0>
+82
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05400>
+83
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05460>
+84
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e054c0>
+85
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05520>
+86
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05580>
+87
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e055e0>
+88
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05640>
+89
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e056a0>
+90
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05700>
+91
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05760>
+92
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e057c0>
+93
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05820>
+94
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05880>
+95
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e058e0>
+96
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05940>
+97
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e059a0>
+98
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05a00>
+99
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05a60>
+100
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05ac0>
+101
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05b20>
+102
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05b80>
+103
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05be0>
+104
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05c40>
+105
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05ca0>
+106
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05d00>
+107
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05d60>
+108
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05dc0>
+109
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05e20>
+110
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05e80>
+111
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05ee0>
+112
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05f40>
+113
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e05fa0>
+114
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e040>
+115
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e0a0>
+116
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e100>
+117
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e160>
+118
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e1c0>
+119
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e220>
+120
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e280>
+121
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e2e0>
+122
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e340>
+123
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e3a0>
+124
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e400>
+125
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e460>
+126
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e4c0>
+127
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e520>
+128
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e580>
+129
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e5e0>
+130
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e640>
+131
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e6a0>
+132
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e700>
+133
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e760>
+134
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e7c0>
+135
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e820>
+136
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e880>
+137
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e8e0>
+138
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e940>
+139
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0e9a0>
+140
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0ea00>
+141
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0ea60>
+142
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0eac0>
+143
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0eb20>
+0
+<dataset.target.cityscapes.Cityscapes object at 0x7fa103e0eb80>
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 15, in run_experiment
+    trainer = trainer_class(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 8, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/trainer.py", line 11, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 61, in __init__
+    self.__clients_setup()
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 151, in __clients_setup
+    cl = client_class(**cl_args, batch_size=batch_size, test_user=split == 'test')
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 16, in __init__
+    super().__init__(args, client_id, dataset, model, writer, batch_size, world_size, rank, num_gpu,
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 65, in __init__
+    self.profiler_path = os.path.join('profiler', self.args.profiler_folder) if self.args.profiler_folder else None
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 65, in __init__
+    self.profiler_path = os.path.join('profiler', self.args.profiler_folder) if self.args.profiler_folder else None
+  File "_pydevd_bundle/pydevd_cython.pyx", line 1589, in _pydevd_bundle.pydevd_cython.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython.pyx", line 929, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 920, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 317, in _pydevd_bundle.pydevd_cython.PyDBFrame.do_wait_suspend
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1160, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1175, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2179, in main
+    handle_keyboard_interrupt()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1997, in handle_keyboard_interrupt
+    traceback.print_exception(type(value), value, tb, limit=limit)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 103, in print_exception
+    for line in TracebackException(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 517, in __init__
+    self.stack = StackSummary.extract(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 366, in extract
+    f.line
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/traceback.py", line 288, in line
+    self._line = linecache.getline(self.filename, self.lineno).strip()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/linecache.py", line 30, in getline
+    lines = getlines(filename, module_globals)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/linecache.py", line 136, in updatecache
+    with tokenize.open(fullname) as fp:
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/tokenize.py", line 394, in open
+    encoding, lines = detect_encoding(buffer.readline)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/tokenize.py", line 363, in detect_encoding
+    first = read_or_stop()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/tokenize.py", line 321, in read_or_stop
+    return readline()
+KeyboardInterrupt

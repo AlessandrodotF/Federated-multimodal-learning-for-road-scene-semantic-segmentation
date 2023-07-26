@@ -1,0 +1,45 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/15: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+HHA {'weimar3HHA': {'loss': defaultdict(<function OracleClient.train.<locals>.<lambda> at 0x7f393005a0d0>, {'loss_tot': [tensor(2.6003, device='cuda:0')]}), 'num_samples': 34}}
+{'Total samples': array(48), 'Overall Acc': 0.07317073170731707, 'Mean Acc': 0.04684684635473311, 'Mean Precision': 0.030701753695581566, 'FreqW Acc': 0.05446144481687584, 'Mean IoU': 0.034679088759185676, 'Class IoU': {0: 0.06521739083175804, 1: 0.0, 2: 0.14285714172335603, 3: 'X', 4: 'X', 5: 'X', 6: 'X', 7: 'X', 8: 0.0, 9: 'X', 10: 0.0, 11: 'X', 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Acc': {0: 0.0810810803506209, 1: 0.0, 2: 0.1999999977777778, 3: 'X', 4: 'X', 5: 'X', 6: 'X', 7: 'X', 8: 0.0, 9: 'X', 10: 0.0, 11: 'X', 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Prec': {0: 0.24999999305555576, 1: 0.0, 2: 0.33333332716049396, 3: 'X', 4: 'X', 5: 'X', 6: 'X', 7: 'X', 8: 0.0, 9: 'X', 10: 0.0, 11: 'X', 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}}
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 51, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 20, in run_experiment
+    max_score,max_score_2 = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 92, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 47, in perform_fed_oracle_training
+    self.plot_train_metric(r, partial_train_metric, losses)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/trainer.py", line 86, in plot_train_metric
+    self.writer.plot_metric(r, metric, 'RGB', self.ret_score_rgb)
+  File "/home/utente/Scrivania/PROVA/LADD/src/utils/writer.py", line 82, in plot_metric
+    self.wandb.log_metrics({f'{metric.name}_{cl_name}_{ret_score.lower()}': train_score[ret_score]},
+KeyboardInterrupt

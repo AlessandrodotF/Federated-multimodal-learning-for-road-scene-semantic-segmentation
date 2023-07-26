@@ -1,0 +1,82 @@
+2023-03-16 18:23:42,492 INFO    MainThread:14277 [internal.py:wandb_internal():86] W&B internal server running at pid: 14277, started at: 2023-03-16 18:23:42.492678
+2023-03-16 18:23:42,494 DEBUG   HandlerThread:14277 [handler.py:handle_request():126] handle_request: check_version
+2023-03-16 18:23:42,494 INFO    WriterThread:14277 [datastore.py:open_for_write():77] open: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230316_182342-8syli83n/run-8syli83n.wandb
+2023-03-16 18:23:42,496 DEBUG   SenderThread:14277 [sender.py:send():182] send: header
+2023-03-16 18:23:42,496 DEBUG   SenderThread:14277 [sender.py:send_request():196] send_request: check_version
+2023-03-16 18:23:42,501 DEBUG   SenderThread:14277 [sender.py:send():182] send: run
+2023-03-16 18:23:42,502 INFO    SenderThread:14277 [sender.py:_maybe_setup_resume():421] checking resume status for alessandro-fella-1/federated_cityscapes/8syli83n
+2023-03-16 18:23:45,993 ERROR   SenderThread:14277 [retry.py:__call__():126] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/connectionpool.py", line 382, in _make_request
+    self._validate_conn(conn)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1010, in _validate_conn
+    conn.connect()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fdf689058b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/urllib3/util/retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fdf689058b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 130, in execute
+    return self.client.execute(*args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/transport/requests.py", line 38, in execute
+    request = requests.post(self.url, **post_args)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/requests/api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fdf689058b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+2023-03-16 18:23:52,754 WARNING MainThread:14277 [internal.py:wandb_internal():145] Internal process interrupt: 1
+2023-03-16 18:24:00,292 INFO    SenderThread:14277 [dir_watcher.py:__init__():169] watching files in: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230316_182342-8syli83n/files
+2023-03-16 18:24:00,293 INFO    SenderThread:14277 [sender.py:_start_run_threads():740] run started: 8syli83n with start time 1678987422
+2023-03-16 18:24:23,790 WARNING MainThread:14277 [internal.py:is_dead():364] Internal process exiting, parent pid 14247 disappeared
+2023-03-16 18:24:23,791 ERROR   MainThread:14277 [internal.py:wandb_internal():141] Internal process shutdown.
+2023-03-16 18:24:24,299 INFO    SenderThread:14277 [sender.py:finish():979] shutting down sender
+2023-03-16 18:24:24,300 INFO    SenderThread:14277 [dir_watcher.py:finish():283] shutting down directory watcher
+2023-03-16 18:24:24,300 INFO    SenderThread:14277 [dir_watcher.py:finish():313] scan: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230316_182342-8syli83n/files
+2023-03-16 18:24:24,300 INFO    SenderThread:14277 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230316_182342-8syli83n/files/config.yaml config.yaml
+2023-03-16 18:24:24,301 INFO    SenderThread:14277 [file_pusher.py:finish():177] shutting down file pusher
+2023-03-16 18:24:24,301 INFO    SenderThread:14277 [file_pusher.py:join():182] waiting for file pusher
+2023-03-16 18:24:24,515 INFO    WriterThread:14277 [datastore.py:close():281] close: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230316_182342-8syli83n/run-8syli83n.wandb
+2023-03-16 18:24:24,552 INFO    HandlerThread:14277 [handler.py:finish():683] shutting down handler
+2023-03-16 18:24:25,210 INFO    Thread-10 :14277 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230316_182342-8syli83n/files/config.yaml
+2023-03-16 18:24:26,083 INFO    MainThread:14277 [internal.py:handle_exit():76] Internal process exited

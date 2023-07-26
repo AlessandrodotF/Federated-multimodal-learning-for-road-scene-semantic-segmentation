@@ -1,0 +1,55 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/3: Training 5 Clients...
+CLIENT 1/5: erfurt5 MIX
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1496, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 136, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 99, in perform_fed_oracle_training
+    losses = self.server.train_clients(partial_metric=partial_train_metric)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 113, in train_clients
+    out = c.train(partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 199, in train
+    dict_all_iters_losses = self.run_epoch(epoch, optimizer, metric=partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 169, in run_epoch
+    self.__exec_epoch(optimizer, cur_epoch, metric, scheduler, plot_lr, dict_all_iters_losses,
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 134, in __exec_epoch
+    dict_calc_losses, outputs = self.calc_loss_and_output(images, labels)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 129, in calc_loss_and_output
+    loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1150, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/nn/functional.py", line 2846, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index, label_smoothing)
+ValueError: Expected input batch_size (4) to match target batch_size (8).

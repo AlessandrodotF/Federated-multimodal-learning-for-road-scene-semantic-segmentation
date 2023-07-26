@@ -1,0 +1,84 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...experiments third
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 MIX
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 MIX
+EPOCH 1: ended.
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 150, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 109, in perform_fed_oracle_training
+    self.server.update_model()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 300, in update_model
+    averaged_sol_n = self._aggregation()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 137, in _aggregation
+    if key in base:
+KeyboardInterrupt
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydevd_bundle/pydevd_constants.py", line 58, in dummy_excepthook
+    def dummy_excepthook(exctype, value, traceback):
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2177, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1489, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1496, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 150, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 109, in perform_fed_oracle_training
+    self.server.update_model()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 300, in update_model
+    averaged_sol_n = self._aggregation()
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 137, in _aggregation
+    if key in base:
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 137, in _aggregation
+    if key in base:
+  File "_pydevd_bundle/pydevd_cython.pyx", line 1589, in _pydevd_bundle.pydevd_cython.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython.pyx", line 929, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 920, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 317, in _pydevd_bundle.pydevd_cython.PyDBFrame.do_wait_suspend
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1160, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1175, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt

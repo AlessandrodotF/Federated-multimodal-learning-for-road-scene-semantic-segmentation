@@ -1,0 +1,29 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...experiments first
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+ciao
+ciao
+ciao
+Done.
+Setting up metrics...
+ciao
+ciao
+ciao
+Done.
+Done.
+Initializing optimizer and scheduler...

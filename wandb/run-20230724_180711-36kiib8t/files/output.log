@@ -1,0 +1,60 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...experiments third
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 MIX
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f34ecd3faf0>
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1328, in __del__
+    self._shutdown_workers()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1301, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/multiprocessing/connection.py", line 936, in wait
+    ready = selector.select(timeout)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt:
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 150, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 104, in perform_fed_oracle_training
+    losses = self.server.train_clients(partial_metric=partial_train_metric)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/servers/oracle_server.py", line 112, in train_clients
+    out = c.train(partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 228, in train
+    dict_all_iters_losses = self.run_epoch(epoch, optimizer, metric=partial_metric, r=r)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 198, in run_epoch
+    self.__exec_epoch(optimizer, cur_epoch, metric, scheduler, plot_lr, dict_all_iters_losses,
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 176, in __exec_epoch
+    self.update_metric(metric, outputs, labels)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 122, in update_metric
+    prediction = prediction.cpu().numpy()
+KeyboardInterrupt

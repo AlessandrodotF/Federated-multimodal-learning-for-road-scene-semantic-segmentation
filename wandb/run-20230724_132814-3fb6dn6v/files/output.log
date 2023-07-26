@@ -1,0 +1,495 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...experiments second
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+Setting up metrics...
+Done.
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+end
+CLIENT 2/2: weimar3 HHA
+EPOCH 1: ended.
+end
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/6: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 HHA
+EPOCH 1: ended.
+end
+CLIENT 2/2: dusseldorf1 HHA
+EPOCH 1: ended.
+end
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Case:   HHA
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/250, 8.0%
+test_user HHA: 40/250, 16.0%
+test_user HHA: 60/250, 24.0%
+test_user HHA: 80/250, 32.0%
+test_user HHA: 100/250, 40.0%
+test_user HHA: 120/250, 48.0%
+test_user HHA: 140/250, 56.0%
+test_user HHA: 160/250, 64.0%
+test_user HHA: 180/250, 72.0%
+test_user HHA: 200/250, 80.0%
+test_user HHA: 220/250, 88.0%
+test_user HHA: 240/250, 96.0%
+Done.
+New best result found at round 2
+ PROVA Test mean iou at round 2: 1.982%
+Case:   RGB
+Testing...
+Client 1/1 - test_user RGB
+test_user RGB: 20/250, 8.0%
+test_user RGB: 40/250, 16.0%
+test_user RGB: 60/250, 24.0%
+test_user RGB: 80/250, 32.0%
+test_user RGB: 100/250, 40.0%
+test_user RGB: 120/250, 48.0%
+test_user RGB: 140/250, 56.0%
+test_user RGB: 160/250, 64.0%
+test_user RGB: 180/250, 72.0%
+test_user RGB: 200/250, 80.0%
+test_user RGB: 220/250, 88.0%
+test_user RGB: 240/250, 96.0%
+Done.
+New best result found at round 2
+ PROVA Test mean iou at round 2: 1.99%
+ROUND 3/6: Training 2 Clients...
+CLIENT 1/2: erfurt3 RGB
+EPOCH 1: ended.
+end
+CLIENT 2/2: tubingen6 RGB
+EPOCH 1: ended.
+end
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Testing...
+Client 1/1 - all_target_train_data HHA
+all_target_train_data HHA: 20/1452, 1.38%
+all_target_train_data HHA: 40/1452, 2.75%
+all_target_train_data HHA: 60/1452, 4.13%
+all_target_train_data HHA: 80/1452, 5.51%
+all_target_train_data HHA: 100/1452, 6.89%
+all_target_train_data HHA: 120/1452, 8.26%
+all_target_train_data HHA: 140/1452, 9.64%
+all_target_train_data HHA: 160/1452, 11.02%
+all_target_train_data HHA: 180/1452, 12.4%
+all_target_train_data HHA: 200/1452, 13.77%
+all_target_train_data HHA: 220/1452, 15.15%
+all_target_train_data HHA: 240/1452, 16.53%
+all_target_train_data HHA: 260/1452, 17.91%
+all_target_train_data HHA: 280/1452, 19.28%
+all_target_train_data HHA: 300/1452, 20.66%
+all_target_train_data HHA: 320/1452, 22.04%
+all_target_train_data HHA: 340/1452, 23.42%
+all_target_train_data HHA: 360/1452, 24.79%
+all_target_train_data HHA: 380/1452, 26.17%
+all_target_train_data HHA: 400/1452, 27.55%
+all_target_train_data HHA: 420/1452, 28.93%
+all_target_train_data HHA: 440/1452, 30.3%
+all_target_train_data HHA: 460/1452, 31.68%
+all_target_train_data HHA: 480/1452, 33.06%
+all_target_train_data HHA: 500/1452, 34.44%
+all_target_train_data HHA: 520/1452, 35.81%
+all_target_train_data HHA: 540/1452, 37.19%
+all_target_train_data HHA: 560/1452, 38.57%
+all_target_train_data HHA: 580/1452, 39.94%
+all_target_train_data HHA: 600/1452, 41.32%
+all_target_train_data HHA: 620/1452, 42.7%
+all_target_train_data HHA: 640/1452, 44.08%
+all_target_train_data HHA: 660/1452, 45.45%
+all_target_train_data HHA: 680/1452, 46.83%
+all_target_train_data HHA: 700/1452, 48.21%
+all_target_train_data HHA: 720/1452, 49.59%
+all_target_train_data HHA: 740/1452, 50.96%
+all_target_train_data HHA: 760/1452, 52.34%
+all_target_train_data HHA: 780/1452, 53.72%
+all_target_train_data HHA: 800/1452, 55.1%
+all_target_train_data HHA: 820/1452, 56.47%
+all_target_train_data HHA: 840/1452, 57.85%
+all_target_train_data HHA: 860/1452, 59.23%
+all_target_train_data HHA: 880/1452, 60.61%
+all_target_train_data HHA: 900/1452, 61.98%
+all_target_train_data HHA: 920/1452, 63.36%
+all_target_train_data HHA: 940/1452, 64.74%
+all_target_train_data HHA: 960/1452, 66.12%
+all_target_train_data HHA: 980/1452, 67.49%
+all_target_train_data HHA: 1000/1452, 68.87%
+all_target_train_data HHA: 1020/1452, 70.25%
+all_target_train_data HHA: 1040/1452, 71.63%
+all_target_train_data HHA: 1060/1452, 73.0%
+all_target_train_data HHA: 1080/1452, 74.38%
+all_target_train_data HHA: 1100/1452, 75.76%
+all_target_train_data HHA: 1120/1452, 77.13%
+all_target_train_data HHA: 1140/1452, 78.51%
+all_target_train_data HHA: 1160/1452, 79.89%
+all_target_train_data HHA: 1180/1452, 81.27%
+all_target_train_data HHA: 1200/1452, 82.64%
+all_target_train_data HHA: 1220/1452, 84.02%
+all_target_train_data HHA: 1240/1452, 85.4%
+all_target_train_data HHA: 1260/1452, 86.78%
+all_target_train_data HHA: 1280/1452, 88.15%
+all_target_train_data HHA: 1300/1452, 89.53%
+all_target_train_data HHA: 1320/1452, 90.91%
+all_target_train_data HHA: 1340/1452, 92.29%
+all_target_train_data HHA: 1360/1452, 93.66%
+all_target_train_data HHA: 1380/1452, 95.04%
+all_target_train_data HHA: 1400/1452, 96.42%
+all_target_train_data HHA: 1420/1452, 97.8%
+all_target_train_data HHA: 1440/1452, 99.17%
+Done.
+ PROVA Test mean iou at round 3: 2.159%
+Testing...
+Client 1/1 - all_target_train_data RGB
+all_target_train_data RGB: 20/1452, 1.38%
+all_target_train_data RGB: 40/1452, 2.75%
+all_target_train_data RGB: 60/1452, 4.13%
+all_target_train_data RGB: 80/1452, 5.51%
+all_target_train_data RGB: 100/1452, 6.89%
+all_target_train_data RGB: 120/1452, 8.26%
+all_target_train_data RGB: 140/1452, 9.64%
+all_target_train_data RGB: 160/1452, 11.02%
+all_target_train_data RGB: 180/1452, 12.4%
+all_target_train_data RGB: 200/1452, 13.77%
+all_target_train_data RGB: 220/1452, 15.15%
+all_target_train_data RGB: 240/1452, 16.53%
+all_target_train_data RGB: 260/1452, 17.91%
+all_target_train_data RGB: 280/1452, 19.28%
+all_target_train_data RGB: 300/1452, 20.66%
+all_target_train_data RGB: 320/1452, 22.04%
+all_target_train_data RGB: 340/1452, 23.42%
+all_target_train_data RGB: 360/1452, 24.79%
+all_target_train_data RGB: 380/1452, 26.17%
+all_target_train_data RGB: 400/1452, 27.55%
+all_target_train_data RGB: 420/1452, 28.93%
+all_target_train_data RGB: 440/1452, 30.3%
+all_target_train_data RGB: 460/1452, 31.68%
+all_target_train_data RGB: 480/1452, 33.06%
+all_target_train_data RGB: 500/1452, 34.44%
+all_target_train_data RGB: 520/1452, 35.81%
+all_target_train_data RGB: 540/1452, 37.19%
+all_target_train_data RGB: 560/1452, 38.57%
+all_target_train_data RGB: 580/1452, 39.94%
+all_target_train_data RGB: 600/1452, 41.32%
+all_target_train_data RGB: 620/1452, 42.7%
+all_target_train_data RGB: 640/1452, 44.08%
+all_target_train_data RGB: 660/1452, 45.45%
+all_target_train_data RGB: 680/1452, 46.83%
+all_target_train_data RGB: 700/1452, 48.21%
+all_target_train_data RGB: 720/1452, 49.59%
+all_target_train_data RGB: 740/1452, 50.96%
+all_target_train_data RGB: 760/1452, 52.34%
+all_target_train_data RGB: 780/1452, 53.72%
+all_target_train_data RGB: 800/1452, 55.1%
+all_target_train_data RGB: 820/1452, 56.47%
+all_target_train_data RGB: 840/1452, 57.85%
+all_target_train_data RGB: 860/1452, 59.23%
+all_target_train_data RGB: 880/1452, 60.61%
+all_target_train_data RGB: 900/1452, 61.98%
+all_target_train_data RGB: 920/1452, 63.36%
+all_target_train_data RGB: 940/1452, 64.74%
+all_target_train_data RGB: 960/1452, 66.12%
+all_target_train_data RGB: 980/1452, 67.49%
+all_target_train_data RGB: 1000/1452, 68.87%
+all_target_train_data RGB: 1020/1452, 70.25%
+all_target_train_data RGB: 1040/1452, 71.63%
+all_target_train_data RGB: 1060/1452, 73.0%
+all_target_train_data RGB: 1080/1452, 74.38%
+all_target_train_data RGB: 1100/1452, 75.76%
+all_target_train_data RGB: 1120/1452, 77.13%
+all_target_train_data RGB: 1140/1452, 78.51%
+all_target_train_data RGB: 1160/1452, 79.89%
+all_target_train_data RGB: 1180/1452, 81.27%
+all_target_train_data RGB: 1200/1452, 82.64%
+all_target_train_data RGB: 1220/1452, 84.02%
+all_target_train_data RGB: 1240/1452, 85.4%
+all_target_train_data RGB: 1260/1452, 86.78%
+all_target_train_data RGB: 1280/1452, 88.15%
+all_target_train_data RGB: 1300/1452, 89.53%
+all_target_train_data RGB: 1320/1452, 90.91%
+all_target_train_data RGB: 1340/1452, 92.29%
+all_target_train_data RGB: 1360/1452, 93.66%
+all_target_train_data RGB: 1380/1452, 95.04%
+all_target_train_data RGB: 1400/1452, 96.42%
+all_target_train_data RGB: 1420/1452, 97.8%
+all_target_train_data RGB: 1440/1452, 99.17%
+Done.
+ PROVA Test mean iou at round 3: 1.821%
+ROUND 4/6: Training 2 Clients...
+CLIENT 1/2: tubingen1 HHA
+EPOCH 1: ended.
+end
+CLIENT 2/2: erfurt4 RGB
+EPOCH 1: ended.
+end
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Case:   HHA
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/250, 8.0%
+test_user HHA: 40/250, 16.0%
+test_user HHA: 60/250, 24.0%
+test_user HHA: 80/250, 32.0%
+test_user HHA: 100/250, 40.0%
+test_user HHA: 120/250, 48.0%
+test_user HHA: 140/250, 56.0%
+test_user HHA: 160/250, 64.0%
+test_user HHA: 180/250, 72.0%
+test_user HHA: 200/250, 80.0%
+test_user HHA: 220/250, 88.0%
+test_user HHA: 240/250, 96.0%
+Done.
+New best result found at round 4
+ PROVA Test mean iou at round 4: 2.205%
+Case:   RGB
+Testing...
+Client 1/1 - test_user RGB
+test_user RGB: 20/250, 8.0%
+test_user RGB: 40/250, 16.0%
+test_user RGB: 60/250, 24.0%
+test_user RGB: 80/250, 32.0%
+test_user RGB: 100/250, 40.0%
+test_user RGB: 120/250, 48.0%
+test_user RGB: 140/250, 56.0%
+test_user RGB: 160/250, 64.0%
+test_user RGB: 180/250, 72.0%
+test_user RGB: 200/250, 80.0%
+test_user RGB: 220/250, 88.0%
+test_user RGB: 240/250, 96.0%
+Done.
+New best result found at round 4
+ PROVA Test mean iou at round 4: 1.992%
+ROUND 5/6: Training 2 Clients...
+CLIENT 1/2: cologne2 HHA
+EPOCH 1: ended.
+end
+CLIENT 2/2: darmstadt3 HHA
+EPOCH 1: ended.
+end
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 6/6: Training 2 Clients...
+CLIENT 1/2: zurich6 RGB
+EPOCH 1: ended.
+end
+CLIENT 2/2: aachen7 HHA
+EPOCH 1: ended.
+end
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Testing...
+Client 1/1 - all_target_train_data HHA
+all_target_train_data HHA: 20/1452, 1.38%
+all_target_train_data HHA: 40/1452, 2.75%
+all_target_train_data HHA: 60/1452, 4.13%
+all_target_train_data HHA: 80/1452, 5.51%
+all_target_train_data HHA: 100/1452, 6.89%
+all_target_train_data HHA: 120/1452, 8.26%
+all_target_train_data HHA: 140/1452, 9.64%
+all_target_train_data HHA: 160/1452, 11.02%
+all_target_train_data HHA: 180/1452, 12.4%
+all_target_train_data HHA: 200/1452, 13.77%
+all_target_train_data HHA: 220/1452, 15.15%
+all_target_train_data HHA: 240/1452, 16.53%
+all_target_train_data HHA: 260/1452, 17.91%
+all_target_train_data HHA: 280/1452, 19.28%
+all_target_train_data HHA: 300/1452, 20.66%
+all_target_train_data HHA: 320/1452, 22.04%
+all_target_train_data HHA: 340/1452, 23.42%
+all_target_train_data HHA: 360/1452, 24.79%
+all_target_train_data HHA: 380/1452, 26.17%
+all_target_train_data HHA: 400/1452, 27.55%
+all_target_train_data HHA: 420/1452, 28.93%
+all_target_train_data HHA: 440/1452, 30.3%
+all_target_train_data HHA: 460/1452, 31.68%
+all_target_train_data HHA: 480/1452, 33.06%
+all_target_train_data HHA: 500/1452, 34.44%
+all_target_train_data HHA: 520/1452, 35.81%
+all_target_train_data HHA: 540/1452, 37.19%
+all_target_train_data HHA: 560/1452, 38.57%
+all_target_train_data HHA: 580/1452, 39.94%
+all_target_train_data HHA: 600/1452, 41.32%
+all_target_train_data HHA: 620/1452, 42.7%
+all_target_train_data HHA: 640/1452, 44.08%
+all_target_train_data HHA: 660/1452, 45.45%
+all_target_train_data HHA: 680/1452, 46.83%
+all_target_train_data HHA: 700/1452, 48.21%
+all_target_train_data HHA: 720/1452, 49.59%
+all_target_train_data HHA: 740/1452, 50.96%
+all_target_train_data HHA: 760/1452, 52.34%
+all_target_train_data HHA: 780/1452, 53.72%
+all_target_train_data HHA: 800/1452, 55.1%
+all_target_train_data HHA: 820/1452, 56.47%
+all_target_train_data HHA: 840/1452, 57.85%
+all_target_train_data HHA: 860/1452, 59.23%
+all_target_train_data HHA: 880/1452, 60.61%
+all_target_train_data HHA: 900/1452, 61.98%
+all_target_train_data HHA: 920/1452, 63.36%
+all_target_train_data HHA: 940/1452, 64.74%
+all_target_train_data HHA: 960/1452, 66.12%
+all_target_train_data HHA: 980/1452, 67.49%
+all_target_train_data HHA: 1000/1452, 68.87%
+all_target_train_data HHA: 1020/1452, 70.25%
+all_target_train_data HHA: 1040/1452, 71.63%
+all_target_train_data HHA: 1060/1452, 73.0%
+all_target_train_data HHA: 1080/1452, 74.38%
+all_target_train_data HHA: 1100/1452, 75.76%
+all_target_train_data HHA: 1120/1452, 77.13%
+all_target_train_data HHA: 1140/1452, 78.51%
+all_target_train_data HHA: 1160/1452, 79.89%
+all_target_train_data HHA: 1180/1452, 81.27%
+all_target_train_data HHA: 1200/1452, 82.64%
+all_target_train_data HHA: 1220/1452, 84.02%
+all_target_train_data HHA: 1240/1452, 85.4%
+all_target_train_data HHA: 1260/1452, 86.78%
+all_target_train_data HHA: 1280/1452, 88.15%
+all_target_train_data HHA: 1300/1452, 89.53%
+all_target_train_data HHA: 1320/1452, 90.91%
+all_target_train_data HHA: 1340/1452, 92.29%
+all_target_train_data HHA: 1360/1452, 93.66%
+all_target_train_data HHA: 1380/1452, 95.04%
+all_target_train_data HHA: 1400/1452, 96.42%
+all_target_train_data HHA: 1420/1452, 97.8%
+all_target_train_data HHA: 1440/1452, 99.17%
+Done.
+ PROVA Test mean iou at round 6: 5.61%
+Testing...
+Client 1/1 - all_target_train_data RGB
+all_target_train_data RGB: 20/1452, 1.38%
+all_target_train_data RGB: 40/1452, 2.75%
+all_target_train_data RGB: 60/1452, 4.13%
+all_target_train_data RGB: 80/1452, 5.51%
+all_target_train_data RGB: 100/1452, 6.89%
+all_target_train_data RGB: 120/1452, 8.26%
+all_target_train_data RGB: 140/1452, 9.64%
+all_target_train_data RGB: 160/1452, 11.02%
+all_target_train_data RGB: 180/1452, 12.4%
+all_target_train_data RGB: 200/1452, 13.77%
+all_target_train_data RGB: 220/1452, 15.15%
+all_target_train_data RGB: 240/1452, 16.53%
+all_target_train_data RGB: 260/1452, 17.91%
+all_target_train_data RGB: 280/1452, 19.28%
+all_target_train_data RGB: 300/1452, 20.66%
+all_target_train_data RGB: 320/1452, 22.04%
+all_target_train_data RGB: 340/1452, 23.42%
+all_target_train_data RGB: 360/1452, 24.79%
+all_target_train_data RGB: 380/1452, 26.17%
+all_target_train_data RGB: 400/1452, 27.55%
+all_target_train_data RGB: 420/1452, 28.93%
+all_target_train_data RGB: 440/1452, 30.3%
+all_target_train_data RGB: 460/1452, 31.68%
+all_target_train_data RGB: 480/1452, 33.06%
+all_target_train_data RGB: 500/1452, 34.44%
+all_target_train_data RGB: 520/1452, 35.81%
+all_target_train_data RGB: 540/1452, 37.19%
+all_target_train_data RGB: 560/1452, 38.57%
+all_target_train_data RGB: 580/1452, 39.94%
+all_target_train_data RGB: 600/1452, 41.32%
+all_target_train_data RGB: 620/1452, 42.7%
+all_target_train_data RGB: 640/1452, 44.08%
+all_target_train_data RGB: 660/1452, 45.45%
+all_target_train_data RGB: 680/1452, 46.83%
+all_target_train_data RGB: 700/1452, 48.21%
+all_target_train_data RGB: 720/1452, 49.59%
+all_target_train_data RGB: 740/1452, 50.96%
+all_target_train_data RGB: 760/1452, 52.34%
+all_target_train_data RGB: 780/1452, 53.72%
+all_target_train_data RGB: 800/1452, 55.1%
+all_target_train_data RGB: 820/1452, 56.47%
+all_target_train_data RGB: 840/1452, 57.85%
+all_target_train_data RGB: 860/1452, 59.23%
+all_target_train_data RGB: 880/1452, 60.61%
+all_target_train_data RGB: 900/1452, 61.98%
+all_target_train_data RGB: 920/1452, 63.36%
+all_target_train_data RGB: 940/1452, 64.74%
+all_target_train_data RGB: 960/1452, 66.12%
+all_target_train_data RGB: 980/1452, 67.49%
+all_target_train_data RGB: 1000/1452, 68.87%
+all_target_train_data RGB: 1020/1452, 70.25%
+all_target_train_data RGB: 1040/1452, 71.63%
+all_target_train_data RGB: 1060/1452, 73.0%
+all_target_train_data RGB: 1080/1452, 74.38%
+all_target_train_data RGB: 1100/1452, 75.76%
+all_target_train_data RGB: 1120/1452, 77.13%
+all_target_train_data RGB: 1140/1452, 78.51%
+all_target_train_data RGB: 1160/1452, 79.89%
+all_target_train_data RGB: 1180/1452, 81.27%
+all_target_train_data RGB: 1200/1452, 82.64%
+all_target_train_data RGB: 1220/1452, 84.02%
+all_target_train_data RGB: 1240/1452, 85.4%
+all_target_train_data RGB: 1260/1452, 86.78%
+all_target_train_data RGB: 1280/1452, 88.15%
+all_target_train_data RGB: 1300/1452, 89.53%
+all_target_train_data RGB: 1320/1452, 90.91%
+all_target_train_data RGB: 1340/1452, 92.29%
+all_target_train_data RGB: 1360/1452, 93.66%
+all_target_train_data RGB: 1380/1452, 95.04%
+all_target_train_data RGB: 1400/1452, 96.42%
+all_target_train_data RGB: 1420/1452, 97.8%
+all_target_train_data RGB: 1440/1452, 99.17%
+Done.
+ PROVA Test mean iou at round 6: 3.759%
+Case:   HHA
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/250, 8.0%
+test_user HHA: 40/250, 16.0%
+test_user HHA: 60/250, 24.0%
+test_user HHA: 80/250, 32.0%
+test_user HHA: 100/250, 40.0%
+test_user HHA: 120/250, 48.0%
+test_user HHA: 140/250, 56.0%
+test_user HHA: 160/250, 64.0%
+test_user HHA: 180/250, 72.0%
+test_user HHA: 200/250, 80.0%
+test_user HHA: 220/250, 88.0%
+test_user HHA: 240/250, 96.0%
+Done.
+New best result found at round 6
+ PROVA Test mean iou at round 6: 5.561%
+Case:   RGB
+Testing...
+Client 1/1 - test_user RGB
+test_user RGB: 20/250, 8.0%
+test_user RGB: 40/250, 16.0%
+test_user RGB: 60/250, 24.0%
+test_user RGB: 80/250, 32.0%
+test_user RGB: 100/250, 40.0%
+test_user RGB: 120/250, 48.0%
+test_user RGB: 140/250, 56.0%
+test_user RGB: 160/250, 64.0%
+test_user RGB: 180/250, 72.0%
+test_user RGB: 200/250, 80.0%
+test_user RGB: 220/250, 88.0%
+test_user RGB: 240/250, 96.0%
+Done.
+New best result found at round 6
+ PROVA Test mean iou at round 6: 3.834%
+Training completed.
+Final mIoU: 5.561%
+Final mIoU: 3.834%
+Elapsed time: 1h, 26min, 37.24s

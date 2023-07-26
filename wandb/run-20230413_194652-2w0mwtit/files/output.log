@@ -1,0 +1,51 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/2: Training 2 Clients...
+CLIENT 1/2: weimar5 RGB
+EPOCH 1: ended.
+CLIENT 2/2: hamburg2 RGB
+EPOCH 1: ended.
+RGB AGGREGATION: END OF THE ROUND
+ROUND 2/2: Training 2 Clients...
+CLIENT 1/2: weimar4 HHA
+EPOCH 1: ended.
+CLIENT 2/2: jena3 HHA
+EPOCH 1: ended.
+HHA AGGREGATION: END OF THE ROUND
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/500, 4.0%
+test_user HHA: 40/500, 8.0%
+test_user HHA: 60/500, 12.0%
+test_user HHA: 80/500, 16.0%
+test_user HHA: 100/500, 20.0%
+test_user HHA: 120/500, 24.0%
+test_user HHA: 140/500, 28.0%
+test_user HHA: 160/500, 32.0%
+test_user HHA: 180/500, 36.0%
+test_user HHA: 200/500, 40.0%
+test_user HHA: 220/500, 44.0%

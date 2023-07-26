@@ -1,0 +1,311 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+terminate called after throwing an instance of 'c10::CUDAError'
+  what():  CUDA error: initialization error
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Exception raised from insert_events at /opt/conda/conda-bld/pytorch_1640811803361/work/c10/cuda/CUDACachingAllocator.cpp:1245 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x42 (0x7ff37f56bd62 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x1ca0e (0x7ff450066a0e in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #2: c10::cuda::CUDACachingAllocator::raw_delete(void*) + 0x1a2 (0x7ff450067022 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #3: c10::TensorImpl::release_resources() + 0xa4 (0x7ff37f555314 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x2993f9 (0x7ff4182353f9 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #5: <unknown function> + 0xada3e1 (0x7ff418a763e1 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #6: THPVariable_subclass_dealloc(_object*) + 0x292 (0x7ff418a766e2 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #7: <unknown function> + 0x11afac (0x565314514fac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #8: <unknown function> + 0x1f9419 (0x5653145f3419 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #9: <unknown function> + 0x12eaac (0x565314528aac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #10: <unknown function> + 0x20219b (0x5653145fc19b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #11: <unknown function> + 0x7f9f7 (0x5653144799f7 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #12: <unknown function> + 0x17969e (0x56531457369e in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #13: <unknown function> + 0x14a8ab (0x5653145448ab in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #14: _PyObject_Call + 0x214 (0x565314532954 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #15: _PyErr_NormalizeException + 0x1cc (0x56531453262c in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #16: <unknown function> + 0xb24dc (0x5653144ac4dc in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #17: <unknown function> + 0xfa941 (0x5653144f4941 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #18: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #19: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #20: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #21: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #22: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #23: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #24: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #25: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #26: <unknown function> + 0xf91cc (0x5653144f31cc in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #27: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #28: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #29: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #30: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #31: <unknown function> + 0xf91cc (0x5653144f31cc in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #32: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #33: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #34: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #35: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #36: <unknown function> + 0xfaf1b (0x5653144f4f1b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #37: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #38: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #39: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #40: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #41: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #42: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #43: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #44: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #45: _PyObject_FastCallDictTstate + 0x6a (0x56531456e7ca in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #46: <unknown function> + 0x17e275 (0x565314578275 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #47: _PyObject_MakeTpCall + 0x37f (0x56531453e9ef in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #48: <unknown function> + 0xfae86 (0x5653144f4e86 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #49: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #50: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #51: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #52: _PyObject_FastCallDictTstate + 0x6a (0x56531456e7ca in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #53: <unknown function> + 0x17e275 (0x565314578275 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #54: _PyObject_MakeTpCall + 0x37f (0x56531453e9ef in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #55: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #56: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #57: <unknown function> + 0x1af0ed (0x5653145a90ed in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #58: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #59: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #60: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #61: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #62: <unknown function> + 0x17cb1d (0x565314576b1d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #63: PyObject_GetItem + 0x46 (0x565314562876 in /home/utente/anaconda3/envs/LADD/bin/python)
+terminate called after throwing an instance of 'c10::CUDAError'
+  what():  CUDA error: initialization error
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Exception raised from insert_events at /opt/conda/conda-bld/pytorch_1640811803361/work/c10/cuda/CUDACachingAllocator.cpp:1245 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x42 (0x7ff37f56bd62 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x1ca0e (0x7ff450066a0e in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #2: c10::cuda::CUDACachingAllocator::raw_delete(void*) + 0x1a2 (0x7ff450067022 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #3: c10::TensorImpl::release_resources() + 0xa4 (0x7ff37f555314 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x2993f9 (0x7ff4182353f9 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #5: <unknown function> + 0xada3e1 (0x7ff418a763e1 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #6: THPVariable_subclass_dealloc(_object*) + 0x292 (0x7ff418a766e2 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #7: <unknown function> + 0x11afac (0x565314514fac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #8: <unknown function> + 0x1f9419 (0x5653145f3419 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #9: <unknown function> + 0x12eaac (0x565314528aac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #10: <unknown function> + 0x20219b (0x5653145fc19b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #11: <unknown function> + 0x7356f (0x56531446d56f in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #12: PyTraceBack_Here + 0x32e (0x56531459e5ee in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #13: _PyEval_EvalFrameDefault + 0x3aaa (0x5653145c7eba in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #14: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #15: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #16: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #17: <unknown function> + 0xf91cc (0x5653144f31cc in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #18: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #19: <unknown function> + 0x182b0d (0x56531457cb0d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #20: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #21: _PyObject_FastCallDictTstate + 0x6a (0x56531456e7ca in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #22: <unknown function> + 0x17e3d9 (0x5653145783d9 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #23: _PyObject_MakeTpCall + 0x34b (0x56531453e9bb in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #24: <unknown function> + 0xfae86 (0x5653144f4e86 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #25: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #26: <unknown function> + 0x182b0d (0x56531457cb0d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #27: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #28: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #29: <unknown function> + 0xfae86 (0x5653144f4e86 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #30: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #31: <unknown function> + 0x182b0d (0x56531457cb0d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #32: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #33: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #34: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #35: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #36: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #37: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #38: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #39: <unknown function> + 0xfaf1b (0x5653144f4f1b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #40: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #41: <unknown function> + 0x1ae074 (0x5653145a8074 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #42: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #43: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #44: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #45: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #46: <unknown function> + 0x17cb1d (0x565314576b1d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #47: PyObject_GetItem + 0x46 (0x565314562876 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #48: _PyEval_EvalFrameDefault + 0xc68 (0x5653145c5078 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #49: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #50: <unknown function> + 0x182b0d (0x56531457cb0d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #51: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #52: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #53: <unknown function> + 0xfae86 (0x5653144f4e86 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #54: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #55: <unknown function> + 0x182b0d (0x56531457cb0d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #56: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #57: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #58: <unknown function> + 0xf91cc (0x5653144f31cc in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #59: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #60: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #61: _PyObject_Call + 0x1b8 (0x5653145328f8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #62: _PyEval_EvalFrameDefault + 0x2330 (0x5653145c6740 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #63: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+terminate called after throwing an instance of 'c10::CUDAError'
+  what():  CUDA error: initialization error
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Exception raised from insert_events at /opt/conda/conda-bld/pytorch_1640811803361/work/c10/cuda/CUDACachingAllocator.cpp:1245 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x42 (0x7ff37f56bd62 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x1ca0e (0x7ff450066a0e in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #2: c10::cuda::CUDACachingAllocator::raw_delete(void*) + 0x1a2 (0x7ff450067022 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #3: c10::TensorImpl::release_resources() + 0xa4 (0x7ff37f555314 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x2993f9 (0x7ff4182353f9 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #5: <unknown function> + 0xada3e1 (0x7ff418a763e1 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #6: THPVariable_subclass_dealloc(_object*) + 0x292 (0x7ff418a766e2 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #7: <unknown function> + 0x11afac (0x565314514fac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #8: <unknown function> + 0x1f9419 (0x5653145f3419 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #9: <unknown function> + 0x12eaac (0x565314528aac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #10: <unknown function> + 0x20219b (0x5653145fc19b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #11: <unknown function> + 0x7f9f7 (0x5653144799f7 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #12: PyType_GenericAlloc + 0x3c (0x565314557c3c in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #13: PyType_Ready + 0x15de (0x56531452c81e in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #14: <unknown function> + 0x1be85 (0x7ff357180e85 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so)
+frame #15: PyImaging_RawEncoderNew + 0x56 (0x7ff3571811f6 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so)
+frame #16: <unknown function> + 0x174738 (0x56531456e738 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #17: _PyObject_Call + 0x214 (0x565314532954 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #18: _PyEval_EvalFrameDefault + 0x577e (0x5653145c9b8e in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #19: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #20: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #21: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #22: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #23: <unknown function> + 0xfae86 (0x5653144f4e86 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #24: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #25: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #26: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #27: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #28: <unknown function> + 0xf91cc (0x5653144f31cc in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #29: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #30: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #31: <unknown function> + 0x1643b7 (0x56531455e3b7 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #32: _PyObject_GenericGetAttrWithDict + 0x275 (0x565314534645 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #33: <unknown function> + 0xa8923 (0x7ff363a39923 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so)
+frame #34: <unknown function> + 0xa9098 (0x7ff363a3a098 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so)
+frame #35: <unknown function> + 0x8df45 (0x7ff363a1ef45 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so)
+frame #36: <unknown function> + 0x8ea44 (0x7ff363a1fa44 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so)
+frame #37: <unknown function> + 0xa91ba (0x7ff363a3a1ba in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so)
+frame #38: <unknown function> + 0xa96e9 (0x7ff363a3a6e9 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so)
+frame #39: <unknown function> + 0x13f44c (0x7ff363ad044c in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so)
+frame #40: <unknown function> + 0x13b131 (0x565314535131 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #41: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #42: <unknown function> + 0xfaf1b (0x5653144f4f1b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #43: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #44: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #45: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #46: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #47: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #48: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #49: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #50: _PyObject_FastCallDictTstate + 0x6a (0x56531456e7ca in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #51: <unknown function> + 0x17e275 (0x565314578275 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #52: _PyObject_MakeTpCall + 0x37f (0x56531453e9ef in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #53: <unknown function> + 0xfae86 (0x5653144f4e86 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #54: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #55: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #56: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #57: _PyObject_FastCallDictTstate + 0x6a (0x56531456e7ca in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #58: <unknown function> + 0x17e275 (0x565314578275 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #59: _PyObject_MakeTpCall + 0x37f (0x56531453e9ef in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #60: <unknown function> + 0xf9fc8 (0x5653144f3fc8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #61: <unknown function> + 0x1a7e3 (0x7ff45928b7e3 in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #62: <unknown function> + 0x1af0ed (0x5653145a90ed in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #63: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+terminate called after throwing an instance of 'c10::CUDAError'
+  what():  CUDA error: initialization error
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Exception raised from insert_events at /opt/conda/conda-bld/pytorch_1640811803361/work/c10/cuda/CUDACachingAllocator.cpp:1245 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x42 (0x7ff37f56bd62 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x1ca0e (0x7ff450066a0e in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #2: c10::cuda::CUDACachingAllocator::raw_delete(void*) + 0x1a2 (0x7ff450067022 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10_cuda.so)
+frame #3: c10::TensorImpl::release_resources() + 0xa4 (0x7ff37f555314 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x2993f9 (0x7ff4182353f9 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #5: <unknown function> + 0xada3e1 (0x7ff418a763e1 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #6: THPVariable_subclass_dealloc(_object*) + 0x292 (0x7ff418a766e2 in /home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+frame #7: <unknown function> + 0x11afac (0x565314514fac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #8: <unknown function> + 0x1f9419 (0x5653145f3419 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #9: <unknown function> + 0x12eaac (0x565314528aac in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #10: <unknown function> + 0x20219b (0x5653145fc19b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #11: <unknown function> + 0xd66ea (0x5653144d06ea in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #12: <unknown function> + 0x17d893 (0x565314577893 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #13: _PyEval_EvalFrameDefault + 0x291a (0x5653145c6d2a in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #14: <unknown function> + 0x1adff (0x7ff45928bdff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #15: <unknown function> + 0x1828e2 (0x56531457c8e2 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #16: _PyFunction_Vectorcall + 0x1e7 (0x56531457d527 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #17: <unknown function> + 0xfa90b (0x5653144f490b in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #18: <unknown function> + 0x1adff (0x7ff45928bdff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #19: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #20: <unknown function> + 0xfaebb (0x5653144f4ebb in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #21: <unknown function> + 0x1adff (0x7ff45928bdff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #22: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #23: <unknown function> + 0xf910d (0x5653144f310d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #24: <unknown function> + 0x1adff (0x7ff45928bdff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #25: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #26: <unknown function> + 0xf910d (0x5653144f310d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #27: <unknown function> + 0x1adff (0x7ff45928bdff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #28: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #29: <unknown function> + 0x7fc17 (0x565314479c17 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #30: <unknown function> + 0xf91cc (0x5653144f31cc in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #31: <unknown function> + 0x1a9ff (0x7ff45928b9ff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #32: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #33: <unknown function> + 0xf910d (0x5653144f310d in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #34: <unknown function> + 0x1a9ff (0x7ff45928b9ff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #35: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #36: <unknown function> + 0x1ae9ce (0x5653145a89ce in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #37: _PyObject_Call + 0x1b8 (0x5653145328f8 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #38: _PyEval_EvalFrameDefault + 0x2330 (0x5653145c6740 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #39: <unknown function> + 0x1a9ff (0x7ff45928b9ff in /home/utente/.cache/JetBrains/PyCharmCE2022.3/cythonExtensions/_pydevd_frame_eval_ext/pydevd_frame_evaluator.cpython-39-x86_64-linux-gnu.so)
+frame #40: _PyFunction_Vectorcall + 0x413 (0x56531457d753 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #41: _PyObject_FastCallDictTstate + 0x6a (0x56531456e7ca in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #42: <unknown function> + 0x17e275 (0x565314578275 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #43: _PyObject_Call + 0x214 (0x565314532954 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #44: <unknown function> + 0x246796 (0x565314640796 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #45: <unknown function> + 0x1f68f7 (0x5653145f08f7 in /home/utente/anaconda3/envs/LADD/bin/python)
+frame #46: <unknown function> + 0x8609 (0x7ff45bd16609 in /lib/x86_64-linux-gnu/libpthread.so.0)
+frame #47: clone + 0x43 (0x7ff45bc3b133 in /lib/x86_64-linux-gnu/libc.so.6)
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 990, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py", line 316, in wait
+    gotit = waiter.acquire(True, timeout)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 6949) is killed by signal: Aborted.
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1186, in _next_data
+    idx, data = self._get_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1142, in _get_data
+    success, data = self._try_get_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1003, in _try_get_data
+    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str)) from e
+RuntimeError: DataLoader worker (pid(s) 6949) exited unexpectedly
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 HHA

@@ -1,0 +1,65 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/1: Training 3 Clients...
+CLIENT 1/3: erfurt5 MIX
+EPOCH 1: ended.
+CLIENT 2/3: weimar3 MIX
+EPOCH 1: ended.
+CLIENT 3/3: strasbourg3 MIX
+strasbourg3 MIX, 20/22: partial_train_loss_tot = 3.471
+EPOCH 1: ended.
+{'Total samples': array(288), 'Overall Acc': 0.2732738206379832, 'Mean Acc': 0.07784782176409738, 'Mean Precision': 0.059363666385791096, 'FreqW Acc': 0.1594214523251645, 'Mean IoU': 0.04455339107990262, 'Class IoU': {0: 0.23564404944996792, 1: 0.01850087408950926, 2: 0.20892162813937146, 3: 'X', 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.04994617683995889, 9: 0.0, 10: 0.10370305301686868, 11: 0.0, 12: 0.0, 13: 0.05158508466286308, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Acc': {0: 0.40213381969981443, 1: 0.030071644041827307, 2: 0.354026388509505, 3: 'X', 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.09491674612993867, 9: 0.0, 10: 0.19333648736819753, 11: 0.0, 12: 0.0, 13: 0.09323224071217764, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}, 'Class Prec': {0: 0.3627190997829387, 1: 0.04587664872322232, 2: 0.3376284559820516, 3: 'X', 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.09536521454229148, 9: 0.0, 10: 0.1827956989215863, 11: 0.0, 12: 0.0, 13: 0.10352454337794027, 14: 'X', 15: 'X', 16: 'X', 17: 0.0, 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Testing...
+Client 1/1 - test_user MIX
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f266d784b80>
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1328, in __del__
+    self._shutdown_workers()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1283, in _shutdown_workers
+    self._pin_memory_thread.join()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py", line 1053, in join
+    self._wait_for_tstate_lock()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/threading.py", line 1069, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt:
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 53, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 21, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 136, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 115, in perform_fed_oracle_training
+    max_scores, _ = self.test(self.target_test_clients, test_metric, r, 'ROUND', max_scores,
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 359, in test
+    scores = self.perform_test(metric, test_clients, step)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 319, in perform_test
+    loss = c.test(metric, swa=swa)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/oracle_client.py", line 250, in test
+    outputs = self.get_test_output(images)
+  File "/home/utente/Scrivania/PROVA/LADD/src/clients/client.py", line 167, in get_test_output
+    return outputs
+KeyboardInterrupt

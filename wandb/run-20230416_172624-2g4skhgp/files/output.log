@@ -1,0 +1,74 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Namespace(framework='federated', fw_task='oracle', local_rank=0, device_ids=[0], random_seed=42, source_dataset='', target_dataset='cityscapes', double_dataset=True, quadruple_dataset=False, cv2=False, random_flip=False, color_jitter=False, gaussian_blur=False, clients_type='heterogeneous', centr_fda_ft_uda=False, disable_batch_norm=False, batch_norm_round_0=False, hp_filtered=False, discr_loss='diff2d', repeat_phase_3=4, discr_loss_multiplier=1, pretrain=False, n_images_per_style=1000, fda_L=0.01, fda_b=None, fda_size=(1024, 512), train_source_round_interval=None, lr_factor_server_retrain=1.0, num_source_epochs_factor_retrain=1.0, num_source_steps_retrain=None, source_style_to_source=False, style_only_train=False, fda_loss='selftrain', lambda_selftrain=1, lambda_entropy=0.005, teacher_step=1, teacher_kd_step=-1, teacher_upd_step=False, teacher_kd_upd_step=False, teacher_kd_mult_factor=-1.0, teacher_kd_mult_step=5, ignore255_kdloss=False, count_classes_teacher_step=-1, temperature=0.01, weights_lovasz=False, multiple_styles=False, lr_fed=0.005, stop_epoch_at_step=-1, freezing=None, distinct_batch_norm=False, only_update_bn_server=False, silobn=False, n_clients_per_city=False, alpha_kd=0.5, lambda_kd=0.0, swa_start=-1, swa_c=1, swa_lr=0.0001, swa_teacher_start=-1, swa_teacher_c=1, train_with_global_model=False, style_clusters_dir=None, cluster_layers='bn', global_aggregation_round=None, fedavg_bootstap=0, test_only_with_global_model=False, save_cluster_models=False, force_k=0, model='deeplabv3', hnm=True, server_opt=None, algorithm='FedAvg', server_lr=None, server_momentum=None, num_rounds=2, num_source_rounds=None, num_epochs=1, num_source_epochs=None, clients_per_round=2, batch_size=16, test_batch_size=1, eval_interval=50, test_interval=10, server_eval_interval=1, server_test_interval=1, mixed_precision=False, test_source=False, optimizer='SGD', lr=0.05, weight_decay=0.0, momentum=0.9, nesterov=False, lr_policy=None, lr_power=None, lr_decay_step=None, lr_decay_factor=None, warmup_iters=None, name='cityscapes_fed_oracle', print_interval=20, plot_interval=10, save_samples=3, wandb_offline=False, wandb_entity='alessandro-fella-1', load=False, wandb_id='2g4skhgp', load_FDA=False, load_FDA_id=None, load_FDA_best=False, load_yaml_config=None, fedprox=False, fedprox_mu=0.01, ignore_warnings=True, profiler_folder=None, ignore_train_metrics=False, save_clients_order=False, num_classes=19, total_batch_size=16, n_devices=1)
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/2: Training 2 Clients...
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 20, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 70, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 35, in perform_fed_oracle_training
+    self.server.select_clients(r, self.target_train_clients, num_clients=self.args.clients_per_round)
+KeyboardInterrupt
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydevd_bundle/pydevd_constants.py", line 58, in dummy_excepthook
+    def dummy_excepthook(exctype, value, traceback):
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2177, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1489, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1496, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 20, in run_experiment
+    max_score = trainer.train(*trainer.train_args, **trainer.train_kwargs)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 70, in train
+    return self.perform_fed_oracle_training(
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 35, in perform_fed_oracle_training
+    self.server.select_clients(r, self.target_train_clients, num_clients=self.args.clients_per_round)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 35, in perform_fed_oracle_training
+    self.server.select_clients(r, self.target_train_clients, num_clients=self.args.clients_per_round)
+  File "_pydevd_bundle/pydevd_cython.pyx", line 1589, in _pydevd_bundle.pydevd_cython.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython.pyx", line 929, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 920, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 317, in _pydevd_bundle.pydevd_cython.PyDBFrame.do_wait_suspend
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1160, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1175, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt

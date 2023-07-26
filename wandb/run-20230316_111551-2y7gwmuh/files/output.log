@@ -1,0 +1,69 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+class_name:  OracleClient
+Done.
+Initializing server...
+class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+class_name:  OracleClient
+The experiment begins...
+Lunghezza max_scores 1
+ROUND 1/2: Training 2 Clients...
+CLIENT 1/2: erfurt5 RGB
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 RGB
+EPOCH 1: ended.
+ROUND 2/2: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 RGB
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf1 HHA
+EPOCH 1: ended.
+Testing...
+Client 1/1 - test_user HHA
+test_user HHA: 20/500, 4.0%
+test_user HHA: 40/500, 8.0%
+test_user HHA: 60/500, 12.0%
+test_user HHA: 80/500, 16.0%
+test_user HHA: 100/500, 20.0%
+test_user HHA: 120/500, 24.0%
+test_user HHA: 140/500, 28.0%
+test_user HHA: 160/500, 32.0%
+test_user HHA: 180/500, 36.0%
+test_user HHA: 200/500, 40.0%
+test_user HHA: 220/500, 44.0%
+test_user HHA: 240/500, 48.0%
+test_user HHA: 260/500, 52.0%
+test_user HHA: 280/500, 56.0%
+test_user HHA: 300/500, 60.0%
+test_user HHA: 320/500, 64.0%
+test_user HHA: 340/500, 68.0%
+test_user HHA: 360/500, 72.0%
+test_user HHA: 380/500, 76.0%
+test_user HHA: 400/500, 80.0%
+test_user HHA: 420/500, 84.0%
+test_user HHA: 440/500, 88.0%
+test_user HHA: 460/500, 92.0%
+test_user HHA: 480/500, 96.0%
+test_user HHA: 500/500, 100.0%
+Done.
+New best result found at round 2
+Test mean iou at round 2: 2.115%
+Training completed.
+Final mIoU: 2.115%
+Elapsed time: 0h, 2min, 26.31s

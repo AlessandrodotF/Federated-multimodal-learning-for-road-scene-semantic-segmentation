@@ -1,0 +1,41 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...experiments third
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 MIX
+EPOCH 1: ended.
+CLIENT 2/2: weimar3 MIX
+EPOCH 1: ended.
+{'Total samples': array(112), 'Overall Acc': 0.25922534481737997, 'Mean Acc': 0.1225467230453622, 'Mean Precision': 0.05602920515285391, 'FreqW Acc': 0.1309440112931908, 'Mean IoU': 0.055652280355073656, 'Class IoU': {0: 0.289707558301878, 1: 0.0013452549189946564, 2: 0.014185835639804027, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.0944988889058968, 9: 0.0, 10: 0.21243754613923668, 11: 0.0, 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Acc': {0: 0.5993099843146925, 1: 0.0020252025202105966, 2: 0.018160989766027785, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.11042406127302051, 9: 0.0, 10: 0.6180937156250328, 11: 0.0, 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}, 'Class Prec': {0: 0.35930238024238276, 1: 0.0039908090456729625, 2: 0.060865113895015865, 3: 0.0, 4: 0.0, 5: 0.0, 6: 'X', 7: 'X', 8: 0.39586123759724545, 9: 0.0, 10: 0.24453535712390737, 11: 0.0, 12: 'X', 13: 0.0, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 'X'}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+ROUND 2/6: Training 2 Clients...
+CLIENT 1/2: dusseldorf4 MIX
+EPOCH 1: ended.
+CLIENT 2/2: dusseldorf1 MIX
+EPOCH 1: ended.
+{'Total samples': array(208), 'Overall Acc': 0.24630095776031435, 'Mean Acc': 0.0625973432731493, 'Mean Precision': 0.04776883188065907, 'FreqW Acc': 0.14518508306826222, 'Mean IoU': 0.03548218937784353, 'Class IoU': {0: 0.21692390731590974, 1: 0.0, 2: 0.1848756952698639, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.1159236190784077, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.014509619003471624, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Acc': {0: 0.37449664429426344, 1: 0.0, 2: 0.27322966396898657, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.26616545211719383, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.025068388716795457, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}, 'Class Prec': {0: 0.3401753325263498, 1: 0.0, 2: 0.36375341037795816, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.17037783264893275, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.03330123017928154, 14: 'X', 15: 'X', 16: 'X', 17: 'X', 18: 0.0}}
+QUI ARRIVA ALL'UPDATE
+AGGREGATION: END OF THE ROUND
+Testing...
+Client 1/1 - test_user MIX

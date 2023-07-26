@@ -1,0 +1,193 @@
+2023-07-12 16:20:01,861 INFO    MainThread:10945 [internal.py:wandb_internal():86] W&B internal server running at pid: 10945, started at: 2023-07-12 16:20:01.860900
+2023-07-12 16:20:01,866 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: check_version
+2023-07-12 16:20:01,866 INFO    WriterThread:10945 [datastore.py:open_for_write():77] open: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/run-1x99xey8.wandb
+2023-07-12 16:20:01,868 DEBUG   SenderThread:10945 [sender.py:send():182] send: header
+2023-07-12 16:20:01,868 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: check_version
+2023-07-12 16:20:01,992 DEBUG   SenderThread:10945 [sender.py:send():182] send: run
+2023-07-12 16:20:01,995 INFO    SenderThread:10945 [sender.py:_maybe_setup_resume():421] checking resume status for alessandro-fella-1/federated_cityscapes/1x99xey8
+2023-07-12 16:20:02,715 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: run_start
+2023-07-12 16:20:02,718 INFO    SenderThread:10945 [dir_watcher.py:__init__():169] watching files in: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files
+2023-07-12 16:20:02,718 INFO    SenderThread:10945 [sender.py:_start_run_threads():740] run started: 1x99xey8 with start time 1689171600
+2023-07-12 16:20:02,719 DEBUG   SenderThread:10945 [sender.py:send():182] send: summary
+2023-07-12 16:20:02,720 INFO    SenderThread:10945 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-07-12 16:20:02,728 DEBUG   HandlerThread:10945 [meta.py:__init__():40] meta init
+2023-07-12 16:20:02,729 DEBUG   HandlerThread:10945 [meta.py:__init__():54] meta init done
+2023-07-12 16:20:02,729 DEBUG   HandlerThread:10945 [meta.py:probe():211] probe
+2023-07-12 16:20:02,739 DEBUG   HandlerThread:10945 [meta.py:_setup_git():201] setup git
+2023-07-12 16:20:02,777 DEBUG   HandlerThread:10945 [meta.py:_setup_git():208] setup git done
+2023-07-12 16:20:02,777 DEBUG   HandlerThread:10945 [meta.py:_save_pip():58] save pip
+2023-07-12 16:20:02,779 DEBUG   HandlerThread:10945 [meta.py:_save_pip():72] save pip done
+2023-07-12 16:20:02,779 DEBUG   HandlerThread:10945 [meta.py:_save_conda():79] save conda
+2023-07-12 16:20:03,718 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/requirements.txt
+2023-07-12 16:20:03,719 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/conda-environment.yaml
+2023-07-12 16:20:03,719 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/wandb-summary.json
+2023-07-12 16:20:04,978 DEBUG   HandlerThread:10945 [meta.py:_save_conda():87] save conda done
+2023-07-12 16:20:04,979 DEBUG   HandlerThread:10945 [meta.py:probe():249] probe done
+2023-07-12 16:20:05,109 DEBUG   SenderThread:10945 [sender.py:send():182] send: files
+2023-07-12 16:20:05,109 INFO    SenderThread:10945 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2023-07-12 16:20:05,121 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:20:05,121 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:20:05,529 DEBUG   SenderThread:10945 [sender.py:send():182] send: metric
+2023-07-12 16:20:05,529 DEBUG   SenderThread:10945 [sender.py:send():182] send: metric
+2023-07-12 16:20:05,529 WARNING SenderThread:10945 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-07-12 16:20:05,530 DEBUG   SenderThread:10945 [sender.py:send():182] send: config
+2023-07-12 16:20:05,715 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/conda-environment.yaml
+2023-07-12 16:20:05,715 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/output.log
+2023-07-12 16:20:05,716 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/wandb-metadata.json
+2023-07-12 16:20:06,174 INFO    Thread-16 :10945 [upload_job.py:push():137] Uploaded file /tmp/tmpg25z3rgowandb/1sos16fz-wandb-metadata.json
+2023-07-12 16:20:10,717 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/output.log
+2023-07-12 16:20:20,543 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:20:20,544 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:20:31,243 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:20:33,744 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/config.yaml
+2023-07-12 16:20:35,858 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:20:35,859 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:20:51,184 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:20:51,185 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:21:01,954 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:21:06,545 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:21:06,546 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:21:22,008 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:21:22,009 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:21:32,676 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:21:37,371 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:21:37,372 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:21:52,715 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:21:52,716 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:22:03,396 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:22:08,191 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:22:08,192 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:22:23,553 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:22:23,555 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:22:34,126 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:22:38,911 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:22:38,913 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:22:54,233 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:22:54,233 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:23:04,874 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:23:09,807 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:23:09,808 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:23:25,104 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:23:25,104 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:23:35,460 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:23:41,480 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:23:41,481 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:23:56,841 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:23:56,842 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:24:06,055 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:24:12,325 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:24:12,325 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:24:27,658 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:24:27,659 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:24:36,517 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:24:43,024 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:24:43,025 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:24:58,476 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:24:58,477 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:25:06,955 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:25:13,746 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:25:13,747 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:25:29,103 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:25:29,104 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:25:37,396 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:25:44,363 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:25:44,363 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:25:59,724 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:25:59,725 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:26:07,938 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:26:15,152 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:26:15,154 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:26:30,443 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:26:30,444 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:26:38,430 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:26:45,802 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: stop_status
+2023-07-12 16:26:45,803 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: stop_status
+2023-07-12 16:26:49,768 WARNING MainThread:10945 [internal.py:wandb_internal():145] Internal process interrupt: 1
+2023-07-12 16:26:51,172 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/output.log
+2023-07-12 16:26:52,165 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: poll_exit
+2023-07-12 16:26:52,166 DEBUG   SenderThread:10945 [sender.py:send():182] send: telemetry
+2023-07-12 16:26:52,167 DEBUG   SenderThread:10945 [sender.py:send():182] send: exit
+2023-07-12 16:26:52,168 INFO    SenderThread:10945 [sender.py:send_exit():291] handling exit code: 0
+2023-07-12 16:26:52,168 INFO    SenderThread:10945 [sender.py:send_exit():293] handling runtime: 409
+2023-07-12 16:26:52,170 INFO    SenderThread:10945 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-07-12 16:26:52,171 INFO    SenderThread:10945 [sender.py:send_exit():303] send defer
+2023-07-12 16:26:52,172 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: poll_exit
+2023-07-12 16:26:52,175 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: defer
+2023-07-12 16:26:52,176 INFO    HandlerThread:10945 [handler.py:handle_request_defer():143] handle defer: 0
+2023-07-12 16:26:52,178 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/output.log
+2023-07-12 16:26:52,178 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: defer
+2023-07-12 16:26:52,179 INFO    SenderThread:10945 [sender.py:send_request_defer():312] handle sender defer: 0
+2023-07-12 16:26:52,179 INFO    SenderThread:10945 [sender.py:transition_state():316] send defer: 1
+2023-07-12 16:26:52,180 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/wandb-summary.json
+2023-07-12 16:26:52,182 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: defer
+2023-07-12 16:26:52,182 INFO    HandlerThread:10945 [handler.py:handle_request_defer():143] handle defer: 1
+2023-07-12 16:26:52,236 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: defer
+2023-07-12 16:26:52,237 INFO    SenderThread:10945 [sender.py:send_request_defer():312] handle sender defer: 1
+2023-07-12 16:26:52,237 INFO    SenderThread:10945 [sender.py:transition_state():316] send defer: 2
+2023-07-12 16:26:52,237 DEBUG   SenderThread:10945 [sender.py:send():182] send: stats
+2023-07-12 16:26:52,238 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: defer
+2023-07-12 16:26:52,238 INFO    HandlerThread:10945 [handler.py:handle_request_defer():143] handle defer: 2
+2023-07-12 16:26:52,239 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: defer
+2023-07-12 16:26:52,239 INFO    SenderThread:10945 [sender.py:send_request_defer():312] handle sender defer: 2
+2023-07-12 16:26:52,239 INFO    SenderThread:10945 [sender.py:transition_state():316] send defer: 3
+2023-07-12 16:26:52,239 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: defer
+2023-07-12 16:26:52,240 INFO    HandlerThread:10945 [handler.py:handle_request_defer():143] handle defer: 3
+2023-07-12 16:26:52,240 DEBUG   SenderThread:10945 [sender.py:send():182] send: summary
+2023-07-12 16:26:52,240 INFO    SenderThread:10945 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-07-12 16:26:52,241 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: defer
+2023-07-12 16:26:52,241 INFO    SenderThread:10945 [sender.py:send_request_defer():312] handle sender defer: 3
+2023-07-12 16:26:52,241 INFO    SenderThread:10945 [sender.py:transition_state():316] send defer: 4
+2023-07-12 16:26:52,242 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: defer
+2023-07-12 16:26:52,242 INFO    HandlerThread:10945 [handler.py:handle_request_defer():143] handle defer: 4
+2023-07-12 16:26:52,242 DEBUG   SenderThread:10945 [sender.py:send_request():196] send_request: defer
+2023-07-12 16:26:52,242 INFO    SenderThread:10945 [sender.py:send_request_defer():312] handle sender defer: 4
+2023-07-12 16:26:52,277 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: poll_exit
+2023-07-12 16:26:52,614 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:26:52,615 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:26:53,178 INFO    Thread-13 :10945 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/files/wandb-summary.json
+2023-07-12 16:26:53,941 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:26:53,941 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:26:56,422 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:26:56,423 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:26:56,424 ERROR   SenderThread:10945 [retry.py:__call__():126] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 136, in execute
+    six.reraise(*sys.exc_info())
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/six.py", line 719, in reraise
+    raise value
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 130, in execute
+    return self.client.execute(*args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/transport/requests.py", line 39, in execute
+    request.raise_for_status()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: https://api.wandb.ai/graphql
+2023-07-12 16:26:57,379 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: poll_exit
+2023-07-12 16:27:01,009 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:27:01,009 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:27:02,480 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: poll_exit
+2023-07-12 16:27:07,582 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: poll_exit
+2023-07-12 16:27:11,242 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:27:11,242 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:27:12,683 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: poll_exit
+2023-07-12 16:27:17,784 DEBUG   HandlerThread:10945 [handler.py:handle_request():126] handle_request: poll_exit
+2023-07-12 16:27:23,801 WARNING MainThread:10945 [internal.py:is_dead():364] Internal process exiting, parent pid 10910 disappeared
+2023-07-12 16:27:23,801 ERROR   MainThread:10945 [internal.py:wandb_internal():141] Internal process shutdown.
+2023-07-12 16:27:24,255 INFO    WriterThread:10945 [datastore.py:close():281] close: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230712_162000-1x99xey8/run-1x99xey8.wandb
+2023-07-12 16:27:24,791 INFO    HandlerThread:10945 [handler.py:finish():683] shutting down handler
+2023-07-12 16:27:27,840 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:27:27,841 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:28:01,328 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:28:01,329 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:29:09,320 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:29:09,322 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:31:29,851 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:31:29,851 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-12 16:35:58,110 ERROR   SenderThread:10945 [internal_api.py:execute():133] 409 response executing GraphQL.
+2023-07-12 16:35:58,111 ERROR   SenderThread:10945 [internal_api.py:execute():134] {"errors":[{"message":"run alessandro-fella-1/federated_cityscapes/1x99xey8 was previously created and deleted; try a new run name","path":["upsertBucket"]}],"data":{"upsertBucket":null}}

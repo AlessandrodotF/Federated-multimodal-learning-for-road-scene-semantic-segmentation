@@ -1,0 +1,172 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+ciaooooooooooooooooo
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/2: Training 2 Clients...

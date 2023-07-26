@@ -1,0 +1,214 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+__map_labels
+Done.
+Initializing clients...
+dynamic_import - class_name:  OracleClient
+Done.
+Initializing server...
+dynamic_import - class_name:  OracleServer
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+dynamic_import - class_name:  OracleClient
+The experiment begins...
+ROUND 1/6: Training 2 Clients...
+CLIENT 1/2: erfurt5 MIX
+__getitem__
+_get_images
+__getitem__
+_get_images
+_apply_train_transform
+_apply_train_transform
+__getitem__
+_get_images
+_apply_train_transform
+__getitem__
+_get_images
+_apply_train_transform
+__getitem____getitem__
+_get_images
+_get_images
+_apply_train_transform
+_apply_train_transform
+Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+    return self._process_data(data)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+    data.reraise()
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/_utils.py", line 434, in reraise
+    raise exception
+AttributeError: Caught AttributeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/utente/anaconda3/envs/LADD/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/utente/Scrivania/PROVA/LADD/src/dataset/target/target_dataset.py", line 60, in __getitem__
+    return self._apply_train_transform(x, y, x_hpf)
+  File "/home/utente/Scrivania/PROVA/LADD/src/dataset/target/target_dataset.py", line 110, in _apply_train_transform
+    x, y = self.transform(x, y)
+  File "/home/utente/Scrivania/PROVA/LADD/src/dataset/transform.py", line 30, in __call__
+    img, lbl = t(img, lbl)
+  File "/home/utente/Scrivania/PROVA/LADD/src/dataset/transform.py", line 275, in __call__
+    if "RGB" in img2.filename:
+AttributeError: 'Image' object has no attribute 'filename'

@@ -1,0 +1,68 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+dynamic_import - class_name:  OracleTrainer
+Initializing model...
+Done.
+Initializing datasets...
+dict_keys(['dusseldorf6', 'dusseldorf7', 'darmstadt0', 'darmstadt1', 'darmstadt2', 'darmstadt3', 'erfurt4', 'erfurt5', 'erfurt6', 'erfurt7', 'monchengladbach0', 'monchengladbach1', 'krefeld2', 'krefeld3', 'krefeld4', 'krefeld5', 'krefeld6', 'krefeld7', 'monchengladbach2', 'monchengladbach3', 'monchengladbach4', 'monchengladbach5', 'monchengladbach6', 'monchengladbach7', 'tubingen0', 'tubingen1', 'tubingen2', 'tubingen3', 'tubingen4', 'tubingen5', 'bremen0', 'bremen1', 'bremen2', 'bremen3', 'bremen4', 'bremen5', 'cologne6', 'cologne7', 'erfurt0', 'erfurt1', 'erfurt2', 'erfurt3', 'stuttgart4', 'stuttgart5', 'stuttgart6', 'stuttgart7', 'ulm0', 'ulm1', 'jena0', 'jena1', 'jena2', 'jena3', 'jena4', 'jena5', 'bochum4', 'bochum5', 'bochum6', 'bochum7', 'hamburg0', 'hamburg1', 'hamburg2', 'hamburg3', 'hamburg4', 'hamburg5', 'hamburg6', 'hamburg7', 'ulm2', 'ulm3', 'ulm4', 'ulm5', 'ulm6', 'ulm7', 'bremen6', 'bremen7', 'bochum0', 'bochum1', 'bochum2', 'bochum3', 'aachen4', 'aachen5', 'aachen6', 'aachen7', 'krefeld0', 'krefeld1', 'hanover6', 'hanover7', 'weimar0', 'weimar1', 'weimar2', 'weimar3', 'dusseldorf0', 'dusseldorf1', 'dusseldorf2', 'dusseldorf3', 'dusseldorf4', 'dusseldorf5', 'strasbourg2', 'strasbourg3', 'strasbourg4', 'strasbourg5', 'strasbourg6', 'strasbourg7', 'darmstadt4', 'darmstadt5', 'darmstadt6', 'darmstadt7', 'zurich0', 'zurich1', 'weimar4', 'weimar5', 'weimar6', 'weimar7', 'strasbourg0', 'strasbourg1', 'jena6', 'jena7', 'stuttgart0', 'stuttgart1', 'stuttgart2', 'stuttgart3', 'zurich2', 'zurich3', 'zurich4', 'zurich5', 'zurich6', 'zurich7', 'cologne0', 'cologne1', 'cologne2', 'cologne3', 'cologne4', 'cologne5', 'hanover0', 'hanover1', 'hanover2', 'hanover3', 'hanover4', 'hanover5', 'tubingen6', 'tubingen7', 'aachen0', 'aachen1', 'aachen2', 'aachen3'])
+dict_keys(['test_user'])
+Traceback (most recent call last):
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 15, in run_experiment
+    trainer = trainer_class(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 8, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/trainer.py", line 11, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 43, in __init__
+    self.clients_args = DatasetHandler(args, writer)()
+  File "/home/utente/Scrivania/PROVA/LADD/src/utils/data_utils.py", line 23, in __init__
+    self.__target_dataset_init()
+  File "/home/utente/Scrivania/PROVA/LADD/src/utils/data_utils.py", line 152, in __target_dataset_init
+    if self.args.framework == 'federated':
+KeyboardInterrupt
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydevd_bundle/pydevd_constants.py", line 58, in dummy_excepthook
+    def dummy_excepthook(exctype, value, traceback):
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2195, in <module>
+    main()
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 2177, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1489, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1496, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 49, in <module>
+    run_experiment()
+  File "/home/utente/Scrivania/PROVA/LADD/src/run.py", line 15, in run_experiment
+    trainer = trainer_class(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/oracle_trainer.py", line 8, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/federated/trainers/trainer.py", line 11, in __init__
+    super().__init__(args, writer, device, rank, world_size)
+  File "/home/utente/Scrivania/PROVA/LADD/src/general_trainer.py", line 43, in __init__
+    self.clients_args = DatasetHandler(args, writer)()
+  File "/home/utente/Scrivania/PROVA/LADD/src/utils/data_utils.py", line 23, in __init__
+    self.__target_dataset_init()
+  File "/home/utente/Scrivania/PROVA/LADD/src/utils/data_utils.py", line 152, in __target_dataset_init
+    if self.args.framework == 'federated':
+  File "/home/utente/Scrivania/PROVA/LADD/src/utils/data_utils.py", line 152, in __target_dataset_init
+    if self.args.framework == 'federated':
+  File "_pydevd_bundle/pydevd_cython.pyx", line 1179, in _pydevd_bundle.pydevd_cython.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython.pyx", line 620, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 929, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 920, in _pydevd_bundle.pydevd_cython.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython.pyx", line 317, in _pydevd_bundle.pydevd_cython.PyDBFrame.do_wait_suspend
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1160, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/home/utente/pycharm/plugins/python-ce/helpers/pydev/pydevd.py", line 1175, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt

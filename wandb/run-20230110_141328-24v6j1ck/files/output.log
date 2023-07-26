@@ -1,0 +1,264 @@
+Done.
+Setting up the random seed for reproducibility...
+Done.
+Initializing model...
+Done.
+Initializing datasets...
+Done.
+Initializing clients...
+Done.
+Initializing server...
+Running without server optimizer
+Done.
+Initialize return score, metrics, ckpt, ckpt step...
+Setting up metrics...
+Done.
+Done.
+Initializing optimizer and scheduler...
+Done.
+Generating sample ids for plots...
+Done.
+The experiment begins...
+ROUND 1/10: Training 10 Clients...
+CLIENT 1/10: erfurt5
+EPOCH 1: ended.
+CLIENT 2/10: weimar3
+EPOCH 1: ended.
+CLIENT 3/10: strasbourg3
+EPOCH 1: ended.
+CLIENT 4/10: tubingen2
+EPOCH 1: ended.
+CLIENT 5/10: weimar6
+EPOCH 1: ended.
+CLIENT 6/10: cologne2
+EPOCH 1: ended.
+CLIENT 7/10: hamburg1
+EPOCH 1: ended.
+CLIENT 8/10: monchengladbach6
+EPOCH 1: ended.
+CLIENT 9/10: cologne3
+EPOCH 1: ended.
+CLIENT 10/10: krefeld6
+EPOCH 1: ended.
+ROUND 2/10: Training 10 Clients...
+CLIENT 1/10: dusseldorf4
+EPOCH 1: ended.
+CLIENT 2/10: dusseldorf1
+EPOCH 1: ended.
+CLIENT 3/10: hanover6
+EPOCH 1: ended.
+CLIENT 4/10: jena0
+EPOCH 1: ended.
+CLIENT 5/10: jena5
+EPOCH 1: ended.
+CLIENT 6/10: darmstadt3
+EPOCH 1: ended.
+CLIENT 7/10: stuttgart4
+EPOCH 1: ended.
+CLIENT 8/10: bremen3
+EPOCH 1: ended.
+CLIENT 9/10: strasbourg0
+EPOCH 1: ended.
+CLIENT 10/10: weimar4
+EPOCH 1: ended.
+ROUND 3/10: Training 10 Clients...
+CLIENT 1/10: erfurt3
+EPOCH 1: ended.
+CLIENT 2/10: tubingen6
+EPOCH 1: ended.
+CLIENT 3/10: strasbourg7
+EPOCH 1: ended.
+CLIENT 4/10: darmstadt3
+EPOCH 1: ended.
+CLIENT 5/10: tubingen0
+EPOCH 1: ended.
+CLIENT 6/10: hanover3
+EPOCH 1: ended.
+CLIENT 7/10: bremen5
+EPOCH 1: ended.
+CLIENT 8/10: strasbourg4
+EPOCH 1: ended.
+CLIENT 9/10: zurich5
+EPOCH 1: ended.
+CLIENT 10/10: weimar0
+EPOCH 1: ended.
+ROUND 4/10: Training 10 Clients...
+CLIENT 1/10: tubingen1
+EPOCH 1: ended.
+CLIENT 2/10: erfurt4
+EPOCH 1: ended.
+CLIENT 3/10: darmstadt1
+EPOCH 1: ended.
+CLIENT 4/10: stuttgart7
+EPOCH 1: ended.
+CLIENT 5/10: erfurt2
+EPOCH 1: ended.
+CLIENT 6/10: ulm3
+EPOCH 1: ended.
+CLIENT 7/10: erfurt0
+EPOCH 1: ended.
+CLIENT 8/10: krefeld5
+EPOCH 1: ended.
+CLIENT 9/10: hanover3
+EPOCH 1: ended.
+CLIENT 10/10: tubingen7
+EPOCH 1: ended.
+ROUND 5/10: Training 10 Clients...
+CLIENT 1/10: cologne2
+EPOCH 1: ended.
+CLIENT 2/10: darmstadt3
+EPOCH 1: ended.
+CLIENT 3/10: hamburg3
+EPOCH 1: ended.
+CLIENT 4/10: tubingen5
+EPOCH 1: ended.
+CLIENT 5/10: bremen5
+EPOCH 1: ended.
+CLIENT 6/10: monchengladbach1
+EPOCH 1: ended.
+CLIENT 7/10: darmstadt7
+EPOCH 1: ended.
+CLIENT 8/10: hamburg7
+EPOCH 1: ended.
+CLIENT 9/10: bochum3
+EPOCH 1: ended.
+CLIENT 10/10: tubingen2
+EPOCH 1: ended.
+ROUND 6/10: Training 10 Clients...
+CLIENT 1/10: zurich6
+EPOCH 1: ended.
+CLIENT 2/10: aachen7
+EPOCH 1: ended.
+CLIENT 3/10: jena5
+EPOCH 1: ended.
+CLIENT 4/10: aachen2
+EPOCH 1: ended.
+CLIENT 5/10: dusseldorf3
+EPOCH 1: ended.
+CLIENT 6/10: krefeld2
+EPOCH 1: ended.
+CLIENT 7/10: hamburg6
+EPOCH 1: ended.
+CLIENT 8/10: bochum3
+EPOCH 1: ended.
+CLIENT 9/10: jena0
+EPOCH 1: ended.
+CLIENT 10/10: erfurt2
+EPOCH 1: ended.
+ROUND 7/10: Training 10 Clients...
+CLIENT 1/10: weimar4
+EPOCH 1: ended.
+CLIENT 2/10: bremen0
+EPOCH 1: ended.
+CLIENT 3/10: zurich2
+EPOCH 1: ended.
+CLIENT 4/10: erfurt1
+EPOCH 1: ended.
+CLIENT 5/10: bremen2
+EPOCH 1: ended.
+CLIENT 6/10: bremen7
+EPOCH 1: ended.
+CLIENT 7/10: hamburg7
+EPOCH 1: ended.
+CLIENT 8/10: jena4
+EPOCH 1: ended.
+CLIENT 9/10: dusseldorf1
+EPOCH 1: ended.
+CLIENT 10/10: stuttgart7
+EPOCH 1: ended.
+ROUND 8/10: Training 10 Clients...
+CLIENT 1/10: monchengladbach1
+EPOCH 1: ended.
+CLIENT 2/10: zurich4
+EPOCH 1: ended.
+CLIENT 3/10: cologne7
+EPOCH 1: ended.
+CLIENT 4/10: bremen2
+EPOCH 1: ended.
+CLIENT 5/10: ulm6
+EPOCH 1: ended.
+CLIENT 6/10: strasbourg1
+EPOCH 1: ended.
+CLIENT 7/10: bochum3
+EPOCH 1: ended.
+CLIENT 8/10: stuttgart0
+EPOCH 1: ended.
+CLIENT 9/10: hanover2
+EPOCH 1: ended.
+CLIENT 10/10: bochum0
+EPOCH 1: ended.
+ROUND 9/10: Training 10 Clients...
+CLIENT 1/10: darmstadt2
+EPOCH 1: ended.
+CLIENT 2/10: hanover0
+EPOCH 1: ended.
+CLIENT 3/10: strasbourg0
+EPOCH 1: ended.
+CLIENT 4/10: erfurt3
+EPOCH 1: ended.
+CLIENT 5/10: jena2
+EPOCH 1: ended.
+CLIENT 6/10: ulm6
+EPOCH 1: ended.
+CLIENT 7/10: cologne0
+EPOCH 1: ended.
+CLIENT 8/10: cologne4
+EPOCH 1: ended.
+CLIENT 9/10: tubingen3
+EPOCH 1: ended.
+CLIENT 10/10: zurich2
+EPOCH 1: ended.
+ROUND 10/10: Training 10 Clients...
+CLIENT 1/10: hamburg2
+EPOCH 1: ended.
+CLIENT 2/10: bremen5
+EPOCH 1: ended.
+CLIENT 3/10: tubingen4
+EPOCH 1: ended.
+CLIENT 4/10: cologne5
+EPOCH 1: ended.
+CLIENT 5/10: aachen1
+EPOCH 1: ended.
+CLIENT 6/10: hanover1
+EPOCH 1: ended.
+CLIENT 7/10: stuttgart5
+EPOCH 1: ended.
+CLIENT 8/10: strasbourg0
+EPOCH 1: ended.
+CLIENT 9/10: krefeld7
+EPOCH 1: ended.
+CLIENT 10/10: tubingen1
+EPOCH 1: ended.
+Testing...
+Client 1/1 - test_user
+test_user: 20/500, 4.0%
+test_user: 40/500, 8.0%
+test_user: 60/500, 12.0%
+test_user: 80/500, 16.0%
+test_user: 100/500, 20.0%
+test_user: 120/500, 24.0%
+test_user: 140/500, 28.0%
+test_user: 160/500, 32.0%
+test_user: 180/500, 36.0%
+test_user: 200/500, 40.0%
+test_user: 220/500, 44.0%
+test_user: 240/500, 48.0%
+test_user: 260/500, 52.0%
+test_user: 280/500, 56.0%
+test_user: 300/500, 60.0%
+test_user: 320/500, 64.0%
+test_user: 340/500, 68.0%
+test_user: 360/500, 72.0%
+test_user: 380/500, 76.0%
+test_user: 400/500, 80.0%
+test_user: 420/500, 84.0%
+test_user: 440/500, 88.0%
+test_user: 460/500, 92.0%
+test_user: 480/500, 96.0%
+test_user: 500/500, 100.0%
+Done.
+New best result found at round 10
+Test mean iou at round 10: 9.21%
+Training completed.
+Final mIoU: 9.21%
+Elapsed time: 0h, 6min, 14.37s

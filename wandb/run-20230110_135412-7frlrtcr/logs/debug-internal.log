@@ -1,0 +1,464 @@
+2023-01-10 13:54:13,398 INFO    MainThread:6977 [internal.py:wandb_internal():86] W&B internal server running at pid: 6977, started at: 2023-01-10 13:54:13.398479
+2023-01-10 13:54:13,401 INFO    WriterThread:6977 [datastore.py:open_for_write():77] open: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/run-7frlrtcr.wandb
+2023-01-10 13:54:13,401 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: check_version
+2023-01-10 13:54:13,402 DEBUG   SenderThread:6977 [sender.py:send():182] send: header
+2023-01-10 13:54:13,402 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: check_version
+2023-01-10 13:54:13,514 DEBUG   SenderThread:6977 [sender.py:send():182] send: run
+2023-01-10 13:54:13,515 INFO    SenderThread:6977 [sender.py:_maybe_setup_resume():421] checking resume status for alessandro-fella-1/federated_cityscapes/7frlrtcr
+2023-01-10 13:54:14,064 INFO    SenderThread:6977 [dir_watcher.py:__init__():169] watching files in: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files
+2023-01-10 13:54:14,064 INFO    SenderThread:6977 [sender.py:_start_run_threads():740] run started: 7frlrtcr with start time 1673355252
+2023-01-10 13:54:14,064 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:54:14,065 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: run_start
+2023-01-10 13:54:14,067 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:54:14,076 DEBUG   HandlerThread:6977 [meta.py:__init__():40] meta init
+2023-01-10 13:54:14,076 DEBUG   HandlerThread:6977 [meta.py:__init__():54] meta init done
+2023-01-10 13:54:14,076 DEBUG   HandlerThread:6977 [meta.py:probe():211] probe
+2023-01-10 13:54:14,084 DEBUG   HandlerThread:6977 [meta.py:_setup_git():201] setup git
+2023-01-10 13:54:14,118 DEBUG   HandlerThread:6977 [meta.py:_setup_git():208] setup git done
+2023-01-10 13:54:14,118 DEBUG   HandlerThread:6977 [meta.py:_save_pip():58] save pip
+2023-01-10 13:54:14,119 DEBUG   HandlerThread:6977 [meta.py:_save_pip():72] save pip done
+2023-01-10 13:54:14,119 DEBUG   HandlerThread:6977 [meta.py:_save_conda():79] save conda
+2023-01-10 13:54:15,065 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:54:15,065 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/requirements.txt
+2023-01-10 13:54:15,065 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/conda-environment.yaml
+2023-01-10 13:54:16,064 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/conda-environment.yaml
+2023-01-10 13:54:16,141 DEBUG   HandlerThread:6977 [meta.py:_save_conda():87] save conda done
+2023-01-10 13:54:16,141 DEBUG   HandlerThread:6977 [meta.py:probe():249] probe done
+2023-01-10 13:54:16,193 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:54:16,193 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2023-01-10 13:54:16,197 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:54:16,197 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:54:16,494 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:16,496 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:16,496 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:54:16,496 DEBUG   SenderThread:6977 [sender.py:send():182] send: config
+2023-01-10 13:54:17,065 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:17,066 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-metadata.json
+2023-01-10 13:54:17,364 INFO    Thread-11 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/ggu9gzpn-wandb-metadata.json
+2023-01-10 13:54:23,067 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:27,068 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:29,069 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:31,070 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:34,704 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:34,704 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:34,704 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:54:34,707 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:34,707 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:54:34,708 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:54:34,708 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:54:34,708 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:34,708 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:34,708 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:54:34,708 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:34,708 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:54:34,708 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:54:34,709 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:54:35,013 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:54:35,013 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt with policy live
+2023-01-10 13:54:35,071 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:54:35,071 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:35,071 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:54:35,072 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated
+2023-01-10 13:54:35,072 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints
+2023-01-10 13:54:35,072 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated/cityscapes
+2023-01-10 13:54:35,209 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:54:35,209 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:54:37,072 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:39,073 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:42,330 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:54:43,074 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:45,075 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:45,075 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/config.yaml
+2023-01-10 13:54:46,555 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:46,558 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:46,559 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:54:46,559 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:54:46,559 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:54:46,562 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:54:46,562 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:46,562 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:54:46,562 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:54:46,562 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:54:46,562 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:54:46,562 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:54:46,949 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:54:46,950 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt with policy live
+2023-01-10 13:54:47,076 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:54:47,076 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:47,076 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:54:49,076 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:50,408 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:54:50,408 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:54:51,077 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:53,078 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:57,080 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:57,852 INFO    Thread-12 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/3bhwwv27-checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:54:59,081 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:54:59,999 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:00,003 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:00,003 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:55:00,003 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:55:00,003 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:55:00,004 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:55:00,004 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:00,004 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:00,004 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:55:00,004 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:55:00,004 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:55:00,004 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:55:00,081 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:55:00,457 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:55:00,457 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt with policy live
+2023-01-10 13:55:01,082 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:55:03,082 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:05,083 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:05,603 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:55:05,603 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:55:07,084 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:09,085 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:11,086 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:11,511 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:11,513 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:11,513 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:55:11,513 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:55:11,513 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:55:11,514 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:55:11,514 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:11,514 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:11,514 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:55:11,514 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:55:11,514 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:55:11,515 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:55:11,898 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:55:11,898 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt with policy live
+2023-01-10 13:55:12,087 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:55:12,087 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:55:12,557 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:55:13,087 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:15,088 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:17,089 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:17,089 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/config.yaml
+2023-01-10 13:55:19,089 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:20,848 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:55:20,848 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:55:21,090 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:21,421 INFO    Thread-13 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/3dwodag8-checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:55:23,091 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:23,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:23,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:23,645 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:55:23,645 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:55:23,645 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:55:23,646 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:55:23,646 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:23,646 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:55:23,646 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:55:23,646 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:55:23,646 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:55:23,646 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:55:24,032 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:55:24,033 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt with policy live
+2023-01-10 13:55:24,092 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:55:24,092 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:55:25,097 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:27,097 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:33,100 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:36,115 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:55:36,115 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:55:39,102 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:42,795 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:55:45,104 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:45,383 INFO    Thread-14 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/3hs97o0t-checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:55:47,105 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/config.yaml
+2023-01-10 13:55:51,106 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:55:51,605 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:55:51,605 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:55:55,108 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:01,110 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:06,833 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:56:06,833 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:56:07,113 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:07,405 INFO    Thread-15 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/w0eh5x0o-checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:56:11,115 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:12,997 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:56:17,117 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:21,118 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:22,113 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:56:22,114 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:56:27,120 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:32,999 INFO    Thread-16 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/3c7btln9-checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:56:33,123 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:37,124 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:37,355 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:56:37,355 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:56:43,126 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:43,217 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:56:49,129 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:56:52,609 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:56:52,610 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:56:55,131 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:01,133 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:07,135 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:07,867 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:57:07,867 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:57:13,137 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:13,426 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:57:19,139 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:23,126 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:57:23,126 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:57:25,141 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:31,144 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:37,146 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:38,383 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:57:38,383 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:57:43,148 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:43,634 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:57:49,833 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:49,836 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:49,838 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:57:49,838 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:49,838 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:57:49,839 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:49,840 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:49,841 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:49,841 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:49,841 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:57:49,841 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:49,841 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:57:49,841 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:49,841 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:50,151 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:57:51,152 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:51,785 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,786 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,786 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:57:51,786 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:57:51,786 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file media/images/test_test_user_sid361_12_0.png with policy now
+2023-01-10 13:57:51,905 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,906 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,906 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,906 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,906 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,906 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:51,906 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:57:51,906 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:51,907 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:52,152 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:57:52,153 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/test_test_user_sid361_12_0.png
+2023-01-10 13:57:52,153 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media
+2023-01-10 13:57:52,153 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images
+2023-01-10 13:57:53,085 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,086 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,086 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:57:53,086 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:57:53,086 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file media/images/test_test_user_sid73_13_0.png with policy now
+2023-01-10 13:57:53,153 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/test_test_user_sid73_13_0.png
+2023-01-10 13:57:53,153 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images
+2023-01-10 13:57:53,203 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,204 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,204 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,204 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,204 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,204 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:53,204 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:57:53,205 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:53,205 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:53,590 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: stop_status
+2023-01-10 13:57:53,590 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: stop_status
+2023-01-10 13:57:54,153 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:57:54,440 INFO    Thread-17 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/19yx6818-media/images/test_test_user_sid361_12_0.png
+2023-01-10 13:57:54,522 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,522 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,523 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:57:54,523 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:57:54,523 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file media/images/test_test_user_sid374_14_0.png with policy now
+2023-01-10 13:57:54,643 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:57:54,644 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:54,645 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:54,645 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,645 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:54,646 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:57:54,891 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: log_artifact
+2023-01-10 13:57:54,892 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: log_artifact
+2023-01-10 13:57:54,919 INFO    Thread-18 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/13d2fsla-media/images/test_test_user_sid73_13_0.png
+2023-01-10 13:57:55,155 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:57:55,155 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/table/test_test_user_scores_15_1654f6ca053821508206.table.json
+2023-01-10 13:57:55,156 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/test_test_user_sid374_14_0.png
+2023-01-10 13:57:55,156 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media
+2023-01-10 13:57:55,156 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images
+2023-01-10 13:57:55,157 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/table
+2023-01-10 13:57:56,156 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/Per-class IoU_16_0.png
+2023-01-10 13:57:56,157 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images
+2023-01-10 13:57:57,139 INFO    Thread-21 :6977 [upload_job.py:push():95] Uploaded file /home/utente/.cache/wandb/artifacts/obj/md5/b3/f4c9f44fa6b2e7b00a13ac8b0dfabe
+2023-01-10 13:57:57,157 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:57,961 INFO    Thread-19 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/34wa7gex-media/images/test_test_user_sid374_14_0.png
+2023-01-10 13:57:58,201 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:57:58,990 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:57:58,990 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file media/table/test_test_user_scores_15_1654f6ca053821508206.table.json with policy now
+2023-01-10 13:57:58,991 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,991 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,992 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,992 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,992 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,992 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,993 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,993 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,993 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:57:58,993 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:58,995 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:58,996 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,996 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,996 WARNING SenderThread:6977 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-01-10 13:57:58,996 DEBUG   SenderThread:6977 [sender.py:send():182] send: files
+2023-01-10 13:57:58,996 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file media/images/Per-class IoU_16_0.png with policy now
+2023-01-10 13:57:58,997 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,998 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,998 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,998 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,999 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,999 DEBUG   SenderThread:6977 [sender.py:send():182] send: metric
+2023-01-10 13:57:58,999 DEBUG   SenderThread:6977 [sender.py:send():182] send: history
+2023-01-10 13:57:58,999 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:59,001 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:59,001 DEBUG   SenderThread:6977 [sender.py:send():182] send: telemetry
+2023-01-10 13:57:59,001 DEBUG   SenderThread:6977 [sender.py:send():182] send: exit
+2023-01-10 13:57:59,001 INFO    SenderThread:6977 [sender.py:send_exit():291] handling exit code: 0
+2023-01-10 13:57:59,002 INFO    SenderThread:6977 [sender.py:send_exit():293] handling runtime: 224
+2023-01-10 13:57:59,011 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:59,012 INFO    SenderThread:6977 [sender.py:send_exit():303] send defer
+2023-01-10 13:57:59,012 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:57:59,014 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:57:59,014 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 0
+2023-01-10 13:57:59,014 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:57:59,015 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 0
+2023-01-10 13:57:59,015 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 1
+2023-01-10 13:57:59,016 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:57:59,016 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 1
+2023-01-10 13:57:59,067 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:57:59,067 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 1
+2023-01-10 13:57:59,067 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 2
+2023-01-10 13:57:59,067 DEBUG   SenderThread:6977 [sender.py:send():182] send: stats
+2023-01-10 13:57:59,068 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:57:59,068 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 2
+2023-01-10 13:57:59,068 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:57:59,068 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 2
+2023-01-10 13:57:59,068 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 3
+2023-01-10 13:57:59,069 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:57:59,069 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 3
+2023-01-10 13:57:59,069 DEBUG   SenderThread:6977 [sender.py:send():182] send: summary
+2023-01-10 13:57:59,069 INFO    SenderThread:6977 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-01-10 13:57:59,069 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:57:59,069 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 3
+2023-01-10 13:57:59,069 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 4
+2023-01-10 13:57:59,070 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:57:59,070 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 4
+2023-01-10 13:57:59,070 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:57:59,070 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 4
+2023-01-10 13:57:59,116 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:57:59,160 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:57:59,161 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:57:59,673 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 5
+2023-01-10 13:57:59,673 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:57:59,673 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:57:59,674 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 5
+2023-01-10 13:57:59,674 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:57:59,674 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 5
+2023-01-10 13:57:59,674 INFO    SenderThread:6977 [dir_watcher.py:finish():283] shutting down directory watcher
+2023-01-10 13:57:59,775 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,162 INFO    Thread-8  :6977 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/config.yaml
+2023-01-10 13:58:00,164 INFO    SenderThread:6977 [dir_watcher.py:finish():313] scan: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files
+2023-01-10 13:58:00,164 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/config.yaml config.yaml
+2023-01-10 13:58:00,165 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/requirements.txt requirements.txt
+2023-01-10 13:58:00,173 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log output.log
+2023-01-10 13:58:00,183 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json wandb-summary.json
+2023-01-10 13:58:00,184 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/conda-environment.yaml conda-environment.yaml
+2023-01-10 13:58:00,184 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-metadata.json wandb-metadata.json
+2023-01-10 13:58:00,206 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/test_test_user_sid73_13_0.png media/images/test_test_user_sid73_13_0.png
+2023-01-10 13:58:00,207 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/Per-class IoU_16_0.png media/images/Per-class IoU_16_0.png
+2023-01-10 13:58:00,207 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/test_test_user_sid361_12_0.png media/images/test_test_user_sid361_12_0.png
+2023-01-10 13:58:00,207 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/images/test_test_user_sid374_14_0.png media/images/test_test_user_sid374_14_0.png
+2023-01-10 13:58:00,208 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/media/table/test_test_user_scores_15_1654f6ca053821508206.table.json media/table/test_test_user_scores_15_1654f6ca053821508206.table.json
+2023-01-10 13:58:00,210 INFO    SenderThread:6977 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt checkpoints/federated/cityscapes/deeplabv3_r5_e1_cl5_heterogeneous_lr0.05_bs16_rs42_cityscapes_fed_oracle_7frlrtcr.ckpt
+2023-01-10 13:58:00,210 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 6
+2023-01-10 13:58:00,210 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:00,211 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:58:00,212 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 6
+2023-01-10 13:58:00,213 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:58:00,213 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 6
+2023-01-10 13:58:00,213 INFO    SenderThread:6977 [file_pusher.py:finish():177] shutting down file pusher
+2023-01-10 13:58:00,221 INFO    Thread-22 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/3pz1neho-media/table/test_test_user_scores_15_1654f6ca053821508206.table.json
+2023-01-10 13:58:00,314 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,314 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:00,416 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,417 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:00,519 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,519 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:00,621 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,621 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:00,667 INFO    Thread-23 :6977 [upload_job.py:push():137] Uploaded file /tmp/tmpu5mfhy2uwandb/3rlggkzx-media/images/Per-class IoU_16_0.png
+2023-01-10 13:58:00,722 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,722 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:00,824 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,825 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:00,928 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:00,928 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,031 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,032 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,134 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,135 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,238 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,238 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,341 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,342 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,445 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,445 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,548 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,548 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,651 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,652 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,658 INFO    Thread-27 :6977 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/wandb-summary.json
+2023-01-10 13:58:01,667 INFO    Thread-25 :6977 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/requirements.txt
+2023-01-10 13:58:01,670 INFO    Thread-24 :6977 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/config.yaml
+2023-01-10 13:58:01,674 INFO    Thread-26 :6977 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/output.log
+2023-01-10 13:58:01,677 INFO    Thread-28 :6977 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/files/conda-environment.yaml
+2023-01-10 13:58:01,754 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,755 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,858 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:01,858 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:01,878 INFO    Thread-7  :6977 [sender.py:transition_state():316] send defer: 7
+2023-01-10 13:58:01,879 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:58:01,879 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 7
+2023-01-10 13:58:01,879 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:58:01,880 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 7
+2023-01-10 13:58:01,961 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:02,071 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 8
+2023-01-10 13:58:02,072 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:02,073 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:58:02,073 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 8
+2023-01-10 13:58:02,074 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:58:02,074 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 8
+2023-01-10 13:58:02,074 INFO    SenderThread:6977 [sender.py:transition_state():316] send defer: 9
+2023-01-10 13:58:02,076 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: defer
+2023-01-10 13:58:02,077 DEBUG   SenderThread:6977 [sender.py:send():182] send: final
+2023-01-10 13:58:02,077 INFO    HandlerThread:6977 [handler.py:handle_request_defer():143] handle defer: 9
+2023-01-10 13:58:02,077 DEBUG   SenderThread:6977 [sender.py:send():182] send: footer
+2023-01-10 13:58:02,078 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: defer
+2023-01-10 13:58:02,078 INFO    SenderThread:6977 [sender.py:send_request_defer():312] handle sender defer: 9
+2023-01-10 13:58:02,175 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: poll_exit
+2023-01-10 13:58:02,175 DEBUG   SenderThread:6977 [sender.py:send_request():196] send_request: poll_exit
+2023-01-10 13:58:02,175 INFO    SenderThread:6977 [file_pusher.py:join():182] waiting for file pusher
+2023-01-10 13:58:02,176 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: get_summary
+2023-01-10 13:58:02,177 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: sampled_history
+2023-01-10 13:58:02,178 DEBUG   HandlerThread:6977 [handler.py:handle_request():126] handle_request: shutdown
+2023-01-10 13:58:02,178 INFO    HandlerThread:6977 [handler.py:finish():683] shutting down handler
+2023-01-10 13:58:03,076 INFO    WriterThread:6977 [datastore.py:close():281] close: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230110_135412-7frlrtcr/run-7frlrtcr.wandb
+2023-01-10 13:58:03,175 INFO    SenderThread:6977 [sender.py:finish():979] shutting down sender
+2023-01-10 13:58:03,176 INFO    SenderThread:6977 [file_pusher.py:finish():177] shutting down file pusher
+2023-01-10 13:58:03,176 INFO    SenderThread:6977 [file_pusher.py:join():182] waiting for file pusher
+2023-01-10 13:58:03,178 INFO    MainThread:6977 [internal.py:handle_exit():76] Internal process exited

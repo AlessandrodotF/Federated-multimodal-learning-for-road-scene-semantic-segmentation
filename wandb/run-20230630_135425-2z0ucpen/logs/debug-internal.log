@@ -1,0 +1,156 @@
+2023-06-30 13:54:26,329 INFO    MainThread:14436 [internal.py:wandb_internal():86] W&B internal server running at pid: 14436, started at: 2023-06-30 13:54:26.329463
+2023-06-30 13:54:26,334 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: check_version
+2023-06-30 13:54:26,335 INFO    WriterThread:14436 [datastore.py:open_for_write():77] open: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/run-2z0ucpen.wandb
+2023-06-30 13:54:26,337 DEBUG   SenderThread:14436 [sender.py:send():182] send: header
+2023-06-30 13:54:26,338 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: check_version
+2023-06-30 13:54:26,490 DEBUG   SenderThread:14436 [sender.py:send():182] send: run
+2023-06-30 13:54:26,504 INFO    SenderThread:14436 [sender.py:_maybe_setup_resume():421] checking resume status for alessandro-fella-1/federated_cityscapes/2z0ucpen
+2023-06-30 13:54:27,278 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: run_start
+2023-06-30 13:54:27,281 INFO    SenderThread:14436 [dir_watcher.py:__init__():169] watching files in: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files
+2023-06-30 13:54:27,282 INFO    SenderThread:14436 [sender.py:_start_run_threads():740] run started: 2z0ucpen with start time 1688126065
+2023-06-30 13:54:27,282 DEBUG   SenderThread:14436 [sender.py:send():182] send: summary
+2023-06-30 13:54:27,283 INFO    SenderThread:14436 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-06-30 13:54:27,292 DEBUG   HandlerThread:14436 [meta.py:__init__():40] meta init
+2023-06-30 13:54:27,293 DEBUG   HandlerThread:14436 [meta.py:__init__():54] meta init done
+2023-06-30 13:54:27,293 DEBUG   HandlerThread:14436 [meta.py:probe():211] probe
+2023-06-30 13:54:27,303 DEBUG   HandlerThread:14436 [meta.py:_setup_git():201] setup git
+2023-06-30 13:54:27,330 DEBUG   HandlerThread:14436 [meta.py:_setup_git():208] setup git done
+2023-06-30 13:54:27,330 DEBUG   HandlerThread:14436 [meta.py:_save_pip():58] save pip
+2023-06-30 13:54:27,332 DEBUG   HandlerThread:14436 [meta.py:_save_pip():72] save pip done
+2023-06-30 13:54:27,332 DEBUG   HandlerThread:14436 [meta.py:_save_conda():79] save conda
+2023-06-30 13:54:28,282 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/conda-environment.yaml
+2023-06-30 13:54:28,282 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/wandb-summary.json
+2023-06-30 13:54:28,282 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/requirements.txt
+2023-06-30 13:54:29,472 DEBUG   HandlerThread:14436 [meta.py:_save_conda():87] save conda done
+2023-06-30 13:54:29,472 DEBUG   HandlerThread:14436 [meta.py:probe():249] probe done
+2023-06-30 13:54:29,576 DEBUG   SenderThread:14436 [sender.py:send():182] send: files
+2023-06-30 13:54:29,576 INFO    SenderThread:14436 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2023-06-30 13:54:29,588 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: stop_status
+2023-06-30 13:54:29,589 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: stop_status
+2023-06-30 13:54:29,888 DEBUG   SenderThread:14436 [sender.py:send():182] send: metric
+2023-06-30 13:54:29,892 DEBUG   SenderThread:14436 [sender.py:send():182] send: metric
+2023-06-30 13:54:29,893 WARNING SenderThread:14436 [sender.py:send_metric():831] Seen metric with glob (shouldnt happen)
+2023-06-30 13:54:29,894 DEBUG   SenderThread:14436 [sender.py:send():182] send: config
+2023-06-30 13:54:30,279 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/conda-environment.yaml
+2023-06-30 13:54:30,280 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/output.log
+2023-06-30 13:54:30,280 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_created():217] file/dir created: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/wandb-metadata.json
+2023-06-30 13:54:30,428 INFO    Thread-16 :14436 [upload_job.py:push():137] Uploaded file /tmp/tmpvcv__v3rwandb/tcjdnxo8-wandb-metadata.json
+2023-06-30 13:54:33,280 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/output.log
+2023-06-30 13:54:35,282 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/output.log
+2023-06-30 13:54:36,349 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:36,349 DEBUG   SenderThread:14436 [sender.py:send():182] send: telemetry
+2023-06-30 13:54:36,349 DEBUG   SenderThread:14436 [sender.py:send():182] send: exit
+2023-06-30 13:54:36,349 INFO    SenderThread:14436 [sender.py:send_exit():291] handling exit code: 0
+2023-06-30 13:54:36,349 INFO    SenderThread:14436 [sender.py:send_exit():293] handling runtime: 9
+2023-06-30 13:54:36,350 INFO    SenderThread:14436 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-06-30 13:54:36,350 INFO    SenderThread:14436 [sender.py:send_exit():303] send defer
+2023-06-30 13:54:36,350 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:36,351 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:36,351 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 0
+2023-06-30 13:54:36,351 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:36,351 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 0
+2023-06-30 13:54:36,352 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 1
+2023-06-30 13:54:36,352 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:36,352 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 1
+2023-06-30 13:54:36,475 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:36,476 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:36,476 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 1
+2023-06-30 13:54:36,476 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 2
+2023-06-30 13:54:36,477 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:36,478 DEBUG   SenderThread:14436 [sender.py:send():182] send: stats
+2023-06-30 13:54:36,479 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:36,479 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 2
+2023-06-30 13:54:36,480 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:36,480 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 2
+2023-06-30 13:54:36,480 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 3
+2023-06-30 13:54:36,481 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:36,481 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 3
+2023-06-30 13:54:36,481 DEBUG   SenderThread:14436 [sender.py:send():182] send: summary
+2023-06-30 13:54:36,482 INFO    SenderThread:14436 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-06-30 13:54:36,482 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:36,482 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 3
+2023-06-30 13:54:36,483 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 4
+2023-06-30 13:54:36,483 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:36,483 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 4
+2023-06-30 13:54:36,483 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:36,484 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 4
+2023-06-30 13:54:36,579 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:36,974 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 5
+2023-06-30 13:54:36,975 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:36,975 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:36,975 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 5
+2023-06-30 13:54:36,976 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:36,976 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 5
+2023-06-30 13:54:36,976 INFO    SenderThread:14436 [dir_watcher.py:finish():283] shutting down directory watcher
+2023-06-30 13:54:37,077 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:37,283 INFO    Thread-13 :14436 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/config.yaml
+2023-06-30 13:54:37,285 INFO    SenderThread:14436 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/output.log
+2023-06-30 13:54:37,285 INFO    SenderThread:14436 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/wandb-summary.json
+2023-06-30 13:54:37,286 INFO    SenderThread:14436 [dir_watcher.py:finish():313] scan: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files
+2023-06-30 13:54:37,287 INFO    SenderThread:14436 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/config.yaml config.yaml
+2023-06-30 13:54:37,287 INFO    SenderThread:14436 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/requirements.txt requirements.txt
+2023-06-30 13:54:37,288 INFO    SenderThread:14436 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/output.log output.log
+2023-06-30 13:54:37,289 INFO    SenderThread:14436 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/wandb-summary.json wandb-summary.json
+2023-06-30 13:54:37,289 INFO    SenderThread:14436 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/conda-environment.yaml conda-environment.yaml
+2023-06-30 13:54:37,306 INFO    SenderThread:14436 [dir_watcher.py:finish():327] scan save: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/wandb-metadata.json wandb-metadata.json
+2023-06-30 13:54:37,306 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 6
+2023-06-30 13:54:37,311 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:37,336 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:37,336 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 6
+2023-06-30 13:54:37,337 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:37,337 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 6
+2023-06-30 13:54:37,337 INFO    SenderThread:14436 [file_pusher.py:finish():177] shutting down file pusher
+2023-06-30 13:54:37,439 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:37,439 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:37,544 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:37,545 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:37,654 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:37,673 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:37,775 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:37,775 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:37,878 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:37,879 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:37,983 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:37,984 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:38,088 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:38,089 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:38,112 INFO    Thread-19 :14436 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/output.log
+2023-06-30 13:54:38,140 INFO    Thread-17 :14436 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/config.yaml
+2023-06-30 13:54:38,151 INFO    Thread-20 :14436 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/wandb-summary.json
+2023-06-30 13:54:38,158 INFO    Thread-21 :14436 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/conda-environment.yaml
+2023-06-30 13:54:38,187 INFO    Thread-18 :14436 [upload_job.py:push():137] Uploaded file /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/files/requirements.txt
+2023-06-30 13:54:38,193 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:38,193 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:38,295 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:38,296 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:38,389 INFO    Thread-12 :14436 [sender.py:transition_state():316] send defer: 7
+2023-06-30 13:54:38,391 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:38,391 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 7
+2023-06-30 13:54:38,393 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:38,393 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 7
+2023-06-30 13:54:38,403 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:38,620 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 8
+2023-06-30 13:54:38,621 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:38,623 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:38,623 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 8
+2023-06-30 13:54:38,624 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:38,625 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 8
+2023-06-30 13:54:38,625 INFO    SenderThread:14436 [sender.py:transition_state():316] send defer: 9
+2023-06-30 13:54:38,628 DEBUG   SenderThread:14436 [sender.py:send():182] send: final
+2023-06-30 13:54:38,629 DEBUG   SenderThread:14436 [sender.py:send():182] send: footer
+2023-06-30 13:54:38,630 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: defer
+2023-06-30 13:54:38,631 INFO    HandlerThread:14436 [handler.py:handle_request_defer():143] handle defer: 9
+2023-06-30 13:54:38,631 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: defer
+2023-06-30 13:54:38,632 INFO    SenderThread:14436 [sender.py:send_request_defer():312] handle sender defer: 9
+2023-06-30 13:54:38,725 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: poll_exit
+2023-06-30 13:54:38,725 DEBUG   SenderThread:14436 [sender.py:send_request():196] send_request: poll_exit
+2023-06-30 13:54:38,726 INFO    SenderThread:14436 [file_pusher.py:join():182] waiting for file pusher
+2023-06-30 13:54:38,728 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: get_summary
+2023-06-30 13:54:38,730 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: sampled_history
+2023-06-30 13:54:38,732 DEBUG   HandlerThread:14436 [handler.py:handle_request():126] handle_request: shutdown
+2023-06-30 13:54:38,733 INFO    HandlerThread:14436 [handler.py:finish():683] shutting down handler
+2023-06-30 13:54:39,630 INFO    WriterThread:14436 [datastore.py:close():281] close: /home/utente/Scrivania/PROVA/LADD/wandb/run-20230630_135425-2z0ucpen/run-2z0ucpen.wandb
+2023-06-30 13:54:39,726 INFO    SenderThread:14436 [sender.py:finish():979] shutting down sender
+2023-06-30 13:54:39,727 INFO    SenderThread:14436 [file_pusher.py:finish():177] shutting down file pusher
+2023-06-30 13:54:39,728 INFO    SenderThread:14436 [file_pusher.py:join():182] waiting for file pusher
+2023-06-30 13:54:40,116 INFO    MainThread:14436 [internal.py:handle_exit():76] Internal process exited
