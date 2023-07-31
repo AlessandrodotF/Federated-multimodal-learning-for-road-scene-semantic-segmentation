@@ -184,6 +184,7 @@ class Client:
                 #     plt.axis('off')
                 #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_hha_{i}.png')
                 #     plt.show()
+
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
                 loss_tot = self.reduction(self.criterion(outputs, labels), labels)
                 dict_calc_losses = {'loss_tot': loss_tot}

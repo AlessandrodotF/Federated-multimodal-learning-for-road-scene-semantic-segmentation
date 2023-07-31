@@ -147,7 +147,7 @@ class OracleClient(Client):
                         #     plt.axis('off')
                         #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_{i}.png')
                         #     plt.clf()
-                        #
+                        # #
                         # for i in range(len(labels)):
                         #     label = labels[i].cpu().numpy()
                         #     plt.imshow(label, cmap='gray')

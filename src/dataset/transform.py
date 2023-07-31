@@ -26,6 +26,17 @@ class Compose(object):
 
     def __call__(self, img, lbl=None):
 
+        if "HHA_DATA" in img.filename:
+            self.transforms[3].mean = (0.524, 0.528, 0.496)
+            self.transforms[3].std = (0.238, 0.057, 0.371)
+
+        elif "MIX_DATA" in img.filename and "RGB" not in img.filename:
+            self.transforms[3].mean = (0.524, 0.528, 0.496)
+            self.transforms[3].std = (0.238, 0.057, 0.371)
+        else:
+            self.transforms[3].mean = (0.485, 0.456, 0.406)
+            self.transforms[3].std = (0.229, 0.224, 0.225)
+
         if lbl is not None:
             for t in self.transforms:
                 if t.__class__.__name__=="RandomScale_new":
@@ -400,6 +411,8 @@ class RandomCrop_new(object):
             filename = img.filename.replace("trainRGB", "train")
         elif "valRGB" in img.filename:
                 filename = img.filename.replace("valRGB", "val")
+        elif "testRGB" in img.filename:
+                filename = img.filename.replace("testRGB", "test")
         else:
             filename = img.filename
 

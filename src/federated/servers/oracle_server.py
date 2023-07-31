@@ -119,8 +119,11 @@ class OracleServer(Server):
                     num_samples, update = out
                 if self.optimizer is not None:
                     update = self._compute_client_delta(update)
+                if self.args.mm_setting=="third":
+                    self.updates.append((num_samples/2, update))
+                else:
+                    self.updates.append((num_samples, update))
 
-                self.updates.append((num_samples/2, update))
 
 
         if self.local_rank == 0 and self.args.mm_setting=="first":
