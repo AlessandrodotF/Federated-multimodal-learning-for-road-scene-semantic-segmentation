@@ -110,7 +110,7 @@ class Client:
         # original loss
         criterion = nn.CrossEntropyLoss(ignore_index=255, reduction='none')
         # L2 loss
-        # criterion =nn.MSELoss(reduction='none')
+        # criterion = lambda output, target: F.pairwise_distance(output, target, p=2, reduction='none')
 
         reduction = HardNegativeMining() if self.args.hnm else MeanReduction()
 
@@ -124,17 +124,6 @@ class Client:
                 prediction.unsqueeze(0).double(), labels.shape[1:], mode='nearest').squeeze(0).long()
         labels = labels.cpu().numpy()
         prediction = prediction.cpu().numpy()
-
-        # for i in range(len(labels)):
-        #     plt.imshow(labels[i], cmap='gray')
-        #     plt.axis('off')
-        #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/label_{i}.png')
-        #     plt.clf()
-        # for i in range(len(prediction)):
-        #     plt.imshow(prediction[i], cmap='gray')
-        #     plt.axis('off')
-        #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/pred_{i}.png')
-        #     plt.clf()
         metric.update(labels, prediction)
 
     def calc_loss_and_output(self, images, labels):
@@ -194,11 +183,14 @@ class Client:
                 #     plt.show()
 
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
-                # outputs = outputs.float()
-                # labels = labels.float()
-                # reduced_output, _ = torch.max(outputs, dim=1)
+                outputs = outputs.float()
+                labels = labels.float()
+                reduced_output, _ = torch.max(outputs, dim=1)
+                loss_per_pixel = torch.norm(reduced_output - labels, p=2, dim=1)
 
-                loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                loss_tot = self.reduction(loss_per_pixel, labels)
+
+                # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
                 dict_calc_losses = {'loss_tot': loss_tot}
                 return dict_calc_losses, outputs
         else:
@@ -235,11 +227,17 @@ class Client:
 
     def calc_test_loss(self, outputs, labels):
         # prima era direttamente con il return
-        return self.reduction(self.criterion(outputs, labels), labels)
-        # reduced_output, _ = torch.max(outputs, dim=1)
-        # reduced_output = outputs.float()
-        # labels = labels.float()
-        # return self.reduction(self.criterion(reduced_output, labels), labels)
+        # return self.reduction(self.criterion(outputs, labels), labels)
+        outputs = outputs.float()
+        labels = labels.float()
+        reduced_output, _ = torch.max(outputs, dim=1)
+
+
+        loss_per_pixel = torch.norm(reduced_output - labels, p=2, dim=1)
+        loss_tot = self.reduction(loss_per_pixel, labels)
+
+        # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+        return loss_tot
 
     def manage_tot_test_loss(self, tot_loss):
         tot_loss = torch.tensor(tot_loss).to(self.device)
