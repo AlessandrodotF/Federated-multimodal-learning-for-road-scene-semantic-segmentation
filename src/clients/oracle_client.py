@@ -299,6 +299,7 @@ class OracleClient(Client):
 
                 if outputs.shape != labels.shape:
                     outputs = torch.nn.functional.interpolate(outputs, labels.shape[1:], mode='nearest')
+
                 loss = self.calc_test_loss(outputs, labels)
                 tot_loss += loss.item()
 

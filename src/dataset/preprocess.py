@@ -35,17 +35,14 @@ def get_dataset(model_name, dataset_name, double_dataset=None, quadruple_dataset
             test_transform = to_tens_and_norm(tr, mean, std, cv2)
 
         elif model_name =='multi_deeplabv3':
-            # depth
-            # mean =(123.892, 127.085, 121.487)
-            # std = (61.467, 15.822, 88.683)
-            # rgb
+
             mean = (0.485, 0.456, 0.406)
             std = (0.229, 0.224, 0.225)
             dataset = partial(Cityscapes, mean=mean, std=std, cv2=cv2)
 
             train_transform = [
                 tr.RandomScale_new((0.7, 2)),
-                tr.RandomCrop_new((100, 100)),
+                tr.RandomCrop_new((512, 1024)),
                 tr.ToTensor(),
                 tr.Normalize(mean=mean, std=std),
 

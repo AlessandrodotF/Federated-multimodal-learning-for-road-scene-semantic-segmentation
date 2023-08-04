@@ -56,7 +56,7 @@ class Client:
                 self.format_client = "HHA"
                 self.dataset.format_client = "HHA"
 
-        if self.dataset.root == 'data/MIX_DATA':
+        if self.args.mm_setting == 'third':
             self.format_client = "MIX"
             self.dataset.format_client = "MIX"
 
@@ -105,9 +105,13 @@ class Client:
         np.random.seed(worker_seed)
         random.seed(worker_seed)
 
-    def __get_criterion_and_reduction_rules(self):
 
+    def __get_criterion_and_reduction_rules(self):
+        # original loss
         criterion = nn.CrossEntropyLoss(ignore_index=255, reduction='none')
+        # L2 loss
+        # criterion =nn.MSELoss(reduction='none')
+
         reduction = HardNegativeMining() if self.args.hnm else MeanReduction()
 
         return criterion, reduction
@@ -150,6 +154,8 @@ class Client:
                     outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
 
                     loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                    # reduced_output, _ = torch.max(outputs, dim=1)
+                    # loss_tot = self.reduction(self.criterion(reduced_output, labels), labels)
                     dict_calc_losses = {'loss_tot': loss_tot}
                     return dict_calc_losses, outputs
                 else:
@@ -158,6 +164,8 @@ class Client:
                     outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
 
                     loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                    # reduced_output, _ = torch.max(outputs, dim=1)
+                    # loss_tot = self.reduction(self.criterion(reduced_output, labels), labels)
                     dict_calc_losses = {'loss_tot': loss_tot}
                     return dict_calc_losses, outputs
             else:
@@ -187,6 +195,11 @@ class Client:
 
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
                 loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                # outputs = outputs.float()
+                # labels = labels.float()
+                # reduced_output, _ = torch.max(outputs, dim=1)
+
+                loss_tot = self.reduction(self.criterion(loss_tot, labels), labels)
                 dict_calc_losses = {'loss_tot': loss_tot}
                 return dict_calc_losses, outputs
         else:
@@ -222,7 +235,12 @@ class Client:
             raise NotImplementedError
 
     def calc_test_loss(self, outputs, labels):
+        # prima era direttamente con il return
         return self.reduction(self.criterion(outputs, labels), labels)
+        # reduced_output, _ = torch.max(outputs, dim=1)
+        # reduced_output = outputs.float()
+        # labels = labels.float()
+        # return self.reduction(self.criterion(reduced_output, labels), labels)
 
     def manage_tot_test_loss(self, tot_loss):
         tot_loss = torch.tensor(tot_loss).to(self.device)

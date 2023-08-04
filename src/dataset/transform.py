@@ -25,28 +25,36 @@ class Compose(object):
         self.transforms = transforms
 
     def __call__(self, img, lbl=None):
-        if "val" in img.filename:
-            if "HHA_DATA" in img.filename:
-                self.transforms[1].mean = (0.524, 0.528, 0.496)
-                self.transforms[1].std = (0.238, 0.057, 0.371)
-
-            elif "MIX_DATA" in img.filename and "RGB" not in img.filename:
-                self.transforms[1].mean = (0.524, 0.528, 0.496)
-                self.transforms[1].std = (0.238, 0.057, 0.371)
+        if lbl is not None:
+            if img.size==(2048,1024) or lbl.size==(2048,1024):
+                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
+                    self.transforms[1].mean = (0.524, 0.528, 0.496)
+                    self.transforms[1].std = (0.238, 0.057, 0.371)
+                else:
+                    self.transforms[1].mean = (0.485, 0.456, 0.406)
+                    self.transforms[1].std = (0.229, 0.224, 0.225)
             else:
-                self.transforms[1].mean = (0.485, 0.456, 0.406)
-                self.transforms[1].std = (0.229, 0.224, 0.225)
+                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
+                    self.transforms[3].mean = (0.524, 0.528, 0.496)
+                    self.transforms[3].std = (0.238, 0.057, 0.371)
+                else:
+                    self.transforms[3].mean = (0.485, 0.456, 0.406)
+                    self.transforms[3].std = (0.229, 0.224, 0.225)
         else:
-            if "HHA_DATA" in img.filename:
-                self.transforms[3].mean = (0.524, 0.528, 0.496)
-                self.transforms[3].std = (0.238, 0.057, 0.371)
-
-            elif "MIX_DATA" in img.filename and "RGB" not in img.filename:
-                self.transforms[3].mean = (0.524, 0.528, 0.496)
-                self.transforms[3].std = (0.238, 0.057, 0.371)
+            if img.size == (2048, 1024) :
+                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
+                    self.transforms[1].mean = (0.524, 0.528, 0.496)
+                    self.transforms[1].std = (0.238, 0.057, 0.371)
+                else:
+                    self.transforms[1].mean = (0.485, 0.456, 0.406)
+                    self.transforms[1].std = (0.229, 0.224, 0.225)
             else:
-                self.transforms[3].mean = (0.485, 0.456, 0.406)
-                self.transforms[3].std = (0.229, 0.224, 0.225)
+                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
+                    self.transforms[3].mean = (0.524, 0.528, 0.496)
+                    self.transforms[3].std = (0.238, 0.057, 0.371)
+                else:
+                    self.transforms[3].mean = (0.485, 0.456, 0.406)
+                    self.transforms[3].std = (0.229, 0.224, 0.225)
 
         if lbl is not None:
             for t in self.transforms:
