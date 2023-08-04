@@ -25,50 +25,30 @@ class Compose(object):
         self.transforms = transforms
 
     def __call__(self, img, lbl=None):
-        if lbl is not None:
-            if img.size==(2048,1024) or lbl.size==(2048,1024):
-                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
-                    self.transforms[1].mean = (0.524, 0.528, 0.496)
-                    self.transforms[1].std = (0.238, 0.057, 0.371)
-                else:
-                    self.transforms[1].mean = (0.485, 0.456, 0.406)
-                    self.transforms[1].std = (0.229, 0.224, 0.225)
-            else:
-                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
-                    self.transforms[3].mean = (0.524, 0.528, 0.496)
-                    self.transforms[3].std = (0.238, 0.057, 0.371)
-                else:
-                    self.transforms[3].mean = (0.485, 0.456, 0.406)
-                    self.transforms[3].std = (0.229, 0.224, 0.225)
-        else:
-            if img.size == (2048, 1024) :
-                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
-                    self.transforms[1].mean = (0.524, 0.528, 0.496)
-                    self.transforms[1].std = (0.238, 0.057, 0.371)
-                else:
-                    self.transforms[1].mean = (0.485, 0.456, 0.406)
-                    self.transforms[1].std = (0.229, 0.224, 0.225)
-            else:
-                if "HHA_DATA" in img.filename or ("MIX_DATA" in img.filename and "RGB" not in img.filename):
-                    self.transforms[3].mean = (0.524, 0.528, 0.496)
-                    self.transforms[3].std = (0.238, 0.057, 0.371)
-                else:
-                    self.transforms[3].mean = (0.485, 0.456, 0.406)
-                    self.transforms[3].std = (0.229, 0.224, 0.225)
 
         if lbl is not None:
+
             for t in self.transforms:
                 if t.__class__.__name__=="RandomScale_new":
                     img, lbl, img.filename,lbl.filename= t(img, lbl)
+                    # store da filenames, will be lost across the different transformations
+                    dummy_var1 = img.filename
+                    dummy_var2 = lbl.filename
+
                 else:
+                    img.filename = dummy_var1
+                    lbl.filename = dummy_var2
                     img, lbl= t(img, lbl)
 
             return img, lbl
         else:
             for t in self.transforms:
-                if t.__class__.__name__=="RandomScale_new":
-                    img, img.filename = t(img)
+                if t.__class__.__name__ == "ToTensor":
+                    dummy_var3 = img.filename
+                    img = t(img)
+
                 else:
+                    img.filename=dummy_var3
                     img = t(img)
 
             return img
@@ -390,9 +370,18 @@ class Normalize(object):
         self.std = std
 
     def __call__(self, tensor, lbl=None):
+        if "HHA_DATA" in tensor.filename or ("MIX_DATA" in tensor.filename and "RGB" not in tensor.filename):
+            self.mean = (0.524, 0.528, 0.496)
+            self.std = (0.238, 0.057, 0.371)
+        else:
+            self.mean = (0.485, 0.456, 0.406)
+            self.std = (0.229, 0.224, 0.225)
+
         if lbl is not None:
             return F.normalize(tensor, self.mean, self.std), lbl
         else:
+
+
             return F.normalize(tensor, self.mean, self.std)
 
     def __repr__(self):

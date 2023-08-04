@@ -194,12 +194,11 @@ class Client:
                 #     plt.show()
 
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
-                loss_tot = self.reduction(self.criterion(outputs, labels), labels)
                 # outputs = outputs.float()
                 # labels = labels.float()
                 # reduced_output, _ = torch.max(outputs, dim=1)
 
-                loss_tot = self.reduction(self.criterion(loss_tot, labels), labels)
+                loss_tot = self.reduction(self.criterion(outputs, labels), labels)
                 dict_calc_losses = {'loss_tot': loss_tot}
                 return dict_calc_losses, outputs
         else:

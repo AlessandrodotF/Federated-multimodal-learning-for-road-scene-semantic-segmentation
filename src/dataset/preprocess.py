@@ -42,7 +42,7 @@ def get_dataset(model_name, dataset_name, double_dataset=None, quadruple_dataset
 
             train_transform = [
                 tr.RandomScale_new((0.7, 2)),
-                tr.RandomCrop_new((512, 1024)),
+                tr.RandomCrop_new((50, 50)),
                 tr.ToTensor(),
                 tr.Normalize(mean=mean, std=std),
 
