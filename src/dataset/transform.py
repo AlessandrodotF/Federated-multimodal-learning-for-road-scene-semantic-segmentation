@@ -25,32 +25,13 @@ class Compose(object):
         self.transforms = transforms
 
     def __call__(self, img, lbl=None):
-
         if lbl is not None:
-
             for t in self.transforms:
-                if t.__class__.__name__=="RandomScale_new":
-                    img, lbl, img.filename,lbl.filename= t(img, lbl)
-                    # store da filenames, will be lost across the different transformations
-                    dummy_var1 = img.filename
-                    dummy_var2 = lbl.filename
-
-                else:
-                    img.filename = dummy_var1
-                    lbl.filename = dummy_var2
-                    img, lbl= t(img, lbl)
-
+                img, lbl = t(img, lbl)
             return img, lbl
         else:
             for t in self.transforms:
-                if t.__class__.__name__ == "ToTensor":
-                    dummy_var3 = img.filename
-                    img = t(img)
-
-                else:
-                    img.filename=dummy_var3
-                    img = t(img)
-
+                img = t(img)
             return img
 
     def __repr__(self):
@@ -319,9 +300,15 @@ class RandomScale_new(object):
         if lbl is not None:
             if img.size != lbl.size:
                 img = F.resize(img, (lbl.size[1], lbl.size[0]), self.interpolation)
-            return F.resize(img, target_size, self.interpolation), F.resize(lbl, target_size, Image.NEAREST), img.filename,lbl.filename
+            first_output=F.resize(img, target_size, self.interpolation)
+            second_output=F.resize(lbl, target_size, Image.NEAREST)
+            first_output.filename=img.filename
+            second_output.filename=lbl.filename
+            return first_output, second_output
         else:
-            return F.resize(img, target_size, self.interpolation), img.filename
+            third_output=F.resize(img, target_size, self.interpolation)
+            third_output.filename=img.filename
+            return third_output
 
 
     def __repr__(self):
@@ -342,9 +329,15 @@ class RandomScale(object):
         if lbl is not None:
             if img.size != lbl.size:
                 img = F.resize(img, (lbl.size[1], lbl.size[0]), self.interpolation)
-            return F.resize(img, target_size, self.interpolation), F.resize(lbl, target_size, Image.NEAREST)
+            first_output=F.resize(img, target_size, self.interpolation)
+            second_output=F.resize(lbl, target_size, Image.NEAREST)
+            first_output.filename=img.filename
+            second_output.filename=lbl.filename
+            return first_output, second_output
         else:
-            return F.resize(img, target_size, self.interpolation)
+            third_output=F.resize(img, target_size, self.interpolation)
+            third_output.filename=img.filename
+            return third_output
 
     def __repr__(self):
         interpolate_str = _pil_interpolation_to_str[self.interpolation]
@@ -356,9 +349,17 @@ class ToTensor(object):
 
     def __call__(self, pic, lbl=None):
         if lbl is not None:
-            return F.to_tensor(pic), torch.from_numpy(np.array(lbl, dtype=np.uint8))
+            first_output=F.to_tensor(pic)
+            second_output=torch.from_numpy(np.array(lbl, dtype=np.uint8))
+
+            first_output.filename=pic.filename
+            second_output.filename=lbl.filename
+
+            return first_output, second_output
         else:
-            return F.to_tensor(pic)
+            third_output=F.to_tensor(pic)
+            third_output.filename=pic.filename
+            return third_output
 
     def __repr__(self):
         return self.__class__.__name__ + '()'
@@ -380,8 +381,6 @@ class Normalize(object):
         if lbl is not None:
             return F.normalize(tensor, self.mean, self.std), lbl
         else:
-
-
             return F.normalize(tensor, self.mean, self.std)
 
     def __repr__(self):
@@ -418,9 +417,9 @@ class RandomCrop_new(object):
         if "trainRGB" in img.filename:
             filename = img.filename.replace("trainRGB", "train")
         elif "valRGB" in img.filename:
-                filename = img.filename.replace("valRGB", "val")
+            filename = img.filename.replace("valRGB", "val")
         elif "testRGB" in img.filename:
-                filename = img.filename.replace("testRGB", "test")
+            filename = img.filename.replace("testRGB", "test")
         else:
             filename = img.filename
 
@@ -444,7 +443,9 @@ class RandomCrop_new(object):
 
             i, j, h, w = self.get_params(img, self.size)
 
-            return F.crop(img, i, j, h, w)
+            third_output=F.crop(img, i, j, h, w)
+            third_output.filename=img.filename
+            return third_output
 
         else:
             assert img.size == lbl.size, 'size of img and lbl should be the same. %s, %s' % (img.size, lbl.size)
@@ -462,7 +463,11 @@ class RandomCrop_new(object):
 
             i, j, h, w = self.get_params(img, self.size)
 
-            return F.crop(img, i, j, h, w), F.crop(lbl, i, j, h, w)
+            first_output=F.crop(img, i, j, h, w)
+            second_output=F.crop(lbl, i, j, h, w)
+            first_output.filename=img.filename
+            second_output.filename=lbl.filename
+            return first_output, second_output
 
     def __repr__(self):
         return self.__class__.__name__ + '(size={0}, padding={1})'.format(self.size, self.padding)
@@ -501,8 +506,9 @@ class RandomCrop(object):
                 img = F.pad(img, padding=int((1 + self.size[0] - img.size[1]) / 2))
 
             i, j, h, w = self.get_params(img, self.size)
-
-            return F.crop(img, i, j, h, w)
+            third_output=F.crop(img, i, j, h, w)
+            third_output.filename=img.filename
+            return third_output
 
         else:
             assert img.size == lbl.size, 'size of img and lbl should be the same. %s, %s' % (img.size, lbl.size)
@@ -519,8 +525,11 @@ class RandomCrop(object):
                 lbl = F.pad(lbl, padding=int((1 + self.size[0] - lbl.size[1]) / 2), fill=255)
 
             i, j, h, w = self.get_params(img, self.size)
-
-            return F.crop(img, i, j, h, w), F.crop(lbl, i, j, h, w)
+            first_output=F.crop(img, i, j, h, w)
+            second_output=F.crop(lbl, i, j, h, w)
+            first_output.filename=img.filename
+            second_output.filename=lbl.filename
+            return first_output, second_output
 
     def __repr__(self):
         return self.__class__.__name__ + '(size={0}, padding={1})'.format(self.size, self.padding)

@@ -143,8 +143,7 @@ class Client:
                     outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
 
                     loss_tot = self.reduction(self.criterion(outputs, labels), labels)
-                    # reduced_output, _ = torch.max(outputs, dim=1)
-                    # loss_tot = self.reduction(self.criterion(reduced_output, labels), labels)
+
                     dict_calc_losses = {'loss_tot': loss_tot}
                     return dict_calc_losses, outputs
                 else:
@@ -183,13 +182,16 @@ class Client:
                 #     plt.show()
 
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
+
                 outputs = outputs.float()
                 labels = labels.float()
-                reduced_output, _ = torch.max(outputs, dim=1)
-                loss_per_pixel = torch.norm(reduced_output - labels, p=2, dim=1)
+                # reduced_output, x = torch.max(outputs, dim=1)
+                _, prediction = outputs.max(dim=1)
+
+                loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
 
                 loss_tot = self.reduction(loss_per_pixel, labels)
-
+                loss_tot.requires_grad=True
                 # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
                 dict_calc_losses = {'loss_tot': loss_tot}
                 return dict_calc_losses, outputs
@@ -229,14 +231,16 @@ class Client:
         # prima era direttamente con il return
         # return self.reduction(self.criterion(outputs, labels), labels)
         outputs = outputs.float()
+        outputs = outputs.float()
         labels = labels.float()
-        reduced_output, _ = torch.max(outputs, dim=1)
+        # reduced_output, x = torch.max(outputs, dim=1)
+        _, prediction = outputs.max(dim=1)
 
+        loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
 
-        loss_per_pixel = torch.norm(reduced_output - labels, p=2, dim=1)
         loss_tot = self.reduction(loss_per_pixel, labels)
+        loss_tot.requires_grad = True
 
-        # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
         return loss_tot
 
     def manage_tot_test_loss(self, tot_loss):
