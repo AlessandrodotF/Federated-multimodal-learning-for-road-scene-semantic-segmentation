@@ -185,13 +185,15 @@ class Client:
 
                 outputs = outputs.float()
                 labels = labels.float()
-                # reduced_output, x = torch.max(outputs, dim=1)
-                _, prediction = outputs.max(dim=1)
 
-                loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
+                output_softmax = F.softmax(outputs, dim=1)
+                reduced_output, _ = output_softmax.max(dim=1)
+                labels_softmax = F.softmax(labels, dim=1)
+
+
+                loss_per_pixel = torch.norm(reduced_output.unsqueeze(1) - labels_softmax.unsqueeze(1), p=2, dim=1)
 
                 loss_tot = self.reduction(loss_per_pixel, labels)
-                loss_tot.requires_grad=True
                 # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
                 dict_calc_losses = {'loss_tot': loss_tot}
                 return dict_calc_losses, outputs
@@ -230,18 +232,21 @@ class Client:
     def calc_test_loss(self, outputs, labels):
         # prima era direttamente con il return
         # return self.reduction(self.criterion(outputs, labels), labels)
-        outputs = outputs.float()
-        outputs = outputs.float()
-        labels = labels.float()
-        # reduced_output, x = torch.max(outputs, dim=1)
-        _, prediction = outputs.max(dim=1)
+        if self.args.mm_setting=="third":
+            outputs = outputs.float()
+            labels = labels.float()
 
-        loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
+            output_softmax = F.softmax(outputs, dim=1)
+            reduced_output, _ = output_softmax.max(dim=1)
+            labels_softmax = F.softmax(labels, dim=1)
 
-        loss_tot = self.reduction(loss_per_pixel, labels)
-        loss_tot.requires_grad = True
+            loss_per_pixel = torch.norm(reduced_output.unsqueeze(1) - labels_softmax.unsqueeze(1), p=2, dim=1)
 
-        return loss_tot
+            loss_tot = self.reduction(loss_per_pixel, labels)
+            # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+            return loss_tot
+        else:
+            return self.reduction(self.criterion(outputs, labels), labels)
 
     def manage_tot_test_loss(self, tot_loss):
         tot_loss = torch.tensor(tot_loss).to(self.device)
