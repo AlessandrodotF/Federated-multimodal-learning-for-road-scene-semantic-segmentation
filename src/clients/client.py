@@ -152,8 +152,6 @@ class Client:
                     outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
 
                     loss_tot = self.reduction(self.criterion(outputs, labels), labels)
-                    # reduced_output, _ = torch.max(outputs, dim=1)
-                    # loss_tot = self.reduction(self.criterion(reduced_output, labels), labels)
                     dict_calc_losses = {'loss_tot': loss_tot}
                     return dict_calc_losses, outputs
             else:
@@ -184,18 +182,22 @@ class Client:
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
 
                 outputs = outputs.float()
+                # ogni pixel è un intero che rappresenta una classe, 255 sarebbe da ignorare
                 labels = labels.float()
-
+                # distrinuzione di probab [0,1]
                 output_softmax = F.softmax(outputs, dim=1)
-                reduced_output, _ = output_softmax.max(dim=1)
-                labels_softmax = F.softmax(labels, dim=1)
+                _, prediction = output_softmax.max(dim=1)
 
-
-                loss_per_pixel = torch.norm(reduced_output.unsqueeze(1) - labels_softmax.unsqueeze(1), p=2, dim=1)
+                loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
+                mask_ignore = labels == 255.
+                loss_per_pixel[mask_ignore] = 0
 
                 loss_tot = self.reduction(loss_per_pixel, labels)
-                # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+                loss_tot.requires_grad=True
+                loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
+
                 dict_calc_losses = {'loss_tot': loss_tot}
+
                 return dict_calc_losses, outputs
         else:
             raise NotImplementedError
@@ -234,16 +236,20 @@ class Client:
         # return self.reduction(self.criterion(outputs, labels), labels)
         if self.args.mm_setting=="third":
             outputs = outputs.float()
+            # ogni pixel è un intero che rappresenta una classe, 255 sarebbe da ignorare
             labels = labels.float()
-
+            # distrinuzione di probab [0,1]
             output_softmax = F.softmax(outputs, dim=1)
-            reduced_output, _ = output_softmax.max(dim=1)
-            labels_softmax = F.softmax(labels, dim=1)
+            _, prediction = output_softmax.max(dim=1)
 
-            loss_per_pixel = torch.norm(reduced_output.unsqueeze(1) - labels_softmax.unsqueeze(1), p=2, dim=1)
+            loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
+            mask_ignore = labels == 255.
+            loss_per_pixel[mask_ignore] = 0
 
             loss_tot = self.reduction(loss_per_pixel, labels)
-            # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+            loss_tot.requires_grad = True
+            loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
+
             return loss_tot
         else:
             return self.reduction(self.criterion(outputs, labels), labels)
