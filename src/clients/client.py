@@ -130,8 +130,22 @@ class Client:
 
         if self.args.model in ('deeplabv3',):
             outputs = self.model(images)['out']
-            loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+            labels = labels.float()
+            # distrinuzione di probab [0,1]
+            output_softmax = F.softmax(outputs, dim=1)
+            _, prediction = output_softmax.max(dim=1)
+
+            loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
+            mask_ignore = labels == 255.
+            loss_per_pixel[mask_ignore] = 0
+
+            loss_tot = self.reduction(loss_per_pixel, labels)
+            loss_tot.requires_grad = True
+            loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
             dict_calc_losses = {'loss_tot': loss_tot}
+
+            # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+            # dict_calc_losses = {'loss_tot': loss_tot}
             return dict_calc_losses, outputs
 
         elif self.args.model in ('multi_deeplabv3',):
@@ -162,26 +176,9 @@ class Client:
                 images = images.view(batch_size // 2, 2, num_channels, height, width)
                 x_rgb = images[:, 0, :, :]
                 z_hha = images[:, 1, :, :]
-                # sistema le labels terzo caso
-                # for i in range(x_rgb.shape[0]):
-                #     x_rgb_image = x_rgb[i].cpu().numpy()  # Assume che la prima immagine RGB sia nell'indice 0
-                #     x_rgb_image = np.transpose(x_rgb_image, (1, 2, 0))
-                #     plt.imshow(x_rgb_image)
-                #     plt.axis('off')
-                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_rgb_{i}.png')
-                #     plt.show()
-                #
-                # for i in range(z_hha.shape[0]):
-                #     z_hha_image = z_hha[i].cpu().numpy()  # Assume che la prima immagine RGB sia nell'indice 0
-                #     z_hha_image = np.transpose(z_hha_image, (1, 2, 0))
-                #     plt.imshow(z_hha_image)
-                #     plt.axis('off')
-                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_hha_{i}.png')
-                #     plt.show()
 
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
 
-                outputs = outputs.float()
                 # ogni pixel è un intero che rappresenta una classe, 255 sarebbe da ignorare
                 labels = labels.float()
                 # distrinuzione di probab [0,1]
@@ -195,7 +192,6 @@ class Client:
                 loss_tot = self.reduction(loss_per_pixel, labels)
                 loss_tot.requires_grad=True
                 loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
-
                 dict_calc_losses = {'loss_tot': loss_tot}
 
                 return dict_calc_losses, outputs
@@ -234,7 +230,7 @@ class Client:
     def calc_test_loss(self, outputs, labels):
         # prima era direttamente con il return
         # return self.reduction(self.criterion(outputs, labels), labels)
-        if self.args.mm_setting=="third":
+        if self.args.mm_setting=="first":
             outputs = outputs.float()
             # ogni pixel è un intero che rappresenta una classe, 255 sarebbe da ignorare
             labels = labels.float()
