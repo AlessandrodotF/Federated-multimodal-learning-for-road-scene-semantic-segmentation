@@ -100,6 +100,7 @@ class Client:
 
         self.profiler_path = os.path.join('profiler', self.args.profiler_folder) if self.args.profiler_folder else None
 
+
     @staticmethod
     def seed_worker(_):
         worker_seed = torch.initial_seed() % 2 ** 32
@@ -122,26 +123,26 @@ class Client:
         prediction = prediction.cpu().numpy()
         metric.update(labels, prediction)
 
+    def L2Loss_function(self, outputs, labels):
+        output_softmax = F.softmax(outputs, dim=1)
+        mask_255 = labels == 255
+        labels[mask_255] = 20
+        one_hot_labels = F.one_hot(labels, 21).permute(0, 3, 1, 2)
+        one_hot_labels = one_hot_labels[:, 0:19, :, :]
+        loss_per_pixel = torch.norm(output_softmax - one_hot_labels, p=2, dim=1)
+
+        return self.reduction(loss_per_pixel, labels)
+
     def calc_loss_and_output(self, images, labels):
 
         if self.args.model in ('deeplabv3',):
             outputs = self.model(images)['out']
-            # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
-            # dict_calc_losses = {'loss_tot': loss_tot}
-            output_softmax = F.softmax(outputs, dim=1)
 
-            mask_255 = labels == 255
-            # Sostituzione dei valori 255 con 20 nelle etichette
-            labels[mask_255] = 20
+            if self.args.Loss_funct_SS == "L2":
+                loss_tot = self.L2Loss_function(outputs, labels)
+            else:
+                loss_tot = self.reduction(self.criterion(outputs, labels), labels)
 
-            one_hot_labels = F.one_hot(labels,21).permute(0,3,1,2)
-            one_hot_labels = one_hot_labels[:,0:19,:,:]
-            loss_per_pixel = torch.norm(output_softmax - one_hot_labels, p=2, dim=1)
-            # mask_ignore = labels == 255.
-            # loss_per_pixel[mask_ignore] = 0
-
-            loss_tot = self.reduction(loss_per_pixel, labels)
-            # loss_tot.requires_grad = True
             dict_calc_losses = {'loss_tot': loss_tot}
             return dict_calc_losses, outputs
 
@@ -153,65 +154,38 @@ class Client:
                     outputs=self.model.module.classifier(outputs["out"])
                     outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
 
-                    output_softmax = F.softmax(outputs, dim=1)
-                    one_hot_labels = F.one_hot(labels, 19).permute(0, 3, 1, 2).float()
-                    print(output_softmax)
-                    print("poi")
-                    print(one_hot_labels)
+                    if self.args.Loss_funct_SS == "L2":
+                        loss_tot = self.L2Loss_function(outputs, labels)
+                    else:
+                        loss_tot = self.reduction(self.criterion(outputs, labels), labels)
 
-                    loss_per_pixel = torch.norm(output_softmax - one_hot_labels, p=2, dim=1)
-                    mask_ignore = labels == 255.
-                    loss_per_pixel[mask_ignore] = 0
-
-                    loss_tot = self.reduction(loss_per_pixel, labels)
-                    loss_tot.requires_grad = True
-                    loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
                     dict_calc_losses = {'loss_tot': loss_tot}
-                    # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
-                    # dict_calc_losses = {'loss_tot': loss_tot}
                     return dict_calc_losses, outputs
                 else:
                     outputs=self.model.module.hha_backbone(images)
                     outputs=self.model.module.classifier(outputs["out"])
                     outputs = F.interpolate(outputs, size=images.shape[-2:], mode='bilinear', align_corners=False)
-                    output_softmax = F.softmax(outputs, dim=1)
-                    one_hot_labels = F.one_hot(labels, 19).permute(0, 3, 1, 2).float()
 
-                    loss_per_pixel = torch.norm(output_softmax - one_hot_labels, p=2, dim=1)
-                    mask_ignore = labels == 255.
-                    loss_per_pixel[mask_ignore] = 0
+                    if self.args.Loss_funct_SS == "L2":
+                        loss_tot = self.L2Loss_function(outputs, labels)
+                    else:
+                        loss_tot = self.reduction(self.criterion(outputs, labels), labels)
 
-                    loss_tot = self.reduction(loss_per_pixel, labels)
-                    loss_tot.requires_grad = True
-                    loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
                     dict_calc_losses = {'loss_tot': loss_tot}
-                    # loss_tot = self.reduction(self.criterion(outputs, labels), labels)
-                    # dict_calc_losses = {'loss_tot': loss_tot}
                     return dict_calc_losses, outputs
             else:
-                # batch_size = images.size(0)
-                # num_channels = images.size(1)
-                # height = images.size(2)
-                # width = images.size(3)
+
                 images = images.view(images.size(0) // 2, 2, images.size(1), images.size(2), images.size(3))
                 x_rgb = images[:, 0, :, :]
                 z_hha = images[:, 1, :, :]
 
                 outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
 
-                # ogni pixel è un intero che rappresenta una classe, 255 sarebbe da ignorare
-                labels = labels.float()
-                # distrinuzione di probab [0,1]
-                output_softmax = F.softmax(outputs, dim=1)
-                _, prediction = output_softmax.max(dim=1)
+                if self.args.Loss_funct_SS == "L2":
+                    loss_tot = self.L2Loss_function(outputs, labels)
+                else:
+                    loss_tot = self.reduction(self.criterion(outputs, labels), labels)
 
-                loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
-                mask_ignore = labels == 255.
-                loss_per_pixel[mask_ignore] = 0
-
-                loss_tot = self.reduction(loss_per_pixel, labels)
-                loss_tot.requires_grad=True
-                loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
                 dict_calc_losses = {'loss_tot': loss_tot}
 
                 return dict_calc_losses, outputs
@@ -248,43 +222,14 @@ class Client:
             raise NotImplementedError
 
     def calc_test_loss(self, outputs, labels):
-        # prima era direttamente con il return
-        # return self.reduction(self.criterion(outputs, labels), labels)
-        if self.args.mm_setting=="third":
-            outputs = outputs.float()
-            # ogni pixel è un intero che rappresenta una classe, 255 sarebbe da ignorare
-            labels = labels.float()
-            # distrinuzione di probab [0,1]
-            output_softmax = F.softmax(outputs, dim=1)
-            _, prediction = output_softmax.max(dim=1)
 
-            loss_per_pixel = torch.norm(prediction.unsqueeze(1) - labels.unsqueeze(1), p=2, dim=1)
-            mask_ignore = labels == 255.
-            loss_per_pixel[mask_ignore] = 0
+        if self.args.Loss_funct_SS == "L2":
+            loss_tot = self.L2Loss_function(outputs, labels)
 
-            loss_tot = self.reduction(loss_per_pixel, labels)
-            loss_tot.requires_grad = True
-            loss_tot = loss_tot / len(labels)  # Normalizzazione rispetto al numero di campioni nel batch
-
-            return loss_tot
-        elif self.args.mm_setting=="first":
-            output_softmax = F.softmax(outputs, dim=1)
-
-            mask_255 = labels == 255
-            # Sostituzione dei valori 255 con 20 nelle etichette
-            labels[mask_255] = 20
-
-            one_hot_labels = F.one_hot(labels,21).permute(0,3,1,2)
-            one_hot_labels = one_hot_labels[:,0:19,:,:]
-            loss_per_pixel = torch.norm(output_softmax - one_hot_labels, p=2, dim=1)
-            # mask_ignore = labels == 255.
-            # loss_per_pixel[mask_ignore] = 0
-
-            loss_tot = self.reduction(loss_per_pixel, labels)
-            # loss_tot.requires_grad = True
-            return loss_tot
         else:
-            return self.reduction(self.criterion(outputs, labels), labels)
+            loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+
+        return loss_tot
 
     def manage_tot_test_loss(self, tot_loss):
         tot_loss = torch.tensor(tot_loss).to(self.device)

@@ -274,21 +274,7 @@ class OracleClient(Client):
                 images = images.to(self.device, dtype=torch.float32)
                 labels = labels.to(self.device, dtype=torch.long)
 
-                # stampa immagini, arrivano nell'rdine giusto
-                # for i in range(len(images)):
-                #     x_rgb = images[i].cpu().numpy()
-                #     x_rgb = np.transpose(x_rgb, (1, 2, 0))
-                #     plt.imshow(x_rgb)
-                #     plt.axis('off')
-                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/nome_immagine_{i}.png')
-                #     plt.clf()
-                #
-                # for i in range(len(labels)):
-                #     label = labels[i].cpu().numpy()
-                #     plt.imshow(label, cmap='gray')
-                #     plt.axis('off')
-                #     plt.savefig(f'/home/utente/Scrivania/nuova cartella/label_{i}.png')
-                #     plt.clf()
+
                 if self.args.mm_setting == "third":
                     labels = labels[::2]
 

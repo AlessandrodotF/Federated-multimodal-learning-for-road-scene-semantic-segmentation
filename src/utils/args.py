@@ -26,6 +26,7 @@ MODELS = {
 
 CLUSTER_LAYERS = ["bn", "encoder", "decoder", "all", "bn+encoder", "bn+decoder", "all-stats"]
 
+Loss_funct_SS = ["L2", "CrossEnt"]
 
 def str2tuple(tp=int):
 
@@ -333,5 +334,7 @@ def parse_args():
     parser.add_argument('--save_clients_order', action='store_true', default=False,
                         help='save to file the order of clients per round, for debug')
     parser.add_argument('--mm_setting', type=str, default='first', help='experiment type')
+    parser.add_argument('--Loss_funct_SS', type=str, default='CrossEnt', help='Loss function considered')
+
 
     return parser
