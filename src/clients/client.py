@@ -47,6 +47,7 @@ class Client:
         self.num_gpu = num_gpu
         self.world_size = world_size
         self.rank = rank
+        self.l = 0.1
 
         if self.args.mm_setting == "first" or self.args.mm_setting == "second":
             if self.dataset.root == 'data':
@@ -136,7 +137,7 @@ class Client:
 
     def aux_loss(self, f_RGB,f_HHA):
         loss_per_batch_element = torch.norm(f_RGB["out"] - f_HHA["out"], p=2, dim=(1,2,3))
-        loss_per_batch_element = loss_per_batch_element/f_RGB.size(1)
+        loss_per_batch_element = loss_per_batch_element/f_RGB["out"].size(1)
         return loss_per_batch_element
 
 
@@ -195,13 +196,11 @@ class Client:
                     loss_tot = self.reduction(self.criterion(outputs, labels), labels)
 
                 else:
-                    l=0.1
                     f_RGB,f_HHA,outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
                     First_loss = self.criterion(outputs, labels)
                     Secnd_loss = self.aux_loss(f_RGB,f_HHA)
 
-                    final_loss = First_loss + l*Secnd_loss
-
+                    final_loss = First_loss + self.l * Secnd_loss
                     loss_tot = self.reduction(final_loss, labels)
 
                 dict_calc_losses = {'loss_tot': loss_tot}
@@ -233,9 +232,11 @@ class Client:
                 images = images.view(batch_size // 2, 2, num_channels, height, width)
                 x_rgb = images[:, 0, :, :]
                 z_hha = images[:, 1, :, :]
-                outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
-
-                return outputs
+                f_RGB, f_HHA, outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
+                if self.args.Loss_funct_SS == "L2+CE" :
+                    return f_RGB, f_HHA, outputs
+                else:
+                    return outputs
         else:
             raise NotImplementedError
 
@@ -243,10 +244,15 @@ class Client:
 
         if self.args.Loss_funct_SS == "L2":
             loss_tot = self.L2Loss_function(outputs, labels)
-
         else:
             loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+        return loss_tot
+    def calc_test_loss_L2_CE(self,outputs,f_RGB, f_HHA, labels):
+        First_loss = self.criterion(outputs, labels)
+        Secnd_loss = self.aux_loss(f_RGB, f_HHA)
 
+        final_loss = First_loss + self.l * Secnd_loss
+        loss_tot = self.reduction(final_loss, labels)
         return loss_tot
 
     def manage_tot_test_loss(self, tot_loss):

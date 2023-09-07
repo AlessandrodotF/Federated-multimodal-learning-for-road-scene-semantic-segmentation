@@ -273,12 +273,13 @@ class OracleClient(Client):
                 # circa qui andrebbero sdoppiate le imagini e le labels, il resto dovrebbe andare bene
                 images = images.to(self.device, dtype=torch.float32)
                 labels = labels.to(self.device, dtype=torch.long)
-
-
                 if self.args.mm_setting == "third":
                     labels = labels[::2]
 
-                outputs = self.get_test_output(images)
+                if self.args.Loss_funct_SS == "L2+CE" :
+                    f_RGB, f_HHA, outputs = self.get_test_output(images)
+                else:
+                    outputs = self.get_test_output(images)
 
                 # dentro update_metric c'è già un interpolazione
                 self.update_metric(metric, outputs, labels, is_test=True)
@@ -286,7 +287,11 @@ class OracleClient(Client):
                 if outputs.shape != labels.shape:
                     outputs = torch.nn.functional.interpolate(outputs, labels.shape[1:], mode='nearest')
 
-                loss = self.calc_test_loss(outputs, labels)
+                if self.args.Loss_funct_SS == "L2+CE" :
+                    loss = self.calc_test_loss_L2_CE(outputs,f_RGB, f_HHA, labels)
+                else:
+                    loss = self.calc_test_loss(outputs, labels)
+
                 tot_loss += loss.item()
 
                 torch.cuda.empty_cache()
