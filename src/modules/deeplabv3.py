@@ -21,10 +21,12 @@ class MultiDeepLabV3(nn.Module):
         if x_rgb is not None and z_hha is None:
             features = self.rgb_backbone(x_rgb)
             output = self.classifier(features["out"])
+            return output
 
         elif x_rgb is None and z_hha is not None:
             features = self.hha_backbone(z_hha)
             output = self.classifier(features["out"])
+            return output
 
         elif x_rgb is not None and z_hha is not None:
             features_rgb = self.rgb_backbone(x_rgb)
@@ -36,12 +38,13 @@ class MultiDeepLabV3(nn.Module):
             output = self.classifier(mean_features["out"])
             # x_rgb e z_hha hanno stesse dimensioni, prendo una delle due a caso
             output = F.interpolate(output, size=x_rgb.shape[-2:], mode='bilinear', align_corners=False)
+            return features_rgb, features_hha, output
         else:
             raise ValueError("Either x_rgb or z_hha should be provided.")
         # LADD/lib/python3.9/site-packages/torchvision/models/segmentation/_utils.py contiene "def forward" che ha un
         # interpolate che aggiusta le dimensioni, anche il caso base aveva il "problema" delle dimensioni.
         # (8,19,4,4) viene trasformato nella versione corretta (8,19,100,100)
-        return output
+
 
 
 def _multi_deeplabv3_mobilenetv2(backbone1: MobileNetV2, backbone2: MobileNetV2, num_classes: int) -> MultiDeepLabV3:

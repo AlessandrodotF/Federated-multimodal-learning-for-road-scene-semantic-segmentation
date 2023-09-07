@@ -26,7 +26,7 @@ MODELS = {
 
 CLUSTER_LAYERS = ["bn", "encoder", "decoder", "all", "bn+encoder", "bn+decoder", "all-stats"]
 
-Loss_funct_SS = ["L2", "CrossEnt"]
+Loss_funct_SS = ["L2", "CrossEnt", "L2+CE"]
 
 def str2tuple(tp=int):
 

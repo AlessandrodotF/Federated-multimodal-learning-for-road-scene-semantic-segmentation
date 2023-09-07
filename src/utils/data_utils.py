@@ -71,7 +71,6 @@ class DatasetHandler(object):
         return train_data, all_train_data
 
     def __source_dataset_init(self):
-        #forse è da modificare
         train_transform, test_transform, dataset = \
             get_dataset(self.args.model, self.args.source_dataset, target_dataset=self.args.target_dataset,
                         cv2=self.args.cv2, random_flip=self.args.random_flip, color_jitter=self.args.color_jitter,
@@ -144,13 +143,10 @@ class DatasetHandler(object):
         raise NotImplementedError
 
     def __target_dataset_init(self):
-        #qui ci sono i paths
-        dataset_name = self.args.target_dataset #cityscapes
-        #data/cityscapes/splits/heterogeneous/train
-        #data/cityscapes/splits/heterogeneous/test
+        dataset_name = self.args.target_dataset
         train_data_dir, test_data_dir = self.__get_paths('data', dataset_name, self.args.clients_type)
 
-        train_data, test_data = self.__read_target_data(train_data_dir, test_data_dir) #dizionari annidati
+        train_data, test_data = self.__read_target_data(train_data_dir, test_data_dir)
 
         train_data = self.__preprocess_target_train_data(train_data)
 

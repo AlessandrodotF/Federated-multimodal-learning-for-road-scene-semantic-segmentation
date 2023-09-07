@@ -145,7 +145,6 @@ class OracleTrainer(Trainer):
                 eval_train_metric_2=self.metrics_2['eval_train'],
                 test_metric_2=self.metrics_2['test'])
 
-
         else:
             return self.perform_fed_oracle_training(
                     partial_train_metric=self.metrics['partial_train'],

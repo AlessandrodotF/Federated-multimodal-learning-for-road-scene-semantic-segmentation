@@ -372,8 +372,9 @@ class Normalize(object):
 
     def __call__(self, tensor, lbl=None):
         if "HHA_DATA" in tensor.filename or ("MIX_DATA" in tensor.filename and "RGB" not in tensor.filename):
-            self.mean = (0.524, 0.528, 0.496)
-            self.std = (0.238, 0.057, 0.371)
+            self.mean = (0.484, 0.498 , 0.471)
+            self.std = (0.241, 0.063, 0.348)
+
         else:
             self.mean = (0.485, 0.456, 0.406)
             self.std = (0.229, 0.224, 0.225)

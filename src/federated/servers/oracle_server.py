@@ -112,13 +112,13 @@ class OracleServer(Server):
                 out = c.train(partial_metric, r=r)
                 if self.local_rank == 0:
 
-                    # FORSE NUM SAMPLES VA DIVISO PER DUE?
                     num_samples, update, dict_losses_list = out
                     losses[c.id] = {'loss': dict_losses_list, 'num_samples': num_samples}
                 else:
                     num_samples, update = out
                 if self.optimizer is not None:
                     update = self._compute_client_delta(update)
+
                 if self.args.mm_setting=="third":
                     self.updates.append((num_samples/2, update))
                 else:

@@ -133,6 +133,13 @@ class Client:
 
         return self.reduction(loss_per_pixel, labels)
 
+
+    def aux_loss(self, f_RGB,f_HHA):
+        loss_per_batch_element = torch.norm(f_RGB["out"] - f_HHA["out"], p=2, dim=(1,2,3))
+        loss_per_batch_element = loss_per_batch_element/f_RGB.size(1)
+        return loss_per_batch_element
+
+
     def calc_loss_and_output(self, images, labels):
 
         if self.args.model in ('deeplabv3',):
@@ -179,12 +186,23 @@ class Client:
                 x_rgb = images[:, 0, :, :]
                 z_hha = images[:, 1, :, :]
 
-                outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
-
                 if self.args.Loss_funct_SS == "L2":
+                    _, _, outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
                     loss_tot = self.L2Loss_function(outputs, labels)
-                else:
+
+                elif self.args.Loss_funct_SS == "CrossEnt":
+                    _, _, outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
                     loss_tot = self.reduction(self.criterion(outputs, labels), labels)
+
+                else:
+                    l=0.1
+                    f_RGB,f_HHA,outputs = self.model(x_rgb=x_rgb, z_hha=z_hha)
+                    First_loss = self.criterion(outputs, labels)
+                    Secnd_loss = self.aux_loss(f_RGB,f_HHA)
+
+                    final_loss = First_loss + l*Secnd_loss
+
+                    loss_tot = self.reduction(final_loss, labels)
 
                 dict_calc_losses = {'loss_tot': loss_tot}
 

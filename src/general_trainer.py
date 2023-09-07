@@ -34,7 +34,6 @@ class GeneralTrainer(object):
                 self.args = {**vars(self.args), **{key: value for key, value in yaml_config.items()
                                                    if key in vars(self.args) and key != 'wandb_id'}}
         writer.write(f'Initializing model...experiments {self.args.mm_setting}' )
-        #parte originale: la posso usare per HHA
         self.model = self.model_init(args, device)
         if self.args.mm_setting=="first":
             self.model_rgb = self.model_init(args, device)
@@ -245,7 +244,7 @@ class GeneralTrainer(object):
         raise NotImplementedError
 
     def __get_plot_sample(self, test_client, sample_id):
-
+        # non viene usata nei miei esperimenti
         plot_sample = {}
 
         sample = test_client.dataset[sample_id]
@@ -253,7 +252,6 @@ class GeneralTrainer(object):
 
             self.model.eval()
         else:
-
 
             self.model_rgb.eval()
 
