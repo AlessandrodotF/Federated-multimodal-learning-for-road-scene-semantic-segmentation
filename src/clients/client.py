@@ -138,7 +138,7 @@ class Client:
     def aux_loss(self, f_RGB,f_HHA):
         loss_per_batch_element = torch.norm(f_RGB["out"] - f_HHA["out"], p=2, dim=(1,2,3))
         loss_per_batch_element = loss_per_batch_element/f_RGB["out"].size(1)
-        return loss_per_batch_element
+        return loss_per_batch_element.view(f_RGB["out"].size(0),1,1)
 
 
     def calc_loss_and_output(self, images, labels):
