@@ -13,18 +13,25 @@ Marco Ciccone<sup>&#8224;,2</sup>, Pietro Zanuttigh<sup>&#8224;,1</sup> and Barb
 
 
 ## Summary
+Federated learning (FL) is a machine learning approach that allows multiple devices, also referred to as clients, to collaboratively train a shared model without exchanging their data or
+any kind of sensitive information. In this framework, instead of transmitting data to a central
+server for the training procedure, the global model is trained locally on each device and only
+the updates are shared. These updates are aggregated according to ad-hoc strategies to improve
+the shared model performances on the server side.
+This project is built upon such framework and its primary scope is to explore potential applications in the field of semantic segmentation for road scenes. The starting point is represented
+by the results and the implementation made in [1], on this way a new scenario is proposed:
+addressing the semantic segmentation task in a multimodal setting. The main idea is that different data representations for the same road scene can be used to enhance the ability of the
+algorithm to learn representations and correctly classify the pixels in the given image.
+In thiswork awell-known dataset for semantic urban scene understanding, namely Cityscapes
+[2], is used in its original RGB format. Beside this, a second version of the dataset, containing
+additional geometrical information, is generated with a simple python script and it used in the
+different experiments. The semantic segmentation task is tackled using an encoder-decoder architecture: in all the experiments there will be one (or more) encoder implemented in terms of
+Mobilenet-v2 and Deeplabv3 for the decoder part. The former is used to compress the input
+image in a low dimensional space trying to extract the most relevant features of the input, it is
+designed to run on mobile devices or, in general, on low power hardware as the case of interest.
+The latter is used to classify the output of the encoder trying to predict the correct class for each
+pixel in a supervised setting.
 
-In this work we propose a novel realistic scenario for Semantic Segmentation in Federated Learning: Federated
-source-Free Domain Adaptation (FFreeDA). In FFreeDA, the server can pre-train the model on labeled source data.
-However, as in the Source-Free Domain Adaptation (SFDA) setting, further accessing the source data is forbidden.
-Clients can access only their **unlabeled** target dataset, but cannot share it with other clients nor with
-the server. Moreover, there are many clients in the system and each of them has only a limited amount of images,
-to emulate real-world scenarios. Therefore, after the pre-training phase, the training is fully unsupervised.
-To address the FFreeDA problem, we propose LADD, a novel federated algorithm that assumes the presence of 
-multiple distributions hidden among the clients. LADD partitions the clients into clusters based on the styles of the
-images belonging to each client, trying to match them with their actual latent distribution. LADD shows excellent
-performance on all benchmarks with a source dataset (GTA5) and three different targets (Cityscapes, CrossCity,
-Mapillary), with diversified splits of the data across the clients.
 
 ## Setup
 
