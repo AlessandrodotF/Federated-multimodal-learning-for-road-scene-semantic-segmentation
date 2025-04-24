@@ -1,7 +1,8 @@
-# Learning Across Domains and Devices: Style-Driven Source-Free Domain Adaptation in Clustered Federated Learning
+# Federated multimodal learning for road scene semantic segmentation
+This work is an extension of *Learning Across Domains and Devices: Style-Driven Source-Free Domain Adaptation in Clustered Federated Learning*
+(**Official implementation** of [Learning Across Domains and Devices: Style-Driven Source-Free Domain Adaptation in
+Clustered Federated Learning](https://arxiv.org/abs/2210.02326))
 
-**Official implementation** of [Learning Across Domains and Devices: Style-Driven Source-Free Domain Adaptation in
-Clustered Federated Learning](https://arxiv.org/abs/2210.02326)
 
 by **Donald Shenaj**<sup>\*,1</sup>, **Eros Fanì**<sup>\*,2</sup>, Marco Toldo<sup>1</sup>,
 Debora Caldarola<sup>2</sup>, Antonio Tavera<sup>2</sup>, Umberto Micheli<sup>&#8224;,1</sup>,
@@ -114,48 +115,5 @@ N.B. change the ```wandb_entity``` argument with the entity name of your wandb p
 
 N.B. always leave a blank new line at the end of the config. Otherwise, your last argument will be ignored.
 
-## Results
 
-### GTA5 &#8594; Cityscapes
 
-| Setting      | Method                              | mIoU (%)              |
-|--------------|-------------------------------------|-----------------------|
-| centralized  | Oracle                              | 66.64 &#177; 0.33     |
-| centralized  | Source Only                         | 24.05 &#177; 1.14     |
-| centralized  | FTDA                                | 65.74 &#177; 0.48     |
-| centralized  | MCD                                 | 20.55 &#177; 2.66     |
-| centralized  | DAFormer                            | 42.31 &#177; 0.20     |
-| FL-UDA       | MCD                                 | 10.86 &#177; 0.67     |
-| **FFreeDA**  | FedAvg<sup>&#8224;</sup> + Self-Tr. | 35.10 &#177; 0.73     |
-| **FFreeDA**  | **LADD (cls)**                      | **36.49 &#177; 0.13** |
-| **FFreeDA**  | **LADD (all)**                      | **36.49 &#177; 0.14** |
-
-<sup>&#8224;</sup> Same pretrain as LADD.
-
-### GTA5 &#8594; Crosscity
-
-| Setting     | Method                              | mIoU (%)              |
-|-------------|-------------------------------------|-----------------------|
-| centralized | Source Only                         | 26.49 &#177; 1.46     |
-| centralized | MCD                                 | 27.15 &#177; 0.87     |
-| FL-UDA      | MCD                                 | 24.80 &#177; 1.56     |
-| **FFreeDA** | FedAvg<sup>&#8224;</sup> + Self-Tr. | 33.59 &#177; 1.25     |
-| **FFreeDA** | **LADD (cls)**                      | 39.87 &#177; 0.14     |
-| **FFreeDA** | **LADD (all)**                      | **40.09 &#177; 0.19** |
-
-<sup>&#8224;</sup> Same pretrain as LADD.
-
-### GTA5 &#8594; Mapillary
-
-| Setting     | Method                              | mIoU (%)              |
-|-------------|-------------------------------------|-----------------------|
-| centralized | Oracle                              | 61.46 &#177; 0.21     |
-| centralized | Source Only                         | 32.40 &#177; 0.71     |
-| centralized | MCD                                 | 31.93 &#177; 1.89     |
-| federated   | Oracle                              | 49.91 &#177; 0.49     |
-| FL-UDA      | MCD                                 | 19.15 &#177; 0.75     |
-| **FFreeDA** | FedAvg<sup>&#8224;</sup> + Self-Tr. | 38.97 &#177; 0.21     |
-| **FFreeDA** | **LADD (cls)**                      | **40.16 &#177; 1.02** |
-| **FFreeDA** | **LADD (all)**                      | 38.78 &#177; 1.82     |
-
-<sup>&#8224;</sup> Same pretrain as LADD.
