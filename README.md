@@ -1,14 +1,10 @@
 # Federated multimodal learning for road scene semantic segmentation
 This work is an extension of *Learning Across Domains and Devices: Style-Driven Source-Free Domain Adaptation in Clustered Federated Learning*
 (**Official implementation** of [Learning Across Domains and Devices: Style-Driven Source-Free Domain Adaptation in
-Clustered Federated Learning](https://arxiv.org/abs/2210.02326))
-
-
-by **Donald Shenaj**<sup>\*,1</sup>, **Eros Fanì**<sup>\*,2</sup>, Marco Toldo<sup>1</sup>,
+Clustered Federated Learning](https://arxiv.org/abs/2210.02326) by **Donald Shenaj**<sup>\*,1</sup>, **Eros Fanì**<sup>\*,2</sup>, Marco Toldo<sup>1</sup>,
 Debora Caldarola<sup>2</sup>, Antonio Tavera<sup>2</sup>, Umberto Micheli<sup>&#8224;,1</sup>,
 Marco Ciccone<sup>&#8224;,2</sup>, Pietro Zanuttigh<sup>&#8224;,1</sup> and Barbara Caputo<sup>&#8224;,2</sup>
-
-**Corresponding authors:** donald.shenaj@dei.unipd.it, eros.fani@polito.it
+**Corresponding authors:** donald.shenaj@dei.unipd.it, eros.fani@polito.it)
 
 <sup>\*</sup> Equal contribution. <sup>&#8224;</sup> Equal supervision.
 <sup>1</sup> Authors supported by University of Padova, Padua, Italy.
