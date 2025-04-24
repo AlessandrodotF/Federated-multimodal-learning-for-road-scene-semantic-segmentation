@@ -4,27 +4,13 @@ This work is an extension of *Learning Across Domains and Devices: Style-Driven 
 Clustered Federated Learning](https://arxiv.org/abs/2210.02326) by **Donald Shenaj**<sup>\*,1</sup>, **Eros Fanì**<sup>\*,2</sup>, Marco Toldo<sup>1</sup>,
 Debora Caldarola<sup>2</sup>, Antonio Tavera<sup>2</sup>, Umberto Micheli<sup>&#8224;,1</sup>,
 Marco Ciccone<sup>&#8224;,2</sup>, Pietro Zanuttigh<sup>&#8224;,1</sup> and Barbara Caputo<sup>&#8224;,2</sup>
-**Corresponding authors:** donald.shenaj@dei.unipd.it, eros.fani@polito.it)
+**Corresponding authors:** donald.shenaj@dei.unipd.it, eros.fani@polito.it
 
 <sup>\*</sup> Equal contribution. <sup>&#8224;</sup> Equal supervision.
 <sup>1</sup> Authors supported by University of Padova, Padua, Italy.
-<sup>2</sup> Authors supported by Politecnico di Torino, Turin, Italy.
+<sup>2</sup> Authors supported by Politecnico di Torino, Turin, Italy.)
 
-<img src="teaser.png" alt="drawing" width="800"/>
 
-## Citation
-
-If you find our work relevant to your research, or use this code, please cite our WACV 2023 paper:
-
-```
-@inproceedings{shenaj2023ladd,
-  title={"Learning Across Domains and Devices: Style-Driven Source-Free Domain Adaptation in Clustered Federated Learning},
-  author={Shenaj, Donald and Fan\`i, Eros and Toldo, Marco and Caldarola, Debora and Tavera, Antonio and Michieli, Umberto and Ciccone, Marco and Zanuttigh, Pietro and Caputo, Barbara},
-  booktitle={Winter Conference on Applications of Computer Vision (WACV)},
-  year={2023},
-  organization={IEEE}
-}
-```
 
 ## Summary
 
